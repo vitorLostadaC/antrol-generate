@@ -8,7 +8,7 @@ export default function Home() {
       colorName: 'light brown',
       model: 'dall-e-3',
       prompt: 'bear with beer',
-      shape: '',
+      shape: 'circle',
       styles: ['minimalist']
     })
   }
