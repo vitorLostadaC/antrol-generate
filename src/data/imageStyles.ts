@@ -27,6 +27,7 @@ import grunge from '@/assets/images/grunge.png'
 import sticker from '@/assets/images/sticker.png'
 import oirigami from '@/assets/images/oirigami.png'
 import woodblockPrint from '@/assets/images/woodblock-print.png'
+import cute from '@/assets/images/cute.png'
 
 export const imageStyles: ImageStyle[] = [
   {
@@ -196,5 +197,11 @@ export const imageStyles: ImageStyle[] = [
     model: 'dall-e-3',
     name: 'Woodblock Print',
     style: 'woodblock print'
+  },
+  {
+    image: cute,
+    model: 'dall-e-3',
+    name: 'Cute',
+    style: 'cute'
   }
 ]

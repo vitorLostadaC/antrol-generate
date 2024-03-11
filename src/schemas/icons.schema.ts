@@ -29,6 +29,7 @@ export type StyleSchema =
   | 'sticker'
   | 'oirigami'
   | 'woodblock print'
+  | 'cute'
 
 export type ShapeSchema =
   | 'any shape'
@@ -38,7 +39,7 @@ export type ShapeSchema =
   | 'hexagon'
   | 'octagon'
 
-export type ModelSchema = 'dall-e-3' | 'dall-e-2'
+export type ModelSchema = 'dall-e-3'
 
 export interface ImageStyle {
   style: StyleSchema
