@@ -1,9 +1,11 @@
 'use client'
 import { createIcon } from '@/actions/createIcon'
+import { uploadFile } from '@/actions/uploadFile'
 import { Button } from '@/components/ui/button'
+import { ChangeEvent, ChangeEventHandler } from 'react'
 
 export default function Home() {
-  const handleClickGenerate = async () => {
+  const handleClick = async () => {
     const result = createIcon({
       colorName: 'light brown',
       model: 'dall-e-3',
@@ -14,9 +16,20 @@ export default function Home() {
     console.log(await result)
   }
 
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+
+    if (!files?.[0]) return
+    const form = new FormData()
+    form.append('file', files[0])
+
+    uploadFile(form)
+  }
+
   return (
     <main className="flex h-screen items-center justify-center">
-      <Button onClick={handleClickGenerate}>generate</Button>
+      <input type="file" name="" id="" onChange={(e) => handleChange(e)} />
+      <Button onClick={handleClick}>generate</Button>
     </main>
   )
 }
