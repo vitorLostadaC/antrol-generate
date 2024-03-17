@@ -6,14 +6,14 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "generation" (
+CREATE TABLE "Generation" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
-    "imagesURl" TEXT[],
+    "imagesURL" TEXT[],
     "generationParamsId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "generation_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Generation_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -34,7 +34,7 @@ CREATE TABLE "GenerationParams" (
 CREATE UNIQUE INDEX "GenerationParams_generationId_key" ON "GenerationParams"("generationId");
 
 -- AddForeignKey
-ALTER TABLE "generation" ADD CONSTRAINT "generation_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Generation" ADD CONSTRAINT "Generation_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GenerationParams" ADD CONSTRAINT "GenerationParams_generationId_fkey" FOREIGN KEY ("generationId") REFERENCES "generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "GenerationParams" ADD CONSTRAINT "GenerationParams_generationId_fkey" FOREIGN KEY ("generationId") REFERENCES "Generation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

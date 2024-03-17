@@ -9,19 +9,18 @@ datasource db {
 
 model User {
   id         String       @id @default(uuid())
-  generation generation[]
+  generation Generation[]
 }
 
-model generation {
+model Generation {
   id                 String   @id @default(uuid())
   userId             String
-  imagesURl          String[]
+  imagesURL          String[]
   generationParamsId String
   createdAt          DateTime @default(now())
 
-  User User @relation(fields: [userId], references: [id])
-
-  GenerationParams GenerationParams?
+  User             User              @relation(fields: [userId], references: [id])
+  generationParams GenerationParams?
 }
 
 model GenerationParams {
@@ -34,5 +33,5 @@ model GenerationParams {
   styles            String[]
   generationId      String   @unique
 
-  generation generation @relation(fields: [generationId], references: [id])
+  generation Generation @relation(fields: [generationId], references: [id])
 }

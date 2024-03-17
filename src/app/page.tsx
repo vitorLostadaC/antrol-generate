@@ -1,18 +1,30 @@
 'use client'
 import { createIcon } from '@/actions/createIcon'
+import { saveGeneration } from '@/actions/saveGeneration'
 import { uploadFile } from '@/actions/uploadFile'
 import { Button } from '@/components/ui/button'
 import { ChangeEvent, ChangeEventHandler } from 'react'
 
 export default function Home() {
   const handleClick = async () => {
-    const result = createIcon({
-      colorName: 'light brown',
+    // const result = createIcon({
+    //   colorName: 'light brown',
+    //   model: 'dall-e-3',
+    //   prompt: 'bear with beer',
+    //   shape: 'circle',
+    //   styles: ['minimalist']
+    // })
+
+    const result = saveGeneration({
+      colorName: 'red',
+      generationsNumber: 1,
+      imagesURL: ['http:test'],
       model: 'dall-e-3',
-      prompt: 'bear with beer',
+      prompt: 'teste',
       shape: 'circle',
-      styles: ['minimalist']
+      styles: ['3d']
     })
+
     console.log(await result)
   }
 
