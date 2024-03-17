@@ -25,13 +25,13 @@ export const saveGeneration = async (params: SaveGenerationSchema) => {
     styles
   } = params
 
-  const user = await getServerAuthSession()
+  const session = await getServerAuthSession()
 
-  if (!user) return
+  if (!session) return
 
   const generation = await prisma.generation.create({
     data: {
-      userId: user.user.id,
+      userId: session.user.id,
       generationParams: {
         create: {
           colorName,

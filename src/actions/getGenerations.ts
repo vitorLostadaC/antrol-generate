@@ -4,13 +4,13 @@ import { getServerAuthSession } from '@/lib/auth'
 import { prisma } from '@/services/prisma'
 
 export const getGenerations = async () => {
-  const user = await getServerAuthSession()
+  const session = await getServerAuthSession()
 
-  if (!user) return
+  if (!session) return
 
   const generations = await prisma.generation.findMany({
     where: {
-      userId: user?.user.id
+      userId: session?.user.id
     }
   })
   return generations

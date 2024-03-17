@@ -9,15 +9,15 @@ export const uploadFile = async (form: FormData): Promise<string | null> => {
   const file = form.get('file') as File
   const filename = randomUUID()
 
-  const user = await getServerAuthSession()
+  const session = await getServerAuthSession()
 
-  if (!user) return null
+  if (!session) return null
 
   const fileBuffer = Buffer.from(await file.arrayBuffer())
 
   const params = {
     Bucket: process.env.AWS_S3_BUCKET_NAME,
-    Key: `${user.user.id}/${filename}`,
+    Key: `${session.user.id}/${filename}`,
     Body: fileBuffer,
     ContentType: 'image/jpg'
   }
