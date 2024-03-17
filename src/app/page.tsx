@@ -1,5 +1,6 @@
 'use client'
 import { createIcon } from '@/actions/createIcon'
+import { getGenerations } from '@/actions/getGenerations'
 import { saveGeneration } from '@/actions/saveGeneration'
 import { uploadFile } from '@/actions/uploadFile'
 import { Button } from '@/components/ui/button'
@@ -15,15 +16,17 @@ export default function Home() {
     //   styles: ['minimalist']
     // })
 
-    const result = saveGeneration({
-      colorName: 'red',
-      generationsNumber: 1,
-      imagesURL: ['http:test'],
-      model: 'dall-e-3',
-      prompt: 'teste',
-      shape: 'circle',
-      styles: ['3d']
-    })
+    // const result = saveGeneration({
+    //   colorName: 'red',
+    //   generationsNumber: 1,
+    //   imagesURL: ['http:test'],
+    //   model: 'dall-e-3',
+    //   prompt: 'teste',
+    //   shape: 'circle',
+    //   styles: ['3d']
+    // })
+
+    const result = getGenerations()
 
     console.log(await result)
   }
