@@ -13,13 +13,13 @@ model User {
 }
 
 model Generation {
-  id                 String   @id @default(uuid())
-  userId             String
-  imagesURL          String[]
-  generationParamsId String
-  createdAt          DateTime @default(now())
+  id        String   @id @default(uuid())
+  userId    String
+  imagesURL String[]
+  prompt    String
+  createdAt DateTime @default(now())
 
-  User             User              @relation(fields: [userId], references: [id])
+  user             User              @relation(fields: [userId], references: [id])
   generationParams GenerationParams?
 }
 
@@ -29,7 +29,6 @@ model GenerationParams {
   model             String
   colorName         String
   generationsNumber Int
-  prompt            String
   styles            String[]
   generationId      String   @unique
 

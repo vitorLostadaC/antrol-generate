@@ -10,7 +10,7 @@ CREATE TABLE "Generation" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "imagesURL" TEXT[],
-    "generationParamsId" TEXT NOT NULL,
+    "prompt" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Generation_pkey" PRIMARY KEY ("id")
@@ -23,7 +23,6 @@ CREATE TABLE "GenerationParams" (
     "model" TEXT NOT NULL,
     "colorName" TEXT NOT NULL,
     "generationsNumber" INTEGER NOT NULL,
-    "prompt" TEXT NOT NULL,
     "styles" TEXT[],
     "generationId" TEXT NOT NULL,
 

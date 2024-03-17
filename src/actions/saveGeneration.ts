@@ -1,3 +1,5 @@
+'use server'
+
 import { ModelSchema, ShapeSchema, StyleSchema } from '@/schemas/icons.schema'
 import { prisma } from '@/services/prisma'
 
@@ -30,16 +32,12 @@ export const saveGeneration = async (params: SaveGenerationSchema) => {
           colorName,
           generationsNumber,
           model,
-          prompt,
           shape,
           styles
         }
       },
-      imagesURL,
-      generationParamsId: 'sdf'
-    },
-    include: {
-      generationParams: true
+      prompt,
+      imagesURL
     }
   })
 
