@@ -1,5 +1,6 @@
 'use server'
 
+import { getServerAuthSession } from '@/lib/auth'
 import { ModelSchema, ShapeSchema, StyleSchema } from '@/schemas/icons.schema'
 import { prisma } from '@/services/prisma'
 
@@ -24,9 +25,13 @@ export const saveGeneration = async (params: SaveGenerationSchema) => {
     styles
   } = params
 
+  const user = await getServerAuthSession()
+
+  if (!user) return
+
   const generation = await prisma.generation.create({
     data: {
-      userId: 'test',
+      userId: user.user.id,
       generationParams: {
         create: {
           colorName,
