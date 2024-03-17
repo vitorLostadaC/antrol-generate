@@ -4,6 +4,7 @@ import { getGenerations } from '@/actions/getGenerations'
 import { saveGeneration } from '@/actions/saveGeneration'
 import { uploadFile } from '@/actions/uploadFile'
 import { Button } from '@/components/ui/button'
+import { signIn } from 'next-auth/react'
 import { ChangeEvent, ChangeEventHandler } from 'react'
 
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
   return (
     <main className="flex h-screen items-center justify-center">
       <input type="file" name="" id="" onChange={(e) => handleChange(e)} />
+      <Button onClick={() => signIn('google')}>Login</Button>
       <Button onClick={handleClick}>generate</Button>
     </main>
   )
