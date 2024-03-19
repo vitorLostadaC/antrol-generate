@@ -1,6 +1,16 @@
-import { getServerAuthSession } from '@/lib/auth'
+import { getStaticParams } from '@/locales/server'
+import { setStaticParamsLocale } from 'next-international/server'
 
-export default async function Payment() {
-  console.log((await getServerAuthSession())?.user)
+export function generateStaticParams() {
+  return getStaticParams()
+}
+
+export default function Payment({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
+  setStaticParamsLocale(locale)
+
   return <h1>Anderson fazer os testes aqui</h1>
 }
