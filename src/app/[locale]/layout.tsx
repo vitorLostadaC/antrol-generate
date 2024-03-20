@@ -37,7 +37,7 @@ export default function RootLayout({ children, params }: Props) {
         >
           <Header />
           <I18nProviderClient locale={params.locale}>
-            <main className="container">{children}</main>
+            <main className="container ">{children}</main>
           </I18nProviderClient>
         </body>
       </html>
