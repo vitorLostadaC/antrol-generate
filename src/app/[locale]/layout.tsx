@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { SessionWrapper } from '@/contexts/sessionWrapper'
 import { Locale } from '@/data/locales'
 import { I18nProviderClient } from '@/locales/client'
+import { Header } from '@/layout/header'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -27,15 +28,16 @@ type Props = {
 export default function RootLayout({ children, params }: Props) {
   return (
     <SessionWrapper>
-      <html lang="en">
+      <html lang={params.locale}>
         <body
           className={cn(
             'min-h-screen bg-background font-sans antialiased',
             fontSans.variable
           )}
         >
+          <Header />
           <I18nProviderClient locale={params.locale}>
-            {children}
+            <main className="container">{children}</main>
           </I18nProviderClient>
         </body>
       </html>

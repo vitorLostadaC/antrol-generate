@@ -1,5 +1,3 @@
-'use client'
-
 export default function Home() {
-  return <main className="flex h-screen items-center justify-center"></main>
+  return <div className="bg-red-500">content</div>
 }
