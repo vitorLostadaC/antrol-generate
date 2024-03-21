@@ -10,15 +10,24 @@ export const Avatar = async () => {
 
   if (!session) return null
 
+  const { user } = session
+
+  function getUserInitials() {
+    if (!user.name) return 'AN'
+
+    const userNames = user.name?.split(' ')
+
+    let initials = userNames[0].slice(0, 1) + userNames[1].slice(0, 1)
+
+    return initials.toLocaleUpperCase()
+  }
+
   return (
     <ShadcnAvatar>
-      {session.user.image && (
-        <AvatarImage
-          src={session.user.image}
-          alt={session.user.name ?? 'user image'}
-        />
+      {user.image && (
+        <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
       )}
-      <AvatarFallback>VT</AvatarFallback>
+      <AvatarFallback>{getUserInitials()}</AvatarFallback>
     </ShadcnAvatar>
   )
 }
