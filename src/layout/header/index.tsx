@@ -1,8 +1,14 @@
 import { SunIcon, MoonIcon } from '@radix-ui/react-icons'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import logo from '@/assets/logo.webp'
-import Link from 'next/link'
+import { Roboto_Mono } from 'next/font/google'
+import { Logo } from './Logo'
+import { NavigateLinks } from './NavigateLinks'
+
+export const roboto_mono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 export const Header = () => {
   const money = 5
@@ -12,20 +18,8 @@ export const Header = () => {
       <div className="container flex max-w-screen-2xl items-center justify-between py-3">
         {/* Left */}
         <div className="flex items-center gap-8">
-          <div className="flex items-center gap-4">
-            <img
-              src={logo.src}
-              alt="Antrol Generate"
-              className="w-10 rounded-md"
-            />
-            <h1>Antrol Generate</h1>
-          </div>
-          <nav className="flex items-center gap-4">
-            <Link href={'/generate'}>Generate</Link>
-            <Link href={'/gallery'}>Gallery</Link>
-            <Link href={'/collection'}>Collection</Link>
-            <Link href={'/retouch'}>Retouch</Link>
-          </nav>
+          <Logo />
+          <NavigateLinks />
         </div>
 
         {/* Right */}

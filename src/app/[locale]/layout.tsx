@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { SessionWrapper } from '@/contexts/sessionWrapper'
 import { Locale } from '@/data/locales'
 import { I18nProviderClient } from '@/locales/client'
-import { Header } from '@/layout/header'
+import { Header } from '@/layout/header/'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -37,7 +37,7 @@ export default function RootLayout({ children, params }: Props) {
         >
           <Header />
           <I18nProviderClient locale={params.locale}>
-            <main className="container ">{children}</main>
+            <main className="container">{children}</main>
           </I18nProviderClient>
         </body>
       </html>
