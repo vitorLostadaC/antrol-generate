@@ -1,3 +1,8 @@
+'use client'
+
+import { Button } from '@/components/ui/button'
+import { signIn } from 'next-auth/react'
+
 export default function Home() {
   return (
     <div className="">
@@ -68,6 +73,7 @@ export default function Home() {
         </div>
       </div>
       <h1 className="mb-4 text-3xl font-bold">Scroll Test</h1>
+      <Button onClick={() => signIn('google')}>logar</Button>
       <div className="scrollable rounded-md border border-gray-300 p-4">
         <div className="fake-content">
           <p className="mb-4">
