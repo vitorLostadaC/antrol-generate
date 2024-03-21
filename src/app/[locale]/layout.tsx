@@ -6,6 +6,7 @@ import { SessionWrapper } from '@/contexts/sessionWrapper'
 import { Locale } from '@/data/locales'
 import { I18nProviderClient } from '@/locales/client'
 import { Header } from '@/layout/header/'
+import { ThemeWrapper } from '@/contexts/themeWrapper'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -35,10 +36,17 @@ export default function RootLayout({ children, params }: Props) {
             fontSans.variable
           )}
         >
-          <Header />
-          <I18nProviderClient locale={params.locale}>
-            <main className="container">{children}</main>
-          </I18nProviderClient>
+          <ThemeWrapper
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <I18nProviderClient locale={params.locale}>
+              <main className="container">{children}</main>
+            </I18nProviderClient>
+          </ThemeWrapper>
         </body>
       </html>
     </SessionWrapper>
