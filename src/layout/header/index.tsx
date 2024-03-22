@@ -6,14 +6,16 @@ import { NavigateLinks } from './navigateLinks'
 import { Avatar } from './avatar'
 import { ThemeButton } from './themeButton'
 import { Coins } from './coins'
+import { SignInButton } from './signInButton'
+import { getServerAuthSession } from '@/lib/auth'
 
 export const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap'
 })
 
-export const Header = () => {
-  const money = 5
+export const Header = async () => {
+  const session = await getServerAuthSession()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,9 +28,15 @@ export const Header = () => {
 
         {/* Right */}
         <div className="flex items-center gap-4">
-          <Coins />
-          <Button size={'default'}>Buy credits</Button>
-          <Avatar />
+          {session ? (
+            <>
+              <Coins />
+              <Button size={'default'}>Buy credits</Button>
+              <Avatar />
+            </>
+          ) : (
+            <SignInButton />
+          )}
           <ThemeButton />
         </div>
       </div>
