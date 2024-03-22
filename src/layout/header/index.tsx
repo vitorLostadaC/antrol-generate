@@ -32,7 +32,7 @@ export const Header = async () => {
             <>
               <Coins />
               <Button size={'default'}>Buy credits</Button>
-              <Avatar />
+              <Avatar session={session} />
             </>
           ) : (
             <SignInButton />

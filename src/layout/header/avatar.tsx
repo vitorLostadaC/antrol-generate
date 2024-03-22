@@ -1,16 +1,45 @@
+'use client'
+
 import {
   AvatarFallback,
   Avatar as ShadcnAvatar,
   AvatarImage
 } from '@/components/ui/avatar'
-import { getServerAuthSession } from '@/lib/auth'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
+import { Session } from 'next-auth'
+import { signOut } from 'next-auth/react'
 
-export const Avatar = async () => {
-  const session = await getServerAuthSession()
+type MenuItemSchema =
+  | 'divider'
+  | {
+      name: string
+      action: () => void
+    }
 
-  if (!session) return null
+interface AvatarPropsSchema {
+  session: Session
+}
 
+export const Avatar = ({ session }: AvatarPropsSchema) => {
   const { user } = session
+
+  const menuItems: MenuItemSchema[] = [
+    {
+      name: 'Delete account',
+      action: () => alert('not implemented')
+    },
+    'divider',
+    {
+      name: 'Sign out',
+      action: signOut
+    }
+  ]
 
   function getUserInitials() {
     if (!user.name) return 'AN'
@@ -23,11 +52,25 @@ export const Avatar = async () => {
   }
 
   return (
-    <ShadcnAvatar>
-      {user.image && (
-        <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
-      )}
-      <AvatarFallback>{getUserInitials()}</AvatarFallback>
-    </ShadcnAvatar>
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <ShadcnAvatar>
+          {user.image && (
+            <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
+          )}
+          <AvatarFallback>{getUserInitials()}</AvatarFallback>
+        </ShadcnAvatar>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {menuItems.map((menuItem) => {
+          if (menuItem === 'divider') return <DropdownMenuSeparator />
+          return (
+            <DropdownMenuItem onClick={menuItem.action}>
+              {menuItem.name}
+            </DropdownMenuItem>
+          )
+        })}
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
