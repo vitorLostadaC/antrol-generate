@@ -5,6 +5,7 @@ import { Logo } from './logo'
 import { NavigateLinks } from './navigateLinks'
 import { Avatar } from './avatar'
 import { ThemeButton } from './themeButton'
+import { Coins } from './coins'
 
 export const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
@@ -25,7 +26,7 @@ export const Header = () => {
 
         {/* Right */}
         <div className="flex items-center gap-4">
-          <p>{money} credits left</p>
+          <Coins />
           <Button size={'default'}>Buy credits</Button>
           <Avatar />
           <ThemeButton />
