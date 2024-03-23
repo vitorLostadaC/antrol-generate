@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import { useI18n, useScopedI18n } from '@/locales/client'
 import { Session } from 'next-auth'
 import { signOut } from 'next-auth/react'
 
@@ -29,14 +30,16 @@ interface AvatarPropsSchema {
 export const Avatar = ({ session }: AvatarPropsSchema) => {
   const { user } = session
 
+  const t = useScopedI18n('header.user-menu')
+
   const menuItems: MenuItemSchema[] = [
     {
-      name: 'Delete account',
+      name: t('delete-account'),
       action: () => alert('not implemented')
     },
     'divider',
     {
-      name: 'Sign out',
+      name: t('sign-out'),
       action: signOut
     }
   ]

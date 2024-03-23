@@ -1,5 +1,15 @@
 {
-  "home": {
-    "vitor": "english"
+  "header": {
+    "navigation": {
+      "generate": "Generate",
+      "gallery": "Gallery",
+      "retouch": "Retouch"
+    },
+    "sign-in": "Sign In",
+    "buy-credis": "Buy Credits",
+    "user-menu": {
+      "delete-account": "Delete Account",
+      "sign-out": "Sign Out"
+    }
   }
 }

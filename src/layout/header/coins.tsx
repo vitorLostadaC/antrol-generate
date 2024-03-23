@@ -1,11 +1,11 @@
-import { getServerAuthSession } from '@/lib/auth'
 import { SketchLogoIcon } from '@radix-ui/react-icons'
+import { Session } from 'next-auth'
 
-export const Coins = async () => {
-  const session = await getServerAuthSession()
+interface CoinsPropsSchema {
+  session: Session
+}
 
-  if (!session) return
-
+export const Coins = ({ session }: CoinsPropsSchema) => {
   return (
     <div className="flex items-center gap-2">
       {session.user.coins} <SketchLogoIcon width={20} height={20} />

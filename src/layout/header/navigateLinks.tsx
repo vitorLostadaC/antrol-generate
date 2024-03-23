@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { useScopedI18n } from '@/locales/client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -9,26 +10,23 @@ interface Link {
   name: string
 }
 
-const links: Link[] = [
-  {
-    path: '/generate',
-    name: 'Generate'
-  },
-  {
-    path: '/gallery',
-    name: 'Gallery'
-  },
-  {
-    path: '/collection',
-    name: 'Collection'
-  },
-  {
-    path: '/retouch',
-    name: 'Retouch'
-  }
-]
-
 export const NavigateLinks = async () => {
+  const t = useScopedI18n('header.navigation')
+
+  const links: Link[] = [
+    {
+      path: '/generate',
+      name: t('generate')
+    },
+    {
+      path: '/gallery',
+      name: t('gallery')
+    },
+    {
+      path: '/retouch',
+      name: t('retouch')
+    }
+  ]
   const pathName = usePathname()
 
   return (
