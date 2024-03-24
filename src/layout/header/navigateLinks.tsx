@@ -8,7 +8,7 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet'
-import { getCurrentBreakpoints } from '@/lib/tailwind'
+import { BreakpointKey, getCurrentBreakpoints } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
 import {
@@ -25,6 +25,8 @@ import { Divider } from '@/components/ui/Divider'
 import { Avatar } from './avatar'
 import { Session } from 'next-auth'
 import { ThemeButton } from './themeButton'
+import { useEffect } from 'react'
+import { useTailwindBreakPoint } from '@/hooks/useTailwindBreakpoints'
 
 interface Link {
   path: string
@@ -36,9 +38,9 @@ interface NavigationLinks {
   session: Session | null
 }
 
-export const NavigateLinks = async ({ session }: NavigationLinks) => {
+export const NavigateLinks = ({ session }: NavigationLinks) => {
   const t = useScopedI18n('header')
-  const currentBreakpoint = getCurrentBreakpoints()
+  let currentBreakpoint = useTailwindBreakPoint()
   const links: Link[] = [
     {
       path: '/generate',
@@ -64,7 +66,10 @@ export const NavigateLinks = async ({ session }: NavigationLinks) => {
         <SheetTrigger className="-order-1">
           <MenuIcon className="h-5 w-5" />
         </SheetTrigger>
-        <SheetContent side={'left'} className="flex flex-col">
+        <SheetContent
+          side={'left'}
+          className="flex max-w-80  flex-col sm:max-w-80 "
+        >
           <SheetHeader>
             <Logo isInSheet />
           </SheetHeader>
