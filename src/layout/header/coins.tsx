@@ -1,4 +1,4 @@
-import { SketchLogoIcon } from '@radix-ui/react-icons'
+import { CoinsIcon } from 'lucide-react'
 import { Session } from 'next-auth'
 
 interface CoinsPropsSchema {
@@ -8,7 +8,7 @@ interface CoinsPropsSchema {
 export const Coins = ({ session }: CoinsPropsSchema) => {
   return (
     <div className="flex items-center gap-2">
-      {session.user.coins} <SketchLogoIcon width={20} height={20} />
+      {session.user.coins} <CoinsIcon width={20} height={20} />
     </div>
   )
 }

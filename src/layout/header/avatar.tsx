@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { useI18n, useScopedI18n } from '@/locales/client'
+import { useScopedI18n } from '@/locales/client'
 import { Session } from 'next-auth'
 import { signOut } from 'next-auth/react'
 

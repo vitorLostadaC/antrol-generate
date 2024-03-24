@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import { MoonStarIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 export const ThemeButton = () => {
@@ -16,7 +16,7 @@ export const ThemeButton = () => {
       onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
     >
       {isDarkTheme ? (
-        <MoonIcon width={20} height={20} />
+        <MoonStarIcon width={20} height={20} />
       ) : (
         <SunIcon width={20} height={20} />
       )}
