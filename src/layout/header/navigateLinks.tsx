@@ -1,7 +1,9 @@
 'use client'
 
+import { getCurrentBreakpoints } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
+import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -12,7 +14,7 @@ interface Link {
 
 export const NavigateLinks = async () => {
   const t = useScopedI18n('header.navigation')
-
+  const currentBreakpoint = getCurrentBreakpoints()
   const links: Link[] = [
     {
       path: '/generate',
@@ -28,6 +30,10 @@ export const NavigateLinks = async () => {
     }
   ]
   const pathName = usePathname()
+
+  if (currentBreakpoint === 'sm') {
+    return <MenuIcon className="-order-1 h-5 w-5" />
+  }
 
   return (
     <nav className="flex items-center gap-4">

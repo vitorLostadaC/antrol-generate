@@ -21,9 +21,9 @@ export const Header = async () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex max-w-screen-2xl items-center justify-between py-3">
+      <div className="sm flex max-w-screen-2xl items-center justify-between py-3 md:container max-sm:px-3">
         {/* Left */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 sm:gap-8">
           <Logo />
           <NavigateLinks />
         </div>

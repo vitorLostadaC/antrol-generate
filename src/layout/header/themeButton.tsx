@@ -16,9 +16,9 @@ export const ThemeButton = () => {
       onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
     >
       {isDarkTheme ? (
-        <MoonStarIcon width={20} height={20} />
+        <MoonStarIcon className="h-5 w-5" />
       ) : (
-        <SunIcon width={20} height={20} />
+        <SunIcon className="h-5 w-5" />
       )}
     </Button>
   )

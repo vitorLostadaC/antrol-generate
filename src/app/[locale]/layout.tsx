@@ -44,7 +44,7 @@ export default function RootLayout({ children, params }: Props) {
           >
             <I18nProviderClient locale={params.locale}>
               <Header />
-              <main className="container">{children}</main>
+              <main className="container max-sm:px-3">{children}</main>
             </I18nProviderClient>
           </ThemeWrapper>
         </body>
