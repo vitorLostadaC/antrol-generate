@@ -34,11 +34,6 @@ export const Avatar = ({ session }: AvatarPropsSchema) => {
 
   const menuItems: MenuItemSchema[] = [
     {
-      name: t('delete-account'),
-      action: () => alert('not implemented')
-    },
-    'divider',
-    {
       name: t('sign-out'),
       action: signOut
     }
