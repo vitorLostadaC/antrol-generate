@@ -30,7 +30,6 @@ interface AvatarPropsSchema {
 
 export const Avatar = ({ session }: AvatarPropsSchema) => {
   const { user } = session
-  const currentBreakpoint = getCurrentBreakpoints()
 
   const t = useScopedI18n('header.user-menu')
 
@@ -49,10 +48,6 @@ export const Avatar = ({ session }: AvatarPropsSchema) => {
     let initials = userNames[0].slice(0, 1) + userNames[1].slice(0, 1)
 
     return initials.toLocaleUpperCase()
-  }
-
-  if (currentBreakpoint === 'sm') {
-    return <></>
   }
 
   return (

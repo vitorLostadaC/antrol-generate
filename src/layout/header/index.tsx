@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { Roboto_Mono } from 'next/font/google'
 import { Logo } from './logo'
@@ -6,8 +8,9 @@ import { Avatar } from './avatar'
 import { ThemeButton } from './themeButton'
 import { Coins } from './coins'
 import { SignInButton } from './signInButton'
-import { getServerAuthSession } from '@/lib/auth'
-import { getI18n } from '@/locales/server'
+import { useSession } from 'next-auth/react'
+import { useI18n } from '@/locales/client'
+import { getCurrentBreakpoints } from '@/lib/tailwind'
 
 export const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
@@ -15,9 +18,9 @@ export const roboto_mono = Roboto_Mono({
 })
 
 export const Header = async () => {
-  const session = await getServerAuthSession()
-
-  const t = await getI18n()
+  const { data: session } = useSession()
+  const currentBreakpoint = getCurrentBreakpoints()
+  const t = useI18n()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -34,7 +37,7 @@ export const Header = async () => {
             <>
               <Coins session={session} />
               <Button size={'default'}>{t('header.buy-credis')}</Button>
-              <Avatar session={session} />
+              {currentBreakpoint != 'sm' && <Avatar session={session} />}
             </>
           ) : (
             <SignInButton />
