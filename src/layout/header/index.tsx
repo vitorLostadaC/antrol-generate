@@ -42,7 +42,7 @@ export const Header = async () => {
           ) : (
             <SignInButton />
           )}
-          <ThemeButton />
+          {currentBreakpoint != 'sm' && <ThemeButton />}
         </div>
       </div>
     </header>

@@ -24,6 +24,7 @@ import { Logo } from './logo'
 import { Divider } from '@/components/ui/Divider'
 import { Avatar } from './avatar'
 import { Session } from 'next-auth'
+import { ThemeButton } from './themeButton'
 
 interface Link {
   path: string
@@ -60,7 +61,7 @@ export const NavigateLinks = async ({ session }: NavigationLinks) => {
   if (currentBreakpoint === 'sm') {
     return (
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger className="-order-1">
           <MenuIcon className="h-5 w-5" />
         </SheetTrigger>
         <SheetContent side={'left'} className="flex flex-col">
@@ -90,6 +91,7 @@ export const NavigateLinks = async ({ session }: NavigationLinks) => {
 
             {session && (
               <div className="space-y-4">
+                <ThemeButton variant="switch" />
                 <Divider />
                 <Avatar isInSheet session={session} />
               </div>
