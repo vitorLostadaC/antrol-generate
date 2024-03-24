@@ -9,6 +9,9 @@
     "buy-credis": "Buy Credits",
     "user-menu": {
       "sign-out": "Sign Out"
+    },
+    "side-bar": {
+      "navigation": "Navigation"
     }
   }
 }

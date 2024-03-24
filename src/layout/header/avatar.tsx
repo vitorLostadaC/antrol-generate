@@ -26,9 +26,10 @@ type MenuItemSchema =
 
 interface AvatarPropsSchema {
   session: Session
+  isInSheet?: boolean
 }
 
-export const Avatar = ({ session }: AvatarPropsSchema) => {
+export const Avatar = ({ session, isInSheet }: AvatarPropsSchema) => {
   const { user } = session
 
   const t = useScopedI18n('header.user-menu')
@@ -50,15 +51,34 @@ export const Avatar = ({ session }: AvatarPropsSchema) => {
     return initials.toLocaleUpperCase()
   }
 
+  const avatar = (
+    <ShadcnAvatar>
+      {user.image && (
+        <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
+      )}
+      <AvatarFallback>{getUserInitials()}</AvatarFallback>
+    </ShadcnAvatar>
+  )
+
+  const avatarInSheet = (
+    <div className="flex items-center gap-2">
+      <ShadcnAvatar>
+        {user.image && (
+          <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
+        )}
+        <AvatarFallback>{getUserInitials()}</AvatarFallback>
+      </ShadcnAvatar>
+      <div className="flex flex-col items-start justify-center">
+        <p className="font-medium">{user.name}</p>
+        <p className="text-sm text-foreground/50">{user.email}</p>
+      </div>
+    </div>
+  )
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <ShadcnAvatar>
-          {user.image && (
-            <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
-          )}
-          <AvatarFallback>{getUserInitials()}</AvatarFallback>
-        </ShadcnAvatar>
+        {isInSheet ? avatarInSheet : avatar}
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         {menuItems.map((menuItem) => {

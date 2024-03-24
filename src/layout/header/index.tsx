@@ -28,7 +28,7 @@ export const Header = async () => {
         {/* Left */}
         <div className="flex items-center gap-4 sm:gap-8">
           <Logo />
-          <NavigateLinks />
+          <NavigateLinks session={session} />
         </div>
 
         {/* Right */}
