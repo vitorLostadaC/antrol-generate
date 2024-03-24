@@ -89,13 +89,15 @@ export const NavigateLinks = async ({ session }: NavigationLinks) => {
               ))}
             </div>
 
-            {session && (
-              <div className="space-y-4">
-                <ThemeButton variant="switch" />
-                <Divider />
-                <Avatar isInSheet session={session} />
-              </div>
-            )}
+            <div className="space-y-4">
+              <ThemeButton variant="switch" />
+              {session && (
+                <>
+                  <Divider />
+                  <Avatar isInSheet session={session} />
+                </>
+              )}
+            </div>
           </div>
         </SheetContent>
       </Sheet>
