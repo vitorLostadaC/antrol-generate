@@ -43,7 +43,7 @@ model User {
   coins         Int          @default(0)
   accounts      Account[]
   sessions      Session[]
-  generation    Generation[]
+  generations   Generation[]
 }
 
 model VerificationToken {

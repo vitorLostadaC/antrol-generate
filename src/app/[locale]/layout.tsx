@@ -42,8 +42,8 @@ export default function RootLayout({ children, params }: Props) {
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
             <I18nProviderClient locale={params.locale}>
+              <Header />
               <main className="container">{children}</main>
             </I18nProviderClient>
           </ThemeWrapper>
