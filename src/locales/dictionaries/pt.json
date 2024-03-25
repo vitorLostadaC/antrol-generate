@@ -1,5 +1,14 @@
 {
-  "home": {
-    "vitor": "port"
+  "header": {
+    "navigation": {
+      "generate": "Generate",
+      "gallery": "Gallery",
+      "retouch": "Retouch"
+    },
+    "buy-credis": "Buy Credits",
+    "user-menu": {
+      "delete-account": "Delete Account",
+      "sign-out": "Sign Out"
+    }
   }
 }

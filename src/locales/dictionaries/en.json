@@ -1,5 +1,17 @@
 {
-  "home": {
-    "vitor": "english"
+  "header": {
+    "navigation": {
+      "generate": "Generate",
+      "gallery": "Gallery",
+      "retouch": "Retouch"
+    },
+    "sign-in": "Sign In",
+    "buy-credis": "Buy Credits",
+    "user-menu": {
+      "sign-out": "Sign Out"
+    },
+    "side-bar": {
+      "navigation": "Navigation"
+    }
   }
 }
