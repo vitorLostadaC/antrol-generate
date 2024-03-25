@@ -82,13 +82,10 @@ export const NavigateLinks = ({ session }: NavigationLinks) => {
                   href={link.path}
                   key={link.path}
                   className={cn(
-                    'flex items-center gap-2 text-lg text-foreground hover:text-foreground',
-                    {
-                      'text-foreground/80': pathName !== link.path
-                    }
+                    'flex items-center gap-2 text-lg text-foreground hover:text-foreground/80'
                   )}
                 >
-                  <link.icon className="h-5 w-5 text-foreground/50" />{' '}
+                  <link.icon className="h-5 w-5 text-foreground/50" />
                   {link.name}
                 </Link>
               ))}
@@ -115,8 +112,8 @@ export const NavigateLinks = ({ session }: NavigationLinks) => {
         <Link
           href={link.path}
           key={link.path}
-          className={cn('text-foreground hover:text-foreground', {
-            'text-foreground/60': pathName !== link.path
+          className={cn('text-foreground/60 hover:text-foreground', {
+            'text-foreground': pathName.includes(link.path)
           })}
         >
           {link.name}
