@@ -8,7 +8,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
-import { formSchema } from '../page'
+import { formSchema } from '../../page'
 
 export const PromptStep = () => {
   const { register } = useFormContext<z.infer<typeof formSchema>>()
