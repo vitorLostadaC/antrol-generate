@@ -26,7 +26,10 @@ export default function Generate() {
     }
   })
 
-  const { step, next } = useMultistepForm([<PromptStep />, <ColorStep />])
+  const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
+    <PromptStep />,
+    <ColorStep />
+  ])
 
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data)
@@ -37,7 +40,8 @@ export default function Generate() {
       <form onSubmit={onSubmit} className="py-10">
         <h1 className="text-3xl font-semibold">Vamos Começar?</h1>
         <div className="py-4">{step}</div>
-        <button onClick={next}>next</button>
+        {!isFirstStep && <button onClick={back}>previus</button>}
+        {!isLastStep && <button onClick={next}>next</button>}
       </form>
     </FormProvider>
   )
