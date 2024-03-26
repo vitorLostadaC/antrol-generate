@@ -1,3 +1,5 @@
+'use client'
+
 import {
   FormControl,
   FormDescription,
@@ -19,12 +21,10 @@ export const PromptStep = () => {
         <Input placeholder="bear with beer" {...register('prompt')} />
       </FormControl>
       <FormDescription>
-        <ul>
-          <li>Simple prompts often work best</li>
-          <li>Use variants once you find a starting icon you like</li>
-          <li>Experiment with adding words, such as happy or vibrant</li>
-          <li>melhorar isso aqui depois</li>
-        </ul>
+        <li>Simple prompts often work best</li>
+        <li>Use variants once you find a starting icon you like</li>
+        <li>Experiment with adding words, such as happy or vibrant</li>
+        <li>melhorar isso aqui depois</li>
       </FormDescription>
       <FormMessage />
     </FormItem>

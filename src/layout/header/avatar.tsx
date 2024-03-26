@@ -83,7 +83,7 @@ export const Avatar = ({ session, isInSheet }: AvatarPropsSchema) => {
         {menuItems.map((menuItem) => {
           if (menuItem === 'divider') return <DropdownMenuSeparator />
           return (
-            <DropdownMenuItem onClick={menuItem.action}>
+            <DropdownMenuItem key={menuItem.name} onClick={menuItem.action}>
               {menuItem.name}
             </DropdownMenuItem>
           )
