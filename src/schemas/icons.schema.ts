@@ -1,49 +1,58 @@
 import { StaticImageData } from 'next/image'
+import { z } from 'zod'
 
-export type StyleSchema =
-  | 'minimalist'
-  | 'surrealist'
-  | 'realistic'
-  | 'art deco'
-  | 'steampunk'
-  | 'biomorphic'
-  | 'polygon'
-  | 'gothic'
-  | 'futurism'
-  | 'pop art'
-  | 'digital glitch'
-  | 'vaporwave'
-  | 'neon noir'
-  | 'neon'
-  | 'pixelated'
-  | 'flat'
-  | 'ilustrated'
-  | 'hand-drawn'
-  | 'watercolor'
-  | 'isometric'
-  | 'cartoonish'
-  | '3d'
-  | 'line art'
-  | 'doodle'
-  | 'grunge'
-  | 'sticker'
-  | 'oirigami'
-  | 'woodblock print'
-  | 'cute'
+export const stylesSchema = z.enum([
+  'minimalist',
+  'surrealist',
+  'realistic',
+  'art deco',
+  'steampunk',
+  'biomorphic',
+  'polygon',
+  'gothic',
+  'futurism',
+  'pop art',
+  'digital glitch',
+  'vaporwave',
+  'neon noir',
+  'neon',
+  'pixelated',
+  'flat',
+  'ilustrated',
+  'hand-drawn',
+  'watercolor',
+  'isometric',
+  'cartoonish',
+  '3d',
+  'line art',
+  'doodle',
+  'grunge',
+  'sticker',
+  'oirigami',
+  'woodblock print',
+  'cute'
+])
 
-export type ShapeSchema =
-  | 'any shape'
-  | 'circle'
-  | 'square'
-  | 'triangle'
-  | 'hexagon'
-  | 'octagon'
+export type IStyles = z.infer<typeof stylesSchema>
 
-export type ModelSchema = 'dall-e-3'
+export const shapesSchema = z.enum([
+  'any shape',
+  'circle',
+  'square',
+  'triangle',
+  'hexagon',
+  'octagon'
+])
+
+export type IShapes = z.infer<typeof shapesSchema>
+
+export const modelSchema = z.enum(['dall-e-3'])
+
+export type IModel = z.infer<typeof modelSchema>
 
 export interface ImageStyle {
-  style: StyleSchema
+  style: IStyles
   image: StaticImageData
   name: string
-  model: ModelSchema
+  model: IModel
 }
