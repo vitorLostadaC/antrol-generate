@@ -1,10 +1,11 @@
 'use client'
 
-import { useFormContext } from 'react-hook-form'
+import { useFormContext, useWatch } from 'react-hook-form'
 import { z } from 'zod'
 import { formSchema } from '../../page'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { cn } from '@/lib/utils'
 
 const enum ColorValues {
   Predefined = 'Predefined',
@@ -38,8 +39,13 @@ const predefinedColors = [
   'turquoise'
 ]
 
+// colocar uma sombra aqui
 export const ColorStep = () => {
-  const { register } = useFormContext<z.infer<typeof formSchema>>()
+  const { setValue, control, watch } =
+    useFormContext<z.infer<typeof formSchema>>()
+
+  const currentColor = watch('color')
+
   return (
     <div className="flex flex-col justify-center gap-4">
       <Label>2. selecione a cor principal:</Label>
@@ -54,11 +60,25 @@ export const ColorStep = () => {
           className="flex flex-wrap gap-4"
         >
           {predefinedColors.map((color) => (
-            <div
-              key={color}
-              style={{ backgroundColor: color }}
-              className="h-10 w-10 rounded-md opacity-50 shadow-red-700 hover:opacity-100 hover:shadow-xl"
-            />
+            <div key={color}>
+              <input
+                type="radio"
+                id={color}
+                name="color"
+                className="sr-only"
+                onChange={() => setValue('color', color)}
+              />
+              <label
+                htmlFor={color}
+                style={{ backgroundColor: color }}
+                className={cn(
+                  'block h-10 w-10 scale-90 cursor-pointer rounded-md opacity-50 hover:opacity-100',
+                  {
+                    'scale-110 opacity-100': currentColor === color
+                  }
+                )}
+              />
+            </div>
           ))}
         </TabsContent>
         <TabsContent value={ColorValues.Picker}>
