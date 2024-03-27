@@ -5,8 +5,8 @@ import { shapesSchema, stylesSchema } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { PromptStep } from './steps/Prompt/PromptStep'
-import { ColorStep } from './steps/Color/ColorStep'
+import { PromptStep } from './steps/prompt/promptStep'
+import { ColorStep } from './steps/color/colorStep'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),

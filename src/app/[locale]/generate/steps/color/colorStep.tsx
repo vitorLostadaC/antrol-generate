@@ -6,7 +6,7 @@ import { formSchema } from '../../page'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ColorSteps } from './data/colors'
-import { PredefinedColors } from './PredefinedColors'
+import { PredefinedColors } from './predefinedColors'
 
 // colocar uma sombra aqui
 export const ColorStep = () => {
