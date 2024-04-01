@@ -41,7 +41,7 @@ export const shapesSchema = z.enum([
   'square',
   'triangle',
   'hexagon',
-  'octagon'
+  'star'
 ])
 
 export type IShapes = z.infer<typeof shapesSchema>
@@ -56,3 +56,31 @@ export interface ImageStyle {
   name: string
   model: IModel
 }
+
+export const colorsSchema = z.enum([
+  'red',
+  'blue',
+  'green',
+  'yellow',
+  'purple',
+  'pink',
+  'black',
+  'white',
+  'gray',
+  'orange',
+  'brown',
+  'cyan',
+  'magenta',
+  'lime',
+  'teal',
+  'indigo',
+  'violet',
+  'fuchsia',
+  'gold',
+  'coral',
+  'navy',
+  'salmon',
+  'turquoise'
+])
+
+export type IColors = z.infer<typeof colorsSchema>

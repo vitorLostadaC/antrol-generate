@@ -1,10 +1,11 @@
 import { cn } from '@/lib/utils'
 import { TabsContent } from '@radix-ui/react-tabs'
 import { ColorSteps, predefinedColors } from './data/colors'
+import { IColors, colorsSchema } from '@/schemas/icons.schema'
 
 interface PredefinedColorsPropsShema {
-  currentColor: string
-  setValue: (color: string) => void
+  currentColor: IColors
+  setValue: (color: IColors) => void
 }
 
 export const PredefinedColors = ({
@@ -13,7 +14,7 @@ export const PredefinedColors = ({
 }: PredefinedColorsPropsShema) => {
   return (
     <TabsContent value={ColorSteps.Predefined} className="flex flex-wrap gap-4">
-      {predefinedColors.map((color) => (
+      {Object.values(colorsSchema.enum).map((color) => (
         <div key={color}>
           <input
             type="radio"

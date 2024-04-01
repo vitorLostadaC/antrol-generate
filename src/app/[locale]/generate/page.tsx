@@ -1,17 +1,22 @@
 'use client'
 
 import { useMultistepForm } from '@/hooks/useMultistepForm'
-import { shapesSchema, stylesSchema } from '@/schemas/icons.schema'
+import {
+  colorsSchema,
+  shapesSchema,
+  stylesSchema
+} from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { PromptStep } from './steps/prompt/promptStep'
 import { ColorStep } from './steps/color/colorStep'
+import { ShapeStep } from './steps/shape/shapeStep'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),
-  color: z.string(),
-  shape: z.enum(shapesSchema.options),
+  color: colorsSchema,
+  shape: shapesSchema,
   styles: z.array(stylesSchema)
 })
 
@@ -20,7 +25,7 @@ export default function Generate() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
-      color: '',
+      color: 'brown',
       shape: 'any shape',
       styles: []
     }
@@ -28,7 +33,8 @@ export default function Generate() {
 
   const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
     <PromptStep />,
-    <ColorStep />
+    <ColorStep />,
+    <ShapeStep />
   ])
 
   const onSubmit = methods.handleSubmit((data) => {

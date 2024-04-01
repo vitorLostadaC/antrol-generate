@@ -1,13 +1,13 @@
 'use server'
 
-import { ModelSchema, ShapeSchema, StyleSchema } from '@/schemas/icons.schema'
+import { IModel, IShapes, IStyles } from '@/schemas/icons.schema'
 import { openai } from '@/services/openai'
 
 interface CreateIconsPropsSchemas {
-  styles: StyleSchema[]
-  model: ModelSchema
+  styles: IStyles[]
+  model: IModel
   colorName: string
-  shape: ShapeSchema
+  shape: IShapes
   imageNumber?: number
   prompt: string
 }
