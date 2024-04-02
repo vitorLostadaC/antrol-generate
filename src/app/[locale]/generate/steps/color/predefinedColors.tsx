@@ -1,17 +1,13 @@
 import { cn } from '@/lib/utils'
 import { TabsContent } from '@radix-ui/react-tabs'
-import { ColorSteps, predefinedColors } from './data/colors'
-import { IColors, colorsSchema } from '@/schemas/icons.schema'
-
-interface PredefinedColorsPropsShema {
-  currentColor: IColors | string
-  setValue: (color: IColors) => void
-}
+import { ColorSteps } from './data/colors'
+import { colorsSchema } from '@/schemas/icons.schema'
+import { ColorGenericPropsShema } from './colorStep'
 
 export const PredefinedColors = ({
   currentColor,
   setValue
-}: PredefinedColorsPropsShema) => {
+}: ColorGenericPropsShema) => {
   return (
     <TabsContent value={ColorSteps.Predefined} className="flex flex-wrap gap-4">
       {Object.values(colorsSchema.enum).map((color) => (

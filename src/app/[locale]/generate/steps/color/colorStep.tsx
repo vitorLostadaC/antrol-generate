@@ -10,7 +10,11 @@ import { PredefinedColors } from './predefinedColors'
 import { ColorPicker } from './colorPicker'
 import { CustomColor } from './customColor'
 
-// colocar uma sombra aqui
+export interface ColorGenericPropsShema {
+  setValue: (color: string) => void
+  currentColor: string
+}
+
 export const ColorStep = () => {
   const { setValue, control, watch } =
     useFormContext<z.infer<typeof formSchema>>()
