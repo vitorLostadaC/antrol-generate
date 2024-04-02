@@ -7,6 +7,8 @@ import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ColorSteps } from './data/colors'
 import { PredefinedColors } from './predefinedColors'
+import { ColorPicker } from './colorPicker'
+import { CustomColor } from './customColor'
 
 // colocar uma sombra aqui
 export const ColorStep = () => {
@@ -29,10 +31,14 @@ export const ColorStep = () => {
           currentColor={currentColor}
           setValue={(color) => setValue('color', color)}
         />
-
-        <TabsContent value={ColorSteps.Picker}>
-          Change your password here.
-        </TabsContent>
+        <ColorPicker
+          currentColor={currentColor}
+          setValue={(color) => setValue('color', color)}
+        />
+        <CustomColor
+          currentColor={currentColor}
+          setValue={(color) => setValue('color', color)}
+        />
       </Tabs>
     </div>
   )

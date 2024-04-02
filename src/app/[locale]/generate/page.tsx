@@ -16,7 +16,7 @@ import { StylesStep } from './steps/style/styleStep'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),
-  color: colorsSchema,
+  color: colorsSchema.or(z.string()),
   shape: shapesSchema,
   styles: z.array(stylesSchema)
 })

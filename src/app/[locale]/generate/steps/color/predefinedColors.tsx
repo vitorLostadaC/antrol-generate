@@ -4,7 +4,7 @@ import { ColorSteps, predefinedColors } from './data/colors'
 import { IColors, colorsSchema } from '@/schemas/icons.schema'
 
 interface PredefinedColorsPropsShema {
-  currentColor: IColors
+  currentColor: IColors | string
   setValue: (color: IColors) => void
 }
 
