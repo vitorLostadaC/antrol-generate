@@ -13,6 +13,7 @@ import { PromptStep } from './steps/prompt/promptStep'
 import { ColorStep } from './steps/color/colorStep'
 import { ShapeStep } from './steps/shape/shapeStep'
 import { StylesStep } from './steps/style/styleStep'
+import { ConfirmStep } from './steps/confirm/ConfirmStep'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),
@@ -36,7 +37,8 @@ export default function Generate() {
     <PromptStep />,
     <ColorStep />,
     <ShapeStep />,
-    <StylesStep />
+    <StylesStep />,
+    <ConfirmStep />
   ])
 
   const onSubmit = methods.handleSubmit((data) => {
