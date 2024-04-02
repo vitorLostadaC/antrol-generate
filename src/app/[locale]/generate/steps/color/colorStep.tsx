@@ -21,6 +21,8 @@ export const ColorStep = () => {
 
   const currentColor = watch('color')
 
+  const tabContents = [PredefinedColors, ColorPicker, CustomColor]
+
   return (
     <div className="flex flex-col justify-center gap-4">
       <Label>2. selecione a cor principal:</Label>
@@ -31,18 +33,12 @@ export const ColorStep = () => {
           <TabsTrigger value={ColorSteps.Hex}>Hex</TabsTrigger>
         </TabsList>
 
-        <PredefinedColors
-          currentColor={currentColor}
-          setValue={(color) => setValue('color', color)}
-        />
-        <ColorPicker
-          currentColor={currentColor}
-          setValue={(color) => setValue('color', color)}
-        />
-        <CustomColor
-          currentColor={currentColor}
-          setValue={(color) => setValue('color', color)}
-        />
+        {tabContents.map((TabContent) => (
+          <TabContent
+            currentColor={currentColor}
+            setValue={(color) => setValue('color', color)}
+          />
+        ))}
       </Tabs>
     </div>
   )
