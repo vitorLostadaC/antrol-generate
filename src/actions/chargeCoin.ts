@@ -1,7 +1,7 @@
 import { getServerAuthSession } from '@/lib/auth'
 import { prisma } from '@/services/prisma'
 
-export const reimbursement = async (value: number) => {
+export const chargeCoin = async (value: number) => {
   const session = await getServerAuthSession()
 
   if (!session) return
@@ -10,7 +10,7 @@ export const reimbursement = async (value: number) => {
 
   const user = await prisma.user.update({
     data: {
-      coins: oldCoins + value
+      coins: oldCoins - value
     },
     where: {
       id: session.user.id
