@@ -1,22 +1,21 @@
 import { Label } from '@radix-ui/react-dropdown-menu'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs'
 import { useFormContext } from 'react-hook-form'
-import { PredefinedShapes } from './predefinedShapes'
 import { z } from 'zod'
 import { formSchema } from '../../page'
+import { PredefinedStyles } from './predefinedStyles'
 
-export const ShapeStep = () => {
+export const StylesStep = () => {
   const form = useFormContext<z.infer<typeof formSchema>>()
 
-  const currentShape = form.watch('shape')
+  const stylesSelecteds = form.watch('styles')
 
   return (
     <div className="flex flex-col justify-center gap-4">
       <Label>3. selecione a forma:</Label>
 
-      <PredefinedShapes
-        currentShape={currentShape}
-        setValue={(shape) => form.setValue('shape', shape)}
+      <PredefinedStyles
+        stylesSelecteds={stylesSelecteds}
+        setValue={(style) => form.setValue('styles', style)}
       />
     </div>
   )

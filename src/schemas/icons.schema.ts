@@ -28,7 +28,7 @@ export const stylesSchema = z.enum([
   'doodle',
   'grunge',
   'sticker',
-  'oirigami',
+  'origami',
   'woodblock print',
   'cute'
 ])

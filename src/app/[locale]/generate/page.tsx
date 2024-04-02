@@ -12,6 +12,7 @@ import { z } from 'zod'
 import { PromptStep } from './steps/prompt/promptStep'
 import { ColorStep } from './steps/color/colorStep'
 import { ShapeStep } from './steps/shape/shapeStep'
+import { StylesStep } from './steps/style/styleStep'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),
@@ -34,7 +35,8 @@ export default function Generate() {
   const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
     <PromptStep />,
     <ColorStep />,
-    <ShapeStep />
+    <ShapeStep />,
+    <StylesStep />
   ])
 
   const onSubmit = methods.handleSubmit((data) => {
@@ -46,7 +48,7 @@ export default function Generate() {
       <form onSubmit={onSubmit} className="py-10">
         <h1 className="text-3xl font-semibold">Vamos Começar?</h1>
         <div className="py-4">{step}</div>
-        {!isFirstStep && <button onClick={back}>previus</button>}
+        {!isFirstStep && <button onClick={back}>previous</button>}
         {!isLastStep && <button onClick={next}>next</button>}
       </form>
     </FormProvider>
