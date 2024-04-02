@@ -1,9 +1,19 @@
 import { Label } from '@radix-ui/react-dropdown-menu'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs'
 import { useFormContext } from 'react-hook-form'
 import { PredefinedShapes } from './predefinedShapes'
 import { z } from 'zod'
-import { formSchema } from '../../page'
+import { MultiFomsSchema, formSchema } from '../../page'
+
+export const shapeValidation: MultiFomsSchema['validation'] = ({
+  values,
+  setErrors
+}): boolean => {
+  if (values.shape !== '') return true
+  setErrors('shape', {
+    message: 'seleciona um shape'
+  })
+  return false
+}
 
 export const ShapeStep = () => {
   const form = useFormContext<z.infer<typeof formSchema>>()

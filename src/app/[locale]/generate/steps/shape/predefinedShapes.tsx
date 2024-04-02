@@ -1,10 +1,9 @@
 import { cn } from '@/lib/utils'
-import { IShapes } from '@/schemas/icons.schema'
 import { predefinedShapes } from './data/shape'
 
 interface PredefinedShapesPropsShema {
-  currentShape: IShapes
-  setValue: (shape: IShapes) => void
+  currentShape: string
+  setValue: (shape: string) => void
 }
 
 export const PredefinedShapes = ({

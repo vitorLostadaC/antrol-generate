@@ -1,8 +1,19 @@
 import { Label } from '@radix-ui/react-dropdown-menu'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
-import { formSchema } from '../../page'
+import { MultiFomsSchema, formSchema } from '../../page'
 import { PredefinedStyles } from './predefinedStyles'
+
+export const styleValidation: MultiFomsSchema['validation'] = ({
+  values,
+  setErrors
+}): boolean => {
+  if (values.styles.length !== 0) return true
+  setErrors('shape', {
+    message: 'seleciona um estilo'
+  })
+  return false
+}
 
 export const StylesStep = () => {
   const form = useFormContext<z.infer<typeof formSchema>>()

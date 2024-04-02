@@ -2,22 +2,34 @@
 
 import { useFormContext, useWatch } from 'react-hook-form'
 import { z } from 'zod'
-import { formSchema } from '../../page'
+import { MultiFomsSchema, formSchema } from '../../page'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ColorSteps } from './data/colors'
 import { PredefinedColors } from './predefinedColors'
 import { ColorPicker } from './colorPicker'
 import { CustomColor } from './customColor'
+import { useState } from 'react'
 
 export interface ColorGenericPropsShema {
   setValue: (color: string) => void
   currentColor: string
 }
 
+export const colorsValidation: MultiFomsSchema['validation'] = ({
+  values,
+  setErrors
+}): boolean => {
+  if (values.color !== '') return true
+  setErrors('color', {
+    message: 'seleciona uma cor'
+  })
+  return false
+}
+
 export const ColorStep = () => {
-  const { setValue, control, watch } =
-    useFormContext<z.infer<typeof formSchema>>()
+  const [tabValue, setTabValue] = useState(ColorSteps.Predefined)
+  const { setValue, watch } = useFormContext<z.infer<typeof formSchema>>()
 
   const currentColor = watch('color')
 
@@ -26,7 +38,15 @@ export const ColorStep = () => {
   return (
     <div className="flex flex-col justify-center gap-4">
       <Label>2. selecione a cor principal:</Label>
-      <Tabs defaultValue="account" className="w-[400px]">
+      <Tabs
+        value={tabValue}
+        defaultValue="account"
+        className="w-[400px]"
+        onValueChange={(value) => {
+          setTabValue(value as ColorSteps)
+          setValue('color', '')
+        }}
+      >
         <TabsList>
           <TabsTrigger value={ColorSteps.Predefined}>Predefined</TabsTrigger>
           <TabsTrigger value={ColorSteps.Picker}>Picker</TabsTrigger>

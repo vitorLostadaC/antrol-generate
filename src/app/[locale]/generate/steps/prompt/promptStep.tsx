@@ -10,7 +10,18 @@ import {
 import { Input } from '@/components/ui/input'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
-import { formSchema } from '../../page'
+import { MultiFomsSchema, formSchema } from '../../page'
+
+export const promptValidation: MultiFomsSchema['validation'] = ({
+  values,
+  setErrors
+}): boolean => {
+  if (values.prompt.length > 3) return true
+  setErrors('prompt', {
+    message: 'escreva pelo menos 3 palavras'
+  })
+  return false
+}
 
 export const PromptStep = () => {
   const { register } = useFormContext<z.infer<typeof formSchema>>()

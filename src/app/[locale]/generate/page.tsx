@@ -7,43 +7,85 @@ import {
   stylesSchema
 } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormProvider, useForm } from 'react-hook-form'
+import { FormProvider, UseFormSetError, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { PromptStep } from './steps/prompt/promptStep'
-import { ColorStep } from './steps/color/colorStep'
-import { ShapeStep } from './steps/shape/shapeStep'
-import { StylesStep } from './steps/style/styleStep'
+import { PromptStep, promptValidation } from './steps/prompt/promptStep'
+import { ColorStep, colorsValidation } from './steps/color/colorStep'
+import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
+import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/ConfirmStep'
+import { ReactElement } from 'react'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),
   color: colorsSchema.or(z.string()),
-  shape: shapesSchema,
+  shape: shapesSchema.or(z.string()),
   styles: z.array(stylesSchema)
 })
+
+interface GenericValidationParms {
+  values: z.infer<typeof formSchema>
+  setErrors: UseFormSetError<z.infer<typeof formSchema>>
+}
+
+export interface MultiFomsSchema {
+  component: ReactElement
+  validation: (params: GenericValidationParms) => boolean
+}
 
 export default function Generate() {
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
-      color: 'brown',
-      shape: 'any shape',
+      color: '',
+      shape: '',
       styles: []
     }
   })
 
-  const { step, next, back, isFirstStep, isLastStep } = useMultistepForm([
-    <PromptStep />,
-    <ColorStep />,
-    <ShapeStep />,
-    <StylesStep />,
-    <ConfirmStep />
-  ])
+  const multiFormSteps: MultiFomsSchema[] = [
+    {
+      component: <PromptStep />,
+      validation: promptValidation
+    },
+    {
+      component: <ColorStep />,
+      validation: colorsValidation
+    },
+    {
+      component: <ShapeStep />,
+      validation: shapeValidation
+    },
+    {
+      component: <StylesStep />,
+      validation: styleValidation
+    },
+    {
+      component: <ConfirmStep />,
+      validation: () => true
+    }
+  ]
+
+  const { currentStepIndex, step, next, back, isFirstStep, isLastStep } =
+    useMultistepForm(multiFormSteps.map((forms) => forms.component))
 
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data)
   })
+
+  const handleValidationNext = () => {
+    const validation = multiFormSteps[currentStepIndex].validation({
+      setErrors: methods.setError,
+      values: methods.getValues()
+    })
+
+    if (!validation) {
+      return
+    }
+
+    next()
+  }
 
   return (
     <FormProvider {...methods}>
@@ -51,7 +93,7 @@ export default function Generate() {
         <h1 className="text-3xl font-semibold">Vamos Começar?</h1>
         <div className="py-4">{step}</div>
         {!isFirstStep && <button onClick={back}>previous</button>}
-        {!isLastStep && <button onClick={next}>next</button>}
+        {!isLastStep && <button onClick={handleValidationNext}>next</button>}
       </form>
     </FormProvider>
   )
