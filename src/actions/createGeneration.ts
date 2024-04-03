@@ -8,6 +8,7 @@ import { reimbursementCoin } from './reimbursementCoin'
 import { saveGeneration } from './saveGeneration'
 import { IStyles, IShapes } from '@/schemas/icons.schema'
 import { Generation } from '@prisma/client'
+import { uploadFile } from './uploadFile'
 
 interface CreateGenerationProps {
   styles: IStyles[]
@@ -47,7 +48,15 @@ export const createGeneration = async ({
     return { error: true, message: 'Failed to createIcon coin' }
   }
 
-  const iconURL = iconResponse?.data[0].url ?? ''
+  const iconGPTURL = iconResponse?.data[0].url ?? ''
+
+  let iconURL: string = ''
+
+  try {
+    iconURL = (await uploadFile(iconGPTURL)) ?? ''
+  } catch {
+    console.log('depois eu vejo')
+  }
 
   let generation: Generation | null = null
 
@@ -64,7 +73,5 @@ export const createGeneration = async ({
   } catch {
     // adicionar alguma coisa aqui, como um analitics ou um email pra mim
   }
-  console.log(generation)
-
   return generation
 }

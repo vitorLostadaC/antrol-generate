@@ -1,5 +1,6 @@
 'use server'
 
+import { env } from '@/env'
 import { getServerAuthSession } from '@/lib/auth'
 import { s3Client } from '@/services/s3'
 import { PutObjectCommand } from '@aws-sdk/client-s3'
@@ -19,13 +20,16 @@ export const uploadFile = async (imageURL: string): Promise<string | null> => {
 
   const imageBuffer = Buffer.from(await response.arrayBuffer())
 
+  const filePath = `${session.user.id}/${filename}`
+
   const params = {
     Bucket: process.env.AWS_S3_BUCKET_NAME,
-    Key: `${session.user.id}/${filename}`,
+    Key: filePath,
     Body: imageBuffer,
     ContentType: 'image/jpg'
   }
 
   await s3Client.send(new PutObjectCommand(params))
-  return filename
+
+  return `https://${env.AWS_S3_BUCKET_NAME}.s3.${env.AWS_S3_REGION}.amazonaws.com/${filePath}`
 }
