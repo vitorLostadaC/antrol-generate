@@ -2,6 +2,7 @@ import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
 import { formSchema } from '../../page'
 import { ReactNode } from 'react'
+import { Button } from '@/components/ui/button'
 
 interface DisplayItem {
   name: string
@@ -20,6 +21,7 @@ export const ConfirmStep = () => {
       <p>{getValues('styles')}</p>
       <h2>Shape</h2>
       <p>{getValues('shape')}</p>
+      <Button type="submit">Generate Icon</Button>
     </div>
   )
 }

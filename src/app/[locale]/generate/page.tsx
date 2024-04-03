@@ -2,6 +2,7 @@
 
 import { useMultistepForm } from '@/hooks/useMultistepForm'
 import {
+  IShapes,
   colorsSchema,
   shapesSchema,
   stylesSchema
@@ -15,6 +16,8 @@ import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
 import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/ConfirmStep'
 import { ReactElement } from 'react'
+import { createGeneration } from '@/actions/createGeneration'
+import next from 'next'
 
 export const formSchema = z.object({
   prompt: z.string().min(3),
@@ -71,7 +74,12 @@ export default function Generate() {
     useMultistepForm(multiFormSteps.map((forms) => forms.component))
 
   const onSubmit = methods.handleSubmit((data) => {
-    console.log(data)
+    createGeneration({
+      colorName: data.color,
+      prompt: data.prompt,
+      shape: data.shape as IShapes,
+      styles: data.styles
+    }).then((generation) => console.log(generation))
   })
 
   const handleValidationNext = () => {

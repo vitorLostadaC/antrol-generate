@@ -8,6 +8,10 @@ export const chargeCoin = async (value: number) => {
 
   const oldCoins = session.user.coins
 
+  if (oldCoins < value) {
+    throw new Error('Not enough coins')
+  }
+
   const user = await prisma.user.update({
     data: {
       coins: oldCoins - value
