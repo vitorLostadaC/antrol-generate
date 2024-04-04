@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
 import {
   Atom,
+  CoinsIcon,
   ImagesIcon,
   LucideIcon,
   MenuIcon,
@@ -27,6 +28,9 @@ import { Session } from 'next-auth'
 import { ThemeButton } from './themeButton'
 import { useEffect } from 'react'
 import { useTailwindBreakPoint } from '@/hooks/useTailwindBreakpoints'
+import { Button } from '@/components/ui/button'
+import { SignInButton } from './signInButton'
+import { Coins } from './coins'
 
 interface Link {
   path: string
@@ -40,7 +44,6 @@ interface NavigationLinks {
 
 export const NavigateLinks = ({ session }: NavigationLinks) => {
   const t = useScopedI18n('header')
-  let currentBreakpoint = useTailwindBreakPoint()
   const links: Link[] = [
     {
       path: '/generate',
@@ -60,10 +63,11 @@ export const NavigateLinks = ({ session }: NavigationLinks) => {
   ]
   const pathName = usePathname()
 
-  if (currentBreakpoint === 'sm') {
-    return (
+  return (
+    <nav className="flex w-full justify-between">
+      {/* menu on mobile */}
       <Sheet>
-        <SheetTrigger className="-order-1">
+        <SheetTrigger className="-order-1 block md:hidden">
           <MenuIcon className="h-5 w-5" />
         </SheetTrigger>
         <SheetContent
@@ -103,22 +107,34 @@ export const NavigateLinks = ({ session }: NavigationLinks) => {
           </div>
         </SheetContent>
       </Sheet>
-    )
-  }
-
-  return (
-    <nav className="flex items-center gap-4">
-      {links.map((link) => (
-        <Link
-          href={link.path}
-          key={link.path}
-          className={cn('text-foreground/60 hover:text-foreground', {
-            'text-foreground': pathName.includes(link.path)
-          })}
-        >
-          {link.name}
-        </Link>
-      ))}
+      {/* Link on lg */}
+      <div className="hidden items-center gap-4 md:flex">
+        <Logo />
+        {links.map((link) => (
+          <Link
+            href={link.path}
+            key={link.path}
+            className={cn('text-foreground/60 hover:text-foreground', {
+              'text-foreground': pathName.includes(link.path)
+            })}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </div>
+      {/* Right side */}
+      <div className="flex items-center gap-4">
+        {session ? (
+          <>
+            <Coins session={session} />
+            <Button size={'default'}>{t('buy-credis')}</Button>
+            {session && <Avatar session={session} />}
+          </>
+        ) : (
+          <SignInButton />
+        )}
+        <ThemeButton />
+      </div>
     </nav>
   )
 }

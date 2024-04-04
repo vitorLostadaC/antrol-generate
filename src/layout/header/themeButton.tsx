@@ -26,7 +26,12 @@ export const ThemeButton = ({ variant }: ThemeButtonPropsSchema) => {
     )
 
   return (
-    <Button size={'icon'} variant={'ghost'} onClick={toogleTheme}>
+    <Button
+      size={'icon'}
+      variant={'ghost'}
+      onClick={toogleTheme}
+      className="absolute hidden sm:static sm:block"
+    >
       {isDarkTheme ? (
         <MoonStarIcon className="h-5 w-5" />
       ) : (
