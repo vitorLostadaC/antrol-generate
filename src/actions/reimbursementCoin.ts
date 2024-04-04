@@ -1,7 +1,7 @@
 import { getServerAuthSession } from '@/lib/auth'
 import { prisma } from '@/services/prisma'
 
-export const reimbursement = async (value: number) => {
+export const reimbursementCoin = async (value: number) => {
   const session = await getServerAuthSession()
 
   if (!session) return

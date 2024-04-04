@@ -1,20 +1,24 @@
 'use server'
 
 import { getServerAuthSession } from '@/lib/auth'
-import { ModelSchema, ShapeSchema, StyleSchema } from '@/schemas/icons.schema'
+import { IModel, IShapes, IStyles } from '@/schemas/icons.schema'
+
 import { prisma } from '@/services/prisma'
+import { Generation } from '@prisma/client'
 
 interface SaveGenerationSchema {
   imagesURL: string[]
-  model: ModelSchema
-  shape: ShapeSchema
+  model: IModel
+  shape: IShapes
   colorName: string
   generationsNumber: number
   prompt: string
-  styles: StyleSchema[]
+  styles: IStyles[]
 }
 
-export const saveGeneration = async (params: SaveGenerationSchema) => {
+export const saveGeneration = async (
+  params: SaveGenerationSchema
+): Promise<Generation | null> => {
   const {
     colorName,
     generationsNumber,
@@ -27,7 +31,7 @@ export const saveGeneration = async (params: SaveGenerationSchema) => {
 
   const session = await getServerAuthSession()
 
-  if (!session) return
+  if (!session) return null
 
   const generation = await prisma.generation.create({
     data: {
