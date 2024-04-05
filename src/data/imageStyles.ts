@@ -189,8 +189,8 @@ export const imageStyles: ImageStyle[] = [
   {
     image: oirigami,
     model: 'dall-e-3',
-    name: 'Oirigami',
-    style: 'oirigami'
+    name: 'Origami',
+    style: 'origami'
   },
   {
     image: woodblockPrint,

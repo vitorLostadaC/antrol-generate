@@ -26,7 +26,7 @@ const formSchema = z.object({
   styles: z.array(stylesSchema)
 })
 
-export type FormSchema = FormSchema
+export type FormSchema = z.infer<typeof formSchema>
 
 interface GenericValidationParms {
   values: FormSchema

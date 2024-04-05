@@ -1,8 +1,7 @@
 'use client'
 
-import { useFormContext, useWatch } from 'react-hook-form'
-import { z } from 'zod'
-import { FormSchema, MultiFomsSchema, formSchema } from '../../page'
+import { useFormContext } from 'react-hook-form'
+import { FormSchema, MultiFomsSchema } from '../../page'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ColorSteps } from './data/colors'

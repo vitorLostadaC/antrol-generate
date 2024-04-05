@@ -19,6 +19,7 @@ export const authOptions: NextAuthOptions = {
     }
   },
   adapter: PrismaAdapter(prisma) as Adapter,
+  secret: env.JWT_SECRET,
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
