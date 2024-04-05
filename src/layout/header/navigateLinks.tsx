@@ -1,36 +1,28 @@
-'use client'
-
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet'
-import { BreakpointKey, getCurrentBreakpoints } from '@/lib/tailwind'
 import { cn } from '@/lib/utils'
-import { useScopedI18n } from '@/locales/client'
 import {
   Atom,
-  CoinsIcon,
   ImagesIcon,
   LucideIcon,
   MenuIcon,
   SparkleIcon
 } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Logo } from './logo'
 import { Divider } from '@/components/ui/Divider'
 import { Avatar } from './avatar'
 import { Session } from 'next-auth'
 import { ThemeButton } from './themeButton'
-import { useEffect } from 'react'
-import { useTailwindBreakPoint } from '@/hooks/useTailwindBreakpoints'
 import { Button } from '@/components/ui/button'
 import { SignInButton } from './signInButton'
 import { Coins } from './coins'
+import { getScopedI18n } from '@/locales/server'
 
 interface Link {
   path: string
@@ -42,8 +34,8 @@ interface NavigationLinks {
   session: Session | null
 }
 
-export const NavigateLinks = ({ session }: NavigationLinks) => {
-  const t = useScopedI18n('header')
+export const NavigateLinks = async ({ session }: NavigationLinks) => {
+  const t = await getScopedI18n('header')
   const links: Link[] = [
     {
       path: '/generate',
@@ -61,7 +53,6 @@ export const NavigateLinks = ({ session }: NavigationLinks) => {
       icon: Atom
     }
   ]
-  const pathName = usePathname()
 
   return (
     <nav className="flex w-full justify-between">
@@ -114,9 +105,7 @@ export const NavigateLinks = ({ session }: NavigationLinks) => {
           <Link
             href={link.path}
             key={link.path}
-            className={cn('text-foreground/60 hover:text-foreground', {
-              'text-foreground': pathName.includes(link.path)
-            })}
+            className={cn('text-foreground/70 hover:text-foreground')}
           >
             {link.name}
           </Link>
