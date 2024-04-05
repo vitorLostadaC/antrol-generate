@@ -2,7 +2,7 @@
 
 import { useFormContext, useWatch } from 'react-hook-form'
 import { z } from 'zod'
-import { MultiFomsSchema, formSchema } from '../../page'
+import { FormSchema, MultiFomsSchema, formSchema } from '../../page'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ColorSteps } from './data/colors'
@@ -29,7 +29,7 @@ export const colorsValidation: MultiFomsSchema['validation'] = ({
 
 export const ColorStep = () => {
   const [tabValue, setTabValue] = useState(ColorSteps.Predefined)
-  const { setValue, watch } = useFormContext<z.infer<typeof formSchema>>()
+  const { setValue, watch } = useFormContext<FormSchema>()
 
   const currentColor = watch('color')
 
@@ -55,6 +55,7 @@ export const ColorStep = () => {
 
         {tabContents.map((TabContent) => (
           <TabContent
+            key={TabContent.name}
             currentColor={currentColor}
             setValue={(color) => setValue('color', color)}
           />

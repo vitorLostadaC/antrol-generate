@@ -10,7 +10,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
-import { MultiFomsSchema, formSchema } from '../../page'
+import { FormSchema, MultiFomsSchema } from '../../page'
 
 export const promptValidation: MultiFomsSchema['validation'] = ({
   values,
@@ -24,7 +24,7 @@ export const promptValidation: MultiFomsSchema['validation'] = ({
 }
 
 export const PromptStep = () => {
-  const { register } = useFormContext<z.infer<typeof formSchema>>()
+  const { register } = useFormContext<FormSchema>()
   return (
     <FormItem>
       <FormLabel>1. Descreva seu ícone:</FormLabel>

@@ -1,7 +1,7 @@
 import { Label } from '@radix-ui/react-dropdown-menu'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
-import { MultiFomsSchema, formSchema } from '../../page'
+import { FormSchema, MultiFomsSchema } from '../../page'
 import { PredefinedStyles } from './predefinedStyles'
 
 export const styleValidation: MultiFomsSchema['validation'] = ({
@@ -16,7 +16,7 @@ export const styleValidation: MultiFomsSchema['validation'] = ({
 }
 
 export const StylesStep = () => {
-  const form = useFormContext<z.infer<typeof formSchema>>()
+  const form = useFormContext<FormSchema>()
 
   const stylesSelecteds = form.watch('styles')
 

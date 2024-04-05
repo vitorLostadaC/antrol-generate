@@ -19,16 +19,18 @@ import { ReactElement } from 'react'
 import { createGeneration } from '@/actions/createGeneration'
 import next from 'next'
 
-export const formSchema = z.object({
+const formSchema = z.object({
   prompt: z.string().min(3),
   color: colorsSchema.or(z.string()),
   shape: shapesSchema.or(z.string()),
   styles: z.array(stylesSchema)
 })
 
+export type FormSchema = FormSchema
+
 interface GenericValidationParms {
-  values: z.infer<typeof formSchema>
-  setErrors: UseFormSetError<z.infer<typeof formSchema>>
+  values: FormSchema
+  setErrors: UseFormSetError<FormSchema>
 }
 
 export interface MultiFomsSchema {
@@ -37,7 +39,7 @@ export interface MultiFomsSchema {
 }
 
 export default function Generate() {
-  const methods = useForm<z.infer<typeof formSchema>>({
+  const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
@@ -97,7 +99,7 @@ export default function Generate() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={onSubmit} className="py-10">
+      <form onSubmit={onSubmit} className="mx-auto max-w-2xl py-10">
         <h1 className="text-3xl font-semibold">Vamos Começar?</h1>
         <div className="py-4">{step}</div>
         {!isFirstStep && <button onClick={back}>previous</button>}

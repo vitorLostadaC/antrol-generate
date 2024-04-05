@@ -2,7 +2,7 @@ import { Label } from '@radix-ui/react-dropdown-menu'
 import { useFormContext } from 'react-hook-form'
 import { PredefinedShapes } from './predefinedShapes'
 import { z } from 'zod'
-import { MultiFomsSchema, formSchema } from '../../page'
+import { FormSchema, MultiFomsSchema } from '../../page'
 
 export const shapeValidation: MultiFomsSchema['validation'] = ({
   values,
@@ -16,7 +16,7 @@ export const shapeValidation: MultiFomsSchema['validation'] = ({
 }
 
 export const ShapeStep = () => {
-  const form = useFormContext<z.infer<typeof formSchema>>()
+  const form = useFormContext<FormSchema>()
 
   const currentShape = form.watch('shape')
 
