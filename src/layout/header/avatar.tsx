@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
 import { Session } from 'next-auth'
 import { signOut } from 'next-auth/react'
@@ -51,7 +52,7 @@ export const Avatar = ({ session, isInSheet }: AvatarPropsSchema) => {
   }
 
   const avatar = (
-    <ShadcnAvatar>
+    <ShadcnAvatar className="hidden sm:block ">
       {user.image && (
         <AvatarImage src={user.image} alt={user.name ?? 'user image'} />
       )}
@@ -76,7 +77,11 @@ export const Avatar = ({ session, isInSheet }: AvatarPropsSchema) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        className={cn({
+          'absolute sm:static': !isInSheet
+        })}
+      >
         {isInSheet ? avatarInSheet : avatar}
       </DropdownMenuTrigger>
       <DropdownMenuContent>

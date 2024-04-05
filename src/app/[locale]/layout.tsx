@@ -29,7 +29,7 @@ type Props = {
 export default function RootLayout({ children, params }: Props) {
   return (
     <SessionWrapper>
-      <html lang={params.locale}>
+      <html lang={params.locale} suppressHydrationWarning>
         <body
           className={cn(
             'min-h-screen bg-background font-sans antialiased',

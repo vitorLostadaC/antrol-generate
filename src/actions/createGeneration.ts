@@ -32,6 +32,7 @@ export const createGeneration = async ({
   let iconResponse: ImagesResponse | null = null
 
   try {
+    // talvez verificar o tipo do erro aqui e fazer ele demorar mais de um minuto
     iconResponse = await createIcon({
       colorName,
       prompt,
