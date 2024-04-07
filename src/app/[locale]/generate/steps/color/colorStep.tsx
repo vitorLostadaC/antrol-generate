@@ -36,9 +36,6 @@ export const ColorStep = () => {
   const currentPrimaryColor = watch('primaryColor')
   const currentSecondaryColor = watch('secondaryColor')
 
-  console.log('currentPrimaryColor', currentPrimaryColor)
-  console.log('currentSecondaryColor', currentSecondaryColor)
-
   return (
     <div className="flex flex-col gap-2">
       <ColorStepSelector

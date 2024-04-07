@@ -55,6 +55,21 @@
           "erros": {
             "color-required": "Please choose a color"
           }
+        },
+        "shape": {
+          "title": "3. Choose shape",
+          "description": "Choose a shape that represents your icon",
+          "shapes": {
+            "circle": "Circle",
+            "square": "Square",
+            "triangle": "Triangle",
+            "star": "Star",
+            "hexagon": "Hexagon",
+            "any-shape": "Any shape"
+          },
+          "errors": {
+            "shape-required": "Please choose a shape"
+          }
         }
       }
     }

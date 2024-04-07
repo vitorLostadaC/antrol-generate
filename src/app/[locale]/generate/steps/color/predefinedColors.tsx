@@ -28,9 +28,9 @@ export const PredefinedColors = ({
               htmlFor={color + selectorName}
               style={{ backgroundColor: color }}
               whileHover={{ scale: 1.1, opacity: 1 }}
-              animate={currentColor === color ? 'active' : 'normal'}
+              initial={{ scale: 0.9, opacity: 0.5 }}
+              animate={currentColor === color ? 'active' : ''}
               variants={{
-                normal: { scale: 0.9, opacity: 0.5 },
                 active: { scale: 1.1, opacity: 1 }
               }}
               className={cn(
@@ -39,7 +39,7 @@ export const PredefinedColors = ({
                   'scale-110 opacity-100': currentColor === color
                 }
               )}
-            ></motion.label>
+            />
           </div>
         ))}
       </div>
