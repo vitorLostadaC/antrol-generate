@@ -6,18 +6,20 @@ import { openai } from '@/services/openai'
 interface CreateIconsPropsSchemas {
   styles: IStyles[]
   // model: IModel
-  colorName: string
+  primaryColor: string
+  secondaryColor: string
   shape: IShapes
   prompt: string
 }
 
 export const createIcon = async ({
-  colorName,
+  primaryColor,
+  secondaryColor,
   shape,
   styles,
   prompt
 }: CreateIconsPropsSchemas) => {
-  const customizedPrompt = `A modern icon showcasing a ${shape}, rendered in a ${colorName} palette, visually representing ${prompt}. Aim for a style that combines hyper-realistic textures with vibrant, cinematic lighting, akin to high-quality renders seen in top-rated ArtStation projects and Unreal Engine visuals. Focus on ${styles.join(', ')} to achieve an aesthetic that is both trending and visually stunning`
+  const customizedPrompt = `A modern icon showcasing a ${shape}, rendered with primary color ${primaryColor} ${secondaryColor ? 'and seconddary ' + secondaryColor : ''}, visually representing ${prompt}. Aim for a style that combines hyper-realistic textures with vibrant, cinematic lighting, akin to high-quality renders seen in top-rated ArtStation projects and Unreal Engine visuals. Focus on ${styles.join(', ')} to achieve an aesthetic that is both trending and visually stunning`
 
   const response = await openai.images.generate({
     model: 'dall-e-3',

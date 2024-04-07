@@ -17,14 +17,14 @@ import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/ConfirmStep'
 import { ReactElement } from 'react'
 import { createGeneration } from '@/actions/createGeneration'
-import next from 'next'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { useI18n, useScopedI18n } from '@/locales/client'
 
 const formSchema = z.object({
   prompt: z.string().min(3),
-  color: colorsSchema.or(z.string()),
+  primaryColor: colorsSchema.or(z.string()),
+  secondColor: colorsSchema.or(z.string()),
   shape: shapesSchema.or(z.string()),
   styles: z.array(stylesSchema)
 })
@@ -49,7 +49,8 @@ export default function Generate() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
-      color: '',
+      primaryColor: '',
+      secondColor: '',
       shape: '',
       styles: []
     }
@@ -83,7 +84,8 @@ export default function Generate() {
 
   const onSubmit = methods.handleSubmit((data) => {
     createGeneration({
-      colorName: data.color,
+      primaryColor: data.primaryColor,
+      secondaryColor: data.secondColor,
       prompt: data.prompt,
       shape: data.shape as IShapes,
       styles: data.styles

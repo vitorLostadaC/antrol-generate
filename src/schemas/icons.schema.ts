@@ -75,12 +75,10 @@ export const colorsSchema = z.enum([
   'teal',
   'indigo',
   'violet',
-  'fuchsia',
   'gold',
   'coral',
   'navy',
-  'salmon',
-  'turquoise'
+  'salmon'
 ])
 
 export type IColors = z.infer<typeof colorsSchema>
