@@ -8,6 +8,7 @@ import { WebStorage } from '@/data/webStorage'
 
 export interface ColorGenericPropsShema {
   setValue: (color: string) => void
+  selectorName: string
   currentColor: string
 }
 
@@ -35,6 +36,9 @@ export const ColorStep = () => {
   const currentPrimaryColor = watch('primaryColor')
   const currentSecondaryColor = watch('secondaryColor')
 
+  console.log('currentPrimaryColor', currentPrimaryColor)
+  console.log('currentSecondaryColor', currentSecondaryColor)
+
   return (
     <div className="flex flex-col gap-2">
       <ColorStepSelector
@@ -42,9 +46,9 @@ export const ColorStep = () => {
         title={t('primary-color.title')}
         description={t('primary-color.description')}
         currentColor={currentPrimaryColor}
-        setValue={(value) =>
+        setValue={(value) => {
           setValue('primaryColor', value, { shouldValidate: true })
-        }
+        }}
         webStorageKey={WebStorage.GeneratePrimaryColorStep}
         errorMessage={errors.primaryColor?.message}
       />
@@ -53,9 +57,9 @@ export const ColorStep = () => {
         title={t('secondary-color.title')}
         description={t('secondary-color.description')}
         currentColor={currentSecondaryColor}
-        setValue={(value) =>
+        setValue={(value) => {
           setValue('secondaryColor', value, { shouldValidate: true })
-        }
+        }}
         webStorageKey={WebStorage.GenerateSecondaryColorStep}
       />
     </div>

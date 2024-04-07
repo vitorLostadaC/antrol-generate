@@ -1,4 +1,3 @@
-import { WebStorage } from '@/data/webStorage'
 import { Label } from '@radix-ui/react-dropdown-menu'
 import { motion } from 'framer-motion'
 import { ColorSteps } from './data/colors'
@@ -91,6 +90,7 @@ export const ColorStepSelector = ({
           {tabContents.map((TabContent) => (
             <TabContent
               key={TabContent.name + selectorName}
+              selectorName={selectorName}
               currentColor={currentColor}
               setValue={(color) => setValue(color)}
             />

@@ -3,10 +3,12 @@ import { TabsContent } from '@radix-ui/react-tabs'
 import { ColorSteps } from './data/colors'
 import { colorsSchema } from '@/schemas/icons.schema'
 import { ColorGenericPropsShema } from './colorStep'
+import { motion } from 'framer-motion'
 
 export const PredefinedColors = ({
   currentColor,
-  setValue
+  setValue,
+  selectorName
 }: ColorGenericPropsShema) => {
   return (
     <TabsContent value={ColorSteps.Predefined}>
@@ -15,27 +17,29 @@ export const PredefinedColors = ({
           <div key={color}>
             <input
               type="radio"
-              id={color}
+              id={color + selectorName}
               name="color"
               className="sr-only"
               onClick={() => {
                 setValue(color === currentColor ? '' : color)
               }}
             />
-            <label
-              htmlFor={color}
+            <motion.label
+              htmlFor={color + selectorName}
+              style={{ backgroundColor: color }}
+              whileHover={{ scale: 1.1, opacity: 1 }}
+              animate={currentColor === color ? 'active' : 'normal'}
+              variants={{
+                normal: { scale: 0.9, opacity: 0.5 },
+                active: { scale: 1.1, opacity: 1 }
+              }}
               className={cn(
-                'block aspect-square cursor-pointer p-1 opacity-50 hover:opacity-100',
+                'block aspect-square cursor-pointer rounded-md opacity-50 hover:opacity-100',
                 {
-                  'p-0 opacity-100': currentColor === color
+                  'scale-110 opacity-100': currentColor === color
                 }
               )}
-            >
-              <div
-                className={cn('h-full w-full rounded-md')}
-                style={{ backgroundColor: color }}
-              />
-            </label>
+            ></motion.label>
           </div>
         ))}
       </div>
