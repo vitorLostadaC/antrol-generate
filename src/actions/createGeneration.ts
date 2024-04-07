@@ -13,7 +13,7 @@ import { uploadFile } from './uploadFile'
 interface CreateGenerationProps {
   styles: IStyles[]
   primaryColor: string
-  secondaryColor: string
+  secondaryColor?: string
   shape: IShapes
   prompt: string
 }

@@ -38,16 +38,20 @@
           }
         },
         "color": {
-          "title": "2. Choose primary color",
+          "primary-color": {
+            "title": "2. Choose primary color",
+            "description": "Choose a color that represents your icon"
+          },
+          "secondary-color": {
+            "title": "2.1. Choose secondary color (optional)",
+            "description": "Choose a color that complements your primary color"
+          },
           "tabs": {
             "predefined": "Predefined",
             "picker": "Picker",
             "hex": "HEX"
           },
-          "description": {
-            "color-prompt": "Choose a color that fits your brand",
-            "color-variants": "Try different color variants to see what works best"
-          },
+
           "erros": {
             "color-required": "Please choose a color"
           }

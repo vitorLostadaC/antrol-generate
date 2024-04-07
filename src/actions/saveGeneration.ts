@@ -11,7 +11,7 @@ interface SaveGenerationSchema {
   model: IModel
   shape: IShapes
   primaryColor: string
-  secondaryColor: string
+  secondaryColor?: string
   generationsNumber: number
   prompt: string
   styles: IStyles[]

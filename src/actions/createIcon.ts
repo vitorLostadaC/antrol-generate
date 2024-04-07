@@ -7,7 +7,7 @@ interface CreateIconsPropsSchemas {
   styles: IStyles[]
   // model: IModel
   primaryColor: string
-  secondaryColor: string
+  secondaryColor?: string
   shape: IShapes
   prompt: string
 }

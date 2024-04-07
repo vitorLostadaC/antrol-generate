@@ -8,7 +8,7 @@ import {
   stylesSchema
 } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormProvider, UseFormSetError, useForm } from 'react-hook-form'
+import { UseFormSetError, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { PromptStep, promptValidation } from './steps/prompt/promptStep'
 import { ColorStep, colorsValidation } from './steps/color/colorStep'
@@ -24,7 +24,7 @@ import { useI18n, useScopedI18n } from '@/locales/client'
 const formSchema = z.object({
   prompt: z.string().min(3),
   primaryColor: colorsSchema.or(z.string()),
-  secondColor: colorsSchema.or(z.string()),
+  secondaryColor: colorsSchema.or(z.string()),
   shape: shapesSchema.or(z.string()),
   styles: z.array(stylesSchema)
 })
@@ -50,7 +50,7 @@ export default function Generate() {
     defaultValues: {
       prompt: '',
       primaryColor: '',
-      secondColor: '',
+      secondaryColor: '',
       shape: '',
       styles: []
     }
@@ -85,7 +85,7 @@ export default function Generate() {
   const onSubmit = methods.handleSubmit((data) => {
     createGeneration({
       primaryColor: data.primaryColor,
-      secondaryColor: data.secondColor,
+      secondaryColor: data.secondaryColor,
       prompt: data.prompt,
       shape: data.shape as IShapes,
       styles: data.styles
@@ -110,12 +110,14 @@ export default function Generate() {
     <Form {...methods}>
       <form
         onSubmit={onSubmit}
-        className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between py-10"
+        className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2 py-4"
       >
         <div className="flex flex-col gap-4">
-          <h1 className="text-3xl font-semibold">
-            {t('pages.generate.title.shall-we-begin')}
-          </h1>
+          {
+            <h1 className="text-3xl font-semibold">
+              {t('pages.generate.title.shall-we-begin')}
+            </h1>
+          }
           <div className="">{step}</div>
         </div>
         <div className="flex justify-between">

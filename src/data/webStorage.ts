@@ -1,3 +1,4 @@
 export const enum WebStorage {
-  GenerateColorStep = 'antrol-generate-color-step'
+  GeneratePrimaryColorStep = 'antrol-generate-primary-color-step',
+  GenerateSecondaryColorStep = 'antrol-generate-secondary-color-step'
 }
