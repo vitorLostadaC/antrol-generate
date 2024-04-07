@@ -32,7 +32,7 @@ export default function RootLayout({ children, params }: Props) {
       <html lang={params.locale} suppressHydrationWarning>
         <body
           className={cn(
-            'min-h-screen bg-background font-sans antialiased',
+            'flex min-h-screen flex-col bg-background font-sans antialiased',
             fontSans.variable
           )}
         >
@@ -44,7 +44,9 @@ export default function RootLayout({ children, params }: Props) {
           >
             <I18nProviderClient locale={params.locale}>
               <Header />
-              <main className="container max-sm:px-3">{children}</main>
+              <main className="container flex flex-1 flex-col max-sm:px-3">
+                {children}
+              </main>
             </I18nProviderClient>
           </ThemeWrapper>
         </body>

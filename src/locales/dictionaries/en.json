@@ -13,5 +13,31 @@
     "side-bar": {
       "navigation": "Navigation"
     }
+  },
+  "pages": {
+    "generate": {
+      "title": {
+        "shall-we-begin": "Shall we begin?"
+      },
+      "buttons": {
+        "next": "Next",
+        "previous": "Previous"
+      },
+      "steps": {
+        "prompt": {
+          "title": "1. Describe your icon",
+          "placeholder": "Bear with beer",
+          "description": {
+            "simple-prompt": "Simple prompts often work best",
+            "variants": "Once you find a promising icon, generate variations to perfect it",
+            "industrial-specification": "Experiment with adding Industrial specification, like tech, food, education",
+            "materials": "Experiment with adding materials, like wood, metal, glass"
+          },
+          "errors": {
+            "min-length": "Please enter at least 3 characters"
+          }
+        }
+      }
+    }
   }
 }
