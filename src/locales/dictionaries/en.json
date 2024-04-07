@@ -36,6 +36,21 @@
           "errors": {
             "min-length": "Please enter at least 3 characters"
           }
+        },
+        "color": {
+          "title": "2. Choose primary color",
+          "tabs": {
+            "predefined": "Predefined",
+            "picker": "Picker",
+            "hex": "HEX"
+          },
+          "description": {
+            "color-prompt": "Choose a color that fits your brand",
+            "color-variants": "Try different color variants to see what works best"
+          },
+          "erros": {
+            "color-required": "Please choose a color"
+          }
         }
       }
     }

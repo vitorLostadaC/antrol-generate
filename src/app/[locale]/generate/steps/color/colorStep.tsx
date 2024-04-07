@@ -17,11 +17,12 @@ export interface ColorGenericPropsShema {
 
 export const colorsValidation: MultiFomsSchema['validation'] = ({
   values,
-  setErrors
+  setErrors,
+  t
 }): boolean => {
   if (values.color !== '') return true
   setErrors('color', {
-    message: 'seleciona uma cor'
+    message: t('pages.generate.steps.color.erros.color-required')
   })
   return false
 }
@@ -40,7 +41,7 @@ export const ColorStep = () => {
       <Tabs
         value={tabValue}
         defaultValue="account"
-        className="w-[400px]"
+        className="flex flex-col gap-4"
         onValueChange={(value) => {
           setTabValue(value as ColorSteps)
           setValue('color', '')
