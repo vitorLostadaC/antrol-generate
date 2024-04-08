@@ -21,7 +21,7 @@ export const ShapeStep = () => {
   const form = useFormContext<FormSchema>()
   const t = useScopedI18n('pages.generate.steps.shape')
   const currentShape = form.watch('shape')
-
+  // TODO: add error message
   return (
     <div className="flex flex-col justify-center gap-4">
       <div className="flex flex-col gap-1">

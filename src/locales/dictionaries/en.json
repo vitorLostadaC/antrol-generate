@@ -70,6 +70,131 @@
           "errors": {
             "shape-required": "Please choose a shape"
           }
+        },
+        "style": {
+          "title": "4. Choose style",
+          "description": "Choose a style that represents your icon",
+          "errors": {
+            "style-required": "Please choose a style"
+          },
+          "styles": {
+            "minimalist": {
+              "name": "Minimalist",
+              "description": "Simple and clean"
+            },
+            "surrealist": {
+              "name": "Surrealist",
+              "description": "Abstract and imaginative"
+            },
+            "realistic": {
+              "name": "Realistic",
+              "description": "Detailed and accurate"
+            },
+            "art-deco": {
+              "name": "Art Deco",
+              "description": "Sophisticated geometry"
+            },
+            "steampunk": {
+              "name": "Steampunk",
+              "description": "Industrial and retro-futuristic"
+            },
+            "biomorphic": {
+              "name": "Biomorphic",
+              "description": "Organic and flowing"
+            },
+            "polygon": {
+              "name": "Polygon",
+              "description": "Geometric and modern"
+            },
+            "gothic": {
+              "name": "Gothic",
+              "description": "Dark and mysterious"
+            },
+            "futurism": {
+              "name": "Futurism",
+              "description": "High-tech and innovative"
+            },
+            "pop-art": {
+              "name": "Pop Art",
+              "description": "Bright and bold"
+            },
+            "digital-glitch": {
+              "name": "Digital Glitch",
+              "description": "Pixelated and distorted"
+            },
+            "vaporwave": {
+              "name": "Vaporwave",
+              "description": "Retro and nostalgic"
+            },
+            "neon": {
+              "name": "Neon",
+              "description": "Bright and glowing"
+            },
+            "neon-noir": {
+              "name": "Neon Noir",
+              "description": "Dark and glowing"
+            },
+            "pixelated": {
+              "name": "Pixelated",
+              "description": "Blocky and retro"
+            },
+            "flat": {
+              "name": "Flat",
+              "description": "Simple and colorful"
+            },
+            "ilustrated": {
+              "name": "Ilustrated",
+              "description": "Detailed and colorful"
+            },
+            "hand-drawn": {
+              "name": "Hand Drawn",
+              "description": "Sketchy and organic"
+            },
+            "isometric": {
+              "name": "Isometric",
+              "description": "3D and geometric"
+            },
+            "watercolor": {
+              "name": "Watercolor",
+              "description": "Flowing and colorful"
+            },
+            "cartoonish": {
+              "name": "Cartoonish",
+              "description": "Whimsical and exaggerated"
+            },
+            "3d": {
+              "name": "3D",
+              "description": "Realistic and detailed"
+            },
+            "line-art": {
+              "name": "Line Art",
+              "description": "Simple and elegant"
+            },
+            "doodle": {
+              "name": "Doodle",
+              "description": "Simple and playful"
+            },
+            "grunge": {
+              "name": "Grunge",
+              "description": "Dirty and distressed"
+            },
+            "sticker": {
+              "name": "Sticker",
+              "description": "Simple and colorful"
+            },
+            "origami": {
+              "name": "Origami",
+              "description": "Folded and geometric"
+            },
+            "woodblock": {
+              "name": "Woodblock",
+              "description": "Textured and detailed"
+            },
+            "cute": {
+              "name": "Cute",
+              "description": "Adorable and colorful"
+            }
+          }
         }
       }
     }
