@@ -32,6 +32,8 @@ import woodblockPrint from '@/assets/imageStyles/woodblockPrint.webp'
 import { StaticImageData } from 'next/image'
 import { useScopedI18n } from '@/locales/client'
 import { motion } from 'framer-motion'
+import { Tooltip } from '@/components/ui/tooltip'
+import { SimpleTooltip } from '@/components/ui/simpletootip'
 
 interface PredefinedShapesPropsShema {
   stylesSelecteds: IStyles[]
@@ -257,25 +259,27 @@ export const PredefinedStyles = ({
             className="sr-only"
             onChange={() => handleChange(style)}
           />
-          <motion.div
-            className="space-y-4 text-center"
-            whileHover={{ scale: 1, opacity: 1 }}
-            animate={stylesSelecteds.includes(style) ? 'active' : ''}
-            initial={{ scale: 0.9, opacity: 0.5 }}
-            variants={{
-              active: { scale: 1, opacity: 1 }
-            }}
-          >
-            <label
-              htmlFor={style}
-              style={{ backgroundImage: `url(${image.src})` }}
-              className={cn(
-                'block aspect-square cursor-pointer rounded-md bg-contain '
-              )}
-            />
+          <SimpleTooltip content={description}>
+            <motion.div
+              className="space-y-4 text-center"
+              whileHover={{ scale: 1, opacity: 1 }}
+              animate={stylesSelecteds.includes(style) ? 'active' : ''}
+              initial={{ scale: 0.9, opacity: 0.5 }}
+              variants={{
+                active: { scale: 1, opacity: 1 }
+              }}
+            >
+              <label
+                htmlFor={style}
+                style={{ backgroundImage: `url(${image.src})` }}
+                className={cn(
+                  'block aspect-square cursor-pointer rounded-md bg-contain '
+                )}
+              />
 
-            <p className="text-foreground">{name}</p>
-          </motion.div>
+              <p className="text-foreground">{name}</p>
+            </motion.div>
+          </SimpleTooltip>
         </div>
       ))}
     </div>
