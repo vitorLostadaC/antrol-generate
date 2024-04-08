@@ -8,7 +8,6 @@ import cute from '@/assets/imageStyles/cute.webp'
 import digitalGlitch from '@/assets/imageStyles/digitalGlitch.webp'
 import doodle from '@/assets/imageStyles/doodle.webp'
 import flat from '@/assets/imageStyles/flat.webp'
-import futurism from '@/assets/imageStyles/futurism.webp'
 import gothic from '@/assets/imageStyles/gothic.webp'
 import grunge from '@/assets/imageStyles/grunge.webp'
 import handDrawn from '@/assets/imageStyles/handDrawn.webp'
@@ -26,13 +25,11 @@ import realistic from '@/assets/imageStyles/realistic.webp'
 import steampunk from '@/assets/imageStyles/steampunk.webp'
 import sticker from '@/assets/imageStyles/sticker.webp'
 import surrealist from '@/assets/imageStyles/surrealist.webp'
-import vaporwave from '@/assets/imageStyles/vaporwave.webp'
 import watercolor from '@/assets/imageStyles/watercolor.webp'
 import woodblockPrint from '@/assets/imageStyles/woodblockPrint.webp'
 import { StaticImageData } from 'next/image'
 import { useScopedI18n } from '@/locales/client'
 import { motion } from 'framer-motion'
-import { Tooltip } from '@/components/ui/tooltip'
 import { SimpleTooltip } from '@/components/ui/simpletootip'
 
 interface PredefinedShapesPropsShema {
@@ -273,7 +270,7 @@ export const PredefinedStyles = ({
                 htmlFor={style}
                 style={{ backgroundImage: `url(${image.src})` }}
                 className={cn(
-                  'block aspect-square cursor-pointer rounded-md bg-contain '
+                  'block aspect-square cursor-pointer rounded-md bg-contain'
                 )}
               />
 
