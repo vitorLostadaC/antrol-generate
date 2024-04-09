@@ -49,7 +49,7 @@ export const ColorStepSelector = ({
   webStorageKey
 }: ColorStepSelectorPropsSchema) => {
   const [tabValue, setTabValue] = useState(() => {
-    return localStorage.getItem(webStorageKey) ?? ColorSteps.Predefined
+    return sessionStorage.getItem(webStorageKey) ?? ColorSteps.Predefined
   })
 
   return (
@@ -64,7 +64,7 @@ export const ColorStepSelector = ({
         className="flex flex-col gap-3"
         onValueChange={(value) => {
           setTabValue(value as ColorSteps)
-          localStorage.setItem(webStorageKey, value)
+          sessionStorage.setItem(webStorageKey, value)
           setValue('')
         }}
       >

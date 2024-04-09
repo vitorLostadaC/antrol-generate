@@ -12,7 +12,6 @@ import { Input } from '@/components/ui/input'
 import { useFormContext } from 'react-hook-form'
 import { FormSchema, MultiFomsSchema } from '../../page'
 import { useScopedI18n } from '@/locales/client'
-import { getScopedI18n } from '@/locales/server'
 
 export const promptValidation: MultiFomsSchema['validation'] = ({
   values,
