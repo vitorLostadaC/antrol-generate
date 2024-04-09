@@ -1,10 +1,11 @@
 import { useFormContext } from 'react-hook-form'
 import { ReactNode } from 'react'
 import { FormSchema } from '../../page'
-import { useStyes } from '../style/hooks/useStyles'
+import { usePredefinedStyes } from '../style/hooks/usePredefinedStyles'
 import { cn } from '@/lib/utils'
 import image from 'next/image'
 import style from 'styled-jsx/style'
+import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
 
 interface DisplayItem {
   name: string
@@ -12,31 +13,36 @@ interface DisplayItem {
 }
 export const ConfirmStep = () => {
   const { getValues } = useFormContext<FormSchema>()
-  const predefinedStyles = useStyes()
+  const predefinedStyles = usePredefinedStyes()
+  const predefinedShapes = usePredefinedShape()
+
+  const currentShape = predefinedShapes.find(
+    (shape) => shape.shape === getValues('shape')
+  )
 
   return (
     <div className="flex flex-col gap-2">
       <h2>Prompt</h2>
       <p>{getValues('prompt')}</p>
+
       <div className="flex items-start justify-start gap-4">
         <div className="flex flex-col items-center justify-center gap-2">
           <h2>Primary Color</h2>
           <div
-            className="h-24 w-24 rounded-md"
+            className="aspect-square w-32 rounded-md"
             style={{ backgroundColor: getValues('primaryColor') }}
           />
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
           <h2>Secondary Color</h2>
           <div
-            className="h-24 w-24 rounded-md"
+            className="aspect-square w-32 rounded-md"
             style={{ backgroundColor: getValues('secondaryColor') }}
           />
         </div>
       </div>
 
       <h2>Styles</h2>
-
       <div className="grid grid-cols-4 gap-6">
         {getValues('styles').map((style) => {
           const predefinedStyle = predefinedStyles.find(
@@ -57,7 +63,16 @@ export const ConfirmStep = () => {
       </div>
 
       <h2>Shape</h2>
-      <p>{getValues('shape')}</p>
+
+      <div className="w-32 space-y-2 text-center">
+        <img
+          src={currentShape?.image.src}
+          alt={currentShape?.name}
+          className={cn('aspect-square rounded-md bg-contain')}
+        />
+
+        <p className="text-foreground">{currentShape?.name}</p>
+      </div>
     </div>
   )
 }

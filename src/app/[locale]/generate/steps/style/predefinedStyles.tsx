@@ -4,7 +4,7 @@ import { StaticImageData } from 'next/image'
 import { useScopedI18n } from '@/locales/client'
 import { motion } from 'framer-motion'
 import { SimpleTooltip } from '@/components/ui/simpletootip'
-import { useStyes } from './hooks/useStyles'
+import { usePredefinedStyes } from './hooks/usePredefinedStyles'
 
 interface PredefinedShapesPropsShema {
   stylesSelecteds: IStyles[]
@@ -15,7 +15,7 @@ export const PredefinedStyles = ({
   stylesSelecteds,
   setValue
 }: PredefinedShapesPropsShema) => {
-  const predefinedStyles = useStyes()
+  const predefinedStyles = usePredefinedStyes()
 
   const handleChange = (style: IStyles) => {
     if (stylesSelecteds.includes(style)) {

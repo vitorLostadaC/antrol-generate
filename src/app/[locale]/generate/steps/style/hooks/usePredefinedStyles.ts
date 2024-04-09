@@ -36,7 +36,7 @@ interface PredefinedStyleSchema {
   description: string
 }
 
-export const useStyes = () => {
+export const usePredefinedStyes = () => {
   const t = useScopedI18n('pages.generate.steps.style.styles')
   const predefinedStyles: PredefinedStyleSchema[] = [
     {
