@@ -12,13 +12,15 @@ import { uploadFile } from './uploadFile'
 
 interface CreateGenerationProps {
   styles: IStyles[]
-  colorName: string
+  primaryColor: string
+  secondaryColor?: string
   shape: IShapes
   prompt: string
 }
 // TODO improve this erros handling
 export const createGeneration = async ({
-  colorName,
+  primaryColor,
+  secondaryColor,
   prompt,
   shape,
   styles
@@ -34,7 +36,8 @@ export const createGeneration = async ({
   try {
     // talvez verificar o tipo do erro aqui e fazer ele demorar mais de um minuto
     iconResponse = await createIcon({
-      colorName,
+      primaryColor,
+      secondaryColor,
       prompt,
       shape,
       styles
@@ -63,7 +66,8 @@ export const createGeneration = async ({
 
   try {
     generation = await saveGeneration({
-      colorName,
+      primaryColor,
+      secondaryColor,
       generationsNumber: 1,
       imagesURL: [iconURL] ?? [],
       model: 'dall-e-3',

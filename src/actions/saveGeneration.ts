@@ -10,7 +10,8 @@ interface SaveGenerationSchema {
   imagesURL: string[]
   model: IModel
   shape: IShapes
-  colorName: string
+  primaryColor: string
+  secondaryColor?: string
   generationsNumber: number
   prompt: string
   styles: IStyles[]
@@ -20,7 +21,8 @@ export const saveGeneration = async (
   params: SaveGenerationSchema
 ): Promise<Generation | null> => {
   const {
-    colorName,
+    primaryColor,
+    secondaryColor,
     generationsNumber,
     imagesURL,
     shape,
@@ -38,7 +40,8 @@ export const saveGeneration = async (
       userId: session.user.id,
       generationParams: {
         create: {
-          colorName,
+          primaryColor,
+          secondaryColor,
           generationsNumber,
           model,
           shape,

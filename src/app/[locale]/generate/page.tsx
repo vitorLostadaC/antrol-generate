@@ -8,7 +8,7 @@ import {
   stylesSchema
 } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormProvider, UseFormSetError, useForm } from 'react-hook-form'
+import { UseFormSetError, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { PromptStep, promptValidation } from './steps/prompt/promptStep'
 import { ColorStep, colorsValidation } from './steps/color/colorStep'
@@ -17,18 +17,25 @@ import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/ConfirmStep'
 import { ReactElement } from 'react'
 import { createGeneration } from '@/actions/createGeneration'
-import next from 'next'
+import { Button } from '@/components/ui/button'
+import { Form } from '@/components/ui/form'
+import { useI18n, useScopedI18n } from '@/locales/client'
 
-export const formSchema = z.object({
+const formSchema = z.object({
   prompt: z.string().min(3),
-  color: colorsSchema.or(z.string()),
+  primaryColor: colorsSchema.or(z.string()),
+  secondaryColor: colorsSchema.or(z.string()),
   shape: shapesSchema.or(z.string()),
   styles: z.array(stylesSchema)
 })
 
+export type FormSchema = z.infer<typeof formSchema>
+
 interface GenericValidationParms {
-  values: z.infer<typeof formSchema>
-  setErrors: UseFormSetError<z.infer<typeof formSchema>>
+  values: FormSchema
+  setErrors: UseFormSetError<FormSchema>
+  // reference: https://github.com/QuiiBz/next-international/issues/43
+  t: ReturnType<typeof useI18n>
 }
 
 export interface MultiFomsSchema {
@@ -37,11 +44,13 @@ export interface MultiFomsSchema {
 }
 
 export default function Generate() {
-  const methods = useForm<z.infer<typeof formSchema>>({
+  const t = useI18n()
+  const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
-      color: '',
+      primaryColor: '',
+      secondaryColor: '',
       shape: '',
       styles: []
     }
@@ -75,7 +84,8 @@ export default function Generate() {
 
   const onSubmit = methods.handleSubmit((data) => {
     createGeneration({
-      colorName: data.color,
+      primaryColor: data.primaryColor,
+      secondaryColor: data.secondaryColor,
       prompt: data.prompt,
       shape: data.shape as IShapes,
       styles: data.styles
@@ -85,7 +95,8 @@ export default function Generate() {
   const handleValidationNext = () => {
     const validation = multiFormSteps[currentStepIndex].validation({
       setErrors: methods.setError,
-      values: methods.getValues()
+      values: methods.getValues(),
+      t
     })
 
     if (!validation) {
@@ -96,13 +107,36 @@ export default function Generate() {
   }
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={onSubmit} className="py-10">
-        <h1 className="text-3xl font-semibold">Vamos Começar?</h1>
-        <div className="py-4">{step}</div>
-        {!isFirstStep && <button onClick={back}>previous</button>}
-        {!isLastStep && <button onClick={handleValidationNext}>next</button>}
+    <Form {...methods}>
+      <form
+        onSubmit={onSubmit}
+        className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2 py-4"
+      >
+        <div className="flex flex-col gap-4">
+          {
+            <h1 className="text-3xl font-semibold">
+              {t('pages.generate.title.shall-we-begin')}
+            </h1>
+          }
+          <div className="">{step}</div>
+        </div>
+        <div className="flex justify-between">
+          {!isFirstStep && (
+            <Button type="button" variant={'secondary'} onClick={back}>
+              {t('pages.generate.buttons.previous')}
+            </Button>
+          )}
+          {!isLastStep && (
+            <Button
+              type="button"
+              onClick={handleValidationNext}
+              className="ml-auto"
+            >
+              {t('pages.generate.buttons.next')}
+            </Button>
+          )}
+        </div>
       </form>
-    </FormProvider>
+    </Form>
   )
 }

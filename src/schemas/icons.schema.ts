@@ -10,10 +10,8 @@ export const stylesSchema = z.enum([
   'biomorphic',
   'polygon',
   'gothic',
-  'futurism',
   'pop art',
   'digital glitch',
-  'vaporwave',
   'neon noir',
   'neon',
   'pixelated',
@@ -75,12 +73,10 @@ export const colorsSchema = z.enum([
   'teal',
   'indigo',
   'violet',
-  'fuchsia',
   'gold',
   'coral',
   'navy',
-  'salmon',
-  'turquoise'
+  'salmon'
 ])
 
 export type IColors = z.infer<typeof colorsSchema>

@@ -8,8 +8,12 @@ export const ColorPicker = ({
   setValue
 }: ColorGenericPropsShema) => {
   return (
-    <TabsContent value={ColorSteps.Picker} className="flex flex-wrap gap-4">
-      <HexColorPicker color={currentColor} onChange={setValue} />
+    <TabsContent value={ColorSteps.Picker}>
+      <HexColorPicker
+        className="mx-auto"
+        color={currentColor}
+        onChange={setValue}
+      />
     </TabsContent>
   )
 }

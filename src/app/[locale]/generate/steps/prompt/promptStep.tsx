@@ -3,41 +3,51 @@
 import {
   FormControl,
   FormDescription,
+  FormField,
   FormItem,
   FormLabel,
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { useFormContext } from 'react-hook-form'
-import { z } from 'zod'
-import { MultiFomsSchema, formSchema } from '../../page'
+import { FormSchema, MultiFomsSchema } from '../../page'
+import { useScopedI18n } from '@/locales/client'
 
 export const promptValidation: MultiFomsSchema['validation'] = ({
   values,
-  setErrors
+  setErrors,
+  t
 }): boolean => {
   if (values.prompt.length > 3) return true
   setErrors('prompt', {
-    message: 'escreva pelo menos 3 palavras'
+    message: t('pages.generate.steps.prompt.errors.min-length')
   })
   return false
 }
 
 export const PromptStep = () => {
-  const { register } = useFormContext<z.infer<typeof formSchema>>()
+  const { control } = useFormContext<FormSchema>()
+  const t = useScopedI18n('pages.generate.steps.prompt')
+
   return (
-    <FormItem>
-      <FormLabel>1. Descreva seu ícone:</FormLabel>
-      <FormControl>
-        <Input placeholder="bear with beer" {...register('prompt')} />
-      </FormControl>
-      <FormDescription>
-        <li>Simple prompts often work best</li>
-        <li>Use variants once you find a starting icon you like</li>
-        <li>Experiment with adding words, such as happy or vibrant</li>
-        <li>melhorar isso aqui depois</li>
-      </FormDescription>
-      <FormMessage />
-    </FormItem>
+    <FormField
+      control={control}
+      name="prompt"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{t('title')}</FormLabel>
+          <FormControl>
+            <Input placeholder={t('placeholder')} {...field} />
+          </FormControl>
+          <FormDescription>
+            <li>{t('description.simple-prompt')}</li>
+            <li>{t('description.variants')}</li>
+            <li>{t('description.industrial-specification')}</li>
+            <li>{t('description.materials')}</li>
+          </FormDescription>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
   )
 }

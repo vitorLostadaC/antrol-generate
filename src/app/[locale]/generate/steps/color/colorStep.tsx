@@ -1,65 +1,64 @@
 'use client'
 
-import { useFormContext, useWatch } from 'react-hook-form'
-import { z } from 'zod'
-import { MultiFomsSchema, formSchema } from '../../page'
-import { Label } from '@/components/ui/label'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ColorSteps } from './data/colors'
-import { PredefinedColors } from './predefinedColors'
-import { ColorPicker } from './colorPicker'
-import { CustomColor } from './customColor'
-import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { FormSchema, MultiFomsSchema } from '../../page'
+import { useScopedI18n } from '@/locales/client'
+import { ColorStepSelector } from './colorStepSelector'
+import { WebStorage } from '@/data/webStorage'
 
 export interface ColorGenericPropsShema {
   setValue: (color: string) => void
+  selectorName: string
   currentColor: string
 }
 
 export const colorsValidation: MultiFomsSchema['validation'] = ({
   values,
-  setErrors
+  setErrors,
+  t
 }): boolean => {
-  if (values.color !== '') return true
-  setErrors('color', {
-    message: 'seleciona uma cor'
+  if (values.primaryColor !== '') return true
+
+  setErrors('primaryColor', {
+    message: t('pages.generate.steps.color.erros.color-required')
   })
   return false
 }
 
 export const ColorStep = () => {
-  const [tabValue, setTabValue] = useState(ColorSteps.Predefined)
-  const { setValue, watch } = useFormContext<z.infer<typeof formSchema>>()
+  const {
+    setValue,
+    watch,
+    formState: { errors }
+  } = useFormContext<FormSchema>()
+  const t = useScopedI18n('pages.generate.steps.color')
 
-  const currentColor = watch('color')
-
-  const tabContents = [PredefinedColors, ColorPicker, CustomColor]
+  const currentPrimaryColor = watch('primaryColor')
+  const currentSecondaryColor = watch('secondaryColor')
 
   return (
-    <div className="flex flex-col justify-center gap-4">
-      <Label>2. selecione a cor principal:</Label>
-      <Tabs
-        value={tabValue}
-        defaultValue="account"
-        className="w-[400px]"
-        onValueChange={(value) => {
-          setTabValue(value as ColorSteps)
-          setValue('color', '')
+    <div className="flex flex-col gap-2">
+      <ColorStepSelector
+        selectorName="primaryColor"
+        title={t('primary-color.title')}
+        description={t('primary-color.description')}
+        currentColor={currentPrimaryColor}
+        setValue={(value) => {
+          setValue('primaryColor', value, { shouldValidate: true })
         }}
-      >
-        <TabsList>
-          <TabsTrigger value={ColorSteps.Predefined}>Predefined</TabsTrigger>
-          <TabsTrigger value={ColorSteps.Picker}>Picker</TabsTrigger>
-          <TabsTrigger value={ColorSteps.Hex}>Hex</TabsTrigger>
-        </TabsList>
-
-        {tabContents.map((TabContent) => (
-          <TabContent
-            currentColor={currentColor}
-            setValue={(color) => setValue('color', color)}
-          />
-        ))}
-      </Tabs>
+        webStorageKey={WebStorage.GeneratePrimaryColorStep}
+        errorMessage={errors.primaryColor?.message}
+      />
+      <ColorStepSelector
+        selectorName="secondaryColor"
+        title={t('secondary-color.title')}
+        description={t('secondary-color.description')}
+        currentColor={currentSecondaryColor}
+        setValue={(value) => {
+          setValue('secondaryColor', value, { shouldValidate: true })
+        }}
+        webStorageKey={WebStorage.GenerateSecondaryColorStep}
+      />
     </div>
   )
 }

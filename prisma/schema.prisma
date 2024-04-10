@@ -55,12 +55,11 @@ model VerificationToken {
 }
 
 model Generation {
-  id        String   @id @default(uuid())
-  userId    String
-  imagesURL String[]
-  prompt    String
-  createdAt DateTime @default(now())
-
+  id               String            @id @default(uuid())
+  userId           String
+  imagesURL        String[]
+  prompt           String
+  createdAt        DateTime          @default(now())
   user             User              @relation(fields: [userId], references: [id])
   generationParams GenerationParams?
 }
@@ -69,7 +68,8 @@ model GenerationParams {
   id                String   @id @default(uuid())
   shape             String
   model             String
-  colorName         String
+  primaryColor      String
+  secondaryColor    String?
   generationsNumber Int
   styles            String[]
   generationId      String   @unique
