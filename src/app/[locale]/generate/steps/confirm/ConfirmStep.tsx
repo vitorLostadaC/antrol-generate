@@ -6,6 +6,9 @@ import { cn } from '@/lib/utils'
 import image from 'next/image'
 import style from 'styled-jsx/style'
 import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
+import { Label } from '@radix-ui/react-dropdown-menu'
+import { useScopedI18n } from '@/locales/client'
+import { StepTitle } from '../../components/stepTitle'
 
 interface DisplayItem {
   name: string
@@ -13,6 +16,7 @@ interface DisplayItem {
 }
 export const ConfirmStep = () => {
   const { getValues } = useFormContext<FormSchema>()
+  const t = useScopedI18n('pages.generate.steps.confirm')
   const predefinedStyles = usePredefinedStyes()
   const predefinedShapes = usePredefinedShape()
 
@@ -22,19 +26,21 @@ export const ConfirmStep = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <h2>Prompt</h2>
+      <StepTitle title={t('title')} description={t('description')} />
+
+      <h2>{t('steps.prompt')}</h2>
       <p>{getValues('prompt')}</p>
 
       <div className="flex items-start justify-start gap-4">
         <div className="flex flex-col items-center justify-center gap-2">
-          <h2>Primary Color</h2>
+          <h2>{t('steps.primary-color')}</h2>
           <div
             className="aspect-square w-32 rounded-md"
             style={{ backgroundColor: getValues('primaryColor') }}
           />
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <h2>Secondary Color</h2>
+          <h2>{t('steps.secondary-color')}</h2>
           <div
             className="aspect-square w-32 rounded-md"
             style={{ backgroundColor: getValues('secondaryColor') }}
@@ -42,7 +48,7 @@ export const ConfirmStep = () => {
         </div>
       </div>
 
-      <h2>Styles</h2>
+      <h2>{t('steps.style')}</h2>
       <div className="grid grid-cols-4 gap-6">
         {getValues('styles').map((style) => {
           const predefinedStyle = predefinedStyles.find(
@@ -62,7 +68,7 @@ export const ConfirmStep = () => {
         })}
       </div>
 
-      <h2>Shape</h2>
+      <h2>{t('steps.shape')}</h2>
 
       <div className="w-32 space-y-2 text-center">
         <img
@@ -76,8 +82,3 @@ export const ConfirmStep = () => {
     </div>
   )
 }
-
-// Add image here
-// Change the color to color name
-// Add a button to load more
-// Add a button to generate icon

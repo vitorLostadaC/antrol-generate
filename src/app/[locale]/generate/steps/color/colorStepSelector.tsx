@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { ColorPicker } from './colorPicker'
 import { CustomColor } from './customColor'
 import { PredefinedColors } from './predefinedColors'
+import { StepTitle } from '../../components/stepTitle'
 
 interface ColorStepSelectorPropsSchema {
   selectorName: string
@@ -54,10 +55,7 @@ export const ColorStepSelector = ({
 
   return (
     <div className="flex flex-col justify-center gap-2">
-      <div className="flex flex-col gap-1">
-        <Label>{title}</Label>
-        <p className="text-foreground/70">{description}</p>
-      </div>
+      <StepTitle title={title} description={description} />
       <Tabs
         value={tabValue}
         defaultValue="account"

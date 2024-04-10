@@ -110,10 +110,6 @@
               "name": "Gothic",
               "description": "Dark and mysterious"
             },
-            "futurism": {
-              "name": "Futurism",
-              "description": "High-tech and innovative"
-            },
             "pop-art": {
               "name": "Pop Art",
               "description": "Bright and bold"
@@ -194,6 +190,17 @@
               "name": "Cute",
               "description": "Adorable and colorful"
             }
+          }
+        },
+        "confirm": {
+          "title": "5. Confirm your icon",
+          "description": "Here's your icon. If you're happy with it, click 'Generate'. If not, go back and make changes.",
+          "steps": {
+            "prompt": "Prompt",
+            "primary-color": "Primary Color",
+            "secondary-color": "Secondary Color",
+            "shape": "Shape",
+            "style": "Style"
           }
         }
       }

@@ -4,6 +4,7 @@ import { FormSchema, MultiFomsSchema } from '../../page'
 import { useScopedI18n } from '@/locales/client'
 
 import { PredefinedStyles } from './predefinedStyles'
+import { StepTitle } from '../../components/stepTitle'
 
 export const styleValidation: MultiFomsSchema['validation'] = ({
   values,
@@ -25,10 +26,8 @@ export const StylesStep = () => {
 
   return (
     <div className="flex flex-col justify-center gap-4">
-      <div className="flex flex-col gap-1">
-        <Label>{t('title')}</Label>
-        <p className="text-foreground/70">{t('description')}</p>
-      </div>
+      <StepTitle title={t('title')} description={t('description')} />
+
       <PredefinedStyles
         stylesSelecteds={stylesSelecteds}
         setValue={(style) => form.setValue('styles', style)}
