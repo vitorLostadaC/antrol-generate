@@ -20,15 +20,19 @@ export const ShapeStep = () => {
   const form = useFormContext<FormSchema>()
   const t = useScopedI18n('pages.generate.steps.shape')
   const currentShape = form.watch('shape')
-  // TODO: add error message
+  const errorMessage = form.formState.errors.shape?.message
+
   return (
     <div className="flex flex-col justify-center gap-4">
       <StepTitle title={t('title')} description={t('description')} />
 
       <PredefinedShapes
         currentShape={currentShape}
-        setValue={(shape) => form.setValue('shape', shape)}
+        setValue={(shape) =>
+          form.setValue('shape', shape, { shouldValidate: true })
+        }
       />
+      <p className="h-6 text-destructive">{errorMessage}</p>
     </div>
   )
 }

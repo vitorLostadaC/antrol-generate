@@ -12,7 +12,7 @@ export const styleValidation: MultiFomsSchema['validation'] = ({
   t
 }): boolean => {
   if (values.styles.length !== 0) return true
-  setErrors('shape', {
+  setErrors('styles', {
     message: t('pages.generate.steps.style.errors.style-required')
   })
   return false
@@ -23,6 +23,7 @@ export const StylesStep = () => {
   const t = useScopedI18n('pages.generate.steps.style')
 
   const stylesSelecteds = form.watch('styles')
+  const errorMessage = form.formState.errors.styles?.message
 
   return (
     <div className="flex flex-col justify-center gap-4">
@@ -30,8 +31,11 @@ export const StylesStep = () => {
 
       <PredefinedStyles
         stylesSelecteds={stylesSelecteds}
-        setValue={(style) => form.setValue('styles', style)}
+        setValue={(style) =>
+          form.setValue('styles', style, { shouldValidate: true })
+        }
       />
+      <p className="h-6 text-destructive">{errorMessage}</p>
     </div>
   )
 }
