@@ -5,6 +5,8 @@ import { FormSchema, MultiFomsSchema } from '../../page'
 import { useScopedI18n } from '@/locales/client'
 import { ColorStepSelector } from './colorStepSelector'
 import { WebStorage } from '@/data/webStorage'
+import { Dispatch, SetStateAction } from 'react'
+import { ColorSteps } from './data/colors'
 
 export interface ColorGenericPropsShema {
   setValue: (color: string) => void
@@ -25,7 +27,20 @@ export const colorsValidation: MultiFomsSchema['validation'] = ({
   return false
 }
 
-export const ColorStep = () => {
+interface ColorStepPropsSchema {
+  tabSelected: {
+    primary: ColorSteps
+    secondary: ColorSteps
+  }
+  setTabSelected: Dispatch<
+    SetStateAction<{ primary: ColorSteps; secondary: ColorSteps }>
+  >
+}
+
+export const ColorStep = ({
+  setTabSelected,
+  tabSelected
+}: ColorStepPropsSchema) => {
   const {
     setValue,
     watch,
@@ -46,8 +61,14 @@ export const ColorStep = () => {
         setValue={(value) => {
           setValue('primaryColor', value, { shouldValidate: true })
         }}
-        webStorageKey={WebStorage.GeneratePrimaryColorStep}
         errorMessage={errors.primaryColor?.message}
+        tabSelected={tabSelected.primary}
+        setTabSelected={(currentTab) => {
+          setTabSelected({
+            primary: currentTab,
+            secondary: tabSelected.secondary
+          })
+        }}
       />
       <ColorStepSelector
         selectorName="secondaryColor"
@@ -57,7 +78,13 @@ export const ColorStep = () => {
         setValue={(value) => {
           setValue('secondaryColor', value, { shouldValidate: true })
         }}
-        webStorageKey={WebStorage.GenerateSecondaryColorStep}
+        tabSelected={tabSelected.secondary}
+        setTabSelected={(currentTab) => {
+          setTabSelected({
+            primary: tabSelected.primary,
+            secondary: currentTab
+          })
+        }}
       />
     </div>
   )
