@@ -73,10 +73,6 @@ export default function Generate() {
 
   const multiFormSteps: MultiFomsSchema[] = [
     {
-      component: <GenerationsStep generations={generations} />,
-      validation: () => true
-    },
-    {
       component: <PromptStep />,
       validation: promptValidation
     },
@@ -94,6 +90,10 @@ export default function Generate() {
     },
     {
       component: <ConfirmStep />,
+      validation: () => true
+    },
+    {
+      component: <GenerationsStep generations={generations} />,
       validation: () => true
     }
   ]
@@ -156,7 +156,9 @@ export default function Generate() {
         <div className="flex justify-between">
           {!isFirstStep && (
             <Button type="button" variant={'secondary'} onClick={back}>
-              {t('pages.generate.buttons.previous')}
+              {isLastStep
+                ? t('pages.generate.buttons.generate-other-icon')
+                : t('pages.generate.buttons.previous')}
             </Button>
           )}
           {!isLastStep && (

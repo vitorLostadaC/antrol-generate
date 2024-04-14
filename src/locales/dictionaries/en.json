@@ -21,7 +21,8 @@
       },
       "buttons": {
         "next": "Next",
-        "previous": "Previous"
+        "previous": "Previous",
+        "generate-other-icon": "Generate Other Icon"
       },
       "steps": {
         "prompt": {
