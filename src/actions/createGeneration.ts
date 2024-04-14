@@ -28,7 +28,7 @@ export const createGeneration = async ({
   try {
     await chargeCoin(Cost.Generation)
   } catch (e) {
-    return { error: true, message: 'Failed to charge coin' }
+    throw new Error('Failed to charge coin')
   }
 
   let iconResponse: ImagesResponse | null = null
@@ -47,9 +47,10 @@ export const createGeneration = async ({
       await reimbursementCoin(Cost.Generation)
     } catch {
       // adicionar alguma coisa aqui, como um analitics ou um email pra mim
+      throw new Error('Failed to reimbursementCoin')
     }
-
-    return { error: true, message: 'Failed to createIcon coin' }
+    // talvez implementar um sistema de mensageria aqui
+    throw new Error('Failed to createIcon coin')
   }
 
   const iconGPTURL = iconResponse?.data[0].url ?? ''
@@ -78,5 +79,10 @@ export const createGeneration = async ({
   } catch {
     // adicionar alguma coisa aqui, como um analitics ou um email pra mim
   }
+
+  if (!generation) {
+    throw new Error('User not authenticated')
+  }
+
   return generation
 }

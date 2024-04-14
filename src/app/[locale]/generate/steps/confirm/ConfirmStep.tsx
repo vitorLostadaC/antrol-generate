@@ -1,21 +1,19 @@
 import { useFormContext } from 'react-hook-form'
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { FormSchema } from '../../page'
 import { usePredefinedStyes } from '../style/hooks/usePredefinedStyles'
 import { cn } from '@/lib/utils'
-import image from 'next/image'
-import style from 'styled-jsx/style'
 import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
-import { Label } from '@radix-ui/react-dropdown-menu'
 import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
+import { SparklesIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/ui/spinner'
+import { createGeneration } from '@/actions/createGeneration'
 
-interface DisplayItem {
-  name: string
-  value: string | ReactNode
-}
 export const ConfirmStep = () => {
   const { getValues } = useFormContext<FormSchema>()
+  const [isGenerating, setIsGenerating] = useState(false)
   const t = useScopedI18n('pages.generate.steps.confirm')
   const predefinedStyles = usePredefinedStyes()
   const predefinedShapes = usePredefinedShape()
@@ -35,14 +33,14 @@ export const ConfirmStep = () => {
         <div className="flex flex-col items-center justify-center gap-2">
           <h2>{t('steps.primary-color')}</h2>
           <div
-            className="aspect-square w-32 rounded-md"
+            className="aspect-square w-28 rounded-md"
             style={{ backgroundColor: getValues('primaryColor') }}
           />
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
           <h2>{t('steps.secondary-color')}</h2>
           <div
-            className="aspect-square w-32 rounded-md"
+            className="aspect-square w-28 rounded-md"
             style={{ backgroundColor: getValues('secondaryColor') }}
           />
         </div>
@@ -70,7 +68,7 @@ export const ConfirmStep = () => {
 
       <h2>{t('steps.shape')}</h2>
 
-      <div className="w-32 space-y-2 text-center">
+      <div className="w-28 space-y-2 text-center">
         <img
           src={currentShape?.image.src}
           alt={currentShape?.name}
@@ -79,6 +77,22 @@ export const ConfirmStep = () => {
 
         <p className="text-foreground">{currentShape?.name}</p>
       </div>
+
+      <Button
+        className="h-12 gap-2 text-lg font-medium text-foreground"
+        disabled={isGenerating}
+        onClick={() => setIsGenerating(true)}
+        type="submit"
+      >
+        {isGenerating ? (
+          <Spinner color={'secondary'} />
+        ) : (
+          <>
+            <span>Generate</span>
+            <SparklesIcon size={20} />
+          </>
+        )}
+      </Button>
     </div>
   )
 }

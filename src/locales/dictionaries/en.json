@@ -21,7 +21,8 @@
       },
       "buttons": {
         "next": "Next",
-        "previous": "Previous"
+        "previous": "Previous",
+        "generate-other-icon": "Generate Other Icon"
       },
       "steps": {
         "prompt": {
@@ -203,6 +204,16 @@
             "style": "Style"
           }
         }
+      }
+    }
+  },
+  "components": {
+    "generated-cards": {
+      "dropdwon": {
+        "donwload": "Download HD Image",
+        "variant": "Make Variant (1 credit)",
+        "reuse-prompt": "Reuse Prompt",
+        "remove-bg": "Remove Background (1 credit)"
       }
     }
   }
