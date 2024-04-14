@@ -113,11 +113,10 @@ export default function Generate() {
         className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2 py-4"
       >
         <div className="flex flex-col gap-4">
-          {
-            <h1 className="text-3xl font-semibold">
-              {t('pages.generate.title.shall-we-begin')}
-            </h1>
-          }
+          <h1 className="text-3xl font-semibold">
+            {t('pages.generate.title.shall-we-begin')}
+          </h1>
+
           <div className="">{step}</div>
         </div>
         <div className="flex justify-between">
