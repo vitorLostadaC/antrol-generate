@@ -49,17 +49,7 @@ export interface MultiFomsSchema {
 
 export default function Generate() {
   const t = useI18n()
-  const [generations, setGenerations] = useState<Generation[]>([
-    {
-      id: 'a5685644-55ec-4df2-9229-cae4348b693e',
-      userId: 'clupnktym0000nvgj5l74ndh8',
-      imagesURL: [
-        'https://antrol-generate.s3.us-east-1.amazonaws.com/clupnktym0000nvgj5l74ndh8/4ad909da-f097-4858-9674-41382c7b1db6'
-      ],
-      prompt: 'a strong bee',
-      createdAt: new Date('2024-04-14T11:01:05.000Z')
-    }
-  ])
+  const [generations, setGenerations] = useState<Generation[]>([])
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -98,8 +88,17 @@ export default function Generate() {
     }
   ]
 
-  const { currentStepIndex, step, next, back, isFirstStep, isLastStep } =
-    useMultistepForm(multiFormSteps.map((forms) => forms.component))
+  const {
+    currentStepIndex,
+    step,
+    next,
+    back,
+    isFirstStep,
+    isLastStep,
+    isPenultimate,
+    goTo,
+    steps
+  } = useMultistepForm(multiFormSteps.map((forms) => forms.component))
 
   const onSubmit = methods.handleSubmit(async (data) => {
     const primaryColor = data.primaryColor.includes('#')
@@ -118,8 +117,8 @@ export default function Generate() {
         shape: data.shape as IShapes,
         styles: data.styles
       })
-      next()
       setGenerations([...generations, generation])
+      goTo(steps.length - 1)
     } catch (e) {
       const error = e as Error
       console.log(error.message)
@@ -161,7 +160,7 @@ export default function Generate() {
                 : t('pages.generate.buttons.previous')}
             </Button>
           )}
-          {!isLastStep && (
+          {!isLastStep && !isPenultimate && (
             <Button
               type="button"
               onClick={handleValidationNext}
