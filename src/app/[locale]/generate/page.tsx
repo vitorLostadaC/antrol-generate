@@ -73,6 +73,10 @@ export default function Generate() {
 
   const multiFormSteps: MultiFomsSchema[] = [
     {
+      component: <GenerationsStep generations={generations} />,
+      validation: () => true
+    },
+    {
       component: <PromptStep />,
       validation: promptValidation
     },
@@ -90,10 +94,6 @@ export default function Generate() {
     },
     {
       component: <ConfirmStep />,
-      validation: () => true
-    },
-    {
-      component: <GenerationsStep generations={generations} />,
       validation: () => true
     }
   ]

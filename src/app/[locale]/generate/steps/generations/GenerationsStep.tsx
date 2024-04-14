@@ -1,4 +1,4 @@
-import { GeneratedCard } from '@/components/GeneratedCard'
+import { GeneratedCards } from '@/components/generatedCards/generatedCards'
 import { Generation } from '@prisma/client'
 
 interface GeneratetioonsStepPropsSchema {
@@ -8,11 +8,5 @@ interface GeneratetioonsStepPropsSchema {
 export const GenerationsStep = ({
   generations
 }: GeneratetioonsStepPropsSchema) => {
-  return (
-    <div className="grid grid-cols-3">
-      {generations.map((generation) => (
-        <GeneratedCard key={generation.id} generation={generation} />
-      ))}
-    </div>
-  )
+  return <GeneratedCards generations={generations} />
 }
