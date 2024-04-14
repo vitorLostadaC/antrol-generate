@@ -24,7 +24,7 @@ import { Avatar } from './avatar'
 import { Coins } from './coins'
 import Link from 'next/link'
 
-interface LinkiSchema {
+interface LinkItemSchema {
   path: string
   name: string
   icon: LucideIcon
@@ -33,7 +33,8 @@ interface LinkiSchema {
 export const Header = async () => {
   const session = await getServerAuthSession()
   const t = await getScopedI18n('header')
-  const links: LinkiSchema[] = [
+
+  const links: LinkItemSchema[] = [
     {
       path: '/generate',
       name: t('navigation.generate'),

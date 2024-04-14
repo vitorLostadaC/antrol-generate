@@ -25,6 +25,7 @@ import { Generation } from '@prisma/client'
 import next from 'next'
 import { GenerationsStep } from './steps/generations/GenerationsStep'
 import { ColorSteps } from './steps/color/data/colors'
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
   prompt: z.string().min(3),
@@ -56,6 +57,7 @@ export default function Generate() {
     primary: ColorSteps.Predefined,
     secondary: ColorSteps.Predefined
   })
+  const router = useRouter()
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -66,6 +68,7 @@ export default function Generate() {
       styles: []
     }
   })
+
   const handleResetToNeweGeneration = () => {
     methods.reset()
     setTabSelectedColor({
@@ -140,6 +143,7 @@ export default function Generate() {
       setGenerations([...generations, generation])
       goTo(steps.length - 1)
       setIsGenerating(false)
+      router.refresh()
     } catch (e) {
       const error = e as Error
       console.log(error.message)
