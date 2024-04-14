@@ -7,7 +7,7 @@ interface GeneratedCardsPropsSchema {
 
 export const GeneratedCards = ({ generations }: GeneratedCardsPropsSchema) => {
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-4 gap-4">
       {generations.map((generation) => (
         <GeneratedCard key={generation.id} generation={generation} />
       ))}
