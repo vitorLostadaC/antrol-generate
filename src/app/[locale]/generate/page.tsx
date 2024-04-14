@@ -24,6 +24,7 @@ import { GetColorName } from 'hex-color-to-color-name'
 import { Generation } from '@prisma/client'
 import next from 'next'
 import { GenerationsStep } from './steps/generations/GenerationsStep'
+import { ColorSteps } from './steps/color/data/colors'
 
 const formSchema = z.object({
   prompt: z.string().min(3),
@@ -50,6 +51,10 @@ export interface MultiFomsSchema {
 export default function Generate() {
   const t = useI18n()
   const [generations, setGenerations] = useState<Generation[]>([])
+  const [tabSelectedColor, setTabSelectedColor] = useState({
+    primary: ColorSteps.Predefined,
+    secondary: ColorSteps.Predefined
+  })
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,7 +72,12 @@ export default function Generate() {
       validation: promptValidation
     },
     {
-      component: <ColorStep />,
+      component: (
+        <ColorStep
+          tabSelected={tabSelectedColor}
+          setTabSelected={setTabSelectedColor}
+        />
+      ),
       validation: colorsValidation
     },
     {

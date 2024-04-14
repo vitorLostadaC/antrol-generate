@@ -2,7 +2,7 @@ import { Label } from '@radix-ui/react-dropdown-menu'
 import { motion } from 'framer-motion'
 import { ColorSteps } from './data/colors'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { ColorPicker } from './colorPicker'
 import { CustomColor } from './customColor'
 import { PredefinedColors } from './predefinedColors'
@@ -15,7 +15,8 @@ interface ColorStepSelectorPropsSchema {
   errorMessage?: string
   currentColor: string
   setValue: (color: string) => void
-  webStorageKey: string
+  tabSelected: ColorSteps
+  setTabSelected: (value: ColorSteps) => void
 }
 
 interface TabsTrigger {
@@ -47,23 +48,20 @@ export const ColorStepSelector = ({
   setValue,
   title,
   errorMessage,
-  webStorageKey
+  setTabSelected,
+  tabSelected
 }: ColorStepSelectorPropsSchema) => {
-  const [tabValue, setTabValue] = useState(() => {
-    return sessionStorage.getItem(webStorageKey) ?? ColorSteps.Predefined
-  })
-
   return (
     <div className="flex flex-col justify-center gap-2">
       <StepTitle title={title} description={description} />
       <Tabs
-        value={tabValue}
+        value={tabSelected}
         defaultValue="account"
         className="flex flex-col gap-3"
         onValueChange={(value) => {
-          setTabValue(value as ColorSteps)
-          sessionStorage.setItem(webStorageKey, value)
-          setValue('')
+          setTabSelected(value as ColorSteps)
+          if (value === ColorSteps.Picker) setValue('#fff')
+          else setValue('')
         }}
       >
         <TabsList>
@@ -73,7 +71,7 @@ export const ColorStepSelector = ({
               value={trigger.value}
             >
               {trigger.name}
-              {tabValue === trigger.value && (
+              {tabSelected === trigger.value && (
                 <motion.span
                   layoutId={selectorName}
                   className="absolute inset-0 z-10 rounded-sm bg-background mix-blend-soft-light"
