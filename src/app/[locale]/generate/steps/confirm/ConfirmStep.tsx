@@ -7,14 +7,10 @@ import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
 import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
 import { SparklesIcon } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { createGeneration } from '@/actions/createGeneration'
 
-interface DisplayItem {
-  name: string
-  value: string | ReactNode
-}
 export const ConfirmStep = () => {
   const { getValues } = useFormContext<FormSchema>()
   const [isGenerating, setIsGenerating] = useState(false)
@@ -85,7 +81,8 @@ export const ConfirmStep = () => {
       <Button
         className="h-12 gap-2 text-lg font-medium text-foreground"
         disabled={isGenerating}
-        onClick={() => setIsGenerating(!isGenerating)}
+        onClick={() => setIsGenerating(true)}
+        type="submit"
       >
         {isGenerating ? (
           <Spinner color={'secondary'} />
