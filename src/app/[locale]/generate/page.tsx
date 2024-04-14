@@ -9,7 +9,7 @@ import {
 } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UseFormSetError, useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { set, z } from 'zod'
 import { PromptStep, promptValidation } from './steps/prompt/promptStep'
 import { ColorStep, colorsValidation } from './steps/color/colorStep'
 import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
@@ -51,6 +51,7 @@ export interface MultiFomsSchema {
 export default function Generate() {
   const t = useI18n()
   const [generations, setGenerations] = useState<Generation[]>([])
+  const [isGenerating, setIsGenerating] = useState(false)
   const [tabSelectedColor, setTabSelectedColor] = useState({
     primary: ColorSteps.Predefined,
     secondary: ColorSteps.Predefined
@@ -61,10 +62,18 @@ export default function Generate() {
       prompt: '',
       primaryColor: '',
       secondaryColor: '',
-      shape: '',
+      shape: 'any shape',
       styles: []
     }
   })
+  const handleResetToNeweGeneration = () => {
+    methods.reset()
+    setTabSelectedColor({
+      primary: ColorSteps.Predefined,
+      secondary: ColorSteps.Predefined
+    })
+    goTo(0)
+  }
 
   const multiFormSteps: MultiFomsSchema[] = [
     {
@@ -89,7 +98,7 @@ export default function Generate() {
       validation: styleValidation
     },
     {
-      component: <ConfirmStep />,
+      component: <ConfirmStep isGenerating={isGenerating} />,
       validation: () => true
     },
     {
@@ -111,6 +120,7 @@ export default function Generate() {
   } = useMultistepForm(multiFormSteps.map((forms) => forms.component))
 
   const onSubmit = methods.handleSubmit(async (data) => {
+    setIsGenerating(true)
     const primaryColor = data.primaryColor.includes('#')
       ? GetColorName(data.primaryColor)
       : data.primaryColor
@@ -129,9 +139,11 @@ export default function Generate() {
       })
       setGenerations([...generations, generation])
       goTo(steps.length - 1)
+      setIsGenerating(false)
     } catch (e) {
       const error = e as Error
       console.log(error.message)
+      setIsGenerating(false)
     }
   })
 
@@ -163,13 +175,22 @@ export default function Generate() {
           <div className="">{step}</div>
         </div>
         <div className="flex justify-between">
-          {!isFirstStep && (
+          {!isFirstStep && !isLastStep && !isGenerating && (
             <Button type="button" variant={'secondary'} onClick={back}>
-              {isLastStep
-                ? t('pages.generate.buttons.generate-other-icon')
-                : t('pages.generate.buttons.previous')}
+              {t('pages.generate.buttons.previous')}
             </Button>
           )}
+
+          {isLastStep && (
+            <Button
+              type="button"
+              variant={'secondary'}
+              onClick={handleResetToNeweGeneration}
+            >
+              {t('pages.generate.buttons.generate-other-icon')}
+            </Button>
+          )}
+
           {!isLastStep && !isPenultimate && (
             <Button
               type="button"

@@ -11,9 +11,12 @@ import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
 import { createGeneration } from '@/actions/createGeneration'
 
-export const ConfirmStep = () => {
+interface ConfirmStepPropsSchema {
+  isGenerating: boolean
+}
+
+export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
   const { getValues } = useFormContext<FormSchema>()
-  const [isGenerating, setIsGenerating] = useState(false)
   const t = useScopedI18n('pages.generate.steps.confirm')
   const predefinedStyles = usePredefinedStyes()
   const predefinedShapes = usePredefinedShape()
@@ -81,7 +84,6 @@ export const ConfirmStep = () => {
       <Button
         className="h-12 gap-2 text-lg font-medium text-foreground"
         disabled={isGenerating}
-        onClick={() => setIsGenerating(true)}
         type="submit"
       >
         {isGenerating ? (
