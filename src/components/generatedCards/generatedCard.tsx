@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import { SimpleDropdown } from '../ui/simpleDropdown'
 import { useScopedI18n } from '@/locales/client'
+import { downloadImage } from '@/lib/image'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
@@ -30,7 +31,14 @@ export const GeneratedCard = ({ generation }: GeneratedCardPropsSchema) => {
             name: t('donwload'),
             icon: DownloadIcon,
             onClick: () => {
-              console.log('teste')
+              try {
+                downloadImage(
+                  generation.imagesURL[0],
+                  'generated-by-antrol-generate.png'
+                )
+              } catch (error) {
+                console.error(error)
+              }
             }
           },
           {
