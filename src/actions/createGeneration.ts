@@ -35,13 +35,20 @@ export const createGeneration = async ({
 
   try {
     // talvez verificar o tipo do erro aqui e fazer ele demorar mais de um minuto
-    iconResponse = await createIcon({
-      primaryColor,
-      secondaryColor,
-      prompt,
-      shape,
-      styles
-    })
+    // iconResponse = await createIcon({
+    //   primaryColor,
+    //   secondaryColor,
+    //   prompt,
+    //   shape,
+    //   styles
+    // })
+    iconResponse = {
+      data: [
+        {
+          url: 'https://static.vecteezy.com/ti/vetor-gratis/p1/9127014-gra-logo-gra-letter-gra-letter-logo-design-initials-gra-logo-linked-with-circle-and-monograma-maiusculo-logo-gra-typography-for-technology-business-and-real-marca-imobiliaria-vetor.jpg'
+        }
+      ]
+    } as any
   } catch (error) {
     try {
       await reimbursementCoin(Cost.Generation)
