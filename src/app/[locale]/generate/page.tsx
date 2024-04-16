@@ -14,18 +14,20 @@ import { PromptStep, promptValidation } from './steps/prompt/promptStep'
 import { ColorStep, colorsValidation } from './steps/color/colorStep'
 import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
 import { StylesStep, styleValidation } from './steps/style/styleStep'
-import { ConfirmStep } from './steps/confirm/ConfirmStep'
+import { ConfirmStep } from './steps/confirm/confirmStep'
 import { ReactElement, useState } from 'react'
 import { createGeneration } from '@/actions/createGeneration'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
-import { useI18n, useScopedI18n } from '@/locales/client'
+import { useI18n } from '@/locales/client'
 import { GetColorName } from 'hex-color-to-color-name'
 import { Generation } from '@prisma/client'
-import next from 'next'
-import { GenerationsStep } from './steps/generations/GenerationsStep'
+import { GenerationsStep } from './steps/generations/generationsStep'
 import { ColorSteps } from './steps/color/data/colors'
 import { useRouter } from 'next/navigation'
+import { useToast } from '@/components/ui/use-toast'
+import { ToastAction } from '@radix-ui/react-toast'
+import next from 'next'
 
 const formSchema = z.object({
   prompt: z.string().min(3),
@@ -57,6 +59,7 @@ export default function Generate() {
     primary: ColorSteps.Predefined,
     secondary: ColorSteps.Predefined
   })
+  const { toast } = useToast()
   const router = useRouter()
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -148,6 +151,31 @@ export default function Generate() {
       const error = e as Error
       console.log(error.message)
       setIsGenerating(false)
+      switch (error.message) {
+        case 'Failed to charge coin':
+          toast({
+            title: t('pages.generate.erros.charge-coin.title'),
+            description: t('pages.generate.erros.charge-coin.description'),
+            action: (
+              <ToastAction
+                altText={t('pages.generate.erros.charge-coin.action')}
+                className="text-nowrap rounded-md border px-2 py-1"
+                onClick={() => router.push('/pricing')}
+              >
+                {t('pages.generate.erros.charge-coin.action')}
+              </ToastAction>
+            ),
+            variant: 'destructive'
+          })
+          break
+        case 'Failed to createIcon':
+          break
+        case 'Failed to reimbursemen coin':
+          break
+        default:
+          console.log('asdfdas')
+          break
+      }
     }
   })
 

@@ -25,6 +25,7 @@ export const createGeneration = async ({
   shape,
   styles
 }: CreateGenerationProps) => {
+  throw new Error('Failed to charge coin')
   try {
     await chargeCoin(Cost.Generation)
   } catch (e) {
@@ -54,10 +55,10 @@ export const createGeneration = async ({
       await reimbursementCoin(Cost.Generation)
     } catch {
       // adicionar alguma coisa aqui, como um analitics ou um email pra mim
-      throw new Error('Failed to reimbursementCoin')
+      throw new Error('Failed to reimbursemen coin')
     }
     // talvez implementar um sistema de mensageria aqui
-    throw new Error('Failed to createIcon coin')
+    throw new Error('Failed to createIcon')
   }
 
   const iconGPTURL = iconResponse?.data[0].url ?? ''

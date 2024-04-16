@@ -204,6 +204,21 @@
             "style": "Style"
           }
         }
+      },
+      "erros": {
+        "charge-coin": {
+          "title": "Not enough coins",
+          "description": "Please buy more coins.",
+          "action": "Buy Coins"
+        },
+        "create-icon": {
+          "title": "Error creating icon",
+          "description": "There was an error creating your icon. Please try again."
+        },
+        "reimbursement-coin": {
+          "title": "Error reimbursing coins",
+          "description": "There was an error reimbursing your coins. Please try again."
+        }
       }
     }
   },
