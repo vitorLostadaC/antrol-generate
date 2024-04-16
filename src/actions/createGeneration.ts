@@ -25,7 +25,6 @@ export const createGeneration = async ({
   shape,
   styles
 }: CreateGenerationProps) => {
-  throw new Error('Failed to charge coin')
   try {
     await chargeCoin(Cost.Generation)
   } catch (e) {

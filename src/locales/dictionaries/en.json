@@ -216,8 +216,8 @@
           "description": "There was an error creating your icon. Please try again."
         },
         "reimbursement-coin": {
-          "title": "Error reimbursing coins",
-          "description": "There was an error reimbursing your coins. Please try again."
+          "title": "Error create icon and reimbursing coins",
+          "description": "If your coin don't come back in 24 hours, please contact us."
         }
       }
     }

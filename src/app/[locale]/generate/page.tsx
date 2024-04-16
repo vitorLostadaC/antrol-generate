@@ -169,8 +169,20 @@ export default function Generate() {
           })
           break
         case 'Failed to createIcon':
+          toast({
+            title: t('pages.generate.erros.create-icon.title'),
+            description: t('pages.generate.erros.create-icon.description'),
+            variant: 'destructive'
+          })
           break
         case 'Failed to reimbursemen coin':
+          toast({
+            title: t('pages.generate.erros.reimbursement-coin.title'),
+            description: t(
+              'pages.generate.erros.reimbursement-coin.description'
+            ),
+            variant: 'destructive'
+          })
           break
         default:
           console.log('asdfdas')
