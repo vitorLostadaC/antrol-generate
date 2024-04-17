@@ -29,8 +29,9 @@ import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
 import next from 'next'
 
+// I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
-  prompt: z.string().min(3),
+  prompt: z.string(),
   primaryColor: colorsSchema.or(z.string()),
   secondaryColor: colorsSchema.or(z.string()),
   shape: shapesSchema.or(z.string()),
@@ -126,6 +127,15 @@ export default function Generate() {
   } = useMultistepForm(multiFormSteps.map((forms) => forms.component))
 
   const onSubmit = methods.handleSubmit(async (data) => {
+    //manual validation
+    if (
+      data.primaryColor === '' ||
+      data.prompt.split(' ').length < 3 ||
+      data.shape === '' ||
+      data.styles.length === 0
+    )
+      return
+
     setIsGenerating(true)
     const primaryColor = data.primaryColor.includes('#')
       ? GetColorName(data.primaryColor)
@@ -149,7 +159,6 @@ export default function Generate() {
       router.refresh()
     } catch (e) {
       const error = e as Error
-      console.log(error.message)
       setIsGenerating(false)
       switch (error.message) {
         case 'Failed to charge coin':
