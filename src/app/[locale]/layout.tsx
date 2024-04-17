@@ -7,6 +7,7 @@ import { Locale } from '@/data/locales'
 import { I18nProviderClient } from '@/locales/client'
 import { Header } from '@/layout/header/'
 import { ThemeWrapper } from '@/contexts/themeWrapper'
+import { Toaster } from '@/components/ui/toaster'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -47,6 +48,7 @@ export default function RootLayout({ children, params }: Props) {
               <main className="container flex flex-1 flex-col max-sm:px-3">
                 {children}
               </main>
+              <Toaster />
             </I18nProviderClient>
           </ThemeWrapper>
         </body>

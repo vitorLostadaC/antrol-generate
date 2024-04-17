@@ -1,5 +1,4 @@
 import { useFormContext } from 'react-hook-form'
-import { ReactNode, useState } from 'react'
 import { FormSchema } from '../../page'
 import { usePredefinedStyes } from '../style/hooks/usePredefinedStyles'
 import { cn } from '@/lib/utils'
@@ -82,12 +81,12 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
       </div>
 
       <Button
-        className="h-12 gap-2 text-lg font-medium text-foreground"
+        className="h-10 gap-2 text-base font-medium"
         disabled={isGenerating}
         type="submit"
       >
         {isGenerating ? (
-          <Spinner color={'secondary'} />
+          <Spinner color={'secondary'} size={'small'} />
         ) : (
           <>
             <span>Generate</span>

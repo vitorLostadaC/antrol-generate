@@ -35,7 +35,7 @@
             "materials": "Experiment with adding materials, like wood, metal, glass"
           },
           "errors": {
-            "min-length": "Please enter at least 3 characters"
+            "min-length": "Please enter at least 3 words"
           }
         },
         "color": {
@@ -203,6 +203,21 @@
             "shape": "Shape",
             "style": "Style"
           }
+        }
+      },
+      "erros": {
+        "charge-coin": {
+          "title": "Not enough coins",
+          "description": "Please buy more coins.",
+          "action": "Buy Coins"
+        },
+        "create-icon": {
+          "title": "Error creating icon",
+          "description": "There was an error creating your icon. Please try again."
+        },
+        "reimbursement-coin": {
+          "title": "Error create icon and reimbursing coins",
+          "description": "If your coin don't come back in 24 hours, please contact us."
         }
       }
     }
