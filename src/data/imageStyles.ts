@@ -78,12 +78,7 @@ export const imageStyles: ImageStyle[] = [
     name: 'Gothic',
     style: 'gothic'
   },
-  {
-    image: futurism,
-    model: 'dall-e-3',
-    name: 'Futurism',
-    style: 'futurism'
-  },
+
   {
     image: popArt,
     model: 'dall-e-3',
@@ -95,12 +90,6 @@ export const imageStyles: ImageStyle[] = [
     model: 'dall-e-3',
     name: 'Digital Glitch',
     style: 'digital glitch'
-  },
-  {
-    image: vaporwave,
-    model: 'dall-e-3',
-    name: 'Vaporwave',
-    style: 'vaporwave'
   },
   {
     image: neonNoir,
