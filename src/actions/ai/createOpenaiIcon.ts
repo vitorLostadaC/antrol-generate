@@ -3,7 +3,7 @@
 import { IShapes, IStyles } from '@/schemas/icons.schema'
 import { openai } from '@/services/openai'
 
-interface CreateIconsPropsSchemas {
+interface CreateOpenaiIconsPropsSchemas {
   styles: IStyles[]
   // model: IModel
   primaryColor: string
@@ -12,13 +12,13 @@ interface CreateIconsPropsSchemas {
   prompt: string
 }
 
-export const createIcon = async ({
+export const createOpenaiIcon = async ({
   primaryColor,
   secondaryColor,
   shape,
   styles,
   prompt
-}: CreateIconsPropsSchemas) => {
+}: CreateOpenaiIconsPropsSchemas) => {
   const customizedPrompt = `A modern icon showcasing a ${shape}, rendered with primary color ${primaryColor} ${secondaryColor ? 'and seconddary ' + secondaryColor : ''}, visually representing ${prompt}. Aim for a style that combines hyper-realistic textures with vibrant, cinematic lighting, akin to high-quality renders seen in top-rated ArtStation projects and Unreal Engine visuals. Focus on ${styles.join(', ')} to achieve an aesthetic that is both trending and visually stunning`
 
   const response = await openai.images.generate({
