@@ -48,6 +48,18 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
         </div>
       </div>
 
+      <h2>{t('steps.shape')}</h2>
+
+      <div className="w-28 space-y-2 text-center">
+        <img
+          src={currentShape?.image.src}
+          alt={currentShape?.name}
+          className={cn('aspect-square rounded-md bg-contain')}
+        />
+
+        <p className="text-foreground">{currentShape?.name}</p>
+      </div>
+
       <h2>{t('steps.style')}</h2>
       <div className="grid grid-cols-4 gap-6">
         {getValues('styles').map((style) => {
@@ -66,18 +78,6 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
             </div>
           )
         })}
-      </div>
-
-      <h2>{t('steps.shape')}</h2>
-
-      <div className="w-28 space-y-2 text-center">
-        <img
-          src={currentShape?.image.src}
-          alt={currentShape?.name}
-          className={cn('aspect-square rounded-md bg-contain')}
-        />
-
-        <p className="text-foreground">{currentShape?.name}</p>
       </div>
 
       <Button
