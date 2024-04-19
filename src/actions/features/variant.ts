@@ -11,7 +11,7 @@ import { Generation } from '@prisma/client'
 import { uploadS3 } from '../aws/uploadS3'
 import { openai } from '../ai'
 
-interface generationProps {
+interface CreateGenerationProps {
   styles: IStyles[]
   primaryColor: string
   secondaryColor?: string
@@ -19,13 +19,13 @@ interface generationProps {
   prompt: string
 }
 // TODO improve this erros handling
-export const generate = async ({
+export const variant = async ({
   primaryColor,
   secondaryColor,
   prompt,
   shape,
   styles
-}: generationProps) => {
+}: CreateGenerationProps) => {
   try {
     await chargeCoin(Cost.Generation)
   } catch (e) {
@@ -35,14 +35,9 @@ export const generate = async ({
   let iconResponse: ImagesResponse | null = null
 
   try {
-    // talvez verificar o tipo do erro aqui e fazer ele demorar mais de um minuto
-    // iconResponse = await openai.createOpenaiIcon({
-    //   primaryColor,
-    //   secondaryColor,
-    //   prompt,
-    //   shape,
-    //   styles
-    // })
+    openai.variantOpenaiIcon({
+      image: ''
+    })
     iconResponse = {
       data: [
         {
