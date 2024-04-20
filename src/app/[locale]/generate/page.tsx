@@ -16,7 +16,6 @@ import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
 import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/confirmStep'
 import { ReactElement, useState } from 'react'
-import { createGeneration } from '@/actions/createGeneration'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { useI18n } from '@/locales/client'
@@ -27,7 +26,7 @@ import { ColorSteps } from './steps/color/data/colors'
 import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
-import next from 'next'
+import { generate } from '@/actions/features/generate'
 
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
@@ -146,7 +145,7 @@ export default function Generate() {
       : data.secondaryColor
 
     try {
-      const generation = await createGeneration({
+      const generation = await generate({
         primaryColor,
         secondaryColor,
         prompt: data.prompt,

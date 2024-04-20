@@ -24,25 +24,27 @@ export const usePredefinedShape = () => {
       name: t('any-shape')
     },
     {
-      shape: 'square',
-      image: square,
-      name: t('square')
-    },
-    {
       shape: 'circle',
       image: circle,
       name: t('circle')
-    },
-    {
-      shape: 'hexagon',
-      image: hexagon,
-      name: t('hexagon')
     },
     {
       shape: 'triangle',
       image: triangle,
       name: t('triangle')
     },
+    {
+      shape: 'square',
+      image: square,
+      name: t('square')
+    },
+
+    {
+      shape: 'hexagon',
+      image: hexagon,
+      name: t('hexagon')
+    },
+
     {
       shape: 'star',
       image: star,

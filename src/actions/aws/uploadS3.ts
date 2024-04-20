@@ -6,7 +6,7 @@ import { s3Client } from '@/services/s3'
 import { PutObjectCommand } from '@aws-sdk/client-s3'
 import { randomUUID } from 'crypto'
 
-export const uploadFile = async (imageURL: string): Promise<string | null> => {
+export const uploadS3 = async (imageURL: string): Promise<string | null> => {
   const filename = randomUUID()
 
   const session = await getServerAuthSession()

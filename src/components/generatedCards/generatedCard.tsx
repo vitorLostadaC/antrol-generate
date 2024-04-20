@@ -41,13 +41,7 @@ export const GeneratedCard = ({ generation }: GeneratedCardPropsSchema) => {
               }
             }
           },
-          {
-            name: t('variant'),
-            icon: DnaIcon,
-            onClick: () => {
-              console.log('teste')
-            }
-          },
+
           {
             name: t('reuse-prompt'),
             icon: Layers2,

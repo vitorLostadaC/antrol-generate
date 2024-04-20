@@ -1,16 +1,17 @@
 'use server'
 
 import { Cost } from '@/data/costs'
-import { chargeCoin } from './chargeCoin'
-import { createIcon } from './createIcon'
+import { chargeCoin } from '../prisma/chargeCoin'
+import { createOpenaiIcon } from '../ai/createOpenaiIcon'
 import { ImagesResponse } from 'openai/resources/images.mjs'
-import { reimbursementCoin } from './reimbursementCoin'
-import { saveGeneration } from './saveGeneration'
+import { reimbursementCoin } from '../prisma/reimbursementCoin'
+import { saveGeneration } from '../prisma/saveGeneration'
 import { IStyles, IShapes } from '@/schemas/icons.schema'
 import { Generation } from '@prisma/client'
-import { uploadFile } from './uploadFile'
+import { uploadS3 } from '../aws/uploadS3'
+import { openai } from '../ai'
 
-interface CreateGenerationProps {
+interface generationProps {
   styles: IStyles[]
   primaryColor: string
   secondaryColor?: string
@@ -18,13 +19,13 @@ interface CreateGenerationProps {
   prompt: string
 }
 // TODO improve this erros handling
-export const createGeneration = async ({
+export const generate = async ({
   primaryColor,
   secondaryColor,
   prompt,
   shape,
   styles
-}: CreateGenerationProps) => {
+}: generationProps) => {
   try {
     await chargeCoin(Cost.Generation)
   } catch (e) {
@@ -35,7 +36,7 @@ export const createGeneration = async ({
 
   try {
     // talvez verificar o tipo do erro aqui e fazer ele demorar mais de um minuto
-    // iconResponse = await createIcon({
+    // iconResponse = await openai.createOpenaiIcon({
     //   primaryColor,
     //   secondaryColor,
     //   prompt,
@@ -65,7 +66,7 @@ export const createGeneration = async ({
   let iconURL: string = ''
 
   try {
-    iconURL = (await uploadFile(iconGPTURL)) ?? ''
+    iconURL = (await uploadS3(iconGPTURL)) ?? ''
   } catch {
     console.log('depois eu vejo')
   }
