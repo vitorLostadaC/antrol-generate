@@ -26,7 +26,7 @@ export const uploadS3 = async (imageURL: string): Promise<string | null> => {
     Bucket: process.env.AWS_S3_BUCKET_NAME,
     Key: filePath,
     Body: imageBuffer,
-    ContentType: 'image/jpg'
+    ContentType: 'image/png'
   }
 
   await s3Client.send(new PutObjectCommand(params))

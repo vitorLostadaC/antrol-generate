@@ -48,14 +48,15 @@ export const GeneratedCard = ({ generation }: GeneratedCardPropsSchema) => {
             onClick: () => {
               console.log('teste')
             }
-          },
-          {
-            name: t('remove-bg'),
-            icon: EraserIcon,
-            onClick: () => {
-              console.log('teste')
-            }
           }
+          // add on v2
+          // {
+          //   name: t('remove-bg'),
+          //   icon: EraserIcon,
+          //   onClick: () => {
+          //     console.log('teste')
+          //   }
+          // }
         ]}
       >
         <div className="absolute -right-2 -top-2 flex cursor-pointer items-center justify-center rounded-full bg-secondary p-1.5">
