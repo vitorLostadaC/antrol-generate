@@ -217,7 +217,7 @@ export default function Generate() {
     <Form {...methods}>
       <form
         onSubmit={onSubmit}
-        className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2 py-4"
+        className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2"
       >
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl font-semibold">

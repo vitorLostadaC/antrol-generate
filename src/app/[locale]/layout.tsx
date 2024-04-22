@@ -39,13 +39,13 @@ export default function RootLayout({ children, params }: Props) {
         >
           <ThemeWrapper
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
             <I18nProviderClient locale={params.locale}>
               <Header />
-              <main className="container flex flex-1 flex-col max-sm:px-3">
+              <main className="container flex flex-1 flex-col py-4 max-sm:px-3">
                 {children}
               </main>
               <Toaster />
