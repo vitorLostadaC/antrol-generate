@@ -8,7 +8,6 @@ import { StepTitle } from '../../components/stepTitle'
 import { SparklesIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
-import { createGeneration } from '@/actions/createGeneration'
 
 interface ConfirmStepPropsSchema {
   isGenerating: boolean
