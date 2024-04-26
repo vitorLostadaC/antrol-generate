@@ -115,7 +115,9 @@ export const Header = async () => {
           {session ? (
             <>
               <Coins session={session} />
-              <Button size={'default'}>{t('buy-credis')}</Button>
+              <Button size={'default'} asChild>
+                <Link href={'/pricing'}>{t('buy-credis')}</Link>
+              </Button>
               {session && <Avatar session={session} />}
             </>
           ) : (

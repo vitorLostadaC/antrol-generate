@@ -1,12 +1,12 @@
 'use client'
 
 import { StripeProductName } from '@/data/stripeProducts'
-import { createSubscribeSession } from './actions/createSubscribeSession'
+import { createCheckoutSession } from './actions/createCheckoutSession'
 
 export default function Pricing() {
   const handleClickProduct = async (productPriceName: StripeProductName) => {
     try {
-      const response = await createSubscribeSession(productPriceName)
+      const response = await createCheckoutSession(productPriceName)
       if (response.url) {
         window.location.href = response.url
       }

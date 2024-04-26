@@ -17,7 +17,8 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: z.string(),
     JWT_SECRET: z.string(),
     STRIPE_PUBLIC_KEY: z.string(),
-    STRIPE_SECRET_KEY: z.string()
+    STRIPE_SECRET_KEY: z.string(),
+    STRIPE_WEBHOOK_SECRET: z.string()
   },
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
@@ -43,6 +44,7 @@ export const env = createEnv({
     JWT_SECRET: process.env.JWT_SECRET,
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET
   }
 })
