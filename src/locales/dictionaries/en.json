@@ -197,7 +197,8 @@
           "title": "5. Confirm your icon",
           "description": "Here's your icon. If you're happy with it, click 'Generate'. If not, go back and make changes.",
           "buttons": {
-            "generate": "Generate"
+            "generate": "Generate",
+            "buy-coin": "Buy Coin!"
           },
           "steps": {
             "prompt": "Prompt",

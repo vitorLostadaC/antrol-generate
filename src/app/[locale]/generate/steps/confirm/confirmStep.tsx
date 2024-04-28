@@ -86,7 +86,7 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
 
       {userHasMoney ? (
         <Button
-          className="h-10 gap-2 text-base font-medium"
+          className="gap-2 font-medium"
           disabled={isGenerating}
           type="submit"
         >
@@ -100,9 +100,13 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
           )}
         </Button>
       ) : (
-        <Button type="button" onClick={() => router.push('/pricing')}>
+        <Button
+          type="button"
+          className="gap-2 font-medium"
+          onClick={() => router.push('/pricing')}
+        >
           <>
-            <span>Buy Credits!</span>
+            <span>{t('buttons.buy-coin')}</span>
             <ShoppingCartIcon size={20} />
           </>
         </Button>
