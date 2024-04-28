@@ -63,6 +63,7 @@ interface DefaultFormValuesWebStorageSchema {
     primary: ColorSteps
     secondary: ColorSteps
   }
+  step: number
 }
 
 export default function Generate() {
@@ -142,7 +143,10 @@ export default function Generate() {
     isPenultimate,
     goTo,
     steps
-  } = useMultistepForm(multiFormSteps.map((forms) => forms.component))
+  } = useMultistepForm(
+    multiFormSteps.map((forms) => forms.component),
+    formDefaultValues?.step
+  )
 
   const onSubmit = methods.handleSubmit(async (data) => {
     //manual validation
@@ -239,7 +243,8 @@ export default function Generate() {
       secondaryColor,
       shape,
       styles,
-      tabSelectedColor
+      tabSelectedColor,
+      step: currentStepIndex + 1
     }
     sessionStorage.setItem(
       WebStorage.GenerateForm,
