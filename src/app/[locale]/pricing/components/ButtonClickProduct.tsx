@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { StripeProductName } from '@/data/stripeProducts'
+import { StripeProductName, stripeProducts } from '@/data/stripeProducts'
 import { createCheckoutSession } from '../actions/createCheckoutSession'
 import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@/components/ui/toast'
@@ -11,16 +11,21 @@ import { useScopedI18n } from '@/locales/client'
 interface ButtonClickProductPropsSchema {
   children: React.ReactNode
   productName: StripeProductName
+  isBRl: boolean
 }
 export const ButtonClickProduct = ({
   children,
-  productName
+  productName,
+  isBRl
 }: ButtonClickProductPropsSchema) => {
   const { toast } = useToast()
   const t = useScopedI18n('pages.pricing.erros')
   const handleClickProduct = async (productName: StripeProductName) => {
     try {
-      const response = await createCheckoutSession(productName)
+      const response = await createCheckoutSession(
+        productName,
+        isBRl ? 'brl' : 'usd'
+      )
       if (response.url) {
         window.location.href = response.url
       }

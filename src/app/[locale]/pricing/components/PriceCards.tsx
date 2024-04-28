@@ -18,7 +18,7 @@ interface PlanCardSchema {
 
 export const PriceCards = async () => {
   const locale = getCurrentLocale()
-  const isBR = locale === 'pt'
+  const isBRL = locale === 'pt'
 
   const t = await getScopedI18n('pages.pricing.plans')
 
@@ -57,8 +57,8 @@ export const PriceCards = async () => {
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
       {plans.map((plan, index) => {
-        const currencySymbol = isBR ? 'R$ ' : '$'
-        const price = isBR ? plan.priceBRL : plan.priceUSD
+        const currencySymbol = isBRL ? 'R$ ' : '$'
+        const price = isBRL ? plan.priceBRL : plan.priceUSD
         const coins = stripeProducts[plan.productName].quota.coins
 
         return (
@@ -85,7 +85,7 @@ export const PriceCards = async () => {
                 </p>
               </div>
 
-              <ButtonClickProduct productName={plan.productName}>
+              <ButtonClickProduct productName={plan.productName} isBRl={isBRL}>
                 {t('button')} {currencySymbol}
                 {price}
               </ButtonClickProduct>
