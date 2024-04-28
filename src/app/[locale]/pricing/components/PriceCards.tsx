@@ -1,5 +1,3 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
 import emeraldPlan from '@/assets/imagesPlan/emeraldPlan.png'
 import diamondPlan from '@/assets/imagesPlan/diamondPlan.png'
@@ -7,8 +5,8 @@ import ironPlan from '@/assets/imagesPlan/ironPlan.png'
 import woodPlan from '@/assets/imagesPlan/woodPlan.png'
 import { StripeProductName, stripeProducts } from '@/data/stripeProducts'
 import { cn } from '@/lib/utils'
-
-interface PriceCardsSchema {}
+import { ButtonClickProduct } from './ButtonClickProduct'
+import { getCurrentLocale } from '@/locales/server'
 
 interface PlanCardSchema {
   title: string
@@ -19,7 +17,10 @@ interface PlanCardSchema {
   mostPopular?: boolean
 }
 
-export const PriceCards = ({}: PriceCardsSchema) => {
+export const PriceCards = () => {
+  const locale = getCurrentLocale()
+  const isBR = locale === 'pt'
+
   const plans: PlanCardSchema[] = [
     {
       priceBRL: 10,
@@ -55,15 +56,15 @@ export const PriceCards = ({}: PriceCardsSchema) => {
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
       {plans.map((plan, index) => {
-        const currencySymbol = '$'
-        const price = plan.priceBRL
+        const currencySymbol = isBR ? 'R$ ' : '$'
+        const price = isBR ? plan.priceBRL : plan.priceUSD
         const coins = stripeProducts[plan.productName].quota.coins
 
         return (
           <div
             key={index}
             className={cn(
-              'flex w-80 flex-col items-center justify-center rounded-lg border border-foreground/20 p-6 text-center tracking-wider',
+              'flex flex-col items-center justify-center rounded-lg border border-foreground/20 p-6 text-center tracking-wider',
               plan.mostPopular && 'border-primary/40 bg-primary/5'
             )}
           >
@@ -81,8 +82,10 @@ export const PriceCards = ({}: PriceCardsSchema) => {
                 </p>
               </div>
 
-              {/* TODO arrumjar aqui */}
-              <Button className="w-full">Buy for ${plan.priceBRL}</Button>
+              <ButtonClickProduct productName={plan.productName}>
+                Buy for {currencySymbol}
+                {price}
+              </ButtonClickProduct>
             </div>
           </div>
         )
