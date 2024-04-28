@@ -3,6 +3,10 @@
 import { Button } from '@/components/ui/button'
 import { StripeProductName } from '@/data/stripeProducts'
 import { createCheckoutSession } from '../actions/createCheckoutSession'
+import { useToast } from '@/components/ui/use-toast'
+import { ToastAction } from '@/components/ui/toast'
+import { signIn } from 'next-auth/react'
+import { useScopedI18n } from '@/locales/client'
 
 interface ButtonClickProductPropsSchema {
   children: React.ReactNode
@@ -12,6 +16,8 @@ export const ButtonClickProduct = ({
   children,
   productName
 }: ButtonClickProductPropsSchema) => {
+  const { toast } = useToast()
+  const t = useScopedI18n('pages.pricing.erros')
   const handleClickProduct = async (productName: StripeProductName) => {
     try {
       const response = await createCheckoutSession(productName)
@@ -20,13 +26,25 @@ export const ButtonClickProduct = ({
       }
     } catch (error) {
       if ((error as Error).message === 'User not found') {
-        console.log('User not found')
-        //Todo login
+        toast({
+          title: t('login-required.title'),
+          description: t('login-required.description'),
+          variant: 'destructive',
+          action: (
+            <ToastAction altText="sign in" onClick={() => signIn('google')}>
+              {t('login-required.action')}
+            </ToastAction>
+          )
+        })
       } else if (
         (error as Error).message === 'Error to create checkout session'
       ) {
-        console.log('Error to create checkout session')
-        //Todo error message
+        toast({
+          title: t('unespected-error.title'),
+          description: t('unespected-error.description'),
+          variant: 'destructive'
+        })
+        //Todo sentry error message
       }
     }
   }

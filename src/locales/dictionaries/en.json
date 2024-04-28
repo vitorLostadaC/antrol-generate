@@ -239,6 +239,17 @@
         "coins": "coins",
         "coins-cost": "Each coin costs",
         "button": "Buy for"
+      },
+      "erros": {
+        "login-required": {
+          "title": "Login Required",
+          "description": "Please login to buy coins.",
+          "action": "Sign In"
+        },
+        "unespected-error": {
+          "title": "Error to create checkout session",
+          "description": "Please try again later"
+        }
       }
     }
   },

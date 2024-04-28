@@ -69,7 +69,7 @@ export const PriceCards = async () => {
               plan.mostPopular && 'border-primary/40 bg-primary/5'
             )}
           >
-            <img src={plan.image} alt={plan.title} className="w-36" />
+            <img src={plan.image} alt={plan.title} className="h-36 w-36" />
             <div className="w-full space-y-6">
               <div className="space-y-2">
                 <h2 className="mt-4 text-xl font-semibold uppercase text-foreground/40">
