@@ -3,6 +3,7 @@
 import { useMultistepForm } from '@/hooks/useMultistepForm'
 import {
   IShapes,
+  IStyles,
   colorsSchema,
   shapesSchema,
   stylesSchema
@@ -15,7 +16,7 @@ import { ColorStep, colorsValidation } from './steps/color/colorStep'
 import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
 import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/confirmStep'
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { useI18n } from '@/locales/client'
@@ -27,6 +28,7 @@ import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
 import { generate } from '@/actions/features/generate'
+import { WebStorage } from '@/data/webStorage'
 
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
@@ -51,24 +53,41 @@ export interface MultiFomsSchema {
   validation: (params: GenericValidationParms) => boolean
 }
 
+interface DefaultFormValuesWebStorageSchema {
+  prompt: string
+  primaryColor: string
+  secondaryColor: string
+  shape: string
+  styles: IStyles[]
+  tabSelectedColor: {
+    primary: ColorSteps
+    secondary: ColorSteps
+  }
+}
+
 export default function Generate() {
+  const generateFormWebStorage = sessionStorage.getItem(WebStorage.GenerateForm)
+  const formDefaultValues: DefaultFormValuesWebStorageSchema | null =
+    generateFormWebStorage && JSON.parse(generateFormWebStorage)
   const t = useI18n()
   const [generations, setGenerations] = useState<Generation[]>([])
   const [isGenerating, setIsGenerating] = useState(false)
   const [tabSelectedColor, setTabSelectedColor] = useState({
-    primary: ColorSteps.Predefined,
-    secondary: ColorSteps.Predefined
+    primary:
+      formDefaultValues?.tabSelectedColor?.primary ?? ColorSteps.Predefined,
+    secondary:
+      formDefaultValues?.tabSelectedColor?.secondary ?? ColorSteps.Predefined
   })
   const { toast } = useToast()
   const router = useRouter()
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt: '',
-      primaryColor: '',
-      secondaryColor: '',
-      shape: 'any shape',
-      styles: []
+      prompt: formDefaultValues?.prompt ?? '',
+      primaryColor: formDefaultValues?.primaryColor ?? '',
+      secondaryColor: formDefaultValues?.secondaryColor ?? '',
+      shape: formDefaultValues?.shape ?? 'any shape',
+      styles: formDefaultValues?.styles ?? []
     }
   })
 
@@ -155,6 +174,7 @@ export default function Generate() {
       setGenerations([...generations, generation])
       goTo(steps.length - 1)
       setIsGenerating(false)
+      sessionStorage.removeItem(WebStorage.GenerateForm)
       router.refresh()
     } catch (e) {
       const error = e as Error
@@ -209,6 +229,22 @@ export default function Generate() {
     if (!validation) {
       return
     }
+
+    const { primaryColor, prompt, secondaryColor, shape, styles } =
+      methods.getValues()
+
+    const newSessionStorageValues: DefaultFormValuesWebStorageSchema = {
+      prompt,
+      primaryColor,
+      secondaryColor,
+      shape,
+      styles,
+      tabSelectedColor
+    }
+    sessionStorage.setItem(
+      WebStorage.GenerateForm,
+      JSON.stringify(newSessionStorageValues)
+    )
 
     next()
   }

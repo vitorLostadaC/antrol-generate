@@ -1,1 +1,3 @@
-export const enum WebStorage {}
+export const enum WebStorage {
+  GenerateForm = 'antrol-generate.generate-form'
+}
