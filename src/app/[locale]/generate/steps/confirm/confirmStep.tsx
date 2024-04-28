@@ -5,9 +5,11 @@ import { cn } from '@/lib/utils'
 import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
 import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
-import { SparklesIcon } from 'lucide-react'
+import { ShoppingCartIcon, SparklesIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 interface ConfirmStepPropsSchema {
   isGenerating: boolean
@@ -18,6 +20,9 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
   const t = useScopedI18n('pages.generate.steps.confirm')
   const predefinedStyles = usePredefinedStyes()
   const predefinedShapes = usePredefinedShape()
+  const { data } = useSession()
+  const router = useRouter()
+  const userHasMoney = data?.user.coins && data?.user.coins >= 2
 
   const currentShape = predefinedShapes.find(
     (shape) => shape.shape === getValues('shape')
@@ -79,20 +84,29 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
         })}
       </div>
 
-      <Button
-        className="h-10 gap-2 text-base font-medium"
-        disabled={isGenerating}
-        type="submit"
-      >
-        {isGenerating ? (
-          <Spinner color={'secondary'} size={'small'} />
-        ) : (
+      {userHasMoney ? (
+        <Button
+          className="h-10 gap-2 text-base font-medium"
+          disabled={isGenerating}
+          type="submit"
+        >
+          {isGenerating ? (
+            <Spinner color={'secondary'} size={'small'} />
+          ) : (
+            <>
+              <span>{t('buttons.generate')}</span>
+              <SparklesIcon size={20} />
+            </>
+          )}
+        </Button>
+      ) : (
+        <Button type="button" onClick={() => router.push('/pricing')}>
           <>
-            <span>{t('buttons.generate')}</span>
-            <SparklesIcon size={20} />
+            <span>Buy Credits!</span>
+            <ShoppingCartIcon size={20} />
           </>
-        )}
-      </Button>
+        </Button>
+      )}
     </div>
   )
 }
