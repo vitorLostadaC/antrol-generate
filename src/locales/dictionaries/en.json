@@ -228,6 +228,17 @@
         "title1": "Please review our",
         "refund": "Refund Policy",
         "title2": "before buying credits. We do not issue refunds at this time."
+      },
+      "plans": {
+        "names": {
+          "starter": "Starter",
+          "builder": "Builder",
+          "pro": "Pro",
+          "master": "Master"
+        },
+        "coins": "coins",
+        "coins-cost": "Each coin costs",
+        "button": "Buy for"
       }
     }
   },

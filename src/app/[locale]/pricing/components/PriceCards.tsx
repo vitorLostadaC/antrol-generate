@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import emeraldPlan from '@/assets/imagesPlan/emeraldPlan.png'
 import diamondPlan from '@/assets/imagesPlan/diamondPlan.png'
 import ironPlan from '@/assets/imagesPlan/ironPlan.png'
@@ -6,7 +5,7 @@ import woodPlan from '@/assets/imagesPlan/woodPlan.png'
 import { StripeProductName, stripeProducts } from '@/data/stripeProducts'
 import { cn } from '@/lib/utils'
 import { ButtonClickProduct } from './ButtonClickProduct'
-import { getCurrentLocale } from '@/locales/server'
+import { getCurrentLocale, getScopedI18n } from '@/locales/server'
 
 interface PlanCardSchema {
   title: string
@@ -17,23 +16,25 @@ interface PlanCardSchema {
   mostPopular?: boolean
 }
 
-export const PriceCards = () => {
+export const PriceCards = async () => {
   const locale = getCurrentLocale()
   const isBR = locale === 'pt'
+
+  const t = await getScopedI18n('pages.pricing.plans')
 
   const plans: PlanCardSchema[] = [
     {
       priceBRL: 10,
       priceUSD: 2,
       productName: '10credits',
-      title: 'Starter',
+      title: t('names.starter'),
       image: woodPlan.src
     },
     {
       priceBRL: 35,
       priceUSD: 7.5,
       productName: '50credits',
-      title: 'Builder',
+      title: t('names.builder'),
       image: ironPlan.src,
       mostPopular: true
     },
@@ -41,14 +42,14 @@ export const PriceCards = () => {
       priceBRL: 60,
       priceUSD: 12,
       productName: '100credits',
-      title: 'Pro',
+      title: t('names.pro'),
       image: diamondPlan.src
     },
     {
       priceBRL: 100,
       priceUSD: 20,
       productName: '200credits',
-      title: 'Master',
+      title: t('names.master'),
       image: emeraldPlan.src
     }
   ]
@@ -75,15 +76,17 @@ export const PriceCards = () => {
                   {plan.title}
                 </h2>
 
-                <p className="text-2xl">{coins} coins</p>
+                <p className="text-2xl">
+                  {coins} {t('coins')}
+                </p>
                 <p className="text-foreground/70">
-                  Each credit costs {currencySymbol}
+                  {t('coins-cost')} {currencySymbol}
                   {price / coins}
                 </p>
               </div>
 
               <ButtonClickProduct productName={plan.productName}>
-                Buy for {currencySymbol}
+                {t('button')} {currencySymbol}
                 {price}
               </ButtonClickProduct>
             </div>
