@@ -88,7 +88,7 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
           <Spinner color={'secondary'} size={'small'} />
         ) : (
           <>
-            <span>Generate</span>
+            <span>{t('buttons.generate')}</span>
             <SparklesIcon size={20} />
           </>
         )}
