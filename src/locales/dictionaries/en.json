@@ -220,6 +220,14 @@
           "description": "If your coin don't come back in 24 hours, please contact us."
         }
       }
+    },
+    "pricing": {
+      "title": "Buy Coins",
+      "description": "Buy credits to use our services and get access to the best features",
+      "alert": {
+        "title": "Please review our {refundLink} before buying credits. We do not issue refunds at this time.",
+        "refund": "Refund Policy"
+      }
     }
   },
   "components": {
