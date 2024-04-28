@@ -81,7 +81,7 @@ export const PriceCards = async () => {
                 </p>
                 <p className="text-foreground/70">
                   {t('coins-cost')} {currencySymbol}
-                  {price / coins}
+                  {(price / coins).toFixed(2)}
                 </p>
               </div>
 
