@@ -1,35 +1,31 @@
-'use client'
+import { PriceCards } from './components/PriceCards'
+import { Alert, AlertTitle } from '@/components/ui/alert'
+import { getScopedI18n } from '@/locales/server'
+import { AlertTriangleIcon } from 'lucide-react'
+import Link from 'next/link'
 
-import { StripeProductName } from '@/data/stripeProducts'
-import { createCheckoutSession } from './actions/createCheckoutSession'
-
-export default function Pricing() {
-  const handleClickProduct = async (productPriceName: StripeProductName) => {
-    try {
-      const response = await createCheckoutSession(productPriceName)
-      if (response.url) {
-        window.location.href = response.url
-      }
-    } catch (error) {
-      if ((error as Error).message === 'User not found') {
-        console.log('User not found')
-        //Todo login
-      } else if (
-        (error as Error).message === 'Error to create checkout session'
-      ) {
-        console.log('Error to create checkout session')
-        //Todo error message
-      }
-    }
-  }
+export default async function Pricing() {
+  const t = await getScopedI18n('pages.pricing')
 
   return (
-    <div>
-      <button onClick={() => handleClickProduct('10credits')}>
-        10 credits
-      </button>
-      <button>50 reais</button>
-      <button>100 reais</button>
+    <div className="flex flex-col items-center justify-center gap-10">
+      <div className="space-y-2 text-center">
+        <h1 className="text-3xl">{t('title')}</h1>
+        <p className="text-gray-500">{t('description')}</p>
+      </div>
+      <div className="w-full space-y-4">
+        <Alert variant="warn" className="w-full">
+          <AlertTriangleIcon className="h-4 w-4" />
+          <AlertTitle>
+            {t('alert.title1')}{' '}
+            <Link href={'refund'} className="underline">
+              {t('alert.refund')}
+            </Link>{' '}
+            {t('alert.title2')}
+          </AlertTitle>
+        </Alert>
+        <PriceCards />
+      </div>
     </div>
   )
 }

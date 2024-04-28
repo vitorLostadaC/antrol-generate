@@ -6,7 +6,8 @@ import { getServerAuthSession } from '@/lib/auth'
 import { stripe } from '@/services/stripe'
 
 export const createCheckoutSession = async (
-  productPriceName: StripeProductName
+  productPriceName: StripeProductName,
+  currency: 'brl' | 'usd'
 ) => {
   const session = await getServerAuthSession()
 
@@ -25,6 +26,7 @@ export const createCheckoutSession = async (
           quantity: 1
         }
       ],
+      currency: currency,
       mode: 'payment',
       success_url: `${env.NEXT_PUBLIC_APP_URL}/generate`,
       cancel_url: `${env.NEXT_PUBLIC_APP_URL}/pricing`,

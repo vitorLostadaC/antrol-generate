@@ -220,6 +220,37 @@
           "description": "If your coin don't come back in 24 hours, please contact us."
         }
       }
+    },
+    "pricing": {
+      "title": "Buy Coins",
+      "description": "Buy credits to use our services and get access to the best features",
+      "alert": {
+        "title1": "Please review our",
+        "refund": "Refund Policy",
+        "title2": "before buying credits. We do not issue refunds at this time."
+      },
+      "plans": {
+        "names": {
+          "starter": "Starter",
+          "builder": "Builder",
+          "pro": "Pro",
+          "master": "Master"
+        },
+        "coins": "coins",
+        "coins-cost": "Each coin costs",
+        "button": "Buy for"
+      },
+      "erros": {
+        "login-required": {
+          "title": "Login Required",
+          "description": "Please login to buy coins.",
+          "action": "Sign In"
+        },
+        "unespected-error": {
+          "title": "Error to create checkout session",
+          "description": "Please try again later"
+        }
+      }
     }
   },
   "components": {
