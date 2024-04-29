@@ -10,7 +10,7 @@ import {
 } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UseFormSetError, useForm } from 'react-hook-form'
-import { set, z } from 'zod'
+import { z } from 'zod'
 import { PromptStep, promptValidation } from './steps/prompt/promptStep'
 import { ColorStep, colorsValidation } from './steps/color/colorStep'
 import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
@@ -53,7 +53,7 @@ export interface MultiFomsSchema {
   validation: (params: GenericValidationParms) => boolean
 }
 
-interface DefaultFormValuesWebStorageSchema {
+export interface DefaultFormValuesWebStorageSchema {
   prompt: string
   primaryColor: string
   secondaryColor: string
@@ -67,38 +67,42 @@ interface DefaultFormValuesWebStorageSchema {
 }
 
 export default function Generate() {
-  const generateFormWebStorage = sessionStorage.getItem(WebStorage.GenerateForm)
-  const formDefaultValues: DefaultFormValuesWebStorageSchema | null =
-    generateFormWebStorage && JSON.parse(generateFormWebStorage)
   const t = useI18n()
   const [generations, setGenerations] = useState<Generation[]>([])
   const [isGenerating, setIsGenerating] = useState(false)
   const [tabSelectedColor, setTabSelectedColor] = useState({
-    primary:
-      formDefaultValues?.tabSelectedColor?.primary ?? ColorSteps.Predefined,
-    secondary:
-      formDefaultValues?.tabSelectedColor?.secondary ?? ColorSteps.Predefined
+    primary: ColorSteps.Predefined,
+    secondary: ColorSteps.Predefined
   })
   const { toast } = useToast()
   const router = useRouter()
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt: formDefaultValues?.prompt ?? '',
-      primaryColor: formDefaultValues?.primaryColor ?? '',
-      secondaryColor: formDefaultValues?.secondaryColor ?? '',
-      shape: formDefaultValues?.shape ?? 'any shape',
-      styles: formDefaultValues?.styles ?? []
+      prompt: '',
+      primaryColor: '',
+      secondaryColor: '',
+      shape: 'any shape',
+      styles: []
     }
   })
 
-  const handleResetToNeweGeneration = () => {
-    methods.reset()
-    setTabSelectedColor({
-      primary: ColorSteps.Predefined,
-      secondary: ColorSteps.Predefined
+  const handleResetToNeweGeneration = (
+    defaultValues?: DefaultFormValuesWebStorageSchema
+  ) => {
+    methods.reset({
+      prompt: defaultValues?.prompt ?? '',
+      primaryColor: defaultValues?.primaryColor ?? '',
+      secondaryColor: defaultValues?.secondaryColor ?? '',
+      shape: defaultValues?.shape ?? 'any shape',
+      styles: defaultValues?.styles ?? []
     })
-    goTo(0)
+    setTabSelectedColor({
+      primary: defaultValues?.tabSelectedColor.primary ?? ColorSteps.Predefined,
+      secondary:
+        defaultValues?.tabSelectedColor.secondary ?? ColorSteps.Predefined
+    })
+    goTo(defaultValues?.step ?? 0)
   }
 
   const multiFormSteps: MultiFomsSchema[] = [
@@ -128,7 +132,12 @@ export default function Generate() {
       validation: () => true
     },
     {
-      component: <GenerationsStep generations={generations} />,
+      component: (
+        <GenerationsStep
+          generations={generations}
+          resetToNewGeneration={handleResetToNeweGeneration}
+        />
+      ),
       validation: () => true
     }
   ]
@@ -143,10 +152,30 @@ export default function Generate() {
     isPenultimate,
     goTo,
     steps
-  } = useMultistepForm(
-    multiFormSteps.map((forms) => forms.component),
-    formDefaultValues?.step
-  )
+  } = useMultistepForm(multiFormSteps.map((forms) => forms.component))
+
+  useEffect(() => {
+    const generateFormWebStorage = sessionStorage.getItem(
+      WebStorage.GenerateForm
+    )
+    const formDefaultValues: DefaultFormValuesWebStorageSchema | null =
+      generateFormWebStorage && JSON.parse(generateFormWebStorage)
+
+    if (!formDefaultValues) return
+
+    setTabSelectedColor(formDefaultValues.tabSelectedColor)
+
+    methods.reset({
+      prompt: formDefaultValues.prompt,
+      primaryColor: formDefaultValues.primaryColor,
+      secondaryColor: formDefaultValues.secondaryColor,
+      shape: formDefaultValues.shape,
+      styles: formDefaultValues.styles
+    })
+
+    goTo(formDefaultValues.step)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const onSubmit = methods.handleSubmit(async (data) => {
     //manual validation
@@ -278,7 +307,7 @@ export default function Generate() {
             <Button
               type="button"
               variant={'secondary'}
-              onClick={handleResetToNeweGeneration}
+              onClick={() => handleResetToNeweGeneration()}
             >
               {t('pages.generate.buttons.generate-other-icon')}
             </Button>

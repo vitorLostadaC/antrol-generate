@@ -10,13 +10,67 @@ import {
 import { SimpleDropdown } from '../ui/simpleDropdown'
 import { useScopedI18n } from '@/locales/client'
 import { downloadImage } from '@/lib/image'
+import { DefaultFormValuesWebStorageSchema } from '@/app/[locale]/generate/page'
+import { getGenerationWithParams } from '@/actions/prisma/getGenerationsWithParams'
+import { WebStorage } from '@/data/webStorage'
+import { IStyles, colorsSchema } from '@/schemas/icons.schema'
+import { ColorSteps } from '@/app/[locale]/generate/steps/color/data/colors'
+import { colorNameToHex } from '@/lib/colors'
+import { useRouter } from 'next/navigation'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
+  resetToNewGeneration: (
+    defaultValues?: DefaultFormValuesWebStorageSchema
+  ) => void
 }
 
-export const GeneratedCard = ({ generation }: GeneratedCardPropsSchema) => {
+export const GeneratedCard = ({
+  generation,
+  resetToNewGeneration
+}: GeneratedCardPropsSchema) => {
   const t = useScopedI18n('components.generated-cards.dropdwon')
+
+  const reuseParams = async () => {
+    const currentGeneration = await getGenerationWithParams({
+      generationId: generation.id
+    })
+
+    const primaryColorIsCustom = !colorsSchema.safeParse(
+      currentGeneration?.generationParams?.primaryColor
+    ).success
+    const secondaryColorIsCustom = !colorsSchema.safeParse(
+      currentGeneration?.generationParams?.secondaryColor
+    ).success
+
+    const newSessionStorageValues: DefaultFormValuesWebStorageSchema = {
+      prompt: currentGeneration?.prompt ?? '',
+      primaryColor: colorNameToHex(
+        currentGeneration?.generationParams?.primaryColor ?? ''
+      ),
+      secondaryColor: colorNameToHex(
+        currentGeneration?.generationParams?.secondaryColor ?? ''
+      ),
+      shape: currentGeneration?.generationParams?.shape ?? 'any shape',
+      styles: (currentGeneration?.generationParams?.styles as IStyles[]) ?? [],
+      tabSelectedColor: {
+        primary: primaryColorIsCustom
+          ? ColorSteps.Picker
+          : ColorSteps.Predefined,
+        secondary: secondaryColorIsCustom
+          ? ColorSteps.Picker
+          : ColorSteps.Predefined
+      },
+      step: 4
+    }
+
+    sessionStorage.setItem(
+      WebStorage.GenerateForm,
+      JSON.stringify(newSessionStorageValues)
+    )
+
+    resetToNewGeneration(newSessionStorageValues)
+  }
 
   return (
     <div className="relative">
@@ -45,9 +99,7 @@ export const GeneratedCard = ({ generation }: GeneratedCardPropsSchema) => {
           {
             name: t('reuse-prompt'),
             icon: Layers2,
-            onClick: () => {
-              console.log('teste')
-            }
+            onClick: reuseParams
           }
           // add on v2
           // {
