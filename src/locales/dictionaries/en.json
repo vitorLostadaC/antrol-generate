@@ -196,6 +196,11 @@
         "confirm": {
           "title": "5. Confirm your icon",
           "description": "Here's your icon. If you're happy with it, click 'Generate'. If not, go back and make changes.",
+          "buttons": {
+            "generate": "Generate",
+            "buy-coin": "Buy Coin!",
+            "sign-in": "Sign In"
+          },
           "steps": {
             "prompt": "Prompt",
             "primary-color": "Primary Color",

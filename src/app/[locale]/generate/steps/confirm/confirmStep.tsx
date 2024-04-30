@@ -5,9 +5,7 @@ import { cn } from '@/lib/utils'
 import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
 import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
-import { SparklesIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Spinner } from '@/components/ui/spinner'
+import { GenerateButton } from './generateButton'
 
 interface ConfirmStepPropsSchema {
   isGenerating: boolean
@@ -79,20 +77,7 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
         })}
       </div>
 
-      <Button
-        className="h-10 gap-2 text-base font-medium"
-        disabled={isGenerating}
-        type="submit"
-      >
-        {isGenerating ? (
-          <Spinner color={'secondary'} size={'small'} />
-        ) : (
-          <>
-            <span>Generate</span>
-            <SparklesIcon size={20} />
-          </>
-        )}
-      </Button>
+      <GenerateButton isGenerating={isGenerating} />
     </div>
   )
 }

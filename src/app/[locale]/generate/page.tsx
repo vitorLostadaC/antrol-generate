@@ -3,19 +3,20 @@
 import { useMultistepForm } from '@/hooks/useMultistepForm'
 import {
   IShapes,
+  IStyles,
   colorsSchema,
   shapesSchema,
   stylesSchema
 } from '@/schemas/icons.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UseFormSetError, useForm } from 'react-hook-form'
-import { set, z } from 'zod'
+import { z } from 'zod'
 import { PromptStep, promptValidation } from './steps/prompt/promptStep'
 import { ColorStep, colorsValidation } from './steps/color/colorStep'
 import { ShapeStep, shapeValidation } from './steps/shape/shapeStep'
 import { StylesStep, styleValidation } from './steps/style/styleStep'
 import { ConfirmStep } from './steps/confirm/confirmStep'
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { useI18n } from '@/locales/client'
@@ -27,6 +28,7 @@ import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
 import { generate } from '@/actions/features/generate'
+import { WebStorage } from '@/data/webStorage'
 
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
@@ -51,6 +53,19 @@ export interface MultiFomsSchema {
   validation: (params: GenericValidationParms) => boolean
 }
 
+export interface DefaultFormValuesWebStorageSchema {
+  prompt: string
+  primaryColor: string
+  secondaryColor: string
+  shape: string
+  styles: IStyles[]
+  tabSelectedColor: {
+    primary: ColorSteps
+    secondary: ColorSteps
+  }
+  step: number
+}
+
 export default function Generate() {
   const t = useI18n()
   const [generations, setGenerations] = useState<Generation[]>([])
@@ -72,13 +87,22 @@ export default function Generate() {
     }
   })
 
-  const handleResetToNeweGeneration = () => {
-    methods.reset()
-    setTabSelectedColor({
-      primary: ColorSteps.Predefined,
-      secondary: ColorSteps.Predefined
+  const handleResetToNeweGeneration = (
+    defaultValues?: DefaultFormValuesWebStorageSchema
+  ) => {
+    methods.reset({
+      prompt: defaultValues?.prompt ?? '',
+      primaryColor: defaultValues?.primaryColor ?? '',
+      secondaryColor: defaultValues?.secondaryColor ?? '',
+      shape: defaultValues?.shape ?? 'any shape',
+      styles: defaultValues?.styles ?? []
     })
-    goTo(0)
+    setTabSelectedColor({
+      primary: defaultValues?.tabSelectedColor.primary ?? ColorSteps.Predefined,
+      secondary:
+        defaultValues?.tabSelectedColor.secondary ?? ColorSteps.Predefined
+    })
+    goTo(defaultValues?.step ?? 0)
   }
 
   const multiFormSteps: MultiFomsSchema[] = [
@@ -108,7 +132,12 @@ export default function Generate() {
       validation: () => true
     },
     {
-      component: <GenerationsStep generations={generations} />,
+      component: (
+        <GenerationsStep
+          generations={generations}
+          resetToNewGeneration={handleResetToNeweGeneration}
+        />
+      ),
       validation: () => true
     }
   ]
@@ -125,6 +154,29 @@ export default function Generate() {
     steps
   } = useMultistepForm(multiFormSteps.map((forms) => forms.component))
 
+  useEffect(() => {
+    const generateFormWebStorage = sessionStorage.getItem(
+      WebStorage.GenerateForm
+    )
+    const formDefaultValues: DefaultFormValuesWebStorageSchema | null =
+      generateFormWebStorage && JSON.parse(generateFormWebStorage)
+
+    if (!formDefaultValues) return
+
+    setTabSelectedColor(formDefaultValues.tabSelectedColor)
+
+    methods.reset({
+      prompt: formDefaultValues.prompt,
+      primaryColor: formDefaultValues.primaryColor,
+      secondaryColor: formDefaultValues.secondaryColor,
+      shape: formDefaultValues.shape,
+      styles: formDefaultValues.styles
+    })
+
+    goTo(formDefaultValues.step)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const onSubmit = methods.handleSubmit(async (data) => {
     //manual validation
     if (
@@ -136,18 +188,28 @@ export default function Generate() {
       return
 
     setIsGenerating(true)
-    const primaryColor = data.primaryColor.includes('#')
+    const primaryColorIsCustom = data.primaryColor.includes('#')
+
+    const primaryColor = primaryColorIsCustom
       ? GetColorName(data.primaryColor)
       : data.primaryColor
 
-    const secondaryColor = data.secondaryColor.includes('#')
+    const secondaryColorIsCustom = data.secondaryColor.includes('#')
+
+    const secondaryColor = secondaryColorIsCustom
       ? GetColorName(data.secondaryColor)
       : data.secondaryColor
 
     try {
       const generation = await generate({
         primaryColor,
+        primaryCustomColor: primaryColorIsCustom
+          ? data.primaryColor
+          : undefined,
         secondaryColor,
+        secondaryCustomColor: secondaryColorIsCustom
+          ? data.secondaryColor
+          : undefined,
         prompt: data.prompt,
         shape: data.shape as IShapes,
         styles: data.styles
@@ -155,6 +217,7 @@ export default function Generate() {
       setGenerations([...generations, generation])
       goTo(steps.length - 1)
       setIsGenerating(false)
+      sessionStorage.removeItem(WebStorage.GenerateForm)
       router.refresh()
     } catch (e) {
       const error = e as Error
@@ -193,7 +256,7 @@ export default function Generate() {
           })
           break
         default:
-          console.log('asdfdas')
+          console.log(error.message)
           break
       }
     }
@@ -209,6 +272,23 @@ export default function Generate() {
     if (!validation) {
       return
     }
+
+    const { primaryColor, prompt, secondaryColor, shape, styles } =
+      methods.getValues()
+
+    const newSessionStorageValues: DefaultFormValuesWebStorageSchema = {
+      prompt,
+      primaryColor,
+      secondaryColor,
+      shape,
+      styles,
+      tabSelectedColor,
+      step: currentStepIndex + 1
+    }
+    sessionStorage.setItem(
+      WebStorage.GenerateForm,
+      JSON.stringify(newSessionStorageValues)
+    )
 
     next()
   }
@@ -237,7 +317,7 @@ export default function Generate() {
             <Button
               type="button"
               variant={'secondary'}
-              onClick={handleResetToNeweGeneration}
+              onClick={() => handleResetToNeweGeneration()}
             >
               {t('pages.generate.buttons.generate-other-icon')}
             </Button>

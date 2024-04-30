@@ -25,13 +25,13 @@ export const stripeProducts: Record<StripeProductName, StripeProduct> = {
     }
   },
   '100credits': {
-    priceId: 'price_1P9EmA1kGQ7kv7j2b3cGJj4K',
+    priceId: 'price_1P9EmU1kGQ7kv7j2NGuM1ycY',
     quota: {
       coins: 100
     }
   },
   '200credits': {
-    priceId: 'price_1P9EmM1kGQ7kv7j2s4Lj5V7O',
+    priceId: 'price_1P9EnJ1kGQ7kv7j2rFp9vNjD',
     quota: {
       coins: 200
     }
