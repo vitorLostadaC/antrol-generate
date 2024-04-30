@@ -198,7 +198,8 @@
           "description": "Here's your icon. If you're happy with it, click 'Generate'. If not, go back and make changes.",
           "buttons": {
             "generate": "Generate",
-            "buy-coin": "Buy Coin!"
+            "buy-coin": "Buy Coin!",
+            "sign-in": "Sign In"
           },
           "steps": {
             "prompt": "Prompt",

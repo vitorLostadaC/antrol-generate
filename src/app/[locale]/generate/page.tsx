@@ -257,7 +257,6 @@ export default function Generate() {
           break
         default:
           console.log(error.message)
-          console.log('asdfdas')
           break
       }
     }
