@@ -91,7 +91,7 @@ export const generate = async ({
       styles
     })
   } catch (error) {
-    console.log(error.message)
+    console.log((error as Error).message)
     // adicionar alguma coisa aqui, como um analitics ou um email pra mim
   }
 
