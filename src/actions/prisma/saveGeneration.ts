@@ -11,7 +11,9 @@ interface SaveGenerationSchema {
   model: IModel
   shape: IShapes
   primaryColor: string
+  primaryCustomColor?: string
   secondaryColor?: string
+  secondaryCustomColor?: string
   generationsNumber: number
   prompt: string
   styles: IStyles[]
@@ -22,7 +24,9 @@ export const saveGeneration = async (
 ): Promise<Generation | null> => {
   const {
     primaryColor,
+    primaryCustomColor,
     secondaryColor,
+    secondaryCustomColor,
     generationsNumber,
     imagesURL,
     shape,
@@ -41,7 +45,9 @@ export const saveGeneration = async (
       generationParams: {
         create: {
           primaryColor,
+          primaryCustomColor: primaryCustomColor ?? null,
           secondaryColor,
+          secondaryCustomColor: secondaryCustomColor ?? null,
           generationsNumber,
           model,
           shape,

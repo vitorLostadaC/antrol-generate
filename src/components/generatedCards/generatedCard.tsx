@@ -15,7 +15,6 @@ import { getGenerationWithParams } from '@/actions/prisma/getGenerationsWithPara
 import { WebStorage } from '@/data/webStorage'
 import { IStyles, colorsSchema } from '@/schemas/icons.schema'
 import { ColorSteps } from '@/app/[locale]/generate/steps/color/data/colors'
-import { colorNameToHex } from '@/lib/colors'
 import { useRouter } from 'next/navigation'
 
 interface GeneratedCardPropsSchema {
@@ -36,33 +35,29 @@ export const GeneratedCard = ({
       generationId: generation.id
     })
 
-    const primaryColorIsCustom = !colorsSchema.safeParse(
-      currentGeneration?.generationParams?.primaryColor
-    ).success
-    const secondaryColorIsCustom = !colorsSchema.safeParse(
-      currentGeneration?.generationParams?.secondaryColor
-    ).success
+    const primaryColor = currentGeneration?.generationParams?.primaryColor
+    const secondaryColor = currentGeneration?.generationParams?.secondaryColor
+
+    const primaryCustomColor =
+      currentGeneration?.generationParams?.primaryCustomColor
+    const secondaryCustomColor =
+      currentGeneration?.generationParams?.secondaryCustomColor
 
     const newSessionStorageValues: DefaultFormValuesWebStorageSchema = {
       prompt: currentGeneration?.prompt ?? '',
-      primaryColor: colorNameToHex(
-        currentGeneration?.generationParams?.primaryColor ?? ''
-      ),
-      secondaryColor: colorNameToHex(
-        currentGeneration?.generationParams?.secondaryColor ?? ''
-      ),
+      primaryColor: primaryCustomColor ?? primaryColor ?? '',
+      secondaryColor: secondaryCustomColor ?? secondaryColor ?? '',
       shape: currentGeneration?.generationParams?.shape ?? 'any shape',
       styles: (currentGeneration?.generationParams?.styles as IStyles[]) ?? [],
       tabSelectedColor: {
-        primary: primaryColorIsCustom
-          ? ColorSteps.Picker
-          : ColorSteps.Predefined,
-        secondary: secondaryColorIsCustom
+        primary: primaryCustomColor ? ColorSteps.Picker : ColorSteps.Predefined,
+        secondary: secondaryCustomColor
           ? ColorSteps.Picker
           : ColorSteps.Predefined
       },
       step: 4
     }
+    console.log(newSessionStorageValues)
 
     sessionStorage.setItem(
       WebStorage.GenerateForm,

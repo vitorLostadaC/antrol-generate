@@ -188,18 +188,28 @@ export default function Generate() {
       return
 
     setIsGenerating(true)
-    const primaryColor = data.primaryColor.includes('#')
+    const primaryColorIsCustom = data.primaryColor.includes('#')
+
+    const primaryColor = primaryColorIsCustom
       ? GetColorName(data.primaryColor)
       : data.primaryColor
 
-    const secondaryColor = data.secondaryColor.includes('#')
+    const secondaryColorIsCustom = data.secondaryColor.includes('#')
+
+    const secondaryColor = secondaryColorIsCustom
       ? GetColorName(data.secondaryColor)
       : data.secondaryColor
 
     try {
       const generation = await generate({
         primaryColor,
+        primaryCustomColor: primaryColorIsCustom
+          ? data.primaryColor
+          : undefined,
         secondaryColor,
+        secondaryCustomColor: secondaryColorIsCustom
+          ? data.secondaryColor
+          : undefined,
         prompt: data.prompt,
         shape: data.shape as IShapes,
         styles: data.styles
@@ -246,6 +256,7 @@ export default function Generate() {
           })
           break
         default:
+          console.log(error.message)
           console.log('asdfdas')
           break
       }

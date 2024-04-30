@@ -65,14 +65,16 @@ model Generation {
 }
 
 model GenerationParams {
-  id                String   @id @default(uuid())
-  shape             String
-  model             String
-  primaryColor      String
-  secondaryColor    String?
-  generationsNumber Int
-  styles            String[]
-  generationId      String   @unique
+  id                   String   @id @default(uuid())
+  shape                String
+  model                String
+  primaryColor         String
+  secondaryColor       String?
+  primaryCustomColor   String?
+  secondaryCustomColor String?
+  generationsNumber    Int
+  styles               String[]
+  generationId         String   @unique
 
   generation Generation @relation(fields: [generationId], references: [id])
 }

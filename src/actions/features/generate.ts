@@ -14,7 +14,9 @@ import { openai } from '../ai'
 interface generationProps {
   styles: IStyles[]
   primaryColor: string
+  primaryCustomColor?: string
   secondaryColor?: string
+  secondaryCustomColor?: string
   shape: IShapes
   prompt: string
 }
@@ -22,6 +24,8 @@ interface generationProps {
 export const generate = async ({
   primaryColor,
   secondaryColor,
+  primaryCustomColor,
+  secondaryCustomColor,
   prompt,
   shape,
   styles
@@ -76,7 +80,9 @@ export const generate = async ({
   try {
     generation = await saveGeneration({
       primaryColor,
+      primaryCustomColor,
       secondaryColor,
+      secondaryCustomColor,
       generationsNumber: 1,
       imagesURL: [iconURL] ?? [],
       model: 'dall-e-3',
@@ -84,7 +90,8 @@ export const generate = async ({
       shape,
       styles
     })
-  } catch {
+  } catch (error) {
+    console.log(error.message)
     // adicionar alguma coisa aqui, como um analitics ou um email pra mim
   }
 
