@@ -27,8 +27,7 @@ const features: FeatureProps[] = [
   {
     icon: <DiamondIcon />,
     title: '3. Shape',
-    description:
-      'Select from diverse shapes to best represent your icon’s purpose.'
+    description: 'Choose from a variety of shapes to best represent your icon.'
   },
   {
     icon: <SwatchBookIcon />,
@@ -52,26 +51,25 @@ export const HowItWorks = () => {
         select your colors, choose your shape, and pick your style to bring your
         vision to life effortlessly.
       </p>
-      <div className="grid grid-cols-1 place-items-center gap-2 md:grid-cols-2">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {features.map(({ icon, title, description }: FeatureProps) => (
-            <Card key={title} className="bg-muted/50">
-              <CardHeader>
-                <CardTitle className="grid place-items-center gap-4">
-                  {icon}
-                  {title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>{description}</CardContent>
-            </Card>
-          ))}
-        </div>
-        <div className="overflow-hidden rounded-md">
-          <video controls preload="metadata" muted>
-            <source src="/tutorial.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {features.map(({ icon, title, description }: FeatureProps) => (
+          <Card key={title} className="bg-muted/50">
+            <CardHeader>
+              <CardTitle className="grid place-items-center gap-4">
+                {icon}
+                {title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>{description}</CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="mt-8 overflow-hidden rounded-md border">
+        <video controls preload="metadata" muted>
+          <source src="/tutorial.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
   )
