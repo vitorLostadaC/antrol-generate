@@ -8,10 +8,22 @@ export default async function Pricing() {
   const t = await getScopedI18n('pages.pricing')
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
-      <div className="space-y-2 text-center">
-        <h1 className="text-3xl">{t('title')}</h1>
-        <p className="text-gray-500">{t('description')}</p>
+    <div className="flex flex-col items-center justify-center">
+      <div className="text-center">
+        {/* <h1 className="text-3xl">{t('title')}</h1>
+        <p className="text-gray-500">{t('description')}</p> */}
+
+        <h2 className="text-3xl font-bold md:text-4xl">
+          Buy
+          <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
+            {' '}
+            Coins!
+          </span>
+        </h2>
+
+        <p className="pb-6 pt-4 text-xl text-muted-foreground">
+          Buy credits to use our services and get access to the best features
+        </p>
       </div>
       <div className="w-full space-y-4">
         <Alert variant="warn" className="w-full">

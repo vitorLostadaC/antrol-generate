@@ -79,8 +79,9 @@ export const Testimonials = () => {
       </h2>
 
       <p className="pb-8 pt-4 text-xl text-muted-foreground">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non unde error
-        facere hic reiciendis illo
+        Discover why users rave about our icon generator. Ease of use, vibrant
+        customization, and premium outputs—experience the best in AI-driven icon
+        design!
       </p>
 
       <div className="mx-auto grid columns-2 space-y-4 sm:block  md:grid-cols-2 lg:columns-3 lg:grid-cols-4 lg:gap-6 lg:space-y-6">
