@@ -10,7 +10,7 @@ import flat from '@/assets/imageStyles/flat.webp'
 import gothic from '@/assets/imageStyles/gothic.webp'
 import grunge from '@/assets/imageStyles/grunge.webp'
 import handDrawn from '@/assets/imageStyles/handDrawn.webp'
-import ilustrated from '@/assets/imageStyles/ilustrated.webp'
+import illustrated from '@/assets/imageStyles/ilustrated.webp'
 import isometric from '@/assets/imageStyles/isometric.webp'
 import lineArt from '@/assets/imageStyles/lineArt.webp'
 import minimalist from '@/assets/imageStyles/minimalist.webp'
@@ -82,8 +82,8 @@ export const usePredefinedStyes = () => {
       description: t('woodblock.description')
     },
     {
-      image: ilustrated,
-      style: 'ilustrated',
+      image: illustrated,
+      style: 'illustrated',
       name: t('ilustrated.name'),
       description: t('ilustrated.description')
     },
