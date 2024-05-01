@@ -8,6 +8,7 @@ import { I18nProviderClient } from '@/locales/client'
 import { Header } from '@/layout/header/'
 import { ThemeWrapper } from '@/contexts/themeWrapper'
 import { Toaster } from '@/components/ui/toaster'
+import { Footer } from './components/footer'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default function RootLayout({ children, params }: Props) {
               <main className="container flex flex-1 flex-col py-4 max-sm:px-3">
                 {children}
               </main>
+              <Footer />
               <Toaster />
             </I18nProviderClient>
           </ThemeWrapper>
