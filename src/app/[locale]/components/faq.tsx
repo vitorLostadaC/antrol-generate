@@ -13,34 +13,28 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: 'Is this template free?',
-    answer: 'Yes. It is a free ChadcnUI template.',
+    question: 'What is an AI icon generator?',
+    answer:
+      'Our AI icon generator uses advanced algorithms to help you design custom icons effortlessly. Simply input your preferences, and our tool crafts icons tailored to your needs.',
     value: 'item-1'
   },
   {
-    question: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
+    question: 'Is it easy to use for beginners?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.',
+      'Absolutely! Our platform is designed with simplicity in mind. No prior design experience is needed—just select your preferences, and our AI will handle the rest.',
     value: 'item-2'
   },
   {
-    question:
-      'Lorem ipsum dolor sit amet  Consectetur natus dolores minus quibusdam?',
+    question: 'Can I use the icons commercially?',
     answer:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?',
+      'Yes, all icons created with our generator can be used for both personal and commercial projects. You have full rights to use them in your work.',
     value: 'item-3'
   },
   {
-    question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit?',
-    answer: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-    value: 'item-4'
-  },
-  {
-    question:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?',
+    question: 'How can I get help if I have issues using the tool?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.',
-    value: 'item-5'
+      'Our support team is here to help! Contact us via email for any assistance you may need.',
+    value: 'item-4'
   }
 ]
 
@@ -66,7 +60,7 @@ export const FAQ = () => {
         ))}
       </Accordion>
 
-      <h3 className="mt-4 font-medium">
+      <h3 className="mt-4 text-sm font-medium text-muted-foreground">
         Still have questions?{' '}
         <a
           href="#"
