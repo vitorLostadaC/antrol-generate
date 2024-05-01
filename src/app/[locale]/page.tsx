@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Sponsors />
+      {/* <Sponsors /> */}
       <About />
       <HowItWorks />
       <Features />

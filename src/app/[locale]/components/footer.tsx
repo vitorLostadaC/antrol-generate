@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer id="footer">
       <hr className="mx-auto w-11/12" />
 
-      <section className="container grid grid-cols-2 gap-x-12 gap-y-8 py-20 md:grid-cols-4 xl:grid-cols-6">
+      <section className="grid grid-cols-2 gap-x-12 gap-y-8 py-20 md:grid-cols-4 xl:grid-cols-6">
         <div className="col-span-full xl:col-span-2">
           <a href="/" className="flex text-xl font-bold">
             <LogOutIcon />
@@ -98,7 +98,7 @@ export const Footer = () => {
         </div>
       </section>
 
-      <section className="container pb-14 text-center">
+      <section className="pb-14 text-center">
         <h3>
           &copy; 2024 Landing page made by{' '}
           <a

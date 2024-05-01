@@ -14,7 +14,7 @@ export const Newsletter = () => {
     <section id="newsletter">
       <hr className="mx-auto w-11/12" />
 
-      <div className="container py-24 sm:py-32">
+      <div className="py-24 sm:py-32">
         <h3 className="text-center text-4xl font-bold md:text-5xl">
           Join Our Daily{' '}
           <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
