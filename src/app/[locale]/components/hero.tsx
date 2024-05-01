@@ -3,7 +3,7 @@ import { HeroCards } from './heroCards'
 
 export const Hero = () => {
   return (
-    <section className="container grid place-items-center gap-10 py-20 md:py-32 lg:grid-cols-2">
+    <section className="grid place-items-center gap-10 py-20 md:py-32 lg:grid-cols-2">
       <div className="space-y-6 text-center lg:text-start">
         <main className="text-5xl font-bold md:text-6xl">
           <h1 className="inline">
