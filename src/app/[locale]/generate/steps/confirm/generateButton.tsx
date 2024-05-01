@@ -32,31 +32,27 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
   if (!userHasMoney)
     return (
       <Button
+        type="button"
         className="gap-2 font-medium"
-        disabled={isGenerating}
-        type="submit"
+        onClick={() => router.push('/pricing')}
       >
-        {isGenerating ? (
-          <Spinner color={'secondary'} size={'small'} />
-        ) : (
-          <>
-            <span>{t('buttons.generate')}</span>
-            <SparklesIcon size={20} />
-          </>
-        )}
+        <>
+          <span>{t('buttons.buy-coin')}</span>
+          <ShoppingCartIcon size={20} />
+        </>
       </Button>
     )
 
   return (
-    <Button
-      type="button"
-      className="gap-2 font-medium"
-      onClick={() => router.push('/pricing')}
-    >
-      <>
-        <span>{t('buttons.buy-coin')}</span>
-        <ShoppingCartIcon size={20} />
-      </>
+    <Button className="gap-2 font-medium" disabled={isGenerating} type="submit">
+      {isGenerating ? (
+        <Spinner color={'secondary'} size={'small'} />
+      ) : (
+        <>
+          <span>{t('buttons.generate')}</span>
+          <SparklesIcon size={20} />
+        </>
+      )}
     </Button>
   )
 }
