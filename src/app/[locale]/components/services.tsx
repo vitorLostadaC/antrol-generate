@@ -4,8 +4,8 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import cubeLeg from '@/assets/landingPage/cube-leg.png'
-import { BarChartIcon, MagnetIcon, WalletIcon } from 'lucide-react'
+import { SendIcon, Settings2Icon, StarIcon } from 'lucide-react'
+import inovation from '@/assets/landingPage/Innovation.svg'
 
 interface ServiceProps {
   title: string
@@ -15,22 +15,22 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: 'Code Collaboration',
+    title: 'Premium Experience',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.',
-    icon: <BarChartIcon />
+      'We focus entirely on delivering the best possible icon generation experience, combining intuitive design with top-tier performance for seamless creation.',
+    icon: <StarIcon />
   },
   {
-    title: 'Project Management',
+    title: 'Streamlined Process',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.',
-    icon: <WalletIcon />
+      'Our user-friendly platform and smart AI simplify your design process, enabling you to create complex icons quickly and easily.',
+    icon: <SendIcon />
   },
   {
-    title: 'Task Automation',
+    title: 'Tailored Customization',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.',
-    icon: <MagnetIcon />
+      'Customize every detail of your icon to fit your exact needs, from colors to dimensions, ensuring a perfect match for your project.',
+    icon: <Settings2Icon />
   }
 ]
 
@@ -47,15 +47,15 @@ export const Services = () => {
           </h2>
 
           <p className="mb-8 mt-4 text-xl text-muted-foreground ">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-            dolor.
+            Focused on your needs, our platform offers personalized, efficient
+            icon design. Experience seamless creation, every step of the way.
           </p>
 
           <div className="flex flex-col gap-8">
             {serviceList.map(({ icon, title, description }: ServiceProps) => (
               <Card key={title}>
                 <CardHeader className="flex items-start justify-start gap-4 space-y-1 md:flex-row">
-                  <div className="mt-1 rounded-2xl bg-primary/20 p-1">
+                  <div className="mt-1 rounded-2xl p-1 text-primary-foreground/80">
                     {icon}
                   </div>
                   <div>
@@ -71,8 +71,8 @@ export const Services = () => {
         </div>
 
         <img
-          src={cubeLeg.src}
-          className="w-[300px] object-contain md:w-[500px] lg:w-[600px]"
+          src={inovation.src}
+          className="w-[300px] select-none object-contain md:w-[500px] lg:w-[600px]"
           alt="About services"
         />
       </div>

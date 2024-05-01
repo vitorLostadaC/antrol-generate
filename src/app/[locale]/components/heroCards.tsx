@@ -33,7 +33,7 @@ export const HeroCards = () => {
           key={icon.src}
           src={icon.src}
           alt="icon"
-          className="w-20 rounded-md"
+          className="w-20 select-none rounded-md"
         />
       ))}
     </div>
