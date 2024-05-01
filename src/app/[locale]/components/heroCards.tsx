@@ -1,6 +1,6 @@
-import icon1 from '@/assets/landingPage/staticIcons/icon1.webp'
-import icon2 from '@/assets/landingPage/staticIcons/icon2.webp'
-import icon3 from '@/assets/landingPage/staticIcons/icon3.webp'
+import icon1 from '@/assets/landingPage/icons/icon1.webp'
+import icon2 from '@/assets/landingPage/icons/icon2.webp'
+import icon3 from '@/assets/landingPage/icons/icon3.webp'
 
 export const HeroCards = () => {
   const icons = [

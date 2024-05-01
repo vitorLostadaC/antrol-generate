@@ -17,45 +17,46 @@ interface TestimonialProps {
 const testimonials: TestimonialProps[] = [
   {
     image: 'https://github.com/shadcn.png',
-    name: 'John Doe React',
-    userName: '@john_Doe',
-    comment: 'This landing page is awesome!'
+    name: 'Jake Martell',
+    userName: '@JakeM',
+    comment:
+      'Absolutely love the ease of use. Creating icons has never been simpler!'
   },
   {
     image: 'https://github.com/shadcn.png',
-    name: 'John Doe React',
-    userName: '@john_Doe1',
+    name: 'Samantha Bee',
+    userName: '@SamBee',
     comment:
-      'Lorem ipsum dolor sit amet,empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.'
+      'Fantastic results! The color customization options are a game-changer.'
   },
 
   {
     image: 'https://github.com/shadcn.png',
-    name: 'John Doe React',
-    userName: '@john_Doe2',
+    name: 'Mia Wong',
+    userName: '@MiaW',
     comment:
-      'Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.'
+      "I'm impressed with the premium outputs from such a straightforward tool. Highly recommend!"
   },
   {
     image: 'https://github.com/shadcn.png',
-    name: 'John Doe React',
-    userName: '@john_Doe3',
+    name: 'Ethan Hunt',
+    userName: '@EthanH',
     comment:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
+      'The user interface is so intuitive. Great job on making design accessible to everyone!'
   },
   {
     image: 'https://github.com/shadcn.png',
-    name: 'John Doe React',
-    userName: '@john_Doe4',
+    name: 'Nora Klint',
+    userName: '@NoraK',
     comment:
-      'Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud.'
+      'Top-quality icons every time. The AI features really help fine-tune the designs.'
   },
   {
     image: 'https://github.com/shadcn.png',
-    name: 'John Doe React',
-    userName: '@john_Doe5',
+    name: 'Liam Quigley',
+    userName: '@LiamQ',
     comment:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      'Quick, easy, and efficient—exactly what I needed for my project deadlines.'
   }
 ]
 
