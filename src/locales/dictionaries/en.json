@@ -15,6 +15,18 @@
     }
   },
   "pages": {
+    "landing-pages": {
+      "hero": {
+        "title": {
+          "pt1": "Craft Premium",
+          "pt2": "Icons",
+          "pt3": "Professional",
+          "pt4": "Quality"
+        },
+        "description": "Effortlessly create professional icons with our AI-driven tool. Perfect for enhancing any project.",
+        "buttons": { "generate": "Generate" }
+      }
+    },
     "generate": {
       "title": {
         "shall-we-begin": "Shall we begin?"

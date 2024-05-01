@@ -30,7 +30,7 @@ export default function Home({
       {/* <Cta /> */}
       <Testimonials />
       {/* <Team /> */}
-      <Pricing />
+      <Pricing params={{ locale }} />
       {/* <Newsletter /> */}
       <FAQ />
       <ScrollToTop />

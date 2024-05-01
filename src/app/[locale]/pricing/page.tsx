@@ -1,10 +1,20 @@
 import { PriceCards } from './components/PriceCards'
 import { Alert, AlertTitle } from '@/components/ui/alert'
-import { getScopedI18n } from '@/locales/server'
+import { getScopedI18n, getStaticParams } from '@/locales/server'
 import { AlertTriangleIcon } from 'lucide-react'
+import { setStaticParamsLocale } from 'next-international/server'
 import Link from 'next/link'
 
-export default async function Pricing() {
+export function generateStaticParams() {
+  return getStaticParams()
+}
+
+export default async function Pricing({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
+  setStaticParamsLocale(locale)
   const t = await getScopedI18n('pages.pricing')
 
   return (
