@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 
 export const Cta = () => {
   return (
-    <section id="cta" className="my-24 bg-muted/50 py-16 sm:my-32">
+    <section id="cta" className="my-24 bg-muted/50 px-8 py-16 sm:my-32">
       <div className="place-items-center lg:grid lg:grid-cols-2">
         <div className="lg:col-start-1">
           <h2 className="text-3xl font-bold md:text-4xl ">

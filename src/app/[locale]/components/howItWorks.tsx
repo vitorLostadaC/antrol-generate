@@ -1,5 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from 'lucide-react'
+import {
+  TypeIcon,
+  Paintbrush2Icon,
+  DiamondIcon,
+  SwatchBookIcon
+} from 'lucide-react'
 
 interface FeatureProps {
   icon: JSX.Element
@@ -9,28 +14,26 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    icon: <MedalIcon />,
-    title: 'Accesibility',
+    icon: <TypeIcon />,
+    title: '1. Prompt',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
+      'Enter a brief that guides the AI in creating your personalized icon.'
   },
   {
-    icon: <MapIcon />,
-    title: 'Community',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
+    icon: <Paintbrush2Icon />,
+    title: '2. Color',
+    description: 'Choose primary and secondary colors to fit your style.'
   },
   {
-    icon: <PlaneIcon />,
-    title: 'Scalability',
+    icon: <DiamondIcon />,
+    title: '3. Shape',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
+      'Select from diverse shapes to best represent your icon’s purpose.'
   },
   {
-    icon: <GiftIcon />,
-    title: 'Gamification',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
+    icon: <SwatchBookIcon />,
+    title: '4. Style',
+    description: 'Pick a design style that best suits your project’s aesthetic.'
   }
 ]
 
@@ -45,22 +48,30 @@ export const HowItWorks = () => {
         Step-by-Step Guide
       </h2>
       <p className="mx-auto mb-8 mt-4 text-xl text-muted-foreground md:w-3/4">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-        dolor pariatur sit!
+        Create your custom icon in four simple steps: define your concept,
+        select your colors, choose your shape, and pick your style to bring your
+        vision to life effortlessly.
       </p>
-
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {features.map(({ icon, title, description }: FeatureProps) => (
-          <Card key={title} className="bg-muted/50">
-            <CardHeader>
-              <CardTitle className="grid place-items-center gap-4">
-                {icon}
-                {title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>{description}</CardContent>
-          </Card>
-        ))}
+      <div className="grid grid-cols-1 place-items-center gap-2 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {features.map(({ icon, title, description }: FeatureProps) => (
+            <Card key={title} className="bg-muted/50">
+              <CardHeader>
+                <CardTitle className="grid place-items-center gap-4">
+                  {icon}
+                  {title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>{description}</CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="overflow-hidden rounded-md">
+          <video controls preload="metadata" muted>
+            <source src="/tutorial.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </section>
   )
