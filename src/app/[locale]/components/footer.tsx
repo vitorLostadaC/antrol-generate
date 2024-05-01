@@ -25,7 +25,7 @@ export const Footer = () => {
     <footer id="footer">
       <hr className="mx-auto w-11/12" />
 
-      <section className="container flex items-center justify-between py-10 text-center">
+      <section className="container flex flex-col items-center justify-between gap-4 py-10 text-center md:flex-row">
         <div>
           <h3>&copy; 2024 Antrol Generate. All rights reserved. </h3>
           <a

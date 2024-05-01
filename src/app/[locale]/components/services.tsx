@@ -72,7 +72,7 @@ export const Services = () => {
 
         <img
           src={inovation.src}
-          className="w-[300px] select-none object-contain md:w-[500px] lg:w-[600px]"
+          className="hidden w-[300px] select-none object-contain md:block md:w-[500px] lg:w-[600px]"
           alt="About services"
         />
       </div>
