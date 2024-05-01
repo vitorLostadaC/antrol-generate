@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { HeroCards } from './heroCards'
 
 export const Hero = () => {
   return (
@@ -30,7 +31,9 @@ export const Hero = () => {
       </div>
 
       {/* Hero cards sections */}
-      <div className="z-10"></div>
+      <div className="z-10">
+        <HeroCards />
+      </div>
 
       {/* Shadow effect */}
       <div className="shadow"></div>
