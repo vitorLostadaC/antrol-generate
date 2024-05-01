@@ -6,6 +6,12 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
+import person1 from '@/assets/landingPage/persons/person1.webp'
+import person2 from '@/assets/landingPage/persons/person2.webp'
+import person3 from '@/assets/landingPage/persons/person3.webp'
+import person4 from '@/assets/landingPage/persons/person4.webp'
+import person5 from '@/assets/landingPage/persons/person5.webp'
+import person6 from '@/assets/landingPage/persons/person6.webp'
 
 interface TestimonialProps {
   image: string
@@ -16,14 +22,14 @@ interface TestimonialProps {
 
 const testimonials: TestimonialProps[] = [
   {
-    image: 'https://github.com/shadcn.png',
+    image: person1.src,
     name: 'Jake Martell',
     userName: '@JakeM',
     comment:
       'Absolutely love the ease of use. Creating icons has never been simpler!'
   },
   {
-    image: 'https://github.com/shadcn.png',
+    image: person2.src,
     name: 'Samantha Bee',
     userName: '@SamBee',
     comment:
@@ -31,28 +37,28 @@ const testimonials: TestimonialProps[] = [
   },
 
   {
-    image: 'https://github.com/shadcn.png',
+    image: person3.src,
     name: 'Mia Wong',
     userName: '@MiaW',
     comment:
       "I'm impressed with the premium outputs from such a straightforward tool. Highly recommend!"
   },
   {
-    image: 'https://github.com/shadcn.png',
+    image: person4.src,
     name: 'Ethan Hunt',
     userName: '@EthanH',
     comment:
       'The user interface is so intuitive. Great job on making design accessible to everyone!'
   },
   {
-    image: 'https://github.com/shadcn.png',
+    image: person5.src,
     name: 'Nora Klint',
     userName: '@NoraK',
     comment:
       'Top-quality icons every time. The AI features really help fine-tune the designs.'
   },
   {
-    image: 'https://github.com/shadcn.png',
+    image: person6.src,
     name: 'Liam Quigley',
     userName: '@LiamQ',
     comment:
@@ -85,9 +91,13 @@ export const Testimonials = () => {
               className="max-w-md overflow-hidden md:break-inside-avoid"
             >
               <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                <Avatar>
-                  <AvatarImage alt="" src={image} />
-                  <AvatarFallback>OM</AvatarFallback>
+                <Avatar className="h-12 w-12">
+                  <AvatarImage
+                    alt={name}
+                    src={image}
+                    className="object-cover"
+                  />
+                  <AvatarFallback>{name.split('')[0]}</AvatarFallback>
                 </Avatar>
 
                 <div className="flex flex-col">
