@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { ArrowUpToLine } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export const ScrollToTop = () => {
   const [showTopBtn, setShowTopBtn] = useState(false)
@@ -17,22 +18,17 @@ export const ScrollToTop = () => {
     })
   }, [])
 
-  const goToTop = () => {
-    window.scroll({
-      top: 0,
-      left: 0
-    })
-  }
-
   return (
     <>
       {showTopBtn && (
         <Button
-          onClick={goToTop}
           className="fixed bottom-4 right-4 opacity-90 shadow-md"
           size="icon"
+          asChild
         >
-          <ArrowUpToLine className="h-4 w-4" />
+          <Link href={'#'}>
+            <ArrowUpToLine className="h-4 w-4" />
+          </Link>
         </Button>
       )}
     </>

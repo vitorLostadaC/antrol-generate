@@ -30,7 +30,11 @@ type Props = {
 export default function RootLayout({ children, params }: Props) {
   return (
     <SessionWrapper>
-      <html lang={params.locale} suppressHydrationWarning>
+      <html
+        lang={params.locale}
+        className="scroll-smooth"
+        suppressHydrationWarning
+      >
         <body
           className={cn(
             'flex min-h-screen flex-col bg-background font-sans antialiased',
