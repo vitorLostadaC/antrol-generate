@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { getScopedI18n } from '@/locales/server'
 import {
   TypeIcon,
   Paintbrush2Icon,
@@ -12,44 +13,43 @@ interface FeatureProps {
   description: string
 }
 
-const features: FeatureProps[] = [
-  {
-    icon: <TypeIcon />,
-    title: '1. Prompt',
-    description:
-      'Enter a brief that guides the AI in creating your personalized icon.'
-  },
-  {
-    icon: <Paintbrush2Icon />,
-    title: '2. Color',
-    description: 'Choose primary and secondary colors to fit your style.'
-  },
-  {
-    icon: <DiamondIcon />,
-    title: '3. Shape',
-    description: 'Choose from a variety of shapes to best represent your icon.'
-  },
-  {
-    icon: <SwatchBookIcon />,
-    title: '4. Style',
-    description: 'Pick a design style that best suits your project’s aesthetic.'
-  }
-]
+export const HowItWorks = async () => {
+  const t = await getScopedI18n('pages.landing-pages.how-it-works')
 
-export const HowItWorks = () => {
+  const features: FeatureProps[] = [
+    {
+      icon: <TypeIcon />,
+      title: t('steps.step1.title'),
+      description: t('steps.step1.description')
+    },
+    {
+      icon: <Paintbrush2Icon />,
+      title: t('steps.step2.title'),
+      description: t('steps.step2.description')
+    },
+    {
+      icon: <DiamondIcon />,
+      title: t('steps.step3.title'),
+      description: t('steps.step3.description')
+    },
+    {
+      icon: <SwatchBookIcon />,
+      title: '4. Style',
+      description: t('steps.step4.description')
+    }
+  ]
+
   return (
     <section id="howItWorks" className="py-24 text-center sm:py-32">
       <h2 className="text-3xl font-bold md:text-4xl ">
-        How It{' '}
+        {t('title.pt1')}{' '}
         <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
-          Works{' '}
+          {t('title.pt2')}{' '}
         </span>
-        Step-by-Step Guide
+        {t('title.pt3')}
       </h2>
       <p className="mx-auto mb-8 mt-4 text-xl text-muted-foreground md:w-3/4">
-        Create your custom icon in four simple steps: define your concept,
-        select your colors, choose your shape, and pick your style to bring your
-        vision to life effortlessly.
+        {t('description')}
       </p>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

@@ -25,6 +25,32 @@
         },
         "description": "Effortlessly create professional icons with our AI-driven tool. Perfect for enhancing any project.",
         "buttons": { "generate": "Generate" }
+      },
+      "how-it-works": {
+        "title": {
+          "pt1": "How it",
+          "pt2": "Works",
+          "pt3": "Step-by-Step Guide"
+        },
+        "description": "Create your custom icon in four simple steps: define your concept, select your colors, choose your shape, and pick your style to bring your vision to life effortlessly.",
+        "steps": {
+          "step1": {
+            "title": "1. Prompt",
+            "description": "Enter a brief that guides the AI in creating your personalized icon."
+          },
+          "step2": {
+            "title": "2. Color",
+            "description": "Select a primary color and, optionally, a secondary color."
+          },
+          "step3": {
+            "title": "3. Shape",
+            "description": "Choose from a variety of shapes to best represent your icon."
+          },
+          "step4": {
+            "title": "4. Style",
+            "description": "Pick a design style that best suits your project’s aesthetict"
+          }
+        }
       }
     },
     "generate": {
