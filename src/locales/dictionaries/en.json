@@ -103,6 +103,32 @@
             "description": "Quick, easy, and efficient—exactly what I needed for my project deadlines."
           }
         }
+      },
+      "faq": {
+        "title": {
+          "pt1": "Frequently Asked",
+          "pt2": "Questions"
+        },
+        "questions": {
+          "question1": {
+            "question": "What is an icon generator?",
+            "answer": "Our AI icon generator uses advanced algorithms to help you design custom icons effortlessly. Simply input your preferences, and our tool crafts icons tailored to your needs."
+          },
+          "question2": {
+            "question": "Is it easy to use for beginners?",
+            "answer": "Absolutely! Our platform is designed with simplicity in mind. No prior design experience is needed—just select your preferences, and our AI will handle the rest."
+          },
+          "question3": {
+            "question": "Can I use the icons commercially?",
+            "answer": "Yes, all icons created with our generator can be used for both personal and commercial projects. You have full rights to use them in your work.'"
+          },
+          "question4": {
+            "question": "How can I get help if I have issues using the tool?",
+            "answer": "Our support team is here to help! Contact us via email for any assistance you may need.."
+          }
+        },
+        "still-have-questions": "Still have questions?",
+        "contact-us": "Contact Us"
       }
     },
     "generate": {
