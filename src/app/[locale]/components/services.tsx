@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/card'
 import { SendIcon, Settings2Icon, StarIcon } from 'lucide-react'
 import inovation from '@/assets/landingPage/Innovation.svg'
+import { getScopedI18n } from '@/locales/server'
 
 interface ServiceProps {
   title: string
@@ -13,42 +14,40 @@ interface ServiceProps {
   icon: JSX.Element
 }
 
-const serviceList: ServiceProps[] = [
-  {
-    title: 'Premium Experience',
-    description:
-      'We focus entirely on delivering the best possible icon generation experience, combining intuitive design with top-tier performance for seamless creation.',
-    icon: <StarIcon />
-  },
-  {
-    title: 'Streamlined Process',
-    description:
-      'Our user-friendly platform and smart AI simplify your design process, enabling you to create complex icons quickly and easily.',
-    icon: <SendIcon />
-  },
-  {
-    title: 'Tailored Customization',
-    description:
-      'Customize every detail of your icon to fit your exact needs, from colors to dimensions, ensuring a perfect match for your project.',
-    icon: <Settings2Icon />
-  }
-]
+export const Services = async () => {
+  const t = await getScopedI18n('pages.landing-pages.services')
 
-export const Services = () => {
+  const serviceList: ServiceProps[] = [
+    {
+      title: t('services.service1.title'),
+      description: t('services.service1.description'),
+      icon: <StarIcon />
+    },
+    {
+      title: t('services.service2.title'),
+      description: t('services.service2.description'),
+      icon: <SendIcon />
+    },
+    {
+      title: t('services.service3.title'),
+      description: t('services.service3.description'),
+      icon: <Settings2Icon />
+    }
+  ]
+
   return (
     <section className="py-24 sm:py-32">
       <div className="grid place-items-center gap-8 lg:grid-cols-[1fr,1fr]">
         <div>
           <h2 className="text-3xl font-bold md:text-4xl">
             <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
-              Client-Centric{' '}
+              {t('title.pt1')}{' '}
             </span>
-            Services
+            {t('title.pt2')}
           </h2>
 
           <p className="mb-8 mt-4 text-xl text-muted-foreground ">
-            Focused on your needs, our platform offers personalized, efficient
-            icon design. Experience seamless creation, every step of the way.
+            {t('description')}
           </p>
 
           <div className="flex flex-col gap-8">

@@ -51,6 +51,24 @@
             "description": "Pick a design style that best suits your project’s aesthetict"
           }
         }
+      },
+      "services": {
+        "title": { "pt1": "Client-Centric", "pt2": "Services" },
+        "description": "Focused on your needs, our platform offers personalized, efficient icon design. Experience seamless creation, every step of the way.",
+        "services": {
+          "service1": {
+            "title": "Premium Experience",
+            "description": "We focus entirely on delivering the best possible icon generation experience, combining intuitive design with top-tier performance for seamless creation."
+          },
+          "service2": {
+            "title": "Streamlined Process",
+            "description": "Our user-friendly platform and smart AI simplify your design process, enabling you to create complex icons quickly and easily."
+          },
+          "service3": {
+            "title": "Tailored Customization",
+            "description": "Customize every detail of your icon to fit your exact needs, from colors to dimensions, ensuring a perfect match for your project."
+          }
+        }
       }
     },
     "generate": {
