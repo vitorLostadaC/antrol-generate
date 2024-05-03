@@ -1,3 +1,4 @@
+import { getScopedI18n } from '@/locales/server'
 import Link from 'next/link'
 
 interface LinkSchema {
@@ -5,22 +6,23 @@ interface LinkSchema {
   label: string
 }
 
-const links: LinkSchema[] = [
-  {
-    href: '/terms-of-service',
-    label: 'Terms of Service'
-  },
-  {
-    href: '/privacy-policy',
-    label: 'Privacy Policy'
-  },
-  {
-    href: '/refund-policy',
-    label: 'Refund Policy'
-  }
-]
+export const Footer = async () => {
+  const t = await getScopedI18n('footer')
+  const links: LinkSchema[] = [
+    {
+      href: '/terms-of-service',
+      label: t('terms-of-service')
+    },
+    {
+      href: '/privacy-policy',
+      label: t('privacy-policy')
+    },
+    {
+      href: '/refund-policy',
+      label: t('refund-policy')
+    }
+  ]
 
-export const Footer = () => {
   return (
     <footer id="footer">
       <hr className="mx-auto w-11/12" />
