@@ -69,6 +69,40 @@
             "description": "Customize every detail of your icon to fit your exact needs, from colors to dimensions, ensuring a perfect match for your project."
           }
         }
+      },
+      "testimonials": {
+        "title": {
+          "pt1": "Discover Why",
+          "pt2": "People Love",
+          "pt3": "This Landing Page"
+        },
+        "description": "Discover why users rave about our icon generator. Ease of use, vibrant customization, and premium outputs—experience the best in AI-driven icon design!",
+        "testimonials": {
+          "testimonial1": {
+            "name": "Jake Martell",
+            "description": "Absolutely love the ease of use. Creating icons has never been simpler!"
+          },
+          "testimonial2": {
+            "name": "Samantha Bee",
+            "description": "Fantastic results! The color customization options are a game-changer."
+          },
+          "testimonial3": {
+            "name": "Mia Wong",
+            "description": "I'm impressed with the premium outputs from such a straightforward tool. Highly recommend!"
+          },
+          "testimonial4": {
+            "name": "Ethan Hunt",
+            "description": "The user interface is so intuitive. Great job on making design accessible to everyone!"
+          },
+          "testimonial5": {
+            "name": "Nora Klint",
+            "description": "Top-quality icons every time. The AI features really help fine-tune the designs."
+          },
+          "testimonial6": {
+            "name": "Liam Quigley",
+            "description": "Quick, easy, and efficient—exactly what I needed for my project deadlines."
+          }
+        }
       }
     },
     "generate": {
