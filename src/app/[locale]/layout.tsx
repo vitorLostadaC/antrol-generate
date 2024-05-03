@@ -8,6 +8,7 @@ import { I18nProviderClient } from '@/locales/client'
 import { Header } from '@/layout/header/'
 import { ThemeWrapper } from '@/contexts/themeWrapper'
 import { Toaster } from '@/components/ui/toaster'
+import { Footer } from './components/footer'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -30,7 +31,11 @@ type Props = {
 export default function RootLayout({ children, params }: Props) {
   return (
     <SessionWrapper>
-      <html lang={params.locale} suppressHydrationWarning>
+      <html
+        lang={params.locale}
+        className="scroll-smooth"
+        suppressHydrationWarning
+      >
         <body
           className={cn(
             'flex min-h-screen flex-col bg-background font-sans antialiased',
@@ -48,6 +53,7 @@ export default function RootLayout({ children, params }: Props) {
               <main className="container flex flex-1 flex-col py-4 max-sm:px-3">
                 {children}
               </main>
+              <Footer />
               <Toaster />
             </I18nProviderClient>
           </ThemeWrapper>

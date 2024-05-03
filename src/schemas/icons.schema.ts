@@ -16,7 +16,7 @@ export const stylesSchema = z.enum([
   'neon',
   'pixelated',
   'flat',
-  'ilustrated',
+  'illustrated',
   'hand-drawn',
   'watercolor',
   'isometric',

@@ -118,8 +118,8 @@ export const imageStyles: ImageStyle[] = [
   {
     image: ilustrated,
     model: 'dall-e-3',
-    name: 'Ilustrated',
-    style: 'ilustrated'
+    name: 'illustrated',
+    style: 'illustrated'
   },
   {
     image: handDrawn,

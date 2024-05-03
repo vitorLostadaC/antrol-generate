@@ -14,7 +14,128 @@
       "navigation": "Navigation"
     }
   },
+  "footer": {
+    "terms-of-service": "Terms of Service",
+    "privacy-policy": "Privacy Policy",
+    "refund-policy": "Refund Policy"
+  },
   "pages": {
+    "landing-pages": {
+      "hero": {
+        "title": {
+          "pt1": "Craft Premium",
+          "pt2": "Icons",
+          "pt3": "Professional",
+          "pt4": "Quality"
+        },
+        "description": "Effortlessly create professional icons with our AI-driven tool. Perfect for enhancing any project.",
+        "buttons": { "generate": "Generate" }
+      },
+      "how-it-works": {
+        "title": {
+          "pt1": "How it",
+          "pt2": "Works",
+          "pt3": "Step-by-Step Guide"
+        },
+        "description": "Create your custom icon in four simple steps: define your concept, select your colors, choose your shape, and pick your style to bring your vision to life effortlessly.",
+        "steps": {
+          "step1": {
+            "title": "1. Prompt",
+            "description": "Enter a brief that guides the AI in creating your personalized icon."
+          },
+          "step2": {
+            "title": "2. Color",
+            "description": "Select a primary color and, optionally, a secondary color."
+          },
+          "step3": {
+            "title": "3. Shape",
+            "description": "Choose from a variety of shapes to best represent your icon."
+          },
+          "step4": {
+            "title": "4. Style",
+            "description": "Pick a design style that best suits your project’s aesthetict"
+          }
+        }
+      },
+      "services": {
+        "title": { "pt1": "Client-Centric", "pt2": "Services" },
+        "description": "Focused on your needs, our platform offers personalized, efficient icon design. Experience seamless creation, every step of the way.",
+        "services": {
+          "service1": {
+            "title": "Premium Experience",
+            "description": "We focus entirely on delivering the best possible icon generation experience, combining intuitive design with top-tier performance for seamless creation."
+          },
+          "service2": {
+            "title": "Streamlined Process",
+            "description": "Our user-friendly platform and smart AI simplify your design process, enabling you to create complex icons quickly and easily."
+          },
+          "service3": {
+            "title": "Tailored Customization",
+            "description": "Customize every detail of your icon to fit your exact needs, from colors to dimensions, ensuring a perfect match for your project."
+          }
+        }
+      },
+      "testimonials": {
+        "title": {
+          "pt1": "Discover Why",
+          "pt2": "People Love",
+          "pt3": "This AI Tool"
+        },
+        "description": "Discover why users rave about our icon generator. Ease of use, vibrant customization, and premium outputs—experience the best in AI-driven icon design!",
+        "testimonials": {
+          "testimonial1": {
+            "name": "Jake Martell",
+            "description": "Absolutely love the ease of use. Creating icons has never been simpler!"
+          },
+          "testimonial2": {
+            "name": "Samantha Bee",
+            "description": "Fantastic results! The color customization options are a game-changer."
+          },
+          "testimonial3": {
+            "name": "Mia Wong",
+            "description": "I'm impressed with the premium outputs from such a straightforward tool. Highly recommend!"
+          },
+          "testimonial4": {
+            "name": "Ethan Hunt",
+            "description": "The user interface is so intuitive. Great job on making design accessible to everyone!"
+          },
+          "testimonial5": {
+            "name": "Nora Klint",
+            "description": "Top-quality icons every time. The AI features really help fine-tune the designs."
+          },
+          "testimonial6": {
+            "name": "Liam Quigley",
+            "description": "Quick, easy, and efficient—exactly what I needed for my project deadlines."
+          }
+        }
+      },
+      "faq": {
+        "title": {
+          "pt1": "Frequently Asked",
+          "pt2": "Questions"
+        },
+        "questions": {
+          "question1": {
+            "question": "What is an icon generator?",
+            "answer": "Our AI icon generator uses advanced algorithms to help you design custom icons effortlessly. Simply input your preferences, and our tool crafts icons tailored to your needs."
+          },
+          "question2": {
+            "question": "Is it easy to use for beginners?",
+            "answer": "Absolutely! Our platform is designed with simplicity in mind. No prior design experience is needed—just select your preferences, and our AI will handle the rest."
+          },
+          "question3": {
+            "question": "Can I use the icons commercially?",
+            "answer": "Yes, all icons created with our generator can be used for both personal and commercial projects. You have full rights to use them in your work.'"
+          },
+          "question4": {
+            "question": "How can I get help if I have issues using the tool?",
+            "answer": "Our support team is here to help! Contact us via email for any assistance you may need.."
+          }
+        },
+        "still-have-questions": "Still have questions?",
+        "contact-us": "Contact Us"
+      }
+    },
     "generate": {
       "title": {
         "shall-we-begin": "Shall we begin?"
@@ -227,7 +348,10 @@
       }
     },
     "pricing": {
-      "title": "Buy Coins",
+      "title": {
+        "pt1": "Buy",
+        "pt2": "Coins!"
+      },
       "description": "Buy credits to use our services and get access to the best features",
       "alert": {
         "title1": "Please review our",
