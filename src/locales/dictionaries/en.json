@@ -283,7 +283,10 @@
       }
     },
     "pricing": {
-      "title": "Buy Coins",
+      "title": {
+        "pt1": "Buy",
+        "pt2": "Coins!"
+      },
       "description": "Buy credits to use our services and get access to the best features",
       "alert": {
         "title1": "Please review our",

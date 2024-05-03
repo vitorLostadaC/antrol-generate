@@ -20,19 +20,16 @@ export default async function Pricing({
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="text-center">
-        {/* <h1 className="text-3xl">{t('title')}</h1>
-        <p className="text-gray-500">{t('description')}</p> */}
-
         <h2 className="text-3xl font-bold md:text-4xl">
-          Buy
+          {t('title.pt1')}
           <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
             {' '}
-            Coins!
+            {t('title.pt2')}
           </span>
         </h2>
 
         <p className="pb-6 pt-4 text-xl text-muted-foreground">
-          Buy credits to use our services and get access to the best features
+          {t('description')}
         </p>
       </div>
       <div className="w-full space-y-4">
