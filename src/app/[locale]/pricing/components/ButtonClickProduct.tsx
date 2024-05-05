@@ -49,7 +49,6 @@ export const ButtonClickProduct = ({
           description: t('unespected-error.description'),
           variant: 'destructive'
         })
-        //Todo sentry error message
       }
     }
   }

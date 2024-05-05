@@ -9,7 +9,7 @@ import { saveGeneration } from '../prisma/saveGeneration'
 import { IStyles, IShapes } from '@/schemas/icons.schema'
 import { Generation } from '@prisma/client'
 import { uploadS3 } from '../aws/uploadS3'
-import { openai } from '../ai'
+import * as Sentry from '@sentry/nextjs'
 
 interface generationProps {
   styles: IStyles[]
@@ -20,7 +20,7 @@ interface generationProps {
   shape: IShapes
   prompt: string
 }
-// TODO improve this erros handling
+
 export const generate = async ({
   primaryColor,
   secondaryColor,
@@ -33,6 +33,11 @@ export const generate = async ({
   try {
     await chargeCoin(Cost.Generation)
   } catch (e) {
+    Sentry.captureException('Failed to charge coin', {
+      tags: {
+        error: (e as Error).message
+      }
+    })
     throw new Error('Failed to charge coin')
   }
 
@@ -58,27 +63,26 @@ export const generate = async ({
     try {
       await reimbursementCoin(Cost.Generation)
     } catch {
-      // adicionar alguma coisa aqui, como um analitics ou um email pra mim
+      Sentry.captureException('Failed to reimbursement coin', {
+        tags: {
+          error: (error as Error).message
+        }
+      })
       throw new Error('Failed to reimbursemen coin')
     }
-    // talvez implementar um sistema de mensageria aqui
-    throw new Error('Failed to createIcon')
+    Sentry.captureException('Failed to create icon', {
+      tags: {
+        error: (error as Error).message
+      }
+    })
+    throw new Error('Failed to create icon')
   }
 
   const iconGPTURL = iconResponse?.data[0].url ?? ''
 
-  let iconURL: string = ''
-
   try {
-    iconURL = (await uploadS3(iconGPTURL)) ?? ''
-  } catch {
-    console.log('depois eu vejo')
-  }
-
-  let generation: Generation | null = null
-
-  try {
-    generation = await saveGeneration({
+    const iconURL = (await uploadS3(iconGPTURL)) ?? ''
+    const generation = await saveGeneration({
       primaryColor,
       primaryCustomColor,
       secondaryColor,
@@ -90,14 +94,19 @@ export const generate = async ({
       shape,
       styles
     })
-  } catch (error) {
-    console.log((error as Error).message)
-    // adicionar alguma coisa aqui, como um analitics ou um email pra mim
-  }
 
-  if (!generation) {
-    throw new Error('User not authenticated')
-  }
+    if (!generation) {
+      throw new Error('User not authenticated')
+    }
 
-  return generation
+    return generation
+  } catch (e) {
+    const error = e as Error
+    Sentry.captureException('Failed to save generation', {
+      tags: {
+        error: error.message
+      }
+    })
+    throw new Error('Failed to save generation')
+  }
 }
