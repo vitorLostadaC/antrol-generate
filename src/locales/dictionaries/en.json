@@ -342,9 +342,21 @@
           "title": "Error creating icon",
           "description": "There was an error creating your icon. Please try again."
         },
+        "user-not-authenticated": {
+          "title": "Not authenticated",
+          "description": "Please sign in to generate icons."
+        },
         "reimbursement-coin": {
           "title": "Error create icon and reimbursing coins",
           "description": "If your coin don't come back in 24 hours, please contact us."
+        },
+        "save-generation": {
+          "title": "Error saving generation",
+          "description": "An error occurred while saving your content to our servers. Please download the image and save it to your device."
+        },
+        "unknown": {
+          "title": "Unknown error",
+          "description": "An unknown error occurred. Please try again."
         }
       }
     },

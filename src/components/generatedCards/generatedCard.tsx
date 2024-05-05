@@ -16,11 +16,10 @@ import { downloadImage } from '@/lib/image'
 import { DefaultFormValuesWebStorageSchema } from '@/app/[locale]/generate/page'
 import { getGenerationWithParams } from '@/actions/prisma/getGenerationsWithParams'
 import { WebStorage } from '@/data/webStorage'
-import { IStyles, colorsSchema } from '@/schemas/icons.schema'
+import { IStyles } from '@/schemas/icons.schema'
 import { ColorSteps } from '@/app/[locale]/generate/steps/color/data/colors'
-import { useRouter } from 'next/navigation'
 import { useToast } from '../ui/use-toast'
-import { env } from '@/env'
+import * as Sentry from '@sentry/nextjs'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
@@ -121,7 +120,11 @@ export const GeneratedCard = ({
                   description: t('share.error-toast.description'),
                   variant: 'destructive'
                 })
-                //TODO add sentry heere
+                Sentry.captureException('Error to copy link to clipboard', {
+                  tags: {
+                    error: (err as Error).message
+                  }
+                })
               }
             }
           }

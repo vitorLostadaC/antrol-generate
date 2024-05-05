@@ -25,11 +25,11 @@ import { Generation } from '@prisma/client'
 import { GenerationsStep } from './steps/generations/generationsStep'
 import { ColorSteps } from './steps/color/data/colors'
 import { useRouter } from 'next/navigation'
-import { useToast } from '@/components/ui/use-toast'
+import { toast, useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
 import { generate } from '@/actions/features/generate'
 import { WebStorage } from '@/data/webStorage'
-
+import * as Sentry from '@sentry/nextjs'
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
   prompt: z.string(),
@@ -255,8 +255,34 @@ export default function Generate() {
             variant: 'destructive'
           })
           break
+
+        case 'User not authenticated':
+          toast({
+            title: t('pages.generate.erros.user-not-authenticated.title'),
+            description: t(
+              'pages.generate.erros.user-not-authenticated.description'
+            ),
+            variant: 'destructive'
+          })
+          break
+        case 'Failed to save generation':
+          toast({
+            title: t('pages.generate.erros.save-generation.title'),
+            description: t('pages.generate.erros.save-generation.description'),
+            variant: 'destructive'
+          })
+          break
         default:
-          console.log(error.message)
+          toast({
+            title: t('pages.generate.erros.unknown.title'),
+            description: t('pages.generate.erros.unknown.description'),
+            variant: 'destructive'
+          })
+          Sentry.captureException('unknow error to generate icon', {
+            tags: {
+              error: error.message
+            }
+          })
           break
       }
     }

@@ -4,6 +4,7 @@ import { StripeProductName, stripeProducts } from '@/data/stripeProducts'
 import { env } from '@/env'
 import { getServerAuthSession } from '@/lib/auth'
 import { stripe } from '@/services/stripe'
+import * as Sentry from '@sentry/nextjs'
 
 export const createCheckoutSession = async (
   productPriceName: StripeProductName,
@@ -40,9 +41,13 @@ export const createCheckoutSession = async (
     return {
       url: session.url
     }
-  } catch (error) {
-    console.error((error as Error).message)
-    // TODO: Sentry
+  } catch (e) {
+    const error = e as Error
+    Sentry.captureException('error to create checkout session', {
+      tags: {
+        error: error.message
+      }
+    })
     throw new Error('Error to create checkout session')
   }
 }
