@@ -3,6 +3,7 @@
     "navigation": {
       "generate": "Generate",
       "gallery": "Gallery",
+      "collections": "Collections",
       "retouch": "Retouch"
     },
     "sign-in": "Sign In",
