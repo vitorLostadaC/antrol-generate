@@ -397,6 +397,16 @@
     "collections": {
       "placeholder": "Search your icon by prompt",
       "notFound": "No icons found, try generate a new one"
+    },
+    "refund-policy": {
+      "title": "Refund Policy",
+      "last-update": "Last updated: May 5, 2024",
+      "paragraphs": {
+        "ph1": "At icongeneratorai.com, we are committed to providing a unique and innovative experience through our AI-generated icons. We understand that AI, while powerful and revolutionary, isn't perfect and may not always produce the results you expect. We want you to be fully aware of this inherent risk before making any purchases.",
+        "ph2": "Due to the high costs involved in powering the advanced GPUs for our AI art generation, we unfortunately cannot offer refunds once credits have been used. We realize this may not be the ideal scenario for everyone, but this policy helps us to maintain a fair and sustainable service for all of our valued users.",
+        "ph3": "We strongly recommend exploring our community page before any purchase. You can see daily generated icons from other users which could help you understand the possibilities and limitations of AI art, and will hopefully guide your expectations. We believe in transparency and want you to make an informed decision about our unique service.",
+        "ph4": "Your understanding and support mean a lot to us. As we continue to improve and enhance our AI, we hope you will join us in this fascinating journey of digital creativity."
+      }
     }
   },
   "components": {
