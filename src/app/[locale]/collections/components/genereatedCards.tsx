@@ -10,7 +10,7 @@ import { useState } from 'react'
 interface GeneratedCardsWrapperProps {
   generations: Generation[]
 }
-
+// no icons found, try generating one
 export const GeneratedCardsWrapper = ({
   generations
 }: GeneratedCardsWrapperProps) => {
@@ -30,6 +30,9 @@ export const GeneratedCardsWrapper = ({
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
+      {filtredGenerations.length === 0 && (
+        <p className="text-muted-foreground">{t('notFound')}</p>
+      )}
       <GeneratedCards
         classNames="grid-cols-5"
         generations={filtredGenerations}

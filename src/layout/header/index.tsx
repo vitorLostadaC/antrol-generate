@@ -58,7 +58,7 @@ export const Header = async () => {
       path: '/collections',
       name: t('navigation.collections'),
       icon: Atom,
-      conditional: !!session?.user
+      conditional: true
     }
   ].filter((link) => link.conditional)
 
