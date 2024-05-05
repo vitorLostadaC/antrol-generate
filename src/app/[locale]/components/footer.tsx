@@ -10,15 +10,7 @@ export const Footer = async () => {
   const t = await getScopedI18n('footer')
   const links: LinkSchema[] = [
     {
-      href: '/terms-of-service',
-      label: t('terms-of-service')
-    },
-    {
-      href: '/privacy-policy',
-      label: t('privacy-policy')
-    },
-    {
-      href: '/refund-policy',
+      href: '/refund',
       label: t('refund-policy')
     }
   ]
