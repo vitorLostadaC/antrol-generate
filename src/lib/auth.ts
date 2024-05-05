@@ -9,15 +9,6 @@ import { posthogServer } from './posthog'
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session: ({ session, user }) => {
-      if (session.user) {
-        posthogServer.identify({
-          distinctId: user.id,
-          properties: {
-            email: user.email,
-            name: user.name
-          }
-        })
-      }
       return {
         ...session,
         user: {
