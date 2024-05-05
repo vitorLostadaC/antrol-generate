@@ -383,7 +383,8 @@
       }
     },
     "collections": {
-      "placeholder": "Search your icon by prompt"
+      "placeholder": "Search your icon by prompt",
+      "notFound": "No icons found, try generate a new one"
     }
   },
   "components": {
@@ -392,7 +393,18 @@
         "donwload": "Download HD Image",
         "variant": "Make Variant (1 credit)",
         "reuse-prompt": "Reuse Prompt",
-        "remove-bg": "Remove Background (1 credit)"
+        "remove-bg": "Remove Background (1 credit)",
+        "share": {
+          "name": "Share",
+          "toast": {
+            "title": "Copied",
+            "description": "Link copied to clipboard"
+          },
+          "error-toast": {
+            "title": "Error",
+            "description": "Error to copy link"
+          }
+        }
       }
     }
   }

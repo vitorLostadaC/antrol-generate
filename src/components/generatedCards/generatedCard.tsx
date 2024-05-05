@@ -7,7 +7,8 @@ import {
   Eraser,
   EraserIcon,
   Layers2,
-  MenuIcon
+  MenuIcon,
+  Share2Icon
 } from 'lucide-react'
 import { SimpleDropdown } from '../ui/simpleDropdown'
 import { useScopedI18n } from '@/locales/client'
@@ -18,6 +19,8 @@ import { WebStorage } from '@/data/webStorage'
 import { IStyles, colorsSchema } from '@/schemas/icons.schema'
 import { ColorSteps } from '@/app/[locale]/generate/steps/color/data/colors'
 import { useRouter } from 'next/navigation'
+import { useToast } from '../ui/use-toast'
+import { env } from '@/env'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
@@ -31,6 +34,7 @@ export const GeneratedCard = ({
   resetToNewGeneration
 }: GeneratedCardPropsSchema) => {
   const t = useScopedI18n('components.generated-cards.dropdwon')
+  const { toast } = useToast()
 
   const reuseParams = async () => {
     const currentGeneration = await getGenerationWithParams({
@@ -96,6 +100,30 @@ export const GeneratedCard = ({
             name: t('reuse-prompt'),
             icon: Layers2,
             onClick: reuseParams
+          },
+
+          {
+            name: t('share.name'),
+            icon: Share2Icon,
+            onClick: async () => {
+              try {
+                await navigator.clipboard.writeText(
+                  window.location.origin + '/gallery/' + generation.id
+                )
+
+                toast({
+                  title: t('share.toast.title'),
+                  description: t('share.toast.description')
+                })
+              } catch (err) {
+                toast({
+                  title: t('share.error-toast.title'),
+                  description: t('share.error-toast.description'),
+                  variant: 'destructive'
+                })
+                //TODO add sentry heere
+              }
+            }
           }
           // add on v2
           // {
