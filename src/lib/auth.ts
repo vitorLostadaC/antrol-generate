@@ -4,10 +4,20 @@ import { NextAuthOptions, getServerSession } from 'next-auth'
 import { Adapter } from 'next-auth/adapters'
 import GoogleProvider from 'next-auth/providers/google'
 import { env } from '@/env'
+import { posthogServer } from './posthog'
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session: ({ session, user }) => {
+      if (session.user) {
+        posthogServer.identify({
+          distinctId: user.id,
+          properties: {
+            email: user.email,
+            name: user.name
+          }
+        })
+      }
       return {
         ...session,
         user: {
@@ -18,6 +28,7 @@ export const authOptions: NextAuthOptions = {
       }
     }
   },
+
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: env.JWT_SECRET,
   providers: [
