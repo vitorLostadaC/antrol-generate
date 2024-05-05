@@ -28,6 +28,7 @@ interface LinkItemSchema {
   path: string
   name: string
   icon: LucideIcon
+  conditional: boolean
 }
 
 export const Header = async () => {
@@ -38,19 +39,28 @@ export const Header = async () => {
     {
       path: '/generate',
       name: t('navigation.generate'),
-      icon: SparkleIcon
+      icon: SparkleIcon,
+      conditional: true
     },
     {
       path: '/gallery',
       name: t('navigation.gallery'),
-      icon: ImagesIcon
+      icon: ImagesIcon,
+      conditional: true
     },
+    // {
+    //   path: '/retouch',
+    //   name: t('navigation.retouch'),
+    //   icon: Atomm,
+    //   conditional: true
+    // },
     {
-      path: '/retouch',
-      name: t('navigation.retouch'),
-      icon: Atom
+      path: '/collections',
+      name: t('navigation.collections'),
+      icon: Atom,
+      conditional: !!session?.user
     }
-  ]
+  ].filter((link) => link.conditional)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

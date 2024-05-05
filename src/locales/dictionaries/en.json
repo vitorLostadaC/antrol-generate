@@ -3,6 +3,7 @@
     "navigation": {
       "generate": "Generate",
       "gallery": "Gallery",
+      "collections": "Collections",
       "retouch": "Retouch"
     },
     "sign-in": "Sign In",
@@ -380,6 +381,9 @@
           "description": "Please try again later"
         }
       }
+    },
+    "collections": {
+      "placeholder": "Search your icon by prompt"
     }
   },
   "components": {

@@ -1,7 +1,9 @@
 import { getGenerations } from '@/actions/prisma/getGenerations'
 
 export default async function Gallery() {
-  const generations = await getGenerations()
+  const generations = await getGenerations({
+    take: 50
+  })
 
   return (
     <div className="mx-auto grid max-w-3xl grid-cols-5 gap-4">
