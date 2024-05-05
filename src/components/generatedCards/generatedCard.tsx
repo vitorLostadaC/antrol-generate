@@ -1,3 +1,5 @@
+'use client'
+
 import { Generation } from '@prisma/client'
 import {
   DnaIcon,
