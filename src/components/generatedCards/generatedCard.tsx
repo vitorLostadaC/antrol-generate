@@ -20,6 +20,7 @@ import { IStyles } from '@/schemas/icons.schema'
 import { ColorSteps } from '@/app/[locale]/generate/steps/color/data/colors'
 import { useToast } from '../ui/use-toast'
 import * as Sentry from '@sentry/nextjs'
+import posthog from 'posthog-js'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
@@ -84,13 +85,19 @@ export const GeneratedCard = ({
             name: t('donwload'),
             icon: DownloadIcon,
             onClick: () => {
+              posthog.capture('click-card-feature', { feature: 'donwload' })
               try {
                 downloadImage(
                   generation.imagesURL[0],
                   'generated-by-antrol-generate.png'
                 )
-              } catch (error) {
-                console.error(error)
+              } catch (e) {
+                const error = e as Error
+                Sentry.captureException('Error to download image', {
+                  tags: {
+                    error: error.message
+                  }
+                })
               }
             }
           },
@@ -98,13 +105,17 @@ export const GeneratedCard = ({
           {
             name: t('reuse-prompt'),
             icon: Layers2,
-            onClick: reuseParams
+            onClick: () => {
+              posthog.capture('click-card-feature', { feature: 'reuse-prompt' })
+              reuseParams()
+            }
           },
 
           {
             name: t('share.name'),
             icon: Share2Icon,
             onClick: async () => {
+              posthog.capture('click-card-feature', { feature: 'share' })
               try {
                 await navigator.clipboard.writeText(
                   window.location.origin + '/gallery/' + generation.id

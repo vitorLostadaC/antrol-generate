@@ -16,6 +16,7 @@ import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
 import { Session } from 'next-auth'
 import { signOut } from 'next-auth/react'
+import posthog from 'posthog-js'
 
 type MenuItemSchema =
   | 'divider'
@@ -37,7 +38,10 @@ export const Avatar = ({ session, isInSheet }: AvatarPropsSchema) => {
   const menuItems: MenuItemSchema[] = [
     {
       name: t('sign-out'),
-      action: signOut
+      action: () => {
+        posthog.reset()
+        signOut()
+      }
     }
   ]
 

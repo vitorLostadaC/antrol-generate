@@ -4,6 +4,7 @@ import { useScopedI18n } from '@/locales/client'
 import { LogInIcon, ShoppingCartIcon, SparklesIcon } from 'lucide-react'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import posthog from 'posthog-js'
 
 interface GenerateButtonSchema {
   isGenerating: boolean
@@ -20,7 +21,10 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
       <Button
         type="button"
         className="gap-2 font-medium"
-        onClick={() => signIn('google')}
+        onClick={() => {
+          posthog.capture('sign-in-from-generate-button')
+          signIn('google')
+        }}
       >
         <>
           <span>{t('buttons.sign-in')}</span>
@@ -34,7 +38,10 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
       <Button
         type="button"
         className="gap-2 font-medium"
-        onClick={() => router.push('/pricing')}
+        onClick={() => {
+          posthog.capture('buy-coin-from-generate-button')
+          router.push('/pricing')
+        }}
       >
         <>
           <span>{t('buttons.buy-coin')}</span>

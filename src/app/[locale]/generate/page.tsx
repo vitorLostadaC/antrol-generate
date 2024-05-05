@@ -30,6 +30,7 @@ import { ToastAction } from '@radix-ui/react-toast'
 import { generate } from '@/actions/features/generate'
 import { WebStorage } from '@/data/webStorage'
 import * as Sentry from '@sentry/nextjs'
+import posthog from 'posthog-js'
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
   prompt: z.string(),
@@ -199,6 +200,21 @@ export default function Generate() {
     const secondaryColor = secondaryColorIsCustom
       ? GetColorName(data.secondaryColor)
       : data.secondaryColor
+
+    posthog.capture('generate-icon', {
+      primaryTabSelector: tabSelectedColor.primary,
+      secondaryTabSelector: tabSelectedColor.secondary,
+      primaryColor,
+      secondaryColor,
+      shape: data.shape,
+      styles: data.styles
+    })
+
+    data.styles.forEach((style) => {
+      posthog.capture('generate-icon-styles', {
+        style
+      })
+    })
 
     try {
       const generation = await generate({

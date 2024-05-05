@@ -23,6 +23,8 @@ import { ThemeButton } from './themeButton'
 import { Avatar } from './avatar'
 import { Coins } from './coins'
 import Link from 'next/link'
+import { posthogServer } from '@/lib/posthog'
+import console from 'console'
 
 interface LinkItemSchema {
   path: string
@@ -34,6 +36,16 @@ interface LinkItemSchema {
 export const Header = async () => {
   const session = await getServerAuthSession()
   const t = await getScopedI18n('header')
+
+  if (session?.user) {
+    posthogServer.identify({
+      distinctId: session.user.id,
+      properties: {
+        email: session.user.email,
+        name: session.user.name
+      }
+    })
+  }
 
   const links: LinkItemSchema[] = [
     {

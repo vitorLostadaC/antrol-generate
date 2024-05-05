@@ -9,6 +9,7 @@ import { Header } from '@/layout/header/'
 import { ThemeWrapper } from '@/contexts/themeWrapper'
 import { Toaster } from '@/components/ui/toaster'
 import { Footer } from './components/footer'
+import { PostHogProviderWrapper } from '@/contexts/posthogWrapper'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -49,12 +50,14 @@ export default function RootLayout({ children, params }: Props) {
             disableTransitionOnChange
           >
             <I18nProviderClient locale={params.locale}>
-              <Header />
-              <main className="container flex flex-1 flex-col py-4 max-sm:px-3">
-                {children}
-              </main>
-              <Footer />
-              <Toaster />
+              <PostHogProviderWrapper>
+                <Header />
+                <main className="container flex flex-1 flex-col py-4 max-sm:px-3">
+                  {children}
+                </main>
+                <Footer />
+                <Toaster />
+              </PostHogProviderWrapper>
             </I18nProviderClient>
           </ThemeWrapper>
         </body>

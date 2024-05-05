@@ -4,6 +4,7 @@ import { NextAuthOptions, getServerSession } from 'next-auth'
 import { Adapter } from 'next-auth/adapters'
 import GoogleProvider from 'next-auth/providers/google'
 import { env } from '@/env'
+import { posthogServer } from './posthog'
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
@@ -18,6 +19,7 @@ export const authOptions: NextAuthOptions = {
       }
     }
   },
+
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: env.JWT_SECRET,
   providers: [

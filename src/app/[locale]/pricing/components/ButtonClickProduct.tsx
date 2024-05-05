@@ -7,6 +7,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { ToastAction } from '@/components/ui/toast'
 import { signIn } from 'next-auth/react'
 import { useScopedI18n } from '@/locales/client'
+import posthog from 'posthog-js'
 
 interface ButtonClickProductPropsSchema {
   children: React.ReactNode
@@ -21,6 +22,7 @@ export const ButtonClickProduct = ({
   const { toast } = useToast()
   const t = useScopedI18n('pages.pricing.erros')
   const handleClickProduct = async (productName: StripeProductName) => {
+    posthog.capture('click-product', { productName })
     try {
       const response = await createCheckoutSession(
         productName,
