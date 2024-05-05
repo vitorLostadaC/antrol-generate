@@ -6,6 +6,8 @@ import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
 import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
 import { GenerateButton } from './generateButton'
+import posthog from 'posthog-js'
+import { useEffect } from 'react'
 
 interface ConfirmStepPropsSchema {
   isGenerating: boolean
@@ -16,6 +18,9 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
   const t = useScopedI18n('pages.generate.steps.confirm')
   const predefinedStyles = usePredefinedStyes()
   const predefinedShapes = usePredefinedShape()
+  useEffect(() => {
+    posthog.capture('join-confirm-page')
+  }, [])
 
   const currentShape = predefinedShapes.find(
     (shape) => shape.shape === getValues('shape')

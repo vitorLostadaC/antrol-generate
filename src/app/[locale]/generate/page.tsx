@@ -210,6 +210,12 @@ export default function Generate() {
       styles: data.styles
     })
 
+    data.styles.forEach((style) => {
+      posthog.capture('generate-icon-styles', {
+        style
+      })
+    })
+
     try {
       const generation = await generate({
         primaryColor,
@@ -325,10 +331,6 @@ export default function Generate() {
       WebStorage.GenerateForm,
       JSON.stringify(newSessionStorageValues)
     )
-
-    if (currentStepIndex === 3) {
-      posthog.capture('join-confirm-page')
-    }
 
     next()
   }
