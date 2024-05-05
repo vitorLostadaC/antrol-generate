@@ -381,6 +381,9 @@
           "description": "Please try again later"
         }
       }
+    },
+    "collections": {
+      "placeholder": "Search your icon by prompt"
     }
   },
   "components": {

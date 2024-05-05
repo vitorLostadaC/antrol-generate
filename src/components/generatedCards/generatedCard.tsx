@@ -59,7 +59,6 @@ export const GeneratedCard = ({
       },
       step: 4
     }
-    console.log(newSessionStorageValues)
 
     sessionStorage.setItem(
       WebStorage.GenerateForm,
@@ -72,7 +71,7 @@ export const GeneratedCard = ({
   return (
     <div className="relative">
       <img
-        className="aspect-square h-full rounded-md bg-foreground/60 bg-contain"
+        className="aspect-square h-full w-full rounded-md bg-foreground/60 bg-contain"
         alt="Generated Image"
         src={generation.imagesURL[0]}
       />
