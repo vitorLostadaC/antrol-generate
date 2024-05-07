@@ -139,7 +139,11 @@
     },
     "generate": {
       "title": {
-        "shall-we-begin": "Shall we begin?"
+        "shall-we-begin": "Shall we begin?",
+        "color-selection": "Choose your color",
+        "shape-selection": "Now, select your shape",
+        "important-considerations": "The most important step",
+        "icon-step": "One step away from your icon"
       },
       "buttons": {
         "next": "Next",

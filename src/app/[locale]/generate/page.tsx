@@ -88,6 +88,14 @@ export default function Generate() {
     }
   })
 
+  const title = [
+    t('pages.generate.title.shall-we-begin'),
+    t('pages.generate.title.color-selection'),
+    t('pages.generate.title.shape-selection'),
+    t('pages.generate.title.important-considerations'),
+    t('pages.generate.title.icon-step')
+  ]
+
   const handleResetToNeweGeneration = (
     defaultValues?: DefaultFormValuesWebStorageSchema
   ) => {
@@ -342,9 +350,7 @@ export default function Generate() {
         className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2"
       >
         <div className="flex flex-col gap-4">
-          <h1 className="text-3xl font-semibold">
-            {t('pages.generate.title.shall-we-begin')}
-          </h1>
+          <h1 className="text-3xl font-semibold">{title[currentStepIndex]}</h1>
 
           <div className="">{step}</div>
         </div>
