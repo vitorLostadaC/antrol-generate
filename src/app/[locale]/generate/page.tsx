@@ -79,6 +79,7 @@ export default function Generate() {
   const router = useRouter()
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
+    mode: 'onChange',
     defaultValues: {
       prompt: '',
       primaryColor: '',

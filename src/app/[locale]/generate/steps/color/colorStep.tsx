@@ -52,7 +52,7 @@ export const ColorStep = ({
   const currentSecondaryColor = watch('secondaryColor')
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4">
       <ColorStepSelector
         selectorName="primaryColor"
         title={t('primary-color.title')}

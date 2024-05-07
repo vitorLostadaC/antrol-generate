@@ -39,13 +39,14 @@ export const PromptStep = () => {
           <FormControl>
             <Input placeholder={t('placeholder')} {...field} />
           </FormControl>
-          <FormDescription>
+
+          <FormMessage />
+
+          <FormDescription className="space-y-1">
             <li>{t('description.simple-prompt')}</li>
-            <li>{t('description.variants')}</li>
             <li>{t('description.industrial-specification')}</li>
             <li>{t('description.materials')}</li>
           </FormDescription>
-          <FormMessage />
         </FormItem>
       )}
     />

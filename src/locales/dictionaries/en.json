@@ -156,7 +156,6 @@
           "placeholder": "Bear with beer",
           "description": {
             "simple-prompt": "Simple prompts often work best",
-            "variants": "Once you find a promising icon, generate variations to perfect it",
             "industrial-specification": "Experiment with adding Industrial specification, like tech, food, education",
             "materials": "Experiment with adding materials, like wood, metal, glass"
           },
