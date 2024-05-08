@@ -51,7 +51,11 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
     )
 
   return (
-    <Button className="gap-2 font-medium" disabled={isGenerating} type="submit">
+    <Button
+      className="w-24 gap-2 font-medium"
+      disabled={isGenerating}
+      type="submit"
+    >
       {isGenerating ? (
         <Spinner color={'secondary'} size={'small'} />
       ) : (

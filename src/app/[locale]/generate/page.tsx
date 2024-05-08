@@ -357,8 +357,13 @@ export default function Generate() {
           <div className="">{step}</div>
         </div>
         <div className="flex justify-between">
-          {!isFirstStep && !isLastStep && !isGenerating && (
-            <Button type="button" variant={'secondary'} onClick={back}>
+          {!isFirstStep && !isLastStep && (
+            <Button
+              type="button"
+              variant={'secondary'}
+              onClick={back}
+              disabled={isGenerating}
+            >
               {t('pages.generate.buttons.previous')}
             </Button>
           )}
