@@ -371,7 +371,7 @@ export default function Generate() {
           {isLastStep && (
             <Button
               type="button"
-              variant={'secondary'}
+              className="ml-auto"
               onClick={() => handleResetToNeweGeneration()}
             >
               {t('pages.generate.buttons.generate-other-icon')}
@@ -379,11 +379,7 @@ export default function Generate() {
           )}
 
           {!isLastStep && !isPenultimate && (
-            <Button
-              type="button"
-              onClick={handleValidationNext}
-              className="ml-auto"
-            >
+            <Button type="button" onClick={handleValidationNext}>
               {t('pages.generate.buttons.next')}
             </Button>
           )}
