@@ -33,7 +33,7 @@ export default async function Pricing({
         </p>
       </div>
       <div className="w-full space-y-4">
-        <Alert variant="warn" className="w-full">
+        <Alert className="w-full">
           <AlertTriangleIcon className="h-4 w-4" />
           <AlertTitle>
             {t('alert.title1')}{' '}

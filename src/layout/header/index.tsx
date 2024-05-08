@@ -120,7 +120,7 @@ export const Header = async () => {
           </SheetContent>
         </Sheet>
         {/* Link on lg */}
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           <Logo />
           {links.map((link) => (
             <Link
