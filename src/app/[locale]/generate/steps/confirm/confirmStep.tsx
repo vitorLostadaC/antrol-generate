@@ -40,10 +40,10 @@ export const ConfirmStep = () => {
     <div className="flex flex-col gap-2">
       <StepTitle title={t('title')} description={t('description')} />
 
-      <h2>{t('steps.prompt')}</h2>
+      <h2 className="font-semibold">{t('steps.prompt')}</h2>
       <p>{getValues('prompt')}</p>
 
-      <h2>{t('steps.color')}</h2>
+      <h2 className="font-semibold">{t('steps.color')}</h2>
 
       <div className="grid grid-cols-4 gap-6">
         {colors.map((color) => {
@@ -58,13 +58,13 @@ export const ConfirmStep = () => {
                 className="aspect-square w-full rounded-md"
                 style={{ backgroundColor: color.color }}
               />
-              <h2 className="text-nowrap">{color.name}</h2>
+              <h2 className="text-nowrap text-foreground/80">{color.name}</h2>
             </div>
           )
         })}
       </div>
 
-      <h2>{t('steps.shape')}</h2>
+      <h2 className="font-semibold">{t('steps.shape')}</h2>
 
       <div className="grid grid-cols-4 gap-6">
         <div className="w-full space-y-2 text-center">
@@ -74,11 +74,11 @@ export const ConfirmStep = () => {
             className={cn('aspect-square rounded-md bg-contain')}
           />
 
-          <p className="text-foreground">{currentShape?.name}</p>
+          <p className="text-foreground/80">{currentShape?.name}</p>
         </div>
       </div>
 
-      <h2>{t('steps.style')}</h2>
+      <h2 className="font-semibold">{t('steps.style')}</h2>
       <div className="grid grid-cols-4 gap-6">
         {getValues('styles').map((style) => {
           const predefinedStyle = predefinedStyles.find(
@@ -92,7 +92,7 @@ export const ConfirmStep = () => {
                 className={cn('aspect-square rounded-md bg-contain')}
               />
 
-              <p className="text-foreground">{predefinedStyle?.name}</p>
+              <p className="text-foreground/80">{predefinedStyle?.name}</p>
             </div>
           )
         })}
