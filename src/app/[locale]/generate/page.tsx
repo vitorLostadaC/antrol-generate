@@ -31,6 +31,7 @@ import { generate } from '@/actions/features/generate'
 import { WebStorage } from '@/data/webStorage'
 import * as Sentry from '@sentry/nextjs'
 import posthog from 'posthog-js'
+import { GenerateButton } from './steps/confirm/generateButton'
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
   prompt: z.string(),
@@ -138,7 +139,7 @@ export default function Generate() {
       validation: styleValidation
     },
     {
-      component: <ConfirmStep isGenerating={isGenerating} />,
+      component: <ConfirmStep />,
       validation: () => true
     },
     {
@@ -381,6 +382,8 @@ export default function Generate() {
               {t('pages.generate.buttons.next')}
             </Button>
           )}
+
+          {isPenultimate && <GenerateButton isGenerating={isGenerating} />}
         </div>
       </form>
     </Form>

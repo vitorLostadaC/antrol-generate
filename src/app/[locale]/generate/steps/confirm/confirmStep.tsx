@@ -7,13 +7,9 @@ import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
 import { GenerateButton } from './generateButton'
 import posthog from 'posthog-js'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 
-interface ConfirmStepPropsSchema {
-  isGenerating: boolean
-}
-
-export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
+export const ConfirmStep = () => {
   const { getValues } = useFormContext<FormSchema>()
   const t = useScopedI18n('pages.generate.steps.confirm')
   const predefinedStyles = usePredefinedStyes()
@@ -26,6 +22,20 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
     (shape) => shape.shape === getValues('shape')
   )
 
+  const primaryColor = getValues('primaryColor')
+  const secondaryColor = getValues('secondaryColor')
+
+  const colors = [
+    {
+      name: t('steps.primary-color'),
+      color: primaryColor
+    },
+    {
+      name: t('steps.secondary-color'),
+      color: secondaryColor
+    }
+  ]
+
   return (
     <div className="flex flex-col gap-2">
       <StepTitle title={t('title')} description={t('description')} />
@@ -33,33 +43,39 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
       <h2>{t('steps.prompt')}</h2>
       <p>{getValues('prompt')}</p>
 
-      <div className="flex items-start justify-start gap-4">
-        <div className="flex flex-col items-center justify-center gap-2">
-          <h2>{t('steps.primary-color')}</h2>
-          <div
-            className="aspect-square w-28 rounded-md"
-            style={{ backgroundColor: getValues('primaryColor') }}
-          />
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-          <h2>{t('steps.secondary-color')}</h2>
-          <div
-            className="aspect-square w-28 rounded-md"
-            style={{ backgroundColor: getValues('secondaryColor') }}
-          />
-        </div>
+      <h2>{t('steps.color')}</h2>
+
+      <div className="grid grid-cols-4 gap-6">
+        {colors.map((color) => {
+          if (!color.color) return <Fragment key={color.name} />
+
+          return (
+            <div
+              key={color.name}
+              className="flex flex-col justify-center gap-2 text-center"
+            >
+              <div
+                className="aspect-square w-full rounded-md"
+                style={{ backgroundColor: color.color }}
+              />
+              <h2 className="text-nowrap">{color.name}</h2>
+            </div>
+          )
+        })}
       </div>
 
       <h2>{t('steps.shape')}</h2>
 
-      <div className="w-28 space-y-2 text-center">
-        <img
-          src={currentShape?.image.src}
-          alt={currentShape?.name}
-          className={cn('aspect-square rounded-md bg-contain')}
-        />
+      <div className="grid grid-cols-4 gap-6">
+        <div className="w-full space-y-2 text-center">
+          <img
+            src={currentShape?.image.src}
+            alt={currentShape?.name}
+            className={cn('aspect-square rounded-md bg-contain')}
+          />
 
-        <p className="text-foreground">{currentShape?.name}</p>
+          <p className="text-foreground">{currentShape?.name}</p>
+        </div>
       </div>
 
       <h2>{t('steps.style')}</h2>
@@ -81,8 +97,6 @@ export const ConfirmStep = ({ isGenerating }: ConfirmStepPropsSchema) => {
           )
         })}
       </div>
-
-      <GenerateButton isGenerating={isGenerating} />
     </div>
   )
 }

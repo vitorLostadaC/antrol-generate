@@ -328,6 +328,7 @@
           },
           "steps": {
             "prompt": "Prompt",
+            "color": "Colors",
             "primary-color": "Primary Color",
             "secondary-color": "Secondary Color",
             "shape": "Shape",

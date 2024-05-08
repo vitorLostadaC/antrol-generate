@@ -57,7 +57,7 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
       ) : (
         <>
           <span>{t('buttons.generate')}</span>
-          <SparklesIcon size={20} />
+          {/* <SparklesIcon size={20} /> */}
         </>
       )}
     </Button>
