@@ -379,7 +379,11 @@ export default function Generate() {
           )}
 
           {!isLastStep && !isPenultimate && (
-            <Button type="button" onClick={handleValidationNext}>
+            <Button
+              type="button"
+              onClick={handleValidationNext}
+              className="ml-auto"
+            >
               {t('pages.generate.buttons.next')}
             </Button>
           )}
