@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { MoonStarIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
 
 interface ThemeButtonPropsSchema {
   variant?: 'default' | 'switch'
