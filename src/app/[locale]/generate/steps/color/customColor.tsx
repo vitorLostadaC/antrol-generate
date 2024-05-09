@@ -3,6 +3,7 @@ import { ColorSteps } from './data/colors'
 import { Input } from '@/components/ui/input'
 import { ColorGenericPropsShema } from './colorStep'
 import { ChangeEvent, use, useState } from 'react'
+import { CheckIcon, XIcon } from 'lucide-react'
 
 const COLOR_LENGTH = 6
 const COLOR_WITH_HASH_LENGTH = 7
@@ -12,6 +13,7 @@ export const CustomColor = ({
   currentColor
 }: ColorGenericPropsShema) => {
   const [draftColor, setDraftColor] = useState(currentColor)
+  const [isValidColor, setIsValidColor] = useState(false)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     let inputValue = e.target.value
@@ -24,8 +26,10 @@ export const CustomColor = ({
       if (inputValue.length === COLOR_LENGTH) {
         inputValue = '#' + inputValue
         setValue(inputValue.toUpperCase())
+        setIsValidColor(true)
       } else {
         setValue('')
+        setIsValidColor(false)
       }
       setDraftColor(inputValue.toUpperCase())
     }
@@ -33,12 +37,19 @@ export const CustomColor = ({
 
   return (
     <TabsContent value={ColorSteps.Hex}>
-      <Input
-        value={draftColor}
-        onChange={handleChange}
-        maxLength={COLOR_LENGTH}
-        placeholder="FFFF00"
-      />
+      <div className="relative">
+        <Input
+          value={draftColor}
+          onChange={handleChange}
+          maxLength={COLOR_LENGTH}
+          placeholder="FFFF00"
+        />
+        {isValidColor ? (
+          <CheckIcon className="absolute right-2 top-1/2 -translate-y-1/2 text-emerald-400" />
+        ) : (
+          <XIcon className="absolute right-2 top-1/2 -translate-y-1/2 text-red-400" />
+        )}
+      </div>
     </TabsContent>
   )
 }
