@@ -21,17 +21,20 @@ import { ColorSteps } from '@/app/[locale]/generate/steps/color/data/colors'
 import { useToast } from '../ui/use-toast'
 import * as Sentry from '@sentry/nextjs'
 import posthog from 'posthog-js'
+import { cn } from '@/lib/utils'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
   resetToNewGeneration: (
     defaultValues?: DefaultFormValuesWebStorageSchema
   ) => void
+  className?: string
 }
 
 export const GeneratedCard = ({
   generation,
-  resetToNewGeneration
+  resetToNewGeneration,
+  className
 }: GeneratedCardPropsSchema) => {
   const t = useScopedI18n('components.generated-cards.dropdwon')
   const { toast } = useToast()
@@ -75,7 +78,10 @@ export const GeneratedCard = ({
   return (
     <div className="relative">
       <img
-        className="aspect-square h-full w-full rounded-md bg-foreground/60 bg-contain"
+        className={cn(
+          'aspect-square h-full w-full select-none rounded-md bg-foreground/60 bg-contain',
+          className
+        )}
         alt="Generated Image"
         src={generation.imagesURL[0]}
       />

@@ -56,27 +56,29 @@ export interface ImageStyle {
 }
 
 export const colorsSchema = z.enum([
-  'red',
-  'blue',
-  'green',
-  'yellow',
-  'purple',
-  'pink',
   'black',
-  'white',
-  'gray',
-  'orange',
   'brown',
-  'cyan',
-  'magenta',
+  'maroon',
+  'red',
+  'coral',
+  'salmon',
+  'orange',
+  'gold',
+  'yellow',
   'lime',
+  'green',
+  'olive',
   'teal',
+  'cyan',
+  'blue',
+  'navy',
   'indigo',
   'violet',
-  'gold',
-  'coral',
-  'navy',
-  'salmon'
+  'purple',
+  'magenta',
+  'pink',
+  'gray',
+  'white',
+  'turquoise'
 ])
-
 export type IColors = z.infer<typeof colorsSchema>

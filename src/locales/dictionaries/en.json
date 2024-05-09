@@ -139,7 +139,11 @@
     },
     "generate": {
       "title": {
-        "shall-we-begin": "Shall we begin?"
+        "shall-we-begin": "Shall we begin?",
+        "color-selection": "Choose your color",
+        "shape-selection": "Now, select your shape",
+        "important-considerations": "The most important step",
+        "icon-step": "One step away from your icon"
       },
       "buttons": {
         "next": "Next",
@@ -152,7 +156,6 @@
           "placeholder": "Bear with beer",
           "description": {
             "simple-prompt": "Simple prompts often work best",
-            "variants": "Once you find a promising icon, generate variations to perfect it",
             "industrial-specification": "Experiment with adding Industrial specification, like tech, food, education",
             "materials": "Experiment with adding materials, like wood, metal, glass"
           },
@@ -325,6 +328,7 @@
           },
           "steps": {
             "prompt": "Prompt",
+            "color": "Colors",
             "primary-color": "Primary Color",
             "secondary-color": "Secondary Color",
             "shape": "Shape",

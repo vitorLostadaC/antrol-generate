@@ -8,6 +8,8 @@ import { ToastAction } from '@/components/ui/toast'
 import { signIn } from 'next-auth/react'
 import { useScopedI18n } from '@/locales/client'
 import posthog from 'posthog-js'
+import { Spinner } from '@/components/ui/spinner'
+import { useState } from 'react'
 
 interface ButtonClickProductPropsSchema {
   children: React.ReactNode
@@ -21,7 +23,10 @@ export const ButtonClickProduct = ({
 }: ButtonClickProductPropsSchema) => {
   const { toast } = useToast()
   const t = useScopedI18n('pages.pricing.erros')
+  const [loading, setLoading] = useState(false)
+
   const handleClickProduct = async (productName: StripeProductName) => {
+    setLoading(true)
     posthog.capture('click-product', { productName })
     try {
       const response = await createCheckoutSession(
@@ -56,8 +61,12 @@ export const ButtonClickProduct = ({
   }
 
   return (
-    <Button className="w-full" onClick={() => handleClickProduct(productName)}>
-      {children}
+    <Button
+      className="w-full gap-2"
+      onClick={() => handleClickProduct(productName)}
+      disabled={loading}
+    >
+      {loading ? <Spinner color={'secondary'} size={'small'} /> : children}
     </Button>
   )
 }

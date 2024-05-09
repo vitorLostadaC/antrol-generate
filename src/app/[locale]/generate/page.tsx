@@ -31,6 +31,7 @@ import { generate } from '@/actions/features/generate'
 import { WebStorage } from '@/data/webStorage'
 import * as Sentry from '@sentry/nextjs'
 import posthog from 'posthog-js'
+import { GenerateButton } from './steps/confirm/generateButton'
 // I have remove the validation from schema because, I will need pass the translatate messages
 const formSchema = z.object({
   prompt: z.string(),
@@ -79,6 +80,7 @@ export default function Generate() {
   const router = useRouter()
   const methods = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
+    mode: 'onChange',
     defaultValues: {
       prompt: '',
       primaryColor: '',
@@ -87,6 +89,14 @@ export default function Generate() {
       styles: []
     }
   })
+
+  const title = [
+    t('pages.generate.title.shall-we-begin'),
+    t('pages.generate.title.color-selection'),
+    t('pages.generate.title.shape-selection'),
+    t('pages.generate.title.important-considerations'),
+    t('pages.generate.title.icon-step')
+  ]
 
   const handleResetToNeweGeneration = (
     defaultValues?: DefaultFormValuesWebStorageSchema
@@ -129,7 +139,7 @@ export default function Generate() {
       validation: styleValidation
     },
     {
-      component: <ConfirmStep isGenerating={isGenerating} />,
+      component: <ConfirmStep />,
       validation: () => true
     },
     {
@@ -342,15 +352,18 @@ export default function Generate() {
         className="mx-auto flex h-full w-full max-w-xl flex-1 flex-col justify-between gap-2"
       >
         <div className="flex flex-col gap-4">
-          <h1 className="text-3xl font-semibold">
-            {t('pages.generate.title.shall-we-begin')}
-          </h1>
+          <h1 className="text-3xl font-semibold">{title[currentStepIndex]}</h1>
 
           <div className="">{step}</div>
         </div>
         <div className="flex justify-between">
-          {!isFirstStep && !isLastStep && !isGenerating && (
-            <Button type="button" variant={'secondary'} onClick={back}>
+          {!isFirstStep && !isLastStep && (
+            <Button
+              type="button"
+              variant={'secondary'}
+              onClick={back}
+              disabled={isGenerating}
+            >
               {t('pages.generate.buttons.previous')}
             </Button>
           )}
@@ -358,7 +371,7 @@ export default function Generate() {
           {isLastStep && (
             <Button
               type="button"
-              variant={'secondary'}
+              className="ml-auto"
               onClick={() => handleResetToNeweGeneration()}
             >
               {t('pages.generate.buttons.generate-other-icon')}
@@ -374,6 +387,8 @@ export default function Generate() {
               {t('pages.generate.buttons.next')}
             </Button>
           )}
+
+          {isPenultimate && <GenerateButton isGenerating={isGenerating} />}
         </div>
       </form>
     </Form>

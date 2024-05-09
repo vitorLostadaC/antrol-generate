@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { MoonStarIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
 
 interface ThemeButtonPropsSchema {
   variant?: 'default' | 'switch'
@@ -12,20 +11,11 @@ interface ThemeButtonPropsSchema {
 
 export const ThemeButton = ({ variant }: ThemeButtonPropsSchema) => {
   // reference: https://github.com/pacocoursey/next-themes?tab=readme-ov-file#avoid-hydration-mismatch
-  const [mounted, setMounted] = useState(false)
   const { setTheme, theme } = useTheme()
 
   const isDarkTheme = theme === 'dark'
 
   const toogleTheme = () => setTheme(isDarkTheme ? 'light' : 'dark')
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
 
   if (variant === 'switch')
     return (
