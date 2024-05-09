@@ -4,7 +4,6 @@ import { useFormContext } from 'react-hook-form'
 import { FormSchema, MultiFomsSchema } from '../../page'
 import { useScopedI18n } from '@/locales/client'
 import { ColorStepSelector } from './colorStepSelector'
-import { WebStorage } from '@/data/webStorage'
 import { Dispatch, SetStateAction } from 'react'
 import { ColorSteps } from './data/colors'
 
@@ -12,6 +11,7 @@ export interface ColorGenericPropsShema {
   setValue: (color: string) => void
   selectorName: string
   currentColor: string
+  tabSelected: ColorSteps
 }
 
 export const colorsValidation: MultiFomsSchema['validation'] = ({

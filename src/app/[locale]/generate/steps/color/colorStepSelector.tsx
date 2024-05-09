@@ -1,8 +1,6 @@
-import { Label } from '@radix-ui/react-dropdown-menu'
 import { motion } from 'framer-motion'
 import { ColorSteps } from './data/colors'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Dispatch, SetStateAction, useState } from 'react'
 import { ColorPicker } from './colorPicker'
 import { CustomColor } from './customColor'
 import { PredefinedColors } from './predefinedColors'
@@ -89,6 +87,7 @@ export const ColorStepSelector = ({
               selectorName={selectorName}
               currentColor={currentColor}
               setValue={(color) => setValue(color)}
+              tabSelected={tabSelected}
             />
           ))}
         </div>

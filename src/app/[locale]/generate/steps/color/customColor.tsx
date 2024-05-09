@@ -2,7 +2,7 @@ import { TabsContent } from '@radix-ui/react-tabs'
 import { ColorSteps } from './data/colors'
 import { Input } from '@/components/ui/input'
 import { ColorGenericPropsShema } from './colorStep'
-import { ChangeEvent, use, useState } from 'react'
+import { ChangeEvent, use, useEffect, useState } from 'react'
 import { CheckIcon, XIcon } from 'lucide-react'
 
 const COLOR_LENGTH = 6
@@ -10,10 +10,17 @@ const COLOR_WITH_HASH_LENGTH = 7
 
 export const CustomColor = ({
   setValue,
-  currentColor
+  currentColor,
+  tabSelected
 }: ColorGenericPropsShema) => {
   const [draftColor, setDraftColor] = useState(currentColor)
   const [isValidColor, setIsValidColor] = useState(false)
+
+  useEffect(() => {
+    setDraftColor(currentColor)
+    setIsValidColor(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tabSelected])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     let inputValue = e.target.value
