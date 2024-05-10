@@ -13,7 +13,7 @@ interface PredefinedShapesPropsShema {
   setValue: (shape: IStyles[]) => void
 }
 
-const MAX_STYLES_PER_PAGE = 12
+const MAX_STYLES_PER_PAGE = 8
 
 export const PredefinedStyles = ({
   stylesSelecteds,

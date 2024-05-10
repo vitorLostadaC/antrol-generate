@@ -63,12 +63,14 @@ export const usePredefinedStyes = () => {
       name: t('pixelated.name'),
       description: t('pixelated.description')
     },
+
     {
-      image: artDeco,
-      style: 'art deco',
-      name: t('art-deco.name'),
-      description: t('art-deco.description')
+      image: cute,
+      style: 'cute',
+      name: t('cute.name'),
+      description: t('cute.description')
     },
+
     {
       image: cartoonish,
       style: 'cartoonish',
@@ -93,13 +95,13 @@ export const usePredefinedStyes = () => {
       name: t('neon.name'),
       description: t('neon.description')
     },
-
     {
-      image: cute,
-      style: 'cute',
-      name: t('cute.name'),
-      description: t('cute.description')
+      image: artDeco,
+      style: 'art deco',
+      name: t('art-deco.name'),
+      description: t('art-deco.description')
     },
+
     {
       image: popArt,
       style: 'pop art',
