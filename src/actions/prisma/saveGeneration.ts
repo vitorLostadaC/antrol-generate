@@ -55,7 +55,8 @@ export const saveGeneration = async (
         }
       },
       prompt,
-      imagesURL
+      imagesURL,
+      tool: 'generate'
     }
   })
 
