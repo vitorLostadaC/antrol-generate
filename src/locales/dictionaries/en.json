@@ -415,8 +415,8 @@
   },
   "components": {
     "generated-cards": {
-      "dropdwon": {
-        "donwload": "Download HD Image",
+      "dropdown": {
+        "download": "Download HD Image",
         "variant": "Make Variant (1 credit)",
         "reuse-prompt": "Reuse Prompt",
         "remove-bg": "Remove Background (1 credit)",
