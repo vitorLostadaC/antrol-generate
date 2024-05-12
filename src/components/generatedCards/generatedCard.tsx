@@ -22,6 +22,7 @@ import { useToast } from '../ui/use-toast'
 import * as Sentry from '@sentry/nextjs'
 import posthog from 'posthog-js'
 import { cn } from '@/lib/utils'
+import { AwsImage } from '../ui/AwsImage'
 
 interface GeneratedCardPropsSchema {
   generation: Generation
@@ -77,13 +78,13 @@ export const GeneratedCard = ({
 
   return (
     <div className="relative">
-      <img
+      <AwsImage
         className={cn(
           'aspect-square h-full w-full select-none rounded-md bg-foreground/60 bg-contain',
           className
         )}
         alt="Generated Image"
-        src={generation.imagesURL[0]}
+        generationId={generation.id}
       />
       <SimpleDropdown
         items={[

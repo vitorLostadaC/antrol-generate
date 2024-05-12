@@ -1,4 +1,5 @@
 import { getGenerationById } from '@/actions/prisma/getGeneration'
+import { AwsImage } from '@/components/ui/AwsImage'
 
 export default async function GalleryIconPage({
   params: { slug }
@@ -9,11 +10,13 @@ export default async function GalleryIconPage({
 
   return (
     <div className="m-auto w-full max-w-2xl">
-      <img
-        className="select-none rounded-lg bg-foreground/20"
-        src={generation?.imagesURL[0]}
-        alt={generation?.prompt}
-      />
+      {generation && (
+        <AwsImage
+          className="select-none rounded-lg bg-foreground/20"
+          generationId={generation.id}
+          alt={generation.prompt}
+        />
+      )}
     </div>
   )
 }
