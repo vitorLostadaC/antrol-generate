@@ -198,6 +198,8 @@ export default function Generate() {
     )
       return
 
+    if (currentStepIndex !== steps.length - 2) return
+
     setIsGenerating(true)
     const primaryColorIsCustom = data.primaryColor.includes('#')
 
