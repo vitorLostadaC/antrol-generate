@@ -43,9 +43,21 @@ export const ConfirmStep = () => {
       <h2 className="font-semibold">{t('steps.prompt')}</h2>
       <p>{getValues('prompt')}</p>
 
-      <h2 className="font-semibold">{t('steps.color')}</h2>
+      <div className="grid grid-cols-4 gap-6">
+        <h2 className="font-semibold">{t('steps.shape')}</h2>
+        <h2 className="font-semibold">{t('steps.color')}</h2>
+      </div>
 
       <div className="grid grid-cols-4 gap-6">
+        <div className="w-full space-y-2 text-center">
+          <img
+            src={currentShape?.image.src}
+            alt={currentShape?.name}
+            className={cn('aspect-square rounded-md bg-contain')}
+          />
+
+          <p className="text-foreground/80">{currentShape?.name}</p>
+        </div>
         {colors.map((color) => {
           if (!color.color) return <Fragment key={color.name} />
 
@@ -62,20 +74,6 @@ export const ConfirmStep = () => {
             </div>
           )
         })}
-      </div>
-
-      <h2 className="font-semibold">{t('steps.shape')}</h2>
-
-      <div className="grid grid-cols-4 gap-6">
-        <div className="w-full space-y-2 text-center">
-          <img
-            src={currentShape?.image.src}
-            alt={currentShape?.name}
-            className={cn('aspect-square rounded-md bg-contain')}
-          />
-
-          <p className="text-foreground/80">{currentShape?.name}</p>
-        </div>
       </div>
 
       <h2 className="font-semibold">{t('steps.style')}</h2>
