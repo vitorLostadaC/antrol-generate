@@ -96,7 +96,7 @@ export const GeneratedCard = ({
               try {
                 downloadImage(
                   generation.imagesURL[0],
-                  'generated-by-antrol-generate.png'
+                  generation.prompt.slice(0, 20) + '.png'
                 )
               } catch (e) {
                 const error = e as Error
