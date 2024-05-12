@@ -10,7 +10,7 @@ export const ColorPicker = ({
   return (
     <TabsContent value={ColorSteps.Picker}>
       <HexColorPicker
-        className="mx-auto !h-64 !w-full sm:!h-56"
+        className="mx-auto !h-60 !w-full sm:!h-56"
         color={currentColor}
         onChange={setValue}
       />
