@@ -37,7 +37,7 @@ export const GeneratedCard = ({
   resetToNewGeneration,
   className
 }: GeneratedCardPropsSchema) => {
-  const t = useScopedI18n('components.generated-cards.dropdwon')
+  const t = useScopedI18n('components.generated-cards.dropdown')
   const { toast } = useToast()
 
   const reuseParams = async () => {
@@ -89,10 +89,10 @@ export const GeneratedCard = ({
       <SimpleDropdown
         items={[
           {
-            name: t('donwload'),
+            name: t('download'),
             icon: DownloadIcon,
             onClick: () => {
-              posthog.capture('click-card-feature', { feature: 'donwload' })
+              posthog.capture('click-card-feature', { feature: 'download' })
               try {
                 downloadImage(
                   generation.imagesURL[0],

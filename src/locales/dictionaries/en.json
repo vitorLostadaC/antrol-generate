@@ -415,8 +415,8 @@
   },
   "components": {
     "generated-cards": {
-      "dropdwon": {
-        "donwload": "Download HD Image",
+      "dropdown": {
+        "download": "Download HD Image",
         "variant": "Make Variant (1 credit)",
         "reuse-prompt": "Reuse Prompt",
         "remove-bg": "Remove Background (1 credit)",
@@ -433,5 +433,9 @@
         }
       }
     }
+  },
+  "features": {
+    "prompt": "A modern icon showcasing a {shape}, rendered with primary color {primaryColor} {secondaryColor}, visually representing {prompt}. Aim for a style that combines hyper-realistic textures with vibrant, cinematic lighting, akin to high-quality renders seen in top-rated ArtStation projects and Unreal Engine visuals. Focus on {styles} to achieve an aesthetic that is both trending and visually stunning",
+    "secondary-color": "and secondary color"
   }
 }

@@ -1,5 +1,6 @@
 'use server'
 
+import { getScopedI18n } from '@/locales/server'
 import { IShapes, IStyles } from '@/schemas/icons.schema'
 import { openai } from '@/services/openai'
 
@@ -19,7 +20,18 @@ export const createOpenaiIcon = async ({
   styles,
   prompt
 }: CreateOpenaiIconsPropsSchemas) => {
-  const customizedPrompt = `A modern icon showcasing a ${shape}, rendered with primary color ${primaryColor} ${secondaryColor ? 'and secondary ' + secondaryColor : ''}, visually representing ${prompt}. Aim for a style that combines hyper-realistic textures with vibrant, cinematic lighting, akin to high-quality renders seen in top-rated ArtStation projects and Unreal Engine visuals. Focus on ${styles.join(', ')} to achieve an aesthetic that is both trending and visually stunning`
+  const t = await getScopedI18n('features')
+
+  //@ts-ignore
+  const customizedPrompt = t('prompt', {
+    shape,
+    primaryColor,
+    secondaryColor: secondaryColor
+      ? t('secondary-color') + ' ' + secondaryColor
+      : '',
+    prompt,
+    styles: styles.join(', ')
+  })
 
   const response = await openai.images.generate({
     model: 'dall-e-3',

@@ -67,12 +67,11 @@ export const Testimonials = async () => {
   return (
     <section id="testimonials" className="py-24 sm:py-32">
       <h2 className="text-3xl font-bold md:text-4xl">
-        Discover Why
+        {t('title.pt1')}{' '}
         <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
-          {' '}
-          People Love{' '}
+          {t('title.pt2')}{' '}
         </span>
-        This Landing Page
+        {t('title.pt3')}
       </h2>
 
       <p className="pb-8 pt-4 text-xl text-muted-foreground">
