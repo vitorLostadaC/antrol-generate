@@ -43,7 +43,7 @@ export const CustomColor = ({
   }
 
   return (
-    <TabsContent value={ColorSteps.Hex}>
+    <TabsContent value={ColorSteps.Hex} className="h-60 sm:h-56">
       <div className="relative">
         <Input
           value={draftColor}

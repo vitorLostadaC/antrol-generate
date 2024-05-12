@@ -152,7 +152,7 @@
       },
       "steps": {
         "prompt": {
-          "title": "1. Describe your icon",
+          "title": "1. Describe your icon *",
           "placeholder": "Bear with beer",
           "description": {
             "simple-prompt": "Simple prompts often work best",
@@ -165,12 +165,12 @@
         },
         "color": {
           "primary-color": {
-            "title": "2. Choose primary color",
+            "title": "2. Choose primary color *",
             "description": "Choose a color that represents your icon"
           },
           "secondary-color": {
-            "title": "2.1. Choose secondary color (optional)",
-            "description": "Choose a color that complements your primary color"
+            "title": "2.1. Choose secondary color",
+            "description": "Select a complementary color."
           },
           "tabs": {
             "predefined": "Predefined",
@@ -183,7 +183,7 @@
           }
         },
         "shape": {
-          "title": "3. Choose shape",
+          "title": "3. Choose shape *",
           "description": "Choose a shape that represents your icon",
           "shapes": {
             "circle": "Circle",
@@ -198,7 +198,7 @@
           }
         },
         "style": {
-          "title": "4. Choose style",
+          "title": "4. Choose style *",
           "description": "Choose a style that represents your icon",
           "errors": {
             "style-required": "Please choose a style"

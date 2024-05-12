@@ -34,7 +34,7 @@ export const GeneratedCardsWrapper = ({
         <p className="text-muted-foreground">{t('notFound')}</p>
       )}
       <GeneratedCards
-        classNames="grid-cols-5"
+        className=" grid-cols-2 sm:grid-cols-4 md:grid-cols-5"
         generations={filtredGenerations}
         resetToNewGeneration={() => {
           router.push('/generate')

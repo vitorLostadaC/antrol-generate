@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 interface GeneratedCardsPropsSchema {
   generations: Generation[]
-  classNames?: string
+  className?: string
   resetToNewGeneration: (
     defaultValues?: DefaultFormValuesWebStorageSchema
   ) => void
@@ -14,10 +14,10 @@ interface GeneratedCardsPropsSchema {
 export const GeneratedCards = ({
   generations,
   resetToNewGeneration,
-  classNames
+  className
 }: GeneratedCardsPropsSchema) => {
   return (
-    <div className={cn('grid grid-cols-4 gap-4', classNames)}>
+    <div className={cn('grid grid-cols-4 gap-4', className)}>
       {generations.map((generation) => (
         <GeneratedCard
           key={generation.id}

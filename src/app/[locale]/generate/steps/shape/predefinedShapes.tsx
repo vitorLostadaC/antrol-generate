@@ -14,7 +14,7 @@ export const PredefinedShapes = ({
   const predefinedShapes = usePredefinedShape()
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
       {predefinedShapes.map(({ shape, image, name }) => (
         <div key={shape}>
           <input

@@ -13,7 +13,7 @@ interface PredefinedShapesPropsShema {
   setValue: (shape: IStyles[]) => void
 }
 
-const MAX_STYLES_PER_PAGE = 12
+const MAX_STYLES_PER_PAGE = 8
 
 export const PredefinedStyles = ({
   stylesSelecteds,
@@ -36,7 +36,7 @@ export const PredefinedStyles = ({
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {filtredStyles.map(({ style, image, name, description }) => (
           <div key={style}>
             <input

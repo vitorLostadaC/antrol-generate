@@ -1,4 +1,3 @@
-import { Label } from '@radix-ui/react-dropdown-menu'
 import { useFormContext } from 'react-hook-form'
 import { FormSchema, MultiFomsSchema } from '../../page'
 import { useScopedI18n } from '@/locales/client'
