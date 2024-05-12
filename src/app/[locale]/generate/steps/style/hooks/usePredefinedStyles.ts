@@ -40,6 +40,12 @@ export const usePredefinedStyes = () => {
   const t = useScopedI18n('pages.generate.steps.style.styles')
   const predefinedStyles: PredefinedStyleSchema[] = [
     {
+      image: illustrated,
+      style: 'illustrated',
+      name: t('ilustrated.name'),
+      description: t('ilustrated.description')
+    },
+    {
       image: minimalist,
       style: 'minimalist',
       name: t('minimalist.name'),
@@ -83,12 +89,7 @@ export const usePredefinedStyes = () => {
       name: t('woodblock.name'),
       description: t('woodblock.description')
     },
-    {
-      image: illustrated,
-      style: 'illustrated',
-      name: t('ilustrated.name'),
-      description: t('ilustrated.description')
-    },
+
     {
       image: neon,
       style: 'neon',
