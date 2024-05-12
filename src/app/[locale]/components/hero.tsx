@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { HeroCards } from './heroCards'
 import { getScopedI18n } from '@/locales/server'
+import Link from 'next/link'
 
 export const Hero = async () => {
   const t = await getScopedI18n('pages.landing-pages.hero')
@@ -27,7 +28,9 @@ export const Hero = async () => {
         </p>
 
         <div className="space-y-4 md:space-x-4 md:space-y-0">
-          <Button className="w-full md:w-1/3">{t('buttons.generate')}</Button>
+          <Button className="w-full md:w-1/3" asChild>
+            <Link href={'/generate'}>{t('buttons.generate')}</Link>
+          </Button>
         </div>
       </div>
 
