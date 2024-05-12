@@ -2,11 +2,21 @@ import { PriceCards } from './components/PriceCards'
 import { Alert, AlertTitle } from '@/components/ui/alert'
 import { getScopedI18n, getStaticParams } from '@/locales/server'
 import { AlertTriangleIcon } from 'lucide-react'
+import { Metadata } from 'next'
 import { setStaticParamsLocale } from 'next-international/server'
 import Link from 'next/link'
 
 export function generateStaticParams() {
   return getStaticParams()
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getScopedI18n('metadata.pricing')
+
+  return {
+    title: t('title'),
+    description: t('description')
+  }
 }
 
 export default async function Pricing({

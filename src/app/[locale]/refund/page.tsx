@@ -1,4 +1,13 @@
 import { getScopedI18n } from '@/locales/server'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getScopedI18n('metadata.refund')
+
+  return {
+    title: t('title')
+  }
+}
 
 export default async function TermsOfServices() {
   const t = await getScopedI18n('pages.refund-policy')
