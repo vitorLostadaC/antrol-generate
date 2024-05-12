@@ -12,7 +12,7 @@ export const PredefinedColors = ({
 }: ColorGenericPropsShema) => {
   return (
     <TabsContent value={ColorSteps.Predefined}>
-      <div className="grid grid-cols-4 gap-4 rounded-lg bg-muted p-2">
+      <div className="grid h-64 grid-cols-6 gap-4 rounded-lg bg-muted p-2 sm:h-56 sm:grid-cols-4">
         {Object.values(colorsSchema.enum).map((color) => (
           <div key={color}>
             <input

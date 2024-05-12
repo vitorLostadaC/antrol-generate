@@ -52,7 +52,7 @@ export const ColorStep = ({
   const currentSecondaryColor = watch('secondaryColor')
 
   return (
-    <div className="grid grid-cols-2 items-start gap-5">
+    <div className="grid grid-cols-1 items-start gap-5 sm:grid-cols-2">
       <ColorStepSelector
         selectorName="primaryColor"
         title={t('primary-color.title')}
