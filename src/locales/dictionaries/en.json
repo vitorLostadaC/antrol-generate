@@ -437,5 +437,33 @@
   "features": {
     "prompt": "A modern icon showcasing a {shape}, rendered with primary color {primaryColor} {secondaryColor}, visually representing {prompt}. Aim for a style that combines hyper-realistic textures with vibrant, cinematic lighting, akin to high-quality renders seen in top-rated ArtStation projects and Unreal Engine visuals. Focus on {styles} to achieve an aesthetic that is both trending and visually stunning",
     "secondary-color": "and secondary color"
+  },
+  "metadata": {
+    "layout": {
+      "description": "Effortlessly create professional icons with our AI-driven tool. Perfect for enhancing any project."
+    },
+    "gallery": {
+      "title": "Icon Gallery",
+      "description": "Explore a wide range of custom icons created by our AI tool. Find the perfect icon for your project or get inspired by the creativity of others."
+    },
+    "shared-icon": {
+      "title": "Shared Icon",
+      "description": "Check out this amazing icon created with Icon Generator AI!"
+    },
+    "collections": {
+      "title": "Icon Collections",
+      "description": "Look your icon collection."
+    },
+    "generate": {
+      "title": "Generate Icon",
+      "description": "Create your custom icon in four simple steps: define your concept, select your colors, choose your shape, and pick your style to bring your vision to life effortlessly."
+    },
+    "refund": {
+      "title": "Refund Policy"
+    },
+    "pricing": {
+      "title": "Buy Coins",
+      "description": "Buy credits to use our services and get access to the best features"
+    }
   }
 }

@@ -436,5 +436,33 @@
   "features": {
     "prompt": "Um ícone moderno mostrando um {shape}, renderizado com cor primária {primaryColor} {secondaryColor}, representando visualmente {prompt}. Busque um estilo que combine texturas hiper-realistas com iluminação vibrante e cinematográfica, semelhante às renderizações de alta qualidade vistas em projetos do ArtStation e visuais do Unreal Engine. Foque em {styles} para alcançar uma estética que seja ao mesmo tempo tendência e visualmente impressionante",
     "secondary-color": "e cor secundária"
+  },
+  "metadata": {
+    "layout": {
+      "description": "Crie ícones profissionais com facilidade usando nossa ferramenta guiada por IA. Perfeito para melhorar qualquer projeto."
+    },
+    "gallery": {
+      "title": "Galeria de Ícones",
+      "description": "Explore uma ampla gama de ícones personalizados criados por nossa ferramenta de IA. Encontre o ícone perfeito para seu projeto ou inspire-se na criatividade de outros."
+    },
+    "shared-icon": {
+      "title": "Ícone Compartilhado",
+      "description": "Confira este incrível ícone criado com o Gerador de Ícones IA!"
+    },
+    "collections": {
+      "title": "Coleções de Ícones",
+      "description": "Veja sua coleção de ícones."
+    },
+    "generate": {
+      "title": "Gerar Ícone",
+      "description": "Crie seu ícone personalizado em quatro etapas simples: defina seu conceito, selecione suas cores, escolha sua forma e escolha seu estilo para dar vida à sua visão com facilidade."
+    },
+    "refund": {
+      "title": "Política de Reembolso"
+    },
+    "pricing": {
+      "title": "Comprar Moedas",
+      "description": "Compre créditos para usar nossos serviços e tenha acesso às melhores funcionalidades"
+    }
   }
 }

@@ -1,5 +1,16 @@
 import { getGenerations } from '@/actions/prisma/getGenerations'
 import { AwsImage } from '@/components/ui/AwsImage'
+import { getScopedI18n } from '@/locales/server'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getScopedI18n('metadata.gallery')
+
+  return {
+    title: t('title'),
+    description: t('description')
+  }
+}
 
 export default async function Gallery() {
   const generations = await getGenerations({
