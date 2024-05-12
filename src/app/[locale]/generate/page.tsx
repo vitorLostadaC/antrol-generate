@@ -345,6 +345,28 @@ export default function Generate() {
     next()
   }
 
+  const handleGoToPrevious = () => {
+    const { primaryColor, prompt, secondaryColor, shape, styles } =
+      methods.getValues()
+
+    const newSessionStorageValues: DefaultFormValuesWebStorageSchema = {
+      prompt,
+      primaryColor,
+      secondaryColor,
+      shape,
+      styles,
+      tabSelectedColor,
+      step: currentStepIndex - 1
+    }
+
+    sessionStorage.setItem(
+      WebStorage.GenerateForm,
+      JSON.stringify(newSessionStorageValues)
+    )
+
+    back()
+  }
+
   return (
     <Form {...methods}>
       <form
@@ -361,7 +383,7 @@ export default function Generate() {
             <Button
               type="button"
               variant={'secondary'}
-              onClick={back}
+              onClick={handleGoToPrevious}
               disabled={isGenerating}
             >
               {t('pages.generate.buttons.previous')}
