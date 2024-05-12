@@ -1,5 +1,7 @@
 import { prisma } from '@/services/prisma'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(
   req: Request,
   { params }: { params: { slug: string } }
