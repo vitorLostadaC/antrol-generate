@@ -1,3 +1,5 @@
+import { env } from '@/env'
+
 interface StripeProduct {
   priceId: string
   quota: {
@@ -13,25 +15,25 @@ export type StripeProductName =
 
 export const stripeProducts: Record<StripeProductName, StripeProduct> = {
   '10credits': {
-    priceId: 'price_1P9El91kGQ7kv7j2Axs3AlqT',
+    priceId: env.STRIPE_PRODUCT_ID_10,
     quota: {
       coins: 10
     }
   },
   '50credits': {
-    priceId: 'price_1P9Elq1kGQ7kv7j2FWeUIpo2',
+    priceId: env.STRIPE_PRODUCT_ID_50,
     quota: {
       coins: 50
     }
   },
   '100credits': {
-    priceId: 'price_1P9EmU1kGQ7kv7j2NGuM1ycY',
+    priceId: env.STRIPE_PRODUCT_ID_100,
     quota: {
       coins: 100
     }
   },
   '200credits': {
-    priceId: 'price_1P9EnJ1kGQ7kv7j2rFp9vNjD',
+    priceId: env.STRIPE_PRODUCT_ID_200,
     quota: {
       coins: 200
     }
