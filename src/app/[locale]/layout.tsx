@@ -11,7 +11,7 @@ import { Toaster } from '@/components/ui/toaster'
 import { Footer } from './components/footer'
 import { PostHogProviderWrapper } from '@/contexts/posthogWrapper'
 import { getScopedI18n } from '@/locales/server'
-import logo from '@/assets/logo.png'
+import logo from '@/assets/icon.webp'
 
 const fontSans = FontSans({
   subsets: ['latin'],
