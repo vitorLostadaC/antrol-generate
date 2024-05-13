@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getScopedI18n('metadata.layout')
 
   return {
-    title: 'Antrol Generate',
+    title: 'Antrol AI',
     description: t('description'),
     icons: [{ rel: 'icon', url: logo.src }]
   }
