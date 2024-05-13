@@ -1,7 +1,5 @@
 import Stripe from 'stripe'
-
 import { stripe } from '@/services/stripe'
-import { headers } from 'next/headers'
 import { prisma } from '@/services/prisma'
 import { env } from '@/env'
 
@@ -10,10 +8,6 @@ export async function POST(req: Request) {
   const signature = req.headers.get('stripe-signature')!
 
   let event: Stripe.Event
-
-  console.log('body', body)
-  console.log('signature', signature)
-  console.log('secret', env.STRIPE_WEBHOOK_SECRET)
 
   try {
     event = stripe.webhooks.constructEvent(
