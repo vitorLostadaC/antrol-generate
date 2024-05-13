@@ -3,6 +3,7 @@ import Stripe from 'stripe'
 import { stripe } from '@/services/stripe'
 import { headers } from 'next/headers'
 import { prisma } from '@/services/prisma'
+import { env } from '@/env'
 
 export async function POST(req: Request) {
   const body = await req.text()
@@ -11,13 +12,10 @@ export async function POST(req: Request) {
   let event: Stripe.Event
 
   try {
-    console.log(req)
-    console.log(body)
-    console.log(signature)
     event = stripe.webhooks.constructEvent(
       body,
       signature,
-      process.env.STRIPE_WEBHOOK_SECRET as string
+      env.STRIPE_WEBHOOK_SECRET
     )
   } catch (e) {
     const error = e as Error
