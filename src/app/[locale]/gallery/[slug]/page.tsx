@@ -18,7 +18,7 @@ export async function generateMetadata({
       images: generation?.imagesURL,
       type: 'website',
       description: t('description'),
-      siteName: 'Antrol Generate',
+      siteName: 'Antrol AI',
       title: t('title')
     }
   }
