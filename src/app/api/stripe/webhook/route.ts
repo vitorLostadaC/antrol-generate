@@ -7,7 +7,7 @@ import { env } from '@/env'
 
 export async function POST(req: Request) {
   const body = await req.text()
-  const signature = headers().get('Stripe-Signature') as string
+  const signature = req.headers.get('stripe-signature')!
 
   let event: Stripe.Event
 
