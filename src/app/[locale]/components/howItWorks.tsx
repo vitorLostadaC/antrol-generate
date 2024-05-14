@@ -66,7 +66,7 @@ export const HowItWorks = async () => {
         ))}
       </div>
       <div className="mt-8 overflow-hidden rounded-md border">
-        <video controls preload="metadata" muted>
+        <video controls preload="metadata" muted className="h-full w-full">
           <source src="/tutorial.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
