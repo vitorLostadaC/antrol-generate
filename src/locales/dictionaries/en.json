@@ -30,7 +30,7 @@
           "pt4": "Quality"
         },
         "description": "Effortlessly create professional icons with our AI-driven tool. Perfect for enhancing any project.",
-        "buttons": { "generate": "Generate (2 credits)" }
+        "buttons": { "generate": "Generate" }
       },
       "how-it-works": {
         "title": {
@@ -322,7 +322,7 @@
           "title": "5. Confirm your icon",
           "description": "Here's your icon. If you're happy with it, click 'Generate'. If not, go back and make changes.",
           "buttons": {
-            "generate": "Generate",
+            "generate": "Generate (2 credits)",
             "buy-coin": "Buy Coin!",
             "sign-in": "Sign In"
           },

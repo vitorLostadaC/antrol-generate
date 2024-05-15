@@ -30,7 +30,7 @@
           "pt4": "保证"
         },
         "description": "通过我们的AI工具轻松创建专业图标。完美提升任何项目。",
-        "buttons": { "generate": "生成 (2 积分)" }
+        "buttons": { "generate": "生成" }
       },
       "how-it-works": {
         "title": {
@@ -321,7 +321,7 @@
           "title": "5. 确认您的图标",
           "description": "这是您的图标。如果您满意，请点击 '生成'。如果不满意，请返回并进行更改。",
           "buttons": {
-            "generate": "生成",
+            "generate": "生成 (2 积分)",
             "buy-coin": "购买硬币",
             "sign-in": "登录"
           },

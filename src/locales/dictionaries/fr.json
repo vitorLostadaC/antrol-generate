@@ -30,7 +30,7 @@
           "pt4": "Garantie"
         },
         "description": "Créez facilement des icônes professionnelles avec notre outil piloté par IA. Parfait pour améliorer n'importe quel projet.",
-        "buttons": { "generate": "Générer (2 crédits)" }
+        "buttons": { "generate": "Générer" }
       },
       "how-it-works": {
         "title": {
@@ -321,7 +321,7 @@
           "title": "5. Confirmez votre icône",
           "description": "Voici votre icône. Si vous êtes satisfait, cliquez sur 'Générer'. Sinon, revenez en arrière et apportez des modifications.",
           "buttons": {
-            "generate": "Générer",
+            "generate": "Générer (2 crédits)",
             "buy-coin": "Acheter des Pièces",
             "sign-in": "Se Connecter"
           },

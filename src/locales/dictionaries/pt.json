@@ -30,7 +30,7 @@
           "pt4": "Garantida"
         },
         "description": "Crie ícones profissionais sem esforço com nossa ferramenta baseada em IA. Perfeito para aprimorar qualquer projeto.",
-        "buttons": { "generate": "Gerar (2 creditos)" }
+        "buttons": { "generate": "Gerar" }
       },
       "how-it-works": {
         "title": {
@@ -321,7 +321,7 @@
           "title": "5. Confirme seu ícone",
           "description": "Aqui está o seu ícone. Se estiver satisfeito, clique em 'Gerar'. Se não, volte e faça alterações.",
           "buttons": {
-            "generate": "Gerar",
+            "generate": "Gerar (2 creditos)",
             "buy-coin": "Comprar Moeda!",
             "sign-in": "Entrar"
           },
