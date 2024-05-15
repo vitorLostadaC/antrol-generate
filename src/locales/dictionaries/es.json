@@ -410,6 +410,12 @@
         "ph3": "Recomendamos encarecidamente explorar nuestra página de la comunidad antes de cualquier compra. Puede ver íconos generados diariamente por otros usuarios que podrían ayudarlo a comprender las posibilidades y limitaciones del arte de IA, y esperamos que guíe sus expectativas. Creemos en la transparencia y queremos que tome una decisión informada sobre nuestro servicio único.",
         "ph4": "Su comprensión y apoyo significan mucho para nosotros. A medida que continuamos mejorando y perfeccionando nuestra IA, esperamos que se una a nosotros en este fascinante viaje de creatividad digital."
       }
+    },
+    "gallery": {
+      "title": {
+        "pt1": "Íconos Generados Recientemente",
+        "pt2": "actualizado periódicamente"
+      }
     }
   },
   "components": {

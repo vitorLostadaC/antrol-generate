@@ -411,6 +411,12 @@
         "ph3": "We strongly recommend exploring our community page before any purchase. You can see daily generated icons from other users which could help you understand the possibilities and limitations of AI art, and will hopefully guide your expectations. We believe in transparency and want you to make an informed decision about our unique service.",
         "ph4": "Your understanding and support mean a lot to us. As we continue to improve and enhance our AI, we hope you will join us in this fascinating journey of digital creativity."
       }
+    },
+    "gallery": {
+      "title": {
+        "pt1": "Recent Generated Icons",
+        "pt2": "updated periodically"
+      }
     }
   },
   "components": {

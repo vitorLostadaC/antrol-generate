@@ -397,6 +397,7 @@
         }
       }
     },
+
     "collections": {
       "placeholder": "Procure seu ícone por descrição",
       "notFound": "Nenhum ícone encontrado, tente gerar um novo"
@@ -409,6 +410,12 @@
         "ph2": "Devido aos altos custos envolvidos no uso de GPUs avançadas para nossa geração de arte de IA, infelizmente não podemos oferecer reembolsos uma vez que os créditos tenham sido utilizados. Reconhecemos que isso pode não ser o cenário ideal para todos, mas essa política nos ajuda a manter um serviço justo e sustentável para todos os nossos usuários valiosos.",
         "ph3": "Recomendamos fortemente que você explore nossa página da comunidade antes de qualquer compra. Você pode ver ícones gerados diariamente por outros usuários que podem ajudá-lo a entender as possibilidades e limitações da arte de IA, e esperamos que guie suas expectativas. Acreditamos na transparência e queremos que você tome uma decisão informada sobre nosso serviço único.",
         "ph4": "Sua compreensão e apoio significam muito para nós. À medida que continuamos a melhorar e aprimorar nossa IA, esperamos que você se junte a nós nesta fascinante jornada de criatividade digital."
+      }
+    },
+    "gallery": {
+      "title": {
+        "pt1": "Icones Gerados Recentemente",
+        "pt2": "Atualizado Periodicamente"
       }
     }
   },

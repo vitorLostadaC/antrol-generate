@@ -12,7 +12,8 @@ export const { useI18n, useScopedI18n, I18nProviderClient, useChangeLocale } =
     ja: () => import('./dictionaries/ja.json'),
     fr: () => import('./dictionaries/fr.json'),
     es: () => import('./dictionaries/es.json'),
-    ar: () => import('./dictionaries/ar.json')
+    ar: () => import('./dictionaries/ar.json'),
+    de: () => import('./dictionaries/de.json')
   } as const satisfies Record<
     Locale,
     () => Promise<{ default: AbstractDictionarie }>

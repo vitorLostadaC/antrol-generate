@@ -410,6 +410,12 @@
         "ph3": "Nous vous recommandons fortement d'explorer notre page communautaire avant tout achat. Vous pouvez voir des icônes générées quotidiennement par d'autres utilisateurs, ce qui pourrait vous aider à comprendre les possibilités et les limites de l'art IA, et nous espérons que cela guidera vos attentes. Nous croyons en la transparence et souhaitons que vous preniez une décision éclairée sur notre service unique.",
         "ph4": "Votre compréhension et votre soutien sont très importants pour nous. Alors que nous continuons à améliorer et à affiner notre IA, nous espérons que vous vous joindrez à nous dans ce fascinant voyage de créativité numérique."
       }
+    },
+    "gallery": {
+      "title": {
+        "pt1": "Icônes Générées Récemment",
+        "pt2": "mises à jour périodiquement"
+      }
     }
   },
   "components": {

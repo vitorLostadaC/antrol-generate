@@ -1,0 +1,474 @@
+{
+  "header": {
+    "navigation": {
+      "generate": "Erzeugen",
+      "gallery": "Galerie",
+      "collections": "Sammlungen",
+      "retouch": "Retuschieren"
+    },
+    "sign-in": "Einloggen",
+    "buy-credits": "Credits kaufen",
+    "user-menu": {
+      "sign-out": "Abmelden"
+    },
+    "side-bar": {
+      "navigation": "Navigation"
+    }
+  },
+  "footer": {
+    "terms-of-service": "Nutzungsbedingungen",
+    "privacy-policy": "Datenschutz-Bestimmungen",
+    "refund-policy": "Rückerstattungsrichtlinie"
+  },
+  "pages": {
+    "landing-pages": {
+      "hero": {
+        "title": {
+          "pt1": "Erstellen Sie Symbole",
+          "pt2": "Premium",
+          "pt3": "Qualität",
+          "pt4": "Garantiert"
+        },
+        "description": "Erstellen Sie mühelos professionelle Symbole mit unserem KI-gesteuerten Tool. Perfekt, um jedes Projekt zu verbessern.",
+        "buttons": { "generate": "Erzeugen (2 Credits)" }
+      },
+      "how-it-works": {
+        "title": {
+          "pt1": "Wie es",
+          "pt2": "Funktioniert",
+          "pt3": "Schritt-für-Schritt-Anleitung"
+        },
+        "description": "Erstellen Sie Ihr benutzerdefiniertes Symbol in vier einfachen Schritten: Definieren Sie Ihr Konzept, wählen Sie Ihre Farben, wählen Sie Ihre Form und wählen Sie Ihren Stil, um Ihre Vision mühelos zum Leben zu erwecken.",
+        "steps": {
+          "step1": {
+            "title": "1. Beschreibung",
+            "description": "Geben Sie eine kurze Beschreibung ein, die die KI bei der Erstellung Ihres benutzerdefinierten Symbols führt."
+          },
+          "step2": {
+            "title": "2. Farbe",
+            "description": "Wählen Sie eine Primärfarbe und optional eine Sekundärfarbe."
+          },
+          "step3": {
+            "title": "3. Form",
+            "description": "Wählen Sie aus einer Vielzahl von Formen diejenige aus, die Ihr Symbol am besten darstellt."
+          },
+          "step4": {
+            "title": "4. Stil",
+            "description": "Wählen Sie einen Designstil, der am besten zur Ästhetik Ihres Projekts passt."
+          }
+        }
+      },
+      "services": {
+        "title": { "pt1": "Kundenorientierte", "pt2": "Dienstleistungen" },
+        "description": "Fokussiert auf Ihre Bedürfnisse bietet unsere Plattform maßgeschneidertes, effizientes Symboldesign. Erleben Sie nahtlose Erstellung bei jedem Schritt.",
+        "services": {
+          "service1": {
+            "title": "Premium-Erlebnis",
+            "description": "Wir konzentrieren uns ganz darauf, die bestmögliche Symbolerzeugungserfahrung zu bieten, indem wir intuitives Design mit erstklassiger Leistung für eine nahtlose Erstellung kombinieren."
+          },
+          "service2": {
+            "title": "Vereinfachter Prozess",
+            "description": "Unsere benutzerfreundliche Plattform und intelligente KI vereinfachen Ihren Designprozess und ermöglichen es Ihnen, komplexe Symbole schnell und einfach zu erstellen."
+          },
+          "service3": {
+            "title": "Maßgeschneiderte Anpassung",
+            "description": "Passen Sie jedes Detail Ihres Symbols an, um Ihre genauen Bedürfnisse zu erfüllen, von Farben bis zu Abmessungen, und stellen Sie sicher, dass es perfekt zu Ihrem Projekt passt."
+          }
+        }
+      },
+      "testimonials": {
+        "title": {
+          "pt1": "Erfahren Sie, warum",
+          "pt2": "die Leute lieben",
+          "pt3": "dieses KI-Tool"
+        },
+        "description": "Erfahren Sie, warum Benutzer unseren Symbolgenerator loben. Benutzerfreundlichkeit, lebendige Anpassung und erstklassige Ergebnisse – erleben Sie das Beste im KI-gesteuerten Symboldesign!",
+        "testimonials": {
+          "testimonial1": {
+            "name": "Jake Martell",
+            "description": "Ich liebe die Benutzerfreundlichkeit. Symbole zu erstellen war noch nie so einfach!"
+          },
+          "testimonial2": {
+            "name": "Samantha Bee",
+            "description": "Fantastische Ergebnisse! Die Farboptionen sind ein Game-Changer."
+          },
+          "testimonial3": {
+            "name": "Mia Wong",
+            "description": "Ich bin beeindruckt von den erstklassigen Ergebnissen eines so einfachen Tools. Sehr empfehlenswert!"
+          },
+          "testimonial4": {
+            "name": "Ethan Hunt",
+            "description": "Die Benutzeroberfläche ist sehr intuitiv. Großartige Arbeit, um Design für alle zugänglich zu machen!"
+          },
+          "testimonial5": {
+            "name": "Nora Klint",
+            "description": "Hochwertige Symbole jedes Mal. Die KI-Funktionen helfen wirklich, die Designs zu verfeinern."
+          },
+          "testimonial6": {
+            "name": "Liam Quigley",
+            "description": "Schnell, einfach und effizient – genau das, was ich für meine Projektfristen brauchte."
+          }
+        }
+      },
+      "faq": {
+        "title": {
+          "pt1": "Häufig gestellte",
+          "pt2": "Fragen"
+        },
+        "questions": {
+          "question1": {
+            "question": "Was ist ein Symbolgenerator?",
+            "answer": "Unser KI-Symbolgenerator verwendet fortschrittliche Algorithmen, um Ihnen bei der mühelosen Gestaltung benutzerdefinierter Symbole zu helfen. Geben Sie einfach Ihre Vorlieben ein und unser Tool erstellt Symbole, die Ihren Bedürfnissen entsprechen."
+          },
+          "question2": {
+            "question": "Ist es einfach für Anfänger zu bedienen?",
+            "answer": "Absolut! Unsere Plattform ist auf Einfachheit ausgelegt. Es ist keine Vorerfahrung im Design erforderlich – wählen Sie einfach Ihre Vorlieben und unsere KI erledigt den Rest."
+          },
+          "question3": {
+            "question": "Kann ich die Symbole kommerziell nutzen?",
+            "answer": "Ja, alle mit unserem Generator erstellten Symbole können sowohl für persönliche als auch kommerzielle Projekte verwendet werden. Sie haben das volle Recht, sie in Ihrer Arbeit zu verwenden."
+          },
+          "question4": {
+            "question": "Wie kann ich Hilfe bekommen, wenn ich Probleme mit dem Tool habe?",
+            "answer": "Unser Support-Team ist hier, um zu helfen! Kontaktieren Sie uns per E-Mail für jede Unterstützung, die Sie benötigen."
+          }
+        },
+        "still-have-questions": "Haben Sie noch Fragen?",
+        "contact-us": "Kontaktieren Sie uns"
+      }
+    },
+    "generate": {
+      "title": {
+        "shall-we-begin": "Fangen wir an?",
+        "color-selection": "Wählen Sie Ihre Farbe",
+        "shape-selection": "Jetzt, wählen Sie Ihre Form",
+        "important-considerations": "Der wichtigste Schritt",
+        "icon-step": "Einen Schritt entfernt von Ihrem Symbol"
+      },
+      "buttons": {
+        "next": "Nächster",
+        "previous": "Vorheriger",
+        "generate-other-icon": "Anderes Symbol erzeugen"
+      },
+      "steps": {
+        "prompt": {
+          "title": "1. Beschreiben Sie Ihr Symbol *",
+          "placeholder": "Bär mit Bier",
+          "description": {
+            "simple-prompt": "Einfache Beschreibungen funktionieren oft am besten",
+            "industrial-specification": "Versuchen Sie, Industriespezifikationen hinzuzufügen, wie Technik, Lebensmittel, Bildung",
+            "materials": "Versuchen Sie, Materialien hinzuzufügen, wie Holz, Metall, Glas"
+          },
+          "errors": {
+            "min-length": "Bitte geben Sie mindestens 3 Wörter ein"
+          }
+        },
+        "color": {
+          "primary-color": {
+            "title": "2. Wählen Sie die Primärfarbe *",
+            "description": "Wählen Sie eine Farbe, die Ihr Symbol repräsentiert"
+          },
+          "secondary-color": {
+            "title": "2.1. Wählen Sie die Sekundärfarbe",
+            "description": "Wählen Sie eine Komplementärfarbe."
+          },
+          "tabs": {
+            "predefined": "Vordefiniert",
+            "picker": "Picker",
+            "hex": "HEX"
+          },
+          "errors": {
+            "color-required": "Bitte wählen Sie eine Farbe"
+          }
+        },
+        "shape": {
+          "title": "3. Wählen Sie die Form *",
+          "description": "Wählen Sie eine Form, die Ihr Symbol repräsentiert",
+          "shapes": {
+            "circle": "Kreis",
+            "square": "Quadrat",
+            "triangle": "Dreieck",
+            "star": "Stern",
+            "hexagon": "Hexagon",
+            "any-shape": "Beliebige Form"
+          },
+          "errors": {
+            "shape-required": "Bitte wählen Sie eine Form"
+          }
+        },
+        "style": {
+          "title": "4. Wählen Sie den Stil *",
+          "description": "Wählen Sie einen Stil, der Ihr Symbol repräsentiert",
+          "errors": {
+            "style-required": "Bitte wählen Sie einen Stil"
+          },
+          "styles": {
+            "minimalist": {
+              "name": "Minimalistisch",
+              "description": "Einfach und sauber"
+            },
+            "surrealist": {
+              "name": "Surrealistisch",
+              "description": "Abstrakt und fantasievoll"
+            },
+            "realistic": {
+              "name": "Realistisch",
+              "description": "Detailgetreu und präzise"
+            },
+            "art-deco": {
+              "name": "Art Deco",
+              "description": "Komplexe Geometrie"
+            },
+            "steampunk": {
+              "name": "Steampunk",
+              "description": "Industriell und retro-futuristisch"
+            },
+            "biomorphic": {
+              "name": "Biomorph",
+              "description": "Organisch und fließend"
+            },
+            "polygon": {
+              "name": "Polygon",
+              "description": "Geometrisch und modern"
+            },
+            "gothic": {
+              "name": "Gotisch",
+              "description": "Dunkel und mysteriös"
+            },
+            "pop-art": {
+              "name": "Pop Art",
+              "description": "Lebendig und kühn"
+            },
+            "digital-glitch": {
+              "name": "Digitaler Glitch",
+              "description": "Pixelig und verzerrt"
+            },
+            "vaporwave": {
+              "name": "Vaporwave",
+              "description": "Retro und nostalgisch"
+            },
+            "neon": {
+              "name": "Neon",
+              "description": "Leuchtend und strahlend"
+            },
+            "neon-noir": {
+              "name": "Neon Noir",
+              "description": "Dunkel und leuchtend"
+            },
+            "pixelated": {
+              "name": "Pixelig",
+              "description": "Blockig und retro"
+            },
+            "flat": {
+              "name": "Flach",
+              "description": "Einfach und farbenfroh"
+            },
+            "ilustrated": {
+              "name": "Illustriert",
+              "description": "Detailgetreu und farbenfroh"
+            },
+            "hand-drawn": {
+              "name": "Handgezeichnet",
+              "description": "Skizziert und organisch"
+            },
+            "isometric": {
+              "name": "Isometrisch",
+              "description": "3D und geometrisch"
+            },
+            "watercolor": {
+              "name": "Aquarell",
+              "description": "Fließend und farbenfroh"
+            },
+            "cartoonish": {
+              "name": "Cartoon",
+              "description": "Launisch und übertrieben"
+            },
+            "3d": {
+              "name": "3D",
+              "description": "Realistisch und detailgetreu"
+            },
+            "line-art": {
+              "name": "Linienkunst",
+              "description": "Einfach und elegant"
+            },
+            "doodle": {
+              "name": "Gekritzel",
+              "description": "Einfach und spaßig"
+            },
+            "grunge": {
+              "name": "Grunge",
+              "description": "Schmutzig und abgenutzt"
+            },
+            "sticker": {
+              "name": "Aufkleber",
+              "description": "Einfach und farbenfroh"
+            },
+            "origami": {
+              "name": "Origami",
+              "description": "Gefaltet und geometrisch"
+            },
+            "woodblock": {
+              "name": "Holzschnitt",
+              "description": "Texturiert und detailgetreu"
+            },
+            "cute": {
+              "name": "Niedlich",
+              "description": "Niedlich und farbenfroh"
+            }
+          }
+        },
+        "confirm": {
+          "title": "5. Bestätigen Sie Ihr Symbol",
+          "description": "Hier ist Ihr Symbol. Wenn Sie zufrieden sind, klicken Sie auf 'Erzeugen'. Wenn nicht, gehen Sie zurück und ändern Sie es.",
+          "buttons": {
+            "generate": "Erzeugen",
+            "buy-coin": "Münze kaufen",
+            "sign-in": "Einloggen"
+          },
+          "steps": {
+            "prompt": "Beschreibung",
+            "color": "Farben",
+            "primary-color": "Primärfarbe",
+            "secondary-color": "Sekundärfarbe",
+            "shape": "Form",
+            "style": "Stil"
+          }
+        }
+      },
+      "errors": {
+        "charge-coin": {
+          "title": "Nicht genügend Münzen",
+          "description": "Bitte kaufen Sie mehr Münzen.",
+          "action": "Münzen kaufen"
+        },
+        "create-icon": {
+          "title": "Fehler beim Erstellen des Symbols",
+          "description": "Beim Erstellen Ihres Symbols ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+        },
+        "user-not-authenticated": {
+          "title": "Nicht authentifiziert",
+          "description": "Bitte melden Sie sich an, um Symbole zu erzeugen."
+        },
+        "reimbursement-coin": {
+          "title": "Fehler beim Erstellen des Symbols und Rückerstattung der Münzen",
+          "description": "Wenn Ihre Münzen innerhalb von 24 Stunden nicht zurückkommen, kontaktieren Sie uns bitte."
+        },
+        "save-generation": {
+          "title": "Fehler beim Speichern der Generation",
+          "description": "Beim Speichern Ihres Inhalts auf unseren Servern ist ein Fehler aufgetreten. Bitte laden Sie das Bild herunter und speichern Sie es auf Ihrem Gerät."
+        },
+        "unknown": {
+          "title": "Unbekannter Fehler",
+          "description": "Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+        }
+      }
+    },
+    "pricing": {
+      "title": {
+        "pt1": "Münzen",
+        "pt2": "kaufen"
+      },
+      "description": "Kaufen Sie Credits, um unsere Dienste zu nutzen und auf die besten Funktionen zuzugreifen",
+      "alert": {
+        "title1": "Bitte überprüfen Sie unsere",
+        "refund": "Rückerstattungsrichtlinie",
+        "title2": "bevor Sie Credits kaufen. Derzeit bieten wir keine Rückerstattungen an."
+      },
+      "plans": {
+        "names": {
+          "starter": "Anfänger",
+          "builder": "Erbauer",
+          "pro": "Profi",
+          "master": "Meister"
+        },
+        "coins": "Münzen",
+        "coins-cost": "Jede Münze kostet",
+        "button": "Kaufen für"
+      },
+      "errors": {
+        "login-required": {
+          "title": "Anmeldung erforderlich",
+          "description": "Bitte melden Sie sich an, um Münzen zu kaufen.",
+          "action": "Einloggen"
+        },
+        "unexpected-error": {
+          "title": "Fehler beim Erstellen der Checkout-Sitzung",
+          "description": "Bitte versuchen Sie es später erneut"
+        }
+      }
+    },
+    "collections": {
+      "placeholder": "Suchen Sie Ihr Symbol nach Beschreibung",
+      "notFound": "Keine Symbole gefunden, versuchen Sie ein neues zu erzeugen"
+    },
+    "refund-policy": {
+      "title": "Rückerstattungsrichtlinie",
+      "last-update": "Zuletzt aktualisiert: 5. Mai 2024",
+      "paragraphs": {
+        "ph1": "Bei icongeneratorai.com sind wir bestrebt, eine einzigartige und innovative Erfahrung durch unsere KI-generierten Symbole zu bieten. Wir verstehen, dass KI, obwohl sie mächtig und revolutionär ist, nicht perfekt ist und möglicherweise nicht immer die erwarteten Ergebnisse liefert. Wir möchten, dass Sie sich dieses inhärenten Risikos vor jeder Kaufentscheidung voll bewusst sind.",
+        "ph2": "Aufgrund der hohen Kosten, die mit der Nutzung fortschrittlicher GPUs für unsere KI-Kunstgenerierung verbunden sind, können wir leider keine Rückerstattungen anbieten, sobald die Credits verwendet wurden. Wir erkennen an, dass dies möglicherweise nicht das ideale Szenario für jeden ist, aber diese Richtlinie hilft uns, einen fairen und nachhaltigen Service für alle unsere wertvollen Nutzer aufrechtzuerhalten.",
+        "ph3": "Wir empfehlen dringend, vor jedem Kauf unsere Community-Seite zu erkunden. Sie können täglich generierte Symbole von anderen Nutzern sehen, die Ihnen helfen können, die Möglichkeiten und Einschränkungen der KI-Kunst zu verstehen und hoffentlich Ihre Erwartungen zu steuern. Wir glauben an Transparenz und möchten, dass Sie eine informierte Entscheidung über unseren einzigartigen Service treffen.",
+        "ph4": "Ihr Verständnis und Ihre Unterstützung bedeuten uns viel. Während wir unsere KI weiter verbessern und verfeinern, hoffen wir, dass Sie sich uns auf dieser faszinierenden Reise der digitalen Kreativität anschließen."
+      }
+    },
+    "gallery": {
+      "title": {
+        "pt1": "Kürzlich Generierte Symbole",
+        "pt2": "periodisch aktualisiert"
+      }
+    }
+  },
+  "components": {
+    "generated-cards": {
+      "dropdown": {
+        "download": "HD-Bild herunterladen",
+        "variant": "Variante erstellen (1 Credit)",
+        "reuse-prompt": "Beschreibung wiederverwenden",
+        "remove-bg": "Hintergrund entfernen (1 Credit)",
+        "share": {
+          "name": "Teilen",
+          "toast": {
+            "title": "Kopiert",
+            "description": "Link in die Zwischenablage kopiert"
+          },
+          "error-toast": {
+            "title": "Fehler",
+            "description": "Fehler beim Kopieren des Links"
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "prompt": "Ein modernes Symbol, das eine {shape} zeigt, gerendert mit Primärfarbe {primaryColor} {secondaryColor}, das visuell {prompt} darstellt. Streben Sie einen Stil an, der hyperrealistische Texturen mit lebendigem, filmischem Licht kombiniert, ähnlich den hochwertigen Renderings, die in erstklassigen ArtStation-Projekten und Unreal Engine-Visualisierungen zu sehen sind. Konzentrieren Sie sich auf {styles}, um eine Ästhetik zu erreichen, die sowohl trendig als auch visuell beeindruckend ist",
+    "secondary-color": "und Sekundärfarbe"
+  },
+  "metadata": {
+    "layout": {
+      "description": "Erstellen Sie mühelos professionelle Symbole mit unserem KI-gesteuerten Tool. Perfekt, um jedes Projekt zu verbessern."
+    },
+    "gallery": {
+      "title": "Symbol-Galerie",
+      "description": "Entdecken Sie eine breite Palette benutzerdefinierter Symbole, die mit unserem KI-Tool erstellt wurden. Finden Sie das perfekte Symbol für Ihr Projekt oder lassen Sie sich von der Kreativität anderer inspirieren."
+    },
+    "shared-icon": {
+      "title": "Geteiltes Symbol",
+      "description": "Sehen Sie sich dieses erstaunliche Symbol an, das mit Icon Generator AI erstellt wurde!"
+    },
+    "collections": {
+      "title": "Symbol-Sammlungen",
+      "description": "Sehen Sie sich Ihre Symbol-Sammlung an."
+    },
+    "generate": {
+      "title": "Symbol erzeugen",
+      "description": "Erstellen Sie Ihr benutzerdefiniertes Symbol in vier einfachen Schritten: Definieren Sie Ihr Konzept, wählen Sie Ihre Farben, wählen Sie Ihre Form und wählen Sie Ihren Stil, um Ihre Vision mühelos zum Leben zu erwecken."
+    },
+    "refund": {
+      "title": "Rückerstattungsrichtlinie"
+    },
+    "pricing": {
+      "title": "Münzen kaufen",
+      "description": "Kaufen Sie Credits, um unsere Dienste zu nutzen und auf die besten Funktionen zuzugreifen"
+    }
+  }
+}
