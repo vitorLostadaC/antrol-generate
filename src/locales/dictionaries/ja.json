@@ -1,0 +1,468 @@
+{
+  "header": {
+    "navigation": {
+      "generate": "生成する",
+      "gallery": "ギャラリー",
+      "collections": "コレクション",
+      "retouch": "修正する"
+    },
+    "sign-in": "サインイン",
+    "buy-credits": "クレジットを購入",
+    "user-menu": {
+      "sign-out": "サインアウト"
+    },
+    "side-bar": {
+      "navigation": "ナビゲーション"
+    }
+  },
+  "footer": {
+    "terms-of-service": "利用規約",
+    "privacy-policy": "プライバシーポリシー",
+    "refund-policy": "返金ポリシー"
+  },
+  "pages": {
+    "landing-pages": {
+      "hero": {
+        "title": {
+          "pt1": "アイコンを作成",
+          "pt2": "プレミアム",
+          "pt3": "品質",
+          "pt4": "保証"
+        },
+        "description": "AI駆動ツールで簡単にプロフェッショナルなアイコンを作成できます。あらゆるプロジェクトを強化するのに最適です。",
+        "buttons": { "generate": "生成する (2 クレジット)" }
+      },
+      "how-it-works": {
+        "title": {
+          "pt1": "動作の仕組み",
+          "pt2": "",
+          "pt3": "ステップバイステップガイド"
+        },
+        "description": "4つの簡単なステップでカスタムアイコンを作成します：コンセプトを定義し、色を選択し、形状を選び、スタイルを選んで、ビジョンを簡単に実現します。",
+        "steps": {
+          "step1": {
+            "title": "1. プロンプト",
+            "description": "AIにカスタムアイコンを作成するためのガイドラインを入力します。"
+          },
+          "step2": {
+            "title": "2. 色",
+            "description": "主要な色と、必要に応じて補助的な色を選択します。"
+          },
+          "step3": {
+            "title": "3. 形状",
+            "description": "アイコンを最適に表す形状を選択します。"
+          },
+          "step4": {
+            "title": "4. スタイル",
+            "description": "プロジェクトの美学に最も合ったデザインスタイルを選択します。"
+          }
+        }
+      },
+      "services": {
+        "title": { "pt1": "顧客中心", "pt2": "のサービス" },
+        "description": "あなたのニーズに焦点を当てたプラットフォームで、パーソナライズされた効率的なアイコンデザインを提供します。あらゆる段階でシームレスな作成を体験してください。",
+        "services": {
+          "service1": {
+            "title": "プレミアム体験",
+            "description": "最高のアイコン生成体験を提供するために、直感的なデザインと最高のパフォーマンスを組み合わせてシームレスな作成を実現します。"
+          },
+          "service2": {
+            "title": "合理化されたプロセス",
+            "description": "使いやすいプラットフォームとスマートAIにより、デザインプロセスを簡素化し、複雑なアイコンを迅速かつ簡単に作成できます。"
+          },
+          "service3": {
+            "title": "カスタマイズされたカスタマイズ",
+            "description": "色から寸法まで、アイコンの詳細をすべてカスタマイズして、プロジェクトに完全に一致するようにします。"
+          }
+        }
+      },
+      "testimonials": {
+        "title": {
+          "pt1": "なぜ人々が",
+          "pt2": "このAIツールを",
+          "pt3": "愛しているのかを発見する"
+        },
+        "description": "ユーザーがアイコンジェネレーターを賞賛する理由を発見してください。使いやすさ、豊かなカスタマイズ、プレミアムな成果物—AI駆動のアイコンデザインの最高を体験してください！",
+        "testimonials": {
+          "testimonial1": {
+            "name": "ジェイク・マーテル",
+            "description": "使いやすさがとても気に入っています。アイコンを作成するのがこれほど簡単だったことはありません！"
+          },
+          "testimonial2": {
+            "name": "サマンサ・ビー",
+            "description": "素晴らしい結果です！色のカスタマイズオプションがゲームチェンジャーです。"
+          },
+          "testimonial3": {
+            "name": "ミア・ウォン",
+            "description": "このシンプルなツールのプレミアムな成果物に感銘を受けました。強くお勧めします！"
+          },
+          "testimonial4": {
+            "name": "イーサン・ハント",
+            "description": "ユーザーインターフェースが非常に直感的です。デザインを誰にでもアクセス可能にした素晴らしい仕事！"
+          },
+          "testimonial5": {
+            "name": "ノラ・クリント",
+            "description": "毎回高品質なアイコン。AI機能がデザインを微調整するのに本当に役立ちます。"
+          },
+          "testimonial6": {
+            "name": "リアム・クイグリー",
+            "description": "迅速、簡単、効率的—プロジェクトの締め切りに必要なものです。"
+          }
+        }
+      },
+      "faq": {
+        "title": {
+          "pt1": "よくある質問",
+          "pt2": ""
+        },
+        "questions": {
+          "question1": {
+            "question": "アイコンジェネレーターとは何ですか？",
+            "answer": "私たちのAIアイコンジェネレーターは、高度なアルゴリズムを使用して、カスタムアイコンのデザインを簡単にします。単にあなたの好みを入力するだけで、私たちのツールがあなたのニーズに合わせてアイコンを作成します。"
+          },
+          "question2": {
+            "question": "初心者にも使いやすいですか？",
+            "answer": "もちろんです！私たちのプラットフォームは、シンプルさを念頭に置いて設計されています。事前のデザイン経験は必要ありません—単にあなたの好みを選択するだけで、AIが残りを処理します。"
+          },
+          "question3": {
+            "question": "商業的にアイコンを使用できますか？",
+            "answer": "はい、私たちのジェネレーターで作成されたすべてのアイコンは、個人プロジェクトおよび商業プロジェクトに使用できます。あなたはそれらをあなたの仕事に使用する完全な権利を持っています。"
+          },
+          "question4": {
+            "question": "ツールの使用中に問題が発生した場合、どのように支援を受けられますか？",
+            "answer": "サポートチームはいつでもお手伝いします！必要な支援については、メールでお問い合わせください。"
+          }
+        },
+        "still-have-questions": "まだ質問がありますか？",
+        "contact-us": "お問い合わせ"
+      }
+    },
+    "generate": {
+      "title": {
+        "shall-we-begin": "始めましょうか？",
+        "color-selection": "色を選択してください",
+        "shape-selection": "次に、形状を選択してください",
+        "important-considerations": "最も重要なステップ",
+        "icon-step": "アイコンまであと一歩"
+      },
+      "buttons": {
+        "next": "次へ",
+        "previous": "前へ",
+        "generate-other-icon": "別のアイコンを生成する"
+      },
+      "steps": {
+        "prompt": {
+          "title": "1. アイコンを説明してください *",
+          "placeholder": "ビールを持ったクマ",
+          "description": {
+            "simple-prompt": "シンプルな説明が最も効果的です",
+            "industrial-specification": "技術、食品、教育などの産業仕様を追加してみてください",
+            "materials": "木材、金属、ガラスなどの材料を追加してみてください"
+          },
+          "errors": {
+            "min-length": "最低3語入力してください"
+          }
+        },
+        "color": {
+          "primary-color": {
+            "title": "2. 主な色を選択してください *",
+            "description": "アイコンを代表する色を選択してください"
+          },
+          "secondary-color": {
+            "title": "2.1. 補助的な色を選択してください",
+            "description": "補完的な色を選択してください。"
+          },
+          "tabs": {
+            "predefined": "事前定義済み",
+            "picker": "カラーピッカー",
+            "hex": "HEX"
+          },
+          "errors": {
+            "color-required": "色を選択してください"
+          }
+        },
+        "shape": {
+          "title": "3. 形状を選択してください *",
+          "description": "アイコンを代表する形状を選択してください",
+          "shapes": {
+            "circle": "円",
+            "square": "四角形",
+            "triangle": "三角形",
+            "star": "星形",
+            "hexagon": "六角形",
+            "any-shape": "任意の形状"
+          },
+          "errors": {
+            "shape-required": "形状を選択してください"
+          }
+        },
+        "style": {
+          "title": "4. スタイルを選択してください *",
+          "description": "アイコンを代表するスタイルを選択してください",
+          "errors": {
+            "style-required": "スタイルを選択してください"
+          },
+          "styles": {
+            "minimalist": {
+              "name": "ミニマリスト",
+              "description": "シンプルでクリーン"
+            },
+            "surrealist": {
+              "name": "シュールレアリズム",
+              "description": "抽象的で想像力豊か"
+            },
+            "realistic": {
+              "name": "リアリスティック",
+              "description": "詳細で正確"
+            },
+            "art-deco": {
+              "name": "アールデコ",
+              "description": "洗練された幾何学"
+            },
+            "steampunk": {
+              "name": "スチームパンク",
+              "description": "産業的でレトロフューチャリスティック"
+            },
+            "biomorphic": {
+              "name": "バイオモルフィック",
+              "description": "有機的で流動的"
+            },
+            "polygon": {
+              "name": "ポリゴン",
+              "description": "幾何学的で現代的"
+            },
+            "gothic": {
+              "name": "ゴシック",
+              "description": "暗くて神秘的"
+            },
+            "pop-art": {
+              "name": "ポップアート",
+              "description": "鮮やかで大胆"
+            },
+            "digital-glitch": {
+              "name": "デジタルグリッチ",
+              "description": "ピクセル化され歪んでいる"
+            },
+            "vaporwave": {
+              "name": "ヴェイパーウェーブ",
+              "description": "レトロでノスタルジック"
+            },
+            "neon": {
+              "name": "ネオン",
+              "description": "明るくて光る"
+            },
+            "neon-noir": {
+              "name": "ネオンノワール",
+              "description": "暗くて光る"
+            },
+            "pixelated": {
+              "name": "ピクセル化",
+              "description": "ブロック状でレトロ"
+            },
+            "flat": {
+              "name": "フラット",
+              "description": "シンプルでカラフル"
+            },
+            "ilustrated": {
+              "name": "イラストレート",
+              "description": "詳細でカラフル"
+            },
+            "hand-drawn": {
+              "name": "手描き",
+              "description": "スケッチ風で有機的"
+            },
+            "isometric": {
+              "name": "アイソメトリック",
+              "description": "3Dで幾何学的"
+            },
+            "watercolor": {
+              "name": "水彩",
+              "description": "流動的でカラフル"
+            },
+            "cartoonish": {
+              "name": "カートゥーン",
+              "description": "風変わりで誇張された"
+            },
+            "3d": {
+              "name": "3D",
+              "description": "リアルで詳細"
+            },
+            "line-art": {
+              "name": "線画",
+              "description": "シンプルでエレガント"
+            },
+            "doodle": {
+              "name": "落書き",
+              "description": "シンプルで楽しい"
+            },
+            "grunge": {
+              "name": "グランジ",
+              "description": "汚れて擦り切れた"
+            },
+            "sticker": {
+              "name": "ステッカー",
+              "description": "シンプルでカラフル"
+            },
+            "origami": {
+              "name": "折り紙",
+              "description": "折りたたまれて幾何学的"
+            },
+            "woodblock": {
+              "name": "木版画",
+              "description": "テクスチャードで詳細"
+            },
+            "cute": {
+              "name": "かわいい",
+              "description": "愛らしくてカラフル"
+            }
+          }
+        },
+        "confirm": {
+          "title": "5. アイコンを確認する",
+          "description": "これはあなたのアイコンです。満足したら、「生成」をクリックしてください。満足しない場合は、戻って変更を加えてください。",
+          "buttons": {
+            "generate": "生成する",
+            "buy-coin": "コインを購入",
+            "sign-in": "サインイン"
+          },
+          "steps": {
+            "prompt": "説明",
+            "color": "色",
+            "primary-color": "主要な色",
+            "secondary-color": "補助的な色",
+            "shape": "形状",
+            "style": "スタイル"
+          }
+        }
+      },
+      "errors": {
+        "charge-coin": {
+          "title": "コインが不足しています",
+          "description": "もっとコインを購入してください。",
+          "action": "コインを購入"
+        },
+        "create-icon": {
+          "title": "アイコンの生成エラー",
+          "description": "アイコンの生成中にエラーが発生しました。再試行してください。"
+        },
+        "user-not-authenticated": {
+          "title": "認証されていません",
+          "description": "アイコンを生成するには、サインインしてください。"
+        },
+        "reimbursement-coin": {
+          "title": "アイコンの生成エラーとコインの払い戻し",
+          "description": "コインが24時間以内に戻らない場合は、お問い合わせください。"
+        },
+        "save-generation": {
+          "title": "生成の保存エラー",
+          "description": "コンテンツをサーバーに保存中にエラーが発生しました。画像をダウンロードしてデバイスに保存してください。"
+        },
+        "unknown": {
+          "title": "不明なエラー",
+          "description": "不明なエラーが発生しました。再試行してください。"
+        }
+      }
+    },
+    "pricing": {
+      "title": {
+        "pt1": "コインを",
+        "pt2": "購入する"
+      },
+      "description": "クレジットを購入して、私たちのサービスを使用し、最高の機能にアクセスしてください",
+      "alert": {
+        "title1": "私たちの",
+        "refund": "返金ポリシー",
+        "title2": "をご確認ください。現在、返金は提供していません。"
+      },
+      "plans": {
+        "names": {
+          "starter": "スターター",
+          "builder": "ビルダー",
+          "pro": "プロ",
+          "master": "マスター"
+        },
+        "coins": "コイン",
+        "coins-cost": "各コインの価格",
+        "button": "購入"
+      },
+      "errors": {
+        "login-required": {
+          "title": "サインインが必要です",
+          "description": "コインを購入するには、サインインしてください。",
+          "action": "サインイン"
+        },
+        "unexpected-error": {
+          "title": "チェックアウトセッションの作成エラー",
+          "description": "後でもう一度試してください"
+        }
+      }
+    },
+    "collections": {
+      "placeholder": "説明でアイコンを検索",
+      "notFound": "アイコンが見つかりませんでした。新しいアイコンを生成してください"
+    },
+    "refund-policy": {
+      "title": "返金ポリシー",
+      "last-update": "最終更新日：2024年5月5日",
+      "paragraphs": {
+        "ph1": "icongeneratorai.comでは、AI生成アイコンを通じてユニークで革新的な体験を提供することを目指しています。私たちは、AIは強力で革命的である一方で、完璧ではなく、常に期待される結果を生成するわけではないことを理解しています。購入を行う前に、この固有のリスクを十分に認識していただきたいと考えています。",
+        "ph2": "高度なGPUを使用してAIアート生成を行うには高いコストがかかるため、一度クレジットを使用した後の返金は提供できません。この方針はすべての貴重なユーザーに公平で持続可能なサービスを提供するのに役立ちます。",
+        "ph3": "購入前に、コミュニティページを探索することを強くお勧めします。他のユーザーが日々生成するアイコンを見て、AIアートの可能性と制限を理解し、期待を調整するのに役立つことを願っています。私たちは透明性を信じており、私たちのユニークなサービスについて情報に基づいた決定を下すことを望んでいます。",
+        "ph4": "私たちは理解とサポートを大変感謝しています。私たちがAIを改良し続ける中、この魅力的なデジタルクリエイティビティの旅に参加していただけることを願っています。"
+      }
+    }
+  },
+  "components": {
+    "generated-cards": {
+      "dropdown": {
+        "download": "HD画像をダウンロード",
+        "variant": "バリアントを作成する (1 クレジット)",
+        "reuse-prompt": "説明を再利用",
+        "remove-bg": "背景を削除 (1 クレジット)",
+        "share": {
+          "name": "共有する",
+          "toast": {
+            "title": "コピーしました",
+            "description": "リンクがクリップボードにコピーされました"
+          },
+          "error-toast": {
+            "title": "エラー",
+            "description": "リンクのコピーに失敗しました"
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "prompt": "モダンなアイコンで、主要色{primaryColor}{secondaryColor}で表現される{shape}を表示し、視覚的に{prompt}を表現します。ArtStationのプロジェクトやUnreal Engineの視覚に見られる高品質のレンダリングに似た、ハイパーリアルなテクスチャと鮮やかで映画的な照明を組み合わせたスタイルを目指してください。トレンドで視覚的に印象的な美学を達成するために{styles}に焦点を当てます",
+    "secondary-color": "および補助的な色"
+  },
+  "metadata": {
+    "layout": {
+      "description": "AI駆動ツールで簡単にプロフェッショナルなアイコンを作成できます。あらゆるプロジェクトを強化するのに最適です。"
+    },
+    "gallery": {
+      "title": "アイコンギャラリー",
+      "description": "AIツールで作成されたカスタムアイコンの幅広い範囲を探索してください。プロジェクトに最適なアイコンを見つけたり、他の人のクリエイティビティからインスピレーションを得たりしてください。"
+    },
+    "shared-icon": {
+      "title": "共有されたアイコン",
+      "description": "Icon Generator AIで作成されたこの驚くべきアイコンを見てください！"
+    },
+    "collections": {
+      "title": "アイコンコレクション",
+      "description": "アイコンコレクションを見てください。"
+    },
+    "generate": {
+      "title": "アイコンを生成する",
+      "description": "4つの簡単なステップでカスタムアイコンを作成します：コンセプトを定義し、色を選択し、形状を選び、スタイルを選んで、ビジョンを簡単に実現します。"
+    },
+    "refund": {
+      "title": "返金ポリシー"
+    },
+    "pricing": {
+      "title": "コインを購入",
+      "description": "クレジットを購入して、私たちのサービスを使用し、最高の機能にアクセスしてください"
+    }
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "header": {
+    "navigation": {
+      "generate": "生成",
+      "gallery": "画廊",
+      "collections": "收藏",
+      "retouch": "修图"
+    },
+    "sign-in": "登录",
+    "buy-credits": "购买积分",
+    "user-menu": {
+      "sign-out": "登出"
+    },
+    "side-bar": {
+      "navigation": "导航"
+    }
+  },
+  "footer": {
+    "terms-of-service": "服务条款",
+    "privacy-policy": "隐私政策",
+    "refund-policy": "退款政策"
+  },
+  "pages": {
+    "landing-pages": {
+      "hero": {
+        "title": {
+          "pt1": "创建图标",
+          "pt2": "高端",
+          "pt3": "质量",
+          "pt4": "保证"
+        },
+        "description": "通过我们的AI工具轻松创建专业图标。完美提升任何项目。",
+        "buttons": { "generate": "生成 (2 积分)" }
+      },
+      "how-it-works": {
+        "title": {
+          "pt1": "如何",
+          "pt2": "工作",
+          "pt3": "分步指南"
+        },
+        "description": "只需四个简单步骤即可创建您的自定义图标：定义概念、选择颜色、选择形状并选择风格，轻松实现您的愿景。",
+        "steps": {
+          "step1": {
+            "title": "1. 描述",
+            "description": "输入一个简短的描述，引导AI创建您的个性化图标。"
+          },
+          "step2": {
+            "title": "2. 颜色",
+            "description": "选择一种主要颜色，并可选地选择一种次要颜色。"
+          },
+          "step3": {
+            "title": "3. 形状",
+            "description": "从各种形状中选择最能代表您图标的形状。"
+          },
+          "step4": {
+            "title": "4. 风格",
+            "description": "选择一种最适合您项目美学的设计风格。"
+          }
+        }
+      },
+      "services": {
+        "title": { "pt1": "以客户为中心", "pt2": "的服务" },
+        "description": "我们的平台专注于您的需求，提供个性化、高效的图标设计。每一步都体验无缝的创作过程。",
+        "services": {
+          "service1": {
+            "title": "高级体验",
+            "description": "我们专注于提供最佳的图标生成体验，结合直观的设计和顶级性能，实现无缝创作。"
+          },
+          "service2": {
+            "title": "简化流程",
+            "description": "我们用户友好的平台和智能AI简化了您的设计过程，让您能够快速轻松地创建复杂的图标。"
+          },
+          "service3": {
+            "title": "量身定制",
+            "description": "从颜色到尺寸，定制您的图标每一个细节，确保与您的项目完美匹配。"
+          }
+        }
+      },
+      "testimonials": {
+        "title": {
+          "pt1": "发现为什么",
+          "pt2": "人们喜欢",
+          "pt3": "这个AI工具"
+        },
+        "description": "发现用户为什么赞扬我们的图标生成器。易用性、丰富的定制选项和高端输出——体验最好的AI驱动图标设计！",
+        "testimonials": {
+          "testimonial1": {
+            "name": "杰克·马特尔",
+            "description": "非常喜欢使用的简便性。创建图标从未如此简单！"
+          },
+          "testimonial2": {
+            "name": "萨曼莎·比",
+            "description": "结果太棒了！颜色定制选项是一个游戏改变者。"
+          },
+          "testimonial3": {
+            "name": "米娅·王",
+            "description": "我对这款如此简单的工具的高端输出感到印象深刻。强烈推荐！"
+          },
+          "testimonial4": {
+            "name": "伊桑·亨特",
+            "description": "用户界面非常直观。很好地使设计变得可访问！"
+          },
+          "testimonial5": {
+            "name": "诺拉·克林特",
+            "description": "每次都是高质量的图标。AI功能确实有助于微调设计。"
+          },
+          "testimonial6": {
+            "name": "利亚姆·奎格利",
+            "description": "快速、简便、高效——正是我项目截止日期所需的。"
+          }
+        }
+      },
+      "faq": {
+        "title": {
+          "pt1": "常见问题",
+          "pt2": ""
+        },
+        "questions": {
+          "question1": {
+            "question": "什么是图标生成器？",
+            "answer": "我们的AI图标生成器使用先进的算法帮助您轻松设计个性化图标。只需输入您的偏好，我们的工具就会创建符合您需求的图标。"
+          },
+          "question2": {
+            "question": "对初学者友好吗？",
+            "answer": "绝对友好！我们的平台设计简单。不需要先前的设计经验——只需选择您的偏好，我们的AI将处理其余工作。"
+          },
+          "question3": {
+            "question": "可以商业使用这些图标吗？",
+            "answer": "是的，所有使用我们的生成器创建的图标可以用于个人和商业项目。您完全有权使用它们。"
+          },
+          "question4": {
+            "question": "使用工具遇到问题时如何获得帮助？",
+            "answer": "我们的支持团队随时为您提供帮助！通过电子邮件联系我们以获取任何您可能需要的帮助。"
+          }
+        },
+        "still-have-questions": "还有问题？",
+        "contact-us": "联系我们"
+      }
+    },
+    "generate": {
+      "title": {
+        "shall-we-begin": "开始吗？",
+        "color-selection": "选择您的颜色",
+        "shape-selection": "现在，选择您的形状",
+        "important-considerations": "最重要的步骤",
+        "icon-step": "离您的图标一步之遥"
+      },
+      "buttons": {
+        "next": "下一个",
+        "previous": "上一个",
+        "generate-other-icon": "生成另一个图标"
+      },
+      "steps": {
+        "prompt": {
+          "title": "1. 描述您的图标 *",
+          "placeholder": "拿着啤酒的熊",
+          "description": {
+            "simple-prompt": "简单的描述通常效果最好",
+            "industrial-specification": "尝试添加工业规格，如技术、食品、教育",
+            "materials": "尝试添加材料，如木材、金属、玻璃"
+          },
+          "errors": {
+            "min-length": "请输入至少3个单词"
+          }
+        },
+        "color": {
+          "primary-color": {
+            "title": "2. 选择主要颜色 *",
+            "description": "选择一种代表您图标的颜色"
+          },
+          "secondary-color": {
+            "title": "2.1. 选择次要颜色",
+            "description": "选择一种互补的颜色。"
+          },
+          "tabs": {
+            "predefined": "预定义",
+            "picker": "选择器",
+            "hex": "HEX"
+          },
+          "errors": {
+            "color-required": "请选择一种颜色"
+          }
+        },
+        "shape": {
+          "title": "3. 选择形状 *",
+          "description": "选择一种代表您图标的形状",
+          "shapes": {
+            "circle": "圆形",
+            "square": "方形",
+            "triangle": "三角形",
+            "star": "星形",
+            "hexagon": "六边形",
+            "any-shape": "任何形状"
+          },
+          "errors": {
+            "shape-required": "请选择一种形状"
+          }
+        },
+        "style": {
+          "title": "4. 选择风格 *",
+          "description": "选择一种代表您图标的风格",
+          "errors": {
+            "style-required": "请选择一种风格"
+          },
+          "styles": {
+            "minimalist": {
+              "name": "极简主义",
+              "description": "简单且干净"
+            },
+            "surrealist": {
+              "name": "超现实主义",
+              "description": "抽象且富有想象力"
+            },
+            "realistic": {
+              "name": "现实主义",
+              "description": "详细且精确"
+            },
+            "art-deco": {
+              "name": "艺术装饰",
+              "description": "复杂的几何形状"
+            },
+            "steampunk": {
+              "name": "蒸汽朋克",
+              "description": "工业且复古未来主义"
+            },
+            "biomorphic": {
+              "name": "生物形态",
+              "description": "有机且流动"
+            },
+            "polygon": {
+              "name": "多边形",
+              "description": "几何且现代"
+            },
+            "gothic": {
+              "name": "哥特式",
+              "description": "黑暗且神秘"
+            },
+            "pop-art": {
+              "name": "波普艺术",
+              "description": "充满活力且大胆"
+            },
+            "digital-glitch": {
+              "name": "数字故障",
+              "description": "像素化且扭曲"
+            },
+            "vaporwave": {
+              "name": "蒸汽波",
+              "description": "复古且怀旧"
+            },
+            "neon": {
+              "name": "霓虹",
+              "description": "明亮且发光"
+            },
+            "neon-noir": {
+              "name": "霓虹黑",
+              "description": "黑暗且发光"
+            },
+            "pixelated": {
+              "name": "像素化",
+              "description": "块状且复古"
+            },
+            "flat": {
+              "name": "平面",
+              "description": "简单且多彩"
+            },
+            "ilustrated": {
+              "name": "插图",
+              "description": "详细且多彩"
+            },
+            "hand-drawn": {
+              "name": "手绘",
+              "description": "素描且有机"
+            },
+            "isometric": {
+              "name": "等距",
+              "description": "3D且几何"
+            },
+            "watercolor": {
+              "name": "水彩",
+              "description": "流动且多彩"
+            },
+            "cartoonish": {
+              "name": "卡通",
+              "description": "古怪且夸张"
+            },
+            "3d": {
+              "name": "3D",
+              "description": "真实且详细"
+            },
+            "line-art": {
+              "name": "线条艺术",
+              "description": "简单且优雅"
+            },
+            "doodle": {
+              "name": "涂鸦",
+              "description": "简单且有趣"
+            },
+            "grunge": {
+              "name": "垃圾摇滚",
+              "description": "脏且磨损"
+            },
+            "sticker": {
+              "name": "贴纸",
+              "description": "简单且多彩"
+            },
+            "origami": {
+              "name": "折纸",
+              "description": "折叠且几何"
+            },
+            "woodblock": {
+              "name": "木刻",
+              "description": "纹理且详细"
+            },
+            "cute": {
+              "name": "可爱",
+              "description": "可爱且多彩"
+            }
+          }
+        },
+        "confirm": {
+          "title": "5. 确认您的图标",
+          "description": "这是您的图标。如果您满意，请点击 '生成'。如果不满意，请返回并进行更改。",
+          "buttons": {
+            "generate": "生成",
+            "buy-coin": "购买硬币",
+            "sign-in": "登录"
+          },
+          "steps": {
+            "prompt": "描述",
+            "color": "颜色",
+            "primary-color": "主要颜色",
+            "secondary-color": "次要颜色",
+            "shape": "形状",
+            "style": "风格"
+          }
+        }
+      },
+      "errors": {
+        "charge-coin": {
+          "title": "硬币不足",
+          "description": "请购买更多硬币。",
+          "action": "购买硬币"
+        },
+        "create-icon": {
+          "title": "创建图标错误",
+          "description": "创建图标时发生错误。请重试。"
+        },
+        "user-not-authenticated": {
+          "title": "未认证",
+          "description": "请登录以生成图标。"
+        },
+        "reimbursement-coin": {
+          "title": "创建图标和返还硬币时出错",
+          "description": "如果您的硬币在24小时内未返回，请联系我们。"
+        },
+        "save-generation": {
+          "title": "保存生成错误",
+          "description": "将内容保存到我们的服务器时出错。请下载图像并保存到您的设备。"
+        },
+        "unknown": {
+          "title": "未知错误",
+          "description": "发生未知错误。请重试。"
+        }
+      }
+    },
+    "pricing": {
+      "title": {
+        "pt1": "购买",
+        "pt2": "硬币"
+      },
+      "description": "购买积分以使用我们的服务并获得最佳功能",
+      "alert": {
+        "title1": "请查看我们的",
+        "refund": "退款政策",
+        "title2": "在购买积分之前。目前，我们不提供退款。"
+      },
+      "plans": {
+        "names": {
+          "starter": "入门",
+          "builder": "建设者",
+          "pro": "专业",
+          "master": "大师"
+        },
+        "coins": "硬币",
+        "coins-cost": "每个硬币的价格",
+        "button": "购买"
+      },
+      "errors": {
+        "login-required": {
+          "title": "需要登录",
+          "description": "请登录以购买硬币。",
+          "action": "登录"
+        },
+        "unexpected-error": {
+          "title": "创建结账会话错误",
+          "description": "请稍后再试"
+        }
+      }
+    },
+    "collections": {
+      "placeholder": "通过描述搜索您的图标",
+      "notFound": "未找到图标，请尝试生成一个新的"
+    },
+    "refund-policy": {
+      "title": "退款政策",
+      "last-update": "最后更新：2024年5月5日",
+      "paragraphs": {
+        "ph1": "在icongeneratorai.com，我们致力于通过我们的AI生成图标提供独特和创新的体验。我们理解AI虽然强大和革命性，但并不完美，并且可能不会总是产生您期望的结果。我们希望您在进行任何购买之前充分了解这一固有风险。",
+        "ph2": "由于使用高级GPU进行AI艺术生成涉及的高成本，一旦使用积分，我们无法提供退款。我们意识到这可能不是每个人的理想情况，但这项政策帮助我们为所有有价值的用户保持公平和可持续的服务。",
+        "ph3": "我们强烈建议在进行任何购买之前探索我们的社区页面。您可以看到其他用户每日生成的图标，这可能有助于您了解AI艺术的可能性和局限性，并希望能引导您的期望。我们相信透明度，并希望您对我们独特的服务做出明智的决定。",
+        "ph4": "您的理解和支持对我们非常重要。随着我们继续改进和完善我们的AI，我们希望您能加入我们这一令人着迷的数字创造之旅。"
+      }
+    }
+  },
+  "components": {
+    "generated-cards": {
+      "dropdown": {
+        "download": "下载高清图片",
+        "variant": "创建变体 (1 积分)",
+        "reuse-prompt": "重用描述",
+        "remove-bg": "移除背景 (1 积分)",
+        "share": {
+          "name": "分享",
+          "toast": {
+            "title": "已复制",
+            "description": "链接已复制到剪贴板"
+          },
+          "error-toast": {
+            "title": "错误",
+            "description": "复制链接时出错"
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "prompt": "一个现代图标，展示一个{shape}，使用主要颜色{primaryColor} {secondaryColor}，视觉上代表{prompt}。目标是结合超现实纹理和明亮的电影灯光的风格，类似于在ArtStation项目和Unreal Engine视觉中看到的高质量渲染。专注于{styles}以实现既流行又视觉惊艳的美学",
+    "secondary-color": "和次要颜色"
+  },
+  "metadata": {
+    "layout": {
+      "description": "通过我们的AI工具轻松创建专业图标。完美提升任何项目。"
+    },
+    "gallery": {
+      "title": "图标画廊",
+      "description": "探索由我们的AI工具创建的各种定制图标。找到适合您的项目的完美图标或从其他人的创意中获得灵感。"
+    },
+    "shared-icon": {
+      "title": "共享图标",
+      "description": "查看这个由图标生成器AI创建的惊人图标！"
+    },
+    "collections": {
+      "title": "图标收藏",
+      "description": "查看您的图标收藏。"
+    },
+    "generate": {
+      "title": "生成图标",
+      "description": "只需四个简单步骤即可创建您的自定义图标：定义概念、选择颜色、选择形状并选择风格，轻松实现您的愿景。"
+    },
+    "refund": {
+      "title": "退款政策"
+    },
+    "pricing": {
+      "title": "购买硬币",
+      "description": "购买积分以使用我们的服务并获得最佳功能"
+    }
+  }
+}

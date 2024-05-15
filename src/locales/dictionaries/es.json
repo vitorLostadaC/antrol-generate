@@ -1,0 +1,468 @@
+{
+  "header": {
+    "navigation": {
+      "generate": "Generar",
+      "gallery": "Galería",
+      "collections": "Colecciones",
+      "retouch": "Retocar"
+    },
+    "sign-in": "Iniciar Sesión",
+    "buy-credits": "Comprar Créditos",
+    "user-menu": {
+      "sign-out": "Cerrar Sesión"
+    },
+    "side-bar": {
+      "navigation": "Navegación"
+    }
+  },
+  "footer": {
+    "terms-of-service": "Términos de Servicio",
+    "privacy-policy": "Política de Privacidad",
+    "refund-policy": "Política de Reembolso"
+  },
+  "pages": {
+    "landing-pages": {
+      "hero": {
+        "title": {
+          "pt1": "Crear Íconos",
+          "pt2": "Premium",
+          "pt3": "Calidad",
+          "pt4": "Garantizada"
+        },
+        "description": "Cree íconos profesionales sin esfuerzo con nuestra herramienta impulsada por IA. Perfecto para mejorar cualquier proyecto.",
+        "buttons": { "generate": "Generar (2 créditos)" }
+      },
+      "how-it-works": {
+        "title": {
+          "pt1": "Cómo",
+          "pt2": "Funciona",
+          "pt3": "Guía Paso a Paso"
+        },
+        "description": "Cree su ícono personalizado en cuatro simples pasos: defina su concepto, seleccione sus colores, elija su forma y elija su estilo para dar vida a su visión sin esfuerzo.",
+        "steps": {
+          "step1": {
+            "title": "1. Descripción",
+            "description": "Ingrese una breve descripción que guíe a la IA en la creación de su ícono personalizado."
+          },
+          "step2": {
+            "title": "2. Color",
+            "description": "Seleccione un color primario y, opcionalmente, un color secundario."
+          },
+          "step3": {
+            "title": "3. Forma",
+            "description": "Elija entre una variedad de formas para representar mejor su ícono."
+          },
+          "step4": {
+            "title": "4. Estilo",
+            "description": "Elija un estilo de diseño que mejor se adapte a la estética de su proyecto."
+          }
+        }
+      },
+      "services": {
+        "title": { "pt1": "Servicios", "pt2": "Centrados en el Cliente" },
+        "description": "Centrados en sus necesidades, nuestra plataforma ofrece un diseño de íconos personalizado y eficiente. Experimente una creación sin problemas, en cada paso del camino.",
+        "services": {
+          "service1": {
+            "title": "Experiencia Premium",
+            "description": "Nos enfocamos totalmente en ofrecer la mejor experiencia posible en la generación de íconos, combinando diseño intuitivo con un rendimiento de alto nivel para una creación sin problemas."
+          },
+          "service2": {
+            "title": "Proceso Simplificado",
+            "description": "Nuestra plataforma fácil de usar y nuestra IA inteligente simplifican su proceso de diseño, permitiéndole crear íconos complejos de manera rápida y fácil."
+          },
+          "service3": {
+            "title": "Personalización a Medida",
+            "description": "Personalice cada detalle de su ícono para satisfacer sus necesidades exactas, desde los colores hasta las dimensiones, asegurando una coincidencia perfecta para su proyecto."
+          }
+        }
+      },
+      "testimonials": {
+        "title": {
+          "pt1": "Descubra Por Qué",
+          "pt2": "Las Personas Aman",
+          "pt3": "Esta Herramienta de IA"
+        },
+        "description": "Descubra por qué los usuarios elogian nuestro generador de íconos. Facilidad de uso, personalización vibrante y resultados premium—experimente lo mejor del diseño de íconos impulsado por IA!",
+        "testimonials": {
+          "testimonial1": {
+            "name": "Jake Martell",
+            "description": "Me encanta la facilidad de uso. ¡Crear íconos nunca ha sido tan simple!"
+          },
+          "testimonial2": {
+            "name": "Samantha Bee",
+            "description": "¡Resultados fantásticos! Las opciones de personalización de colores son un cambio total."
+          },
+          "testimonial3": {
+            "name": "Mia Wong",
+            "description": "Estoy impresionada con los resultados premium de una herramienta tan sencilla. ¡Altamente recomendado!"
+          },
+          "testimonial4": {
+            "name": "Ethan Hunt",
+            "description": "La interfaz de usuario es muy intuitiva. ¡Gran trabajo haciendo el diseño accesible para todos!"
+          },
+          "testimonial5": {
+            "name": "Nora Klint",
+            "description": "Íconos de alta calidad cada vez. Las características de IA realmente ayudan a perfeccionar los diseños."
+          },
+          "testimonial6": {
+            "name": "Liam Quigley",
+            "description": "Rápido, fácil y eficiente—exactamente lo que necesitaba para los plazos de mi proyecto."
+          }
+        }
+      },
+      "faq": {
+        "title": {
+          "pt1": "Preguntas",
+          "pt2": "Frecuentes"
+        },
+        "questions": {
+          "question1": {
+            "question": "¿Qué es un generador de íconos?",
+            "answer": "Nuestro generador de íconos con IA utiliza algoritmos avanzados para ayudarle a diseñar íconos personalizados sin esfuerzo. Simplemente ingrese sus preferencias y nuestra herramienta crea íconos adaptados a sus necesidades."
+          },
+          "question2": {
+            "question": "¿Es fácil de usar para principiantes?",
+            "answer": "¡Absolutamente! Nuestra plataforma está diseñada pensando en la simplicidad. No se necesita experiencia previa en diseño—simplemente seleccione sus preferencias y nuestra IA se encargará del resto."
+          },
+          "question3": {
+            "question": "¿Puedo usar los íconos comercialmente?",
+            "answer": "Sí, todos los íconos creados con nuestro generador pueden ser utilizados tanto en proyectos personales como comerciales. Tiene todos los derechos para usarlos en su trabajo."
+          },
+          "question4": {
+            "question": "¿Cómo puedo obtener ayuda si tengo problemas al usar la herramienta?",
+            "answer": "¡Nuestro equipo de soporte está aquí para ayudar! Contáctenos por correo electrónico para cualquier asistencia que pueda necesitar."
+          }
+        },
+        "still-have-questions": "¿Aún tiene preguntas?",
+        "contact-us": "Contáctenos"
+      }
+    },
+    "generate": {
+      "title": {
+        "shall-we-begin": "¿Comenzamos?",
+        "color-selection": "Elija su color",
+        "shape-selection": "Ahora, elija su forma",
+        "important-considerations": "El paso más importante",
+        "icon-step": "A un paso de su ícono"
+      },
+      "buttons": {
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "generate-other-icon": "Generar Otro Ícono"
+      },
+      "steps": {
+        "prompt": {
+          "title": "1. Describa su ícono *",
+          "placeholder": "Oso con cerveza",
+          "description": {
+            "simple-prompt": "Las descripciones simples suelen funcionar mejor",
+            "industrial-specification": "Pruebe agregar especificaciones industriales, como tecnología, alimentos, educación",
+            "materials": "Pruebe agregar materiales, como madera, metal, vidrio"
+          },
+          "errors": {
+            "min-length": "Por favor, ingrese al menos 3 palabras"
+          }
+        },
+        "color": {
+          "primary-color": {
+            "title": "2. Elija el color primario *",
+            "description": "Elija un color que represente su ícono"
+          },
+          "secondary-color": {
+            "title": "2.1. Elija el color secundario",
+            "description": "Seleccione un color complementario."
+          },
+          "tabs": {
+            "predefined": "Predefinido",
+            "picker": "Selector",
+            "hex": "HEX"
+          },
+          "errors": {
+            "color-required": "Por favor, elija un color"
+          }
+        },
+        "shape": {
+          "title": "3. Elija la forma *",
+          "description": "Elija una forma que represente su ícono",
+          "shapes": {
+            "circle": "Círculo",
+            "square": "Cuadrado",
+            "triangle": "Triángulo",
+            "star": "Estrella",
+            "hexagon": "Hexágono",
+            "any-shape": "Cualquier forma"
+          },
+          "errors": {
+            "shape-required": "Por favor, elija una forma"
+          }
+        },
+        "style": {
+          "title": "4. Elija el estilo *",
+          "description": "Elija un estilo que represente su ícono",
+          "errors": {
+            "style-required": "Por favor, elija un estilo"
+          },
+          "styles": {
+            "minimalist": {
+              "name": "Minimalista",
+              "description": "Simple y limpio"
+            },
+            "surrealist": {
+              "name": "Surrealista",
+              "description": "Abstracto e imaginativo"
+            },
+            "realistic": {
+              "name": "Realista",
+              "description": "Detallado y preciso"
+            },
+            "art-deco": {
+              "name": "Art Deco",
+              "description": "Geometría sofisticada"
+            },
+            "steampunk": {
+              "name": "Steampunk",
+              "description": "Industrial y retrofuturista"
+            },
+            "biomorphic": {
+              "name": "Biomórfico",
+              "description": "Orgánico y fluido"
+            },
+            "polygon": {
+              "name": "Polígono",
+              "description": "Geométrico y moderno"
+            },
+            "gothic": {
+              "name": "Gótico",
+              "description": "Oscuro y misterioso"
+            },
+            "pop-art": {
+              "name": "Pop Art",
+              "description": "Vibrante y audaz"
+            },
+            "digital-glitch": {
+              "name": "Digital Glitch",
+              "description": "Pixelado y distorsionado"
+            },
+            "vaporwave": {
+              "name": "Vaporwave",
+              "description": "Retro y nostálgico"
+            },
+            "neon": {
+              "name": "Neón",
+              "description": "Brillante y luminoso"
+            },
+            "neon-noir": {
+              "name": "Neón Noir",
+              "description": "Oscuro y luminoso"
+            },
+            "pixelated": {
+              "name": "Pixelado",
+              "description": "Bloqueado y retro"
+            },
+            "flat": {
+              "name": "Plano",
+              "description": "Simple y colorido"
+            },
+            "ilustrated": {
+              "name": "Ilustrado",
+              "description": "Detallado y colorido"
+            },
+            "hand-drawn": {
+              "name": "Dibujado a Mano",
+              "description": "Esbozado y orgánico"
+            },
+            "isometric": {
+              "name": "Isométrico",
+              "description": "3D y geométrico"
+            },
+            "watercolor": {
+              "name": "Acuarela",
+              "description": "Fluido y colorido"
+            },
+            "cartoonish": {
+              "name": "Cartoon",
+              "description": "Caprichoso y exagerado"
+            },
+            "3d": {
+              "name": "3D",
+              "description": "Realista y detallado"
+            },
+            "line-art": {
+              "name": "Arte Lineal",
+              "description": "Simple y elegante"
+            },
+            "doodle": {
+              "name": "Garabato",
+              "description": "Simple y divertido"
+            },
+            "grunge": {
+              "name": "Grunge",
+              "description": "Sucio y desgastado"
+            },
+            "sticker": {
+              "name": "Pegatina",
+              "description": "Simple y colorido"
+            },
+            "origami": {
+              "name": "Origami",
+              "description": "Doblado y geométrico"
+            },
+            "woodblock": {
+              "name": "Xilografía",
+              "description": "Texturizado y detallado"
+            },
+            "cute": {
+              "name": "Adorable",
+              "description": "Adorable y colorido"
+            }
+          }
+        },
+        "confirm": {
+          "title": "5. Confirme su ícono",
+          "description": "Aquí está su ícono. Si está satisfecho, haga clic en 'Generar'. Si no, regrese y haga cambios.",
+          "buttons": {
+            "generate": "Generar",
+            "buy-coin": "Comprar Moneda",
+            "sign-in": "Iniciar Sesión"
+          },
+          "steps": {
+            "prompt": "Descripción",
+            "color": "Colores",
+            "primary-color": "Color Primario",
+            "secondary-color": "Color Secundario",
+            "shape": "Forma",
+            "style": "Estilo"
+          }
+        }
+      },
+      "errors": {
+        "charge-coin": {
+          "title": "Monedas insuficientes",
+          "description": "Por favor, compre más monedas.",
+          "action": "Comprar Monedas"
+        },
+        "create-icon": {
+          "title": "Error al crear ícono",
+          "description": "Hubo un error al crear su ícono. Por favor, inténtelo de nuevo."
+        },
+        "user-not-authenticated": {
+          "title": "No autenticado",
+          "description": "Por favor, inicie sesión para generar íconos."
+        },
+        "reimbursement-coin": {
+          "title": "Error al crear ícono y reembolsar monedas",
+          "description": "Si su moneda no regresa en 24 horas, por favor contáctenos."
+        },
+        "save-generation": {
+          "title": "Error al guardar generación",
+          "description": "Ocurrió un error al guardar su contenido en nuestros servidores. Por favor, descargue la imagen y guárdela en su dispositivo."
+        },
+        "unknown": {
+          "title": "Error desconocido",
+          "description": "Ocurrió un error desconocido. Por favor, inténtelo de nuevo."
+        }
+      }
+    },
+    "pricing": {
+      "title": {
+        "pt1": "Comprar",
+        "pt2": "Monedas"
+      },
+      "description": "Compre créditos para usar nuestros servicios y tenga acceso a las mejores funcionalidades",
+      "alert": {
+        "title1": "Por favor, revise nuestra",
+        "refund": "Política de Reembolso",
+        "title2": "antes de comprar créditos. Actualmente, no emitimos reembolsos."
+      },
+      "plans": {
+        "names": {
+          "starter": "Principiante",
+          "builder": "Constructor",
+          "pro": "Pro",
+          "master": "Maestro"
+        },
+        "coins": "monedas",
+        "coins-cost": "Cada moneda cuesta",
+        "button": "Comprar por"
+      },
+      "errors": {
+        "login-required": {
+          "title": "Inicio de Sesión Necesario",
+          "description": "Por favor, inicie sesión para comprar monedas.",
+          "action": "Iniciar Sesión"
+        },
+        "unexpected-error": {
+          "title": "Error al crear sesión de pago",
+          "description": "Por favor, inténtelo de nuevo más tarde"
+        }
+      }
+    },
+    "collections": {
+      "placeholder": "Busque su ícono por descripción",
+      "notFound": "No se encontraron íconos, intente generar uno nuevo"
+    },
+    "refund-policy": {
+      "title": "Política de Reembolso",
+      "last-update": "Última actualización: 5 de mayo de 2024",
+      "paragraphs": {
+        "ph1": "En icongeneratorai.com, estamos comprometidos a proporcionar una experiencia única e innovadora a través de nuestros íconos generados por IA. Entendemos que la IA, aunque poderosa y revolucionaria, no es perfecta y puede no siempre producir los resultados esperados. Queremos que esté completamente consciente de este riesgo inherente antes de hacer cualquier compra.",
+        "ph2": "Debido a los altos costos involucrados en el uso de GPUs avanzadas para nuestra generación de arte con IA, desafortunadamente no podemos ofrecer reembolsos una vez que se hayan utilizado los créditos. Reconocemos que esto puede no ser el escenario ideal para todos, pero esta política nos ayuda a mantener un servicio justo y sostenible para todos nuestros valiosos usuarios.",
+        "ph3": "Recomendamos encarecidamente explorar nuestra página de la comunidad antes de cualquier compra. Puede ver íconos generados diariamente por otros usuarios que podrían ayudarlo a comprender las posibilidades y limitaciones del arte de IA, y esperamos que guíe sus expectativas. Creemos en la transparencia y queremos que tome una decisión informada sobre nuestro servicio único.",
+        "ph4": "Su comprensión y apoyo significan mucho para nosotros. A medida que continuamos mejorando y perfeccionando nuestra IA, esperamos que se una a nosotros en este fascinante viaje de creatividad digital."
+      }
+    }
+  },
+  "components": {
+    "generated-cards": {
+      "dropdown": {
+        "download": "Descargar Imagen HD",
+        "variant": "Crear Variante (1 crédito)",
+        "reuse-prompt": "Reutilizar Descripción",
+        "remove-bg": "Eliminar Fondo (1 crédito)",
+        "share": {
+          "name": "Compartir",
+          "toast": {
+            "title": "Copiado",
+            "description": "Enlace copiado al portapapeles"
+          },
+          "error-toast": {
+            "title": "Error",
+            "description": "Error al copiar enlace"
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "prompt": "Un ícono moderno que muestra un {shape}, renderizado con color primario {primaryColor} {secondaryColor}, representando visualmente {prompt}. Apunta a un estilo que combine texturas hiperrealistas con iluminación vibrante y cinematográfica, similar a las representaciones de alta calidad vistas en proyectos de ArtStation y visuales de Unreal Engine. Enfóquese en {styles} para lograr una estética que sea a la vez tendencia y visualmente impresionante",
+    "secondary-color": "y color secundario"
+  },
+  "metadata": {
+    "layout": {
+      "description": "Cree íconos profesionales con facilidad utilizando nuestra herramienta guiada por IA. Perfecto para mejorar cualquier proyecto."
+    },
+    "gallery": {
+      "title": "Galería de Íconos",
+      "description": "Explore una amplia gama de íconos personalizados creados por nuestra herramienta de IA. Encuentre el ícono perfecto para su proyecto o inspírese con la creatividad de otros."
+    },
+    "shared-icon": {
+      "title": "Ícono Compartido",
+      "description": "¡Mire este increíble ícono creado con el Generador de Íconos IA!"
+    },
+    "collections": {
+      "title": "Colecciones de Íconos",
+      "description": "Mire su colección de íconos."
+    },
+    "generate": {
+      "title": "Generar Ícono",
+      "description": "Cree su ícono personalizado en cuatro simples pasos: defina su concepto, seleccione sus colores, elija su forma y elija su estilo para dar vida a su visión sin esfuerzo."
+    },
+    "refund": {
+      "title": "Política de Reembolso"
+    },
+    "pricing": {
+      "title": "Comprar Monedas",
+      "description": "Compre créditos para usar nuestros servicios y tenga acceso a las mejores funcionalidades"
+    }
+  }
+}
