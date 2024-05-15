@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
 import { LogInIcon, ShoppingCartIcon, SparklesIcon } from 'lucide-react'
 import { signIn, useSession } from 'next-auth/react'
@@ -52,18 +53,20 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
 
   return (
     <Button
-      className="w-24 gap-2 font-medium"
+      className="relative gap-2 font-medium"
       disabled={isGenerating}
       type="submit"
     >
-      {isGenerating ? (
-        <Spinner color={'secondary'} size={'small'} />
-      ) : (
-        <>
-          <span>{t('buttons.generate')}</span>
-          {/* <SparklesIcon size={20} /> */}
-        </>
+      {isGenerating && (
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <Spinner color={'secondary'} size={'small'} />
+        </div>
       )}
+
+      <span className={cn(isGenerating && 'opacity-0')}>
+        {t('buttons.generate')}
+      </span>
+      {/* <SparklesIcon size={20} /> */}
     </Button>
   )
 }
