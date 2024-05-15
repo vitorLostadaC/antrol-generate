@@ -34,8 +34,8 @@ export default async function Gallery({
   ).then((res) => res.json())
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
-      <h2 className="w-full text-2xl">
+    <div className="mx-auto w-full max-w-3xl space-y-6">
+      <h2 className="text-2xl">
         {t('title.pt1')}{' '}
         <span className="text-sm text-foreground/80">({t('title.pt2')})</span>
       </h2>
