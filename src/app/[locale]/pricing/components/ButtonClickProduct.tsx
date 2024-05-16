@@ -62,6 +62,7 @@ export const ButtonClickProduct = ({
         })
       }
     }
+    setLoading(false)
   }
 
   return (
