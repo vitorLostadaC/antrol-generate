@@ -138,7 +138,7 @@ export const Header = async () => {
             <>
               <Coins session={session} />
               <Button size={'default'} asChild>
-                <Link href={'/pricing'}>{t('buy-credis')}</Link>
+                <Link href={'/pricing'}>{t('buy-credits')}</Link>
               </Button>
               {session && <Avatar session={session} />}
             </>
