@@ -6,7 +6,8 @@ import {
   SheetContent,
   SheetHeader,
   SheetDescription,
-  Sheet
+  Sheet,
+  SheetClose
 } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 import { getScopedI18n } from '@/locales/server'
@@ -94,16 +95,17 @@ export const Header = async () => {
             <div className="flex h-full flex-col justify-between">
               <div className="flex flex-col gap-8">
                 {links.map((link) => (
-                  <Link
-                    href={link.path}
-                    key={link.path}
-                    className={cn(
-                      'flex items-center gap-2 text-lg text-foreground hover:text-foreground/80'
-                    )}
-                  >
-                    <link.icon className="h-5 w-5 text-foreground/50" />
-                    {link.name}
-                  </Link>
+                  <SheetClose key={link.path} asChild>
+                    <Link
+                      href={link.path}
+                      className={cn(
+                        'flex items-center gap-2 text-lg text-foreground hover:text-foreground/80'
+                      )}
+                    >
+                      <link.icon className="h-5 w-5 text-foreground/50" />
+                      {link.name}
+                    </Link>
+                  </SheetClose>
                 ))}
               </div>
 

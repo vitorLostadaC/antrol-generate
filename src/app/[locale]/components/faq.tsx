@@ -62,7 +62,7 @@ export const FAQ = async () => {
       <h3 className="mt-4 text-sm font-medium text-muted-foreground">
         {t('still-have-questions')}{' '}
         <a
-          href="#"
+          href="mailto:antrolgenerate@gmail.com"
           className="border-primary text-primary transition-all hover:border-b-2"
         >
           {t('contact-us')}
