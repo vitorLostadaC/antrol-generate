@@ -53,8 +53,8 @@ export const ButtonClickProduct = ({
         (error as Error).message === 'Error to create checkout session'
       ) {
         toast({
-          title: t('unespected-error.title'),
-          description: t('unespected-error.description'),
+          title: t('unexpected-error.title'),
+          description: t('unexpected-error.description'),
           variant: 'destructive'
         })
       }

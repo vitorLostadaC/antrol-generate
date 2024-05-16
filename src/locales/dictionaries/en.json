@@ -392,7 +392,7 @@
           "description": "Please login to buy coins.",
           "action": "Sign In"
         },
-        "unespected-error": {
+        "unexpected-error": {
           "title": "Error to create checkout session",
           "description": "Please try again later"
         }
