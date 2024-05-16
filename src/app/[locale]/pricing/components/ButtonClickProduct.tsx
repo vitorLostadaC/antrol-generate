@@ -22,7 +22,7 @@ export const ButtonClickProduct = ({
   isBRl
 }: ButtonClickProductPropsSchema) => {
   const { toast } = useToast()
-  const t = useScopedI18n('pages.pricing.erros')
+  const t = useScopedI18n('pages.pricing.errors')
   const [loading, setLoading] = useState(false)
 
   const handleClickProduct = async (productName: StripeProductName) => {
@@ -37,6 +37,7 @@ export const ButtonClickProduct = ({
         window.location.href = response.url
       }
     } catch (error) {
+      console.log(error)
       if ((error as Error).message === 'User not found') {
         toast({
           title: t('login-required.title'),

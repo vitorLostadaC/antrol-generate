@@ -253,15 +253,15 @@ export default function Generate() {
       switch (error.message) {
         case 'Failed to charge coin':
           toast({
-            title: t('pages.generate.erros.charge-coin.title'),
-            description: t('pages.generate.erros.charge-coin.description'),
+            title: t('pages.generate.errors.charge-coin.title'),
+            description: t('pages.generate.errors.charge-coin.description'),
             action: (
               <ToastAction
-                altText={t('pages.generate.erros.charge-coin.action')}
+                altText={t('pages.generate.errors.charge-coin.action')}
                 className="text-nowrap rounded-md border px-2 py-1"
                 onClick={() => router.push('/pricing')}
               >
-                {t('pages.generate.erros.charge-coin.action')}
+                {t('pages.generate.errors.charge-coin.action')}
               </ToastAction>
             ),
             variant: 'destructive'
@@ -269,16 +269,16 @@ export default function Generate() {
           break
         case 'Failed to createIcon':
           toast({
-            title: t('pages.generate.erros.create-icon.title'),
-            description: t('pages.generate.erros.create-icon.description'),
+            title: t('pages.generate.errors.create-icon.title'),
+            description: t('pages.generate.errors.create-icon.description'),
             variant: 'destructive'
           })
           break
         case 'Failed to reimbursemen coin':
           toast({
-            title: t('pages.generate.erros.reimbursement-coin.title'),
+            title: t('pages.generate.errors.reimbursement-coin.title'),
             description: t(
-              'pages.generate.erros.reimbursement-coin.description'
+              'pages.generate.errors.reimbursement-coin.description'
             ),
             variant: 'destructive'
           })
@@ -286,24 +286,24 @@ export default function Generate() {
 
         case 'User not authenticated':
           toast({
-            title: t('pages.generate.erros.user-not-authenticated.title'),
+            title: t('pages.generate.errors.user-not-authenticated.title'),
             description: t(
-              'pages.generate.erros.user-not-authenticated.description'
+              'pages.generate.errors.user-not-authenticated.description'
             ),
             variant: 'destructive'
           })
           break
         case 'Failed to save generation':
           toast({
-            title: t('pages.generate.erros.save-generation.title'),
-            description: t('pages.generate.erros.save-generation.description'),
+            title: t('pages.generate.errors.save-generation.title'),
+            description: t('pages.generate.errors.save-generation.description'),
             variant: 'destructive'
           })
           break
         default:
           toast({
-            title: t('pages.generate.erros.unknown.title'),
-            description: t('pages.generate.erros.unknown.description'),
+            title: t('pages.generate.errors.unknown.title'),
+            description: t('pages.generate.errors.unknown.description'),
             variant: 'destructive'
           })
           Sentry.captureException('unknow error to generate icon', {

@@ -178,7 +178,7 @@
             "hex": "HEX"
           },
 
-          "erros": {
+          "errors": {
             "color-required": "Please choose a color"
           }
         },
@@ -336,7 +336,7 @@
           }
         }
       },
-      "erros": {
+      "errors": {
         "charge-coin": {
           "title": "Not enough coins",
           "description": "Please buy more coins.",
@@ -386,7 +386,7 @@
         "coins-cost": "Each coin costs",
         "button": "Buy for"
       },
-      "erros": {
+      "errors": {
         "login-required": {
           "title": "Login Required",
           "description": "Please login to buy coins.",

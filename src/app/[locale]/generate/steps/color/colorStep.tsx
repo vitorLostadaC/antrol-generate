@@ -22,7 +22,7 @@ export const colorsValidation: MultiFomsSchema['validation'] = ({
   if (values.primaryColor !== '') return true
 
   setErrors('primaryColor', {
-    message: t('pages.generate.steps.color.erros.color-required')
+    message: t('pages.generate.steps.color.errors.color-required')
   })
   return false
 }
