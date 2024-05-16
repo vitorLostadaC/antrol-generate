@@ -229,7 +229,7 @@ export default function Generate() {
     })
 
     try {
-      const generation = await generate({
+      const response = await generate({
         primaryColor,
         primaryCustomColor: primaryColorIsCustom
           ? data.primaryColor
@@ -242,7 +242,12 @@ export default function Generate() {
         shape: data.shape as IShapes,
         styles: data.styles
       })
-      setGenerations([...generations, generation])
+
+      if (response.error?.message) {
+        throw new Error(response.error.message)
+      }
+
+      setGenerations([...generations, response.generation!])
       goTo(steps.length - 1)
       setIsGenerating(false)
       sessionStorage.removeItem(WebStorage.GenerateForm)

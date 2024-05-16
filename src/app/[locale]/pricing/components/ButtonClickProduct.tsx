@@ -33,6 +33,9 @@ export const ButtonClickProduct = ({
         productName,
         isBRl ? 'brl' : 'usd'
       )
+      if (response.error) {
+        throw new Error(response.error.message)
+      }
       if (response.url) {
         window.location.href = response.url
       }

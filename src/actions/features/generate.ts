@@ -39,7 +39,7 @@ export const generate = async ({
         error: (e as Error).message
       }
     })
-    throw new Error('Failed to charge coin')
+    return { error: { message: 'Failed to charge coin' } }
   }
 
   let iconResponse: ImagesResponse | null = null
@@ -68,14 +68,14 @@ export const generate = async ({
           error: (error as Error).message
         }
       })
-      throw new Error('Failed to reimbursemen coin')
+      return { error: { message: 'Failed to reimbursement coin' } }
     }
     Sentry.captureException('Failed to create icon', {
       tags: {
         error: (error as Error).message
       }
     })
-    throw new Error('Failed to create icon')
+    return { error: { message: 'Failed to create icon' } }
   }
 
   const iconGPTURL = iconResponse?.data[0].url ?? ''
@@ -96,10 +96,10 @@ export const generate = async ({
     })
 
     if (!generation) {
-      throw new Error('User not authenticated')
+      return { error: { message: 'User not authenticated' } }
     }
 
-    return generation
+    return { generation }
   } catch (e) {
     const error = e as Error
     Sentry.captureException('Failed to save generation', {
@@ -107,6 +107,6 @@ export const generate = async ({
         error: error.message
       }
     })
-    throw new Error('Failed to save generation')
+    return { error: { message: 'Failed to save generation' } }
   }
 }

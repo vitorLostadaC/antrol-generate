@@ -13,7 +13,7 @@ export const createCheckoutSession = async (
   const session = await getServerAuthSession()
 
   if (!session?.user.id) {
-    throw new Error('User not found')
+    return { error: { message: 'User not found' } }
   }
 
   const currentProduct = stripeProducts[productPriceName]
@@ -48,6 +48,6 @@ export const createCheckoutSession = async (
         error: error.message
       }
     })
-    throw new Error('Error to create checkout session')
+    return { error: { message: 'Error to create checkout session' } }
   }
 }
