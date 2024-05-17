@@ -13,42 +13,30 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t('description')
   }
 }
-export function generateStaticParams() {
-  return getStaticParams()
-}
 
 export default async function Gallery({
   params: { locale }
 }: {
   params: { locale: string }
 }) {
-  setStaticParamsLocale(locale)
   const t = await getScopedI18n('pages.gallery')
-  const generations: Generation[] = await fetch(
-    `${env.NEXT_PUBLIC_APP_URL}/api/generations`,
-    {
-      next: {
-        revalidate: 3600
-      }
+  const response = await fetch(`${env.NEXT_PUBLIC_APP_URL}/api/generations`, {
+    next: {
+      revalidate: 60
     }
-  ).then((res) => res.json())
+  }).then((res) => res.json())
+
+  const generations: Generation[] = response.generations
+
+  const date = response.date
 
   return (
     <div className="mx-auto w-full max-w-3xl space-y-6">
       <h2 className="text-2xl">
-        {t('title.pt1')}{' '}
+        {new Date(date).toLocaleString()}
         <span className="text-sm text-foreground/80">({t('title.pt2')})</span>
       </h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-5 ">
-        {generations.map((generation) => (
-          <AwsImage
-            className="aspect-square h-full w-full select-none rounded-lg bg-foreground/15 object-cover"
-            key={generation.id}
-            generationId={generation.id}
-            alt={generation.prompt}
-          />
-        ))}
-      </div>{' '}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-5 "></div>{' '}
     </div>
   )
 }

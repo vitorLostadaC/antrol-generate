@@ -5,5 +5,8 @@ export async function GET(req: Request) {
     take: 50
   })
 
-  return Response.json(generations)
+  return Response.json({
+    generations,
+    date: new Date()
+  })
 }
