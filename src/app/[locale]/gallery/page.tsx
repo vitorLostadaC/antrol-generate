@@ -1,9 +1,8 @@
 import { AwsImage } from '@/components/ui/AwsImage'
 import { env } from '@/env'
-import { getScopedI18n, getStaticParams } from '@/locales/server'
+import { getScopedI18n } from '@/locales/server'
 import { Generation } from '@prisma/client'
 import { Metadata } from 'next'
-import { setStaticParamsLocale } from 'next-international/server'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getScopedI18n('metadata.gallery')
@@ -20,11 +19,9 @@ export default async function Gallery({
   params: { locale: string }
 }) {
   const t = await getScopedI18n('pages.gallery')
-  const response = await fetch(`${env.NEXT_PUBLIC_APP_URL}/api/generations`, {
-    next: {
-      revalidate: 60
-    }
-  }).then((res) => res.json())
+  const response = await fetch(
+    `${env.NEXT_PUBLIC_APP_URL}/api/generations`
+  ).then((res) => res.json())
 
   const generations: Generation[] = response.generations
 
