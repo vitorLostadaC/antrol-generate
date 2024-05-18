@@ -8,6 +8,6 @@ import { cache } from 'react'
 export const getGenerations = cache(
   async (options?: Prisma.GenerationFindManyArgs<DefaultArgs>) => {
     const generations = await prisma.generation.findMany(options)
-    return generations
+    return { generations, date: new Date() }
   }
 )

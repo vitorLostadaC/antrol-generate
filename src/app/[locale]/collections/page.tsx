@@ -22,5 +22,5 @@ export default async function Gallery() {
     }
   })
 
-  return <GeneratedCardsWrapper generations={generations} />
+  return <GeneratedCardsWrapper generations={generations.generations} />
 }

@@ -1,3 +1,4 @@
+import { getGenerations } from '@/actions/prisma/getGenerations'
 import { AwsImage } from '@/components/ui/AwsImage'
 import { env } from '@/env'
 import { getScopedI18n } from '@/locales/server'
@@ -19,9 +20,9 @@ export default async function Gallery({
   params: { locale: string }
 }) {
   const t = await getScopedI18n('pages.gallery')
-  const response = await fetch(
-    `${env.NEXT_PUBLIC_APP_URL}/api/generations`
-  ).then((res) => res.json())
+  const response = await getGenerations({
+    take: 50
+  })
 
   const generations: Generation[] = response.generations
 
