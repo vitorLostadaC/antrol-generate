@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils'
 import { usePredefinedShape } from '../shape/hooks/usePredefinedShape'
 import { useScopedI18n } from '@/locales/client'
 import { StepTitle } from '../../components/stepTitle'
-import { GenerateButton } from './generateButton'
 import posthog from 'posthog-js'
 import { Fragment, useEffect } from 'react'
 

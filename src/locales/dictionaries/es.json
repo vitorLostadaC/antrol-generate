@@ -160,7 +160,7 @@
             "materials": "Pruebe agregar materiales, como madera, metal, vidrio"
           },
           "errors": {
-            "min-length": "Por favor, ingrese al menos 3 palabras"
+            "min-length": "Por favor, ingrese al menos 1 palabras"
           }
         },
         "color": {

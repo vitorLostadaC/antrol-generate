@@ -18,7 +18,7 @@ export const promptValidation: MultiFomsSchema['validation'] = ({
   setErrors,
   t
 }): boolean => {
-  if (values.prompt.split(' ').length >= 3) return true
+  if (values.prompt.trim().length !== 0) return true
   setErrors('prompt', {
     message: t('pages.generate.steps.prompt.errors.min-length')
   })

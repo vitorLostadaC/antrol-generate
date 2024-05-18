@@ -160,7 +160,7 @@
             "materials": "Versuchen Sie, Materialien hinzuzufügen, wie Holz, Metall, Glas"
           },
           "errors": {
-            "min-length": "Bitte geben Sie mindestens 3 Wörter ein"
+            "min-length": "Bitte geben Sie mindestens 1 Wörter ein"
           }
         },
         "color": {

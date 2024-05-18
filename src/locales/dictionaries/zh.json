@@ -160,7 +160,7 @@
             "materials": "尝试添加材料，如木材、金属、玻璃"
           },
           "errors": {
-            "min-length": "请输入至少3个单词"
+            "min-length": "请输入至少1个单词"
           }
         },
         "color": {
