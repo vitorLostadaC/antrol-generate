@@ -30,7 +30,16 @@ export default async function Gallery({
         {t('title.pt1')}{' '}
         <span className="text-sm text-foreground/80">({t('title.pt2')})</span>
       </h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-5 "></div>{' '}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-5 ">
+        {generations.map((generation) => (
+          <AwsImage
+            className="aspect-square h-full w-full select-none rounded-lg bg-foreground/15 object-cover"
+            key={generation.id}
+            generationId={generation.id}
+            alt={generation.prompt}
+          />
+        ))}
+      </div>{' '}
     </div>
   )
 }

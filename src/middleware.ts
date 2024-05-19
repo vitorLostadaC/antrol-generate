@@ -4,7 +4,15 @@ import { locales } from './data/locales'
 
 const I18nMiddleware = createI18nMiddleware({
   locales: locales,
-  defaultLocale: 'en'
+  defaultLocale: 'en',
+  resolveLocaleFromRequest(request) {
+    const acceptLanguage = request.headers.get('accept-language')
+    if (acceptLanguage && acceptLanguage.includes('pt')) {
+      return 'pt'
+    }
+
+    return 'en'
+  }
 })
 
 export function middleware(request: NextRequest) {
