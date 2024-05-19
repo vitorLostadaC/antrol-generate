@@ -192,7 +192,6 @@ export default function Generate() {
     //manual validation
     if (
       data.primaryColor === '' ||
-      data.prompt.split(' ').length < 3 ||
       data.shape === '' ||
       data.styles.length === 0
     )
