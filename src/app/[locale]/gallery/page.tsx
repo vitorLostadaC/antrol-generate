@@ -3,8 +3,8 @@ import { AwsImage } from '@/components/ui/AwsImage'
 import { env } from '@/env'
 import { getScopedI18n } from '@/locales/server'
 import { Generation } from '@prisma/client'
-import { Metadata } from 'next'
-import sharp from 'sharp'
+import next, { Metadata } from 'next'
+import sharp, { cache } from 'sharp'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getScopedI18n('metadata.gallery')
@@ -21,9 +21,17 @@ export default async function Gallery({
   params: { locale: string }
 }) {
   const t = await getScopedI18n('pages.gallery')
-  const generations: Generation[] = await getGenerations({
-    take: 50
-  })
+  const generations: Generation[] = await fetch(
+    `${env.NEXT_PUBLIC_APP_URL}/api/generations`,
+    {
+      cache: 'no-store',
+      next: {
+        revalidate: 0
+      }
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => data.generations)
 
   const resizedGenerations = await Promise.all(
     generations.map(async (generation) => {
