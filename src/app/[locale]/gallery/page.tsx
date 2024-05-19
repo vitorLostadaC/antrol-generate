@@ -22,7 +22,8 @@ export default async function Gallery({
 }) {
   const t = await getScopedI18n('pages.gallery')
   const result = await fetch(`${env.NEXT_PUBLIC_APP_URL}/api/generations`, {
-    next: { revalidate: 20 }
+    cache: 'no-store',
+    next: { revalidate: 0 }
   }).then((res) => res.json())
 
   const generations: Generation[] = result.generations
