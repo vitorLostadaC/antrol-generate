@@ -2,13 +2,18 @@ import { withSentryConfig } from '@sentry/nextjs'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
+    if (process.env.NODE_ENV !== 'production') {
+      return []
+    }
+
     return [
       {
-        source: '/api/generations',
+        source: '/:all*(css|js|gif|svg|jpg|jpeg|png|woff|woff2)',
+        locale: false,
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=20, s-maxage=20, stale-while-revalidate'
+            value: 'public, max-age=31536000'
           }
         ]
       }
