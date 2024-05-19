@@ -26,7 +26,6 @@ export default async function Gallery({
   }).then((res) => res.json())
 
   const generations: Generation[] = result.generations
-  const date = result.date
 
   const resizedGenerations = await Promise.all(
     generations.map(async (generation) => {
@@ -61,10 +60,9 @@ export default async function Gallery({
 
   return (
     <div className="mx-auto w-full max-w-3xl space-y-6">
-      <h1>{new Date(date).toLocaleString('pt-BR')}</h1>
       <h2 className="text-2xl">
         {t('title.pt1')}{' '}
-        <span className="text-sm text-foreground/80">({t('title.pt2')})</span>
+        {/* <span className="text-sm text-foreground/80">({t('title.pt2')})</span> */}
       </h2>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-5 ">
         {resizedGenerations.map((generation) => {
