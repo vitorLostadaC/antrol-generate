@@ -21,17 +21,12 @@ export default async function Gallery({
   params: { locale: string }
 }) {
   const t = await getScopedI18n('pages.gallery')
-  const generations: Generation[] = await fetch(
-    `${env.NEXT_PUBLIC_APP_URL}/api/generations`,
-    {
-      cache: 'no-store',
-      next: {
-        revalidate: 0
-      }
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => data.generations)
+  const result = await fetch(`${env.NEXT_PUBLIC_APP_URL}/api/generations`, {
+    next: { revalidate: 20 }
+  }).then((res) => res.json())
+
+  const generations: Generation[] = result.generations
+  const date = result.date
 
   const resizedGenerations = await Promise.all(
     generations.map(async (generation) => {
@@ -66,6 +61,7 @@ export default async function Gallery({
 
   return (
     <div className="mx-auto w-full max-w-3xl space-y-6">
+      <h1>{new Date(date).toLocaleString('pt-BR')}</h1>
       <h2 className="text-2xl">
         {t('title.pt1')}{' '}
         <span className="text-sm text-foreground/80">({t('title.pt2')})</span>

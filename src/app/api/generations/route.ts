@@ -6,6 +6,7 @@ export async function GET(req: Request) {
   })
 
   return Response.json({
-    generations
+    generations,
+    date: new Date()
   })
 }

@@ -4,11 +4,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/:locale/gallery',
+        source: '/api/generations',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=1800, s-maxage=1800, stale-while-revalidate'
+            value: 'public, max-age=20, s-maxage=20, stale-while-revalidate'
           }
         ]
       }
