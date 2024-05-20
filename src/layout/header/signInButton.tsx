@@ -1,10 +1,12 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { useAuth } from '@/hooks/useAuth'
 import { useI18n } from '@/locales/client'
-import { signIn } from 'next-auth/react'
+
 export const SignInButton = () => {
   const t = useI18n()
+  const { signInToMyApp } = useAuth()
 
-  return <Button onClick={() => signIn('google')}>{t('header.sign-in')}</Button>
+  return <Button onClick={() => signInToMyApp()}>{t('header.sign-in')}</Button>
 }

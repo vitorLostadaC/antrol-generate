@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { useAuth } from '@/hooks/useAuth'
 import { cn } from '@/lib/utils'
 import { useScopedI18n } from '@/locales/client'
 import { LogInIcon, ShoppingCartIcon, SparklesIcon } from 'lucide-react'
@@ -16,6 +17,7 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
   const router = useRouter()
   const session = useSession()
   const userHasMoney = session.data?.user.coins && session.data?.user.coins >= 2
+  const { signInToMyApp } = useAuth()
 
   if (!session.data?.user)
     return (
@@ -24,7 +26,7 @@ export const GenerateButton = ({ isGenerating }: GenerateButtonSchema) => {
         className="gap-2 font-medium"
         onClick={() => {
           posthog.capture('sign-in-from-generate-button')
-          signIn('google')
+          signInToMyApp()
         }}
       >
         <>

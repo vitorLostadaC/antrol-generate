@@ -10,6 +10,7 @@ import { useScopedI18n } from '@/locales/client'
 import posthog from 'posthog-js'
 import { Spinner } from '@/components/ui/spinner'
 import { useState } from 'react'
+import { useAuth } from '@/hooks/useAuth'
 
 interface ButtonClickProductPropsSchema {
   children: React.ReactNode
@@ -24,6 +25,7 @@ export const ButtonClickProduct = ({
   const { toast } = useToast()
   const t = useScopedI18n('pages.pricing.errors')
   const [loading, setLoading] = useState(false)
+  const { signInToMyApp } = useAuth()
 
   const handleClickProduct = async (productName: StripeProductName) => {
     setLoading(true)
@@ -47,7 +49,7 @@ export const ButtonClickProduct = ({
           description: t('login-required.description'),
           variant: 'destructive',
           action: (
-            <ToastAction altText="sign in" onClick={() => signIn('google')}>
+            <ToastAction altText="sign in" onClick={() => signInToMyApp()}>
               {t('login-required.action')}
             </ToastAction>
           )

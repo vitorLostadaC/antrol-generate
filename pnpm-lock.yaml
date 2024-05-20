@@ -68,6 +68,9 @@ dependencies:
   hex-color-to-color-name:
     specifier: ^1.0.2
     version: 1.0.2
+  is-ua-webview:
+    specifier: ^1.1.2
+    version: 1.1.2
   lucide-react:
     specifier: ^0.378.0
     version: 0.378.0(react@18.3.1)
@@ -5948,6 +5951,10 @@ packages:
     dependencies:
       which-typed-array: 1.1.15
     dev: true
+
+  /is-ua-webview@1.1.2:
+    resolution: {integrity: sha512-xX3WpvJGmT0EjmGRQxs4AgaBd4EWNr4lWCWGOgd40by6DWOQZN9RIOCsEaVp41crZqzWr8AsM+2x8UC2ZAuLPA==}
+    dev: false
 
   /is-weakmap@2.0.2:
     resolution: {integrity: sha512-K5pXYOm9wqY1RgjpL3YTkF39tni1XajUIkawTLUo9EZEVUFga5gSQJF8nNS7ZwJQ02y+1YCNYcMh+HIf1ZqE+w==}
