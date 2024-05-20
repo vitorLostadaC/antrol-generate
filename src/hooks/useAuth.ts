@@ -9,7 +9,7 @@ export const useAuth = () => {
     if (isWebview(window.navigator.userAgent)) {
       toast({
         title: 'Navegador não suportado',
-        description: 'Abra esta página em um navegador para fazer login',
+        description: 'Abra esta página em um outro navegador para fazer login',
         variant: 'destructive'
       })
       return
