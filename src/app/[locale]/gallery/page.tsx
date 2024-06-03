@@ -21,12 +21,11 @@ export default async function Gallery({
   params: { locale: string }
 }) {
   const t = await getScopedI18n('pages.gallery')
-  const result = await fetch(`${env.NEXT_PUBLIC_APP_URL}/api/generations`, {
-    cache: 'no-store',
-    next: { revalidate: 0 }
-  }).then((res) => res.json())
+  const result = await getGenerations({
+    take: 50
+  })
 
-  const generations: Generation[] = result.generations
+  const generations: Generation[] = result
 
   const resizedGenerations = await Promise.all(
     generations.map(async (generation) => {
