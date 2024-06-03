@@ -1,4 +1,5 @@
 import { prisma } from '@/services/prisma'
+import sharp from 'sharp'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,9 +20,12 @@ export async function GET(
   try {
     const response = await fetch(generation.imagesURL[0])
     const imageBuffer = await response.arrayBuffer()
+    const resizedImageBuffer = await sharp(Buffer.from(imageBuffer))
+      .resize(200, 200)
+      .toBuffer()
     const contentType = response.headers.get('content-type') || 'image/jpeg'
 
-    return new Response(imageBuffer, {
+    return new Response(resizedImageBuffer, {
       status: 200,
       headers: {
         'Content-Type': contentType
