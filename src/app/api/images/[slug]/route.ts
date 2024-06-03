@@ -1,4 +1,5 @@
 import { prisma } from '@/services/prisma'
+import { NextApiHandler, NextApiRequest } from 'next'
 import sharp from 'sharp'
 
 export const dynamic = 'force-dynamic'
@@ -13,6 +14,10 @@ export async function GET(
     }
   })
 
+  const url = new URL(req.url)
+  const width = Number(url.searchParams.get('width') ?? 200)
+  const height = Number(url.searchParams.get('height') ?? 200)
+
   if (!generation) {
     return Response.json({ error: 'Generation not found' }, { status: 404 })
   }
@@ -21,7 +26,7 @@ export async function GET(
     const response = await fetch(generation.imagesURL[0])
     const imageBuffer = await response.arrayBuffer()
     const resizedImageBuffer = await sharp(Buffer.from(imageBuffer))
-      .resize(200, 200)
+      .resize(width, height)
       .toBuffer()
     const contentType = response.headers.get('content-type') || 'image/jpeg'
 

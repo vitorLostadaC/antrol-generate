@@ -23,6 +23,7 @@ export const GenerationsStep = ({
       <GeneratedCard
         generation={lastGeneration}
         resetToNewGeneration={resetToNewGeneration}
+        imageSize={{ width: 1024, height: 1024 }}
       />
 
       <GeneratedCards

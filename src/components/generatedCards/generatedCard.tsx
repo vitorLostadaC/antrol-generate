@@ -30,12 +30,17 @@ interface GeneratedCardPropsSchema {
     defaultValues?: DefaultFormValuesWebStorageSchema
   ) => void
   className?: string
+  imageSize?: {
+    width: number
+    height: number
+  }
 }
 
 export const GeneratedCard = ({
   generation,
   resetToNewGeneration,
-  className
+  className,
+  imageSize
 }: GeneratedCardPropsSchema) => {
   const t = useScopedI18n('components.generated-cards.dropdown')
   const { toast } = useToast()
@@ -104,6 +109,8 @@ export const GeneratedCard = ({
         )}
         alt="Generated Image"
         generationId={generation.id}
+        width={imageSize?.width}
+        height={imageSize?.height}
       />
       <SimpleDropdown
         items={[
