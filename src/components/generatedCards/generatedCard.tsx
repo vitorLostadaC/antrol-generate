@@ -76,6 +76,25 @@ export const GeneratedCard = ({
     resetToNewGeneration(newSessionStorageValues)
   }
 
+  const donwloadImage = (width: number, height: number) => {
+    posthog.capture('click-card-feature', { feature: 'download' })
+    try {
+      downloadImage(
+        generation.imagesURL[0],
+        generation.prompt.slice(0, 20) + '.png',
+        width,
+        height
+      )
+    } catch (e) {
+      const error = e as Error
+      Sentry.captureException('Error to download image', {
+        tags: {
+          error: error.message
+        }
+      })
+    }
+  }
+
   return (
     <div className="relative">
       <AwsImage
@@ -91,22 +110,57 @@ export const GeneratedCard = ({
           {
             name: t('download'),
             icon: DownloadIcon,
-            onClick: () => {
-              posthog.capture('click-card-feature', { feature: 'download' })
-              try {
-                downloadImage(
-                  generation.imagesURL[0],
-                  generation.prompt.slice(0, 20) + '.png'
-                )
-              } catch (e) {
-                const error = e as Error
-                Sentry.captureException('Error to download image', {
-                  tags: {
-                    error: error.message
-                  }
-                })
+            subMenu: [
+              {
+                name: '1024x1024',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(1024, 1024)
+                }
+              },
+              {
+                name: '512x512',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(512, 512)
+                }
+              },
+              {
+                name: '256x256',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(256, 256)
+                }
+              },
+              {
+                name: '128x128',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(128, 128)
+                }
+              },
+              {
+                name: '64x64',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(64, 64)
+                }
+              },
+              {
+                name: '32x32',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(32, 32)
+                }
+              },
+              {
+                name: '16x16',
+                icon: DownloadIcon,
+                onClick: () => {
+                  donwloadImage(16, 16)
+                }
               }
-            }
+            ]
           },
 
           {
