@@ -38,6 +38,8 @@ export default async function GalleryIconPage({
           className="select-none rounded-lg bg-foreground/20"
           generationId={generation.id}
           alt={generation.prompt}
+          width={1024}
+          height={1024}
         />
       )}
     </div>
