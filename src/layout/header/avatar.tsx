@@ -51,7 +51,8 @@ export const Avatar = ({ session, isInSheet }: AvatarPropsSchema) => {
     const userNames = user.name?.split(' ')
 
     let initials =
-      userNames[0].slice(0, 1) + userNames[1] ? userNames[1].slice(0, 1) : ''
+      userNames[0].slice(0, 1) +
+      (!!userNames[1] ? userNames[1].slice(0, 1) : '')
 
     return initials.toLocaleUpperCase()
   }
