@@ -48,6 +48,7 @@ export const createCheckoutSession = async (
         error: error.message
       }
     })
+    console.log(error.message)
     return { error: { message: 'Error to create checkout session' } }
   }
 }
